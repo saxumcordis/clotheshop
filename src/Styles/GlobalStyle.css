@@ -1,13 +1,25 @@
+@font-face {
+    font-family: 'fonte2e59564eadbc8a9636de9d0b7acfa12';
+
+    src:    url('https://nomail.com.ua/files/eot/e2e59564eadbc8a9636de9d0b7acfa12.eot?#iefix') format('embedded-opentype'),
+    url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff'),
+    url('https://nomail.com.ua/files/woff2/e2e59564eadbc8a9636de9d0b7acfa12.woff2') format('woff2');
+}
+
+@font-face { font-family: 'FuturaNewBook-Reg';  src: local('FuturaNewBook-Reg'), url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff'); }
+
+
 body {
     background-color: #ffffff;
     width: 100vw;
     overflow-x: hidden;
     position: relative;
+    height: 100vh;
 }
 
 a, a:visited{
     color: black;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
     text-decoration: none;
 }
 
@@ -17,7 +29,7 @@ a, a:visited{
     width: 100vw;
     height: 70px;
     background-color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -43,7 +55,7 @@ a, a:visited{
 .menu > li {
     margin: 12px;
     font-size: 14px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .menu > li :hover, .user_features > li :hover {
@@ -120,7 +132,97 @@ a, a:visited{
     margin-top: 70px;
     position: absolute;
     width: 100vw;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: row;
+}
+
+.catalog_menu {
+    width: 17%;
+    height: calc(100% - 120px);
+    margin-top: 50px;
+    margin-left: 30px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    font-size: 14px;
+}
+
+.catalog_categories > *{
+    list-style-type: none;
+    margin-left: 0;
+    transition: all 0.2s;
+}
+
+.catalog_categories :hover {
+    opacity: 0.5;
+    transition: all 0.2s ;
+}
+
+.catalog_category {
+    margin-top: 15px;
+    font-size: 13px;
 }
 
 
+.catalog_box {
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.size_box {
+    font-size: 13px;
+}
+
+
+.catalog_items {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.item_pics {
+    height: 430px;
+    width: 320px;
+    position: relative;
+}
+
+.item_pics > img {
+    height: 430px;
+    width: 320px;
+    position:absolute;
+}
+.item_pics img {
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.item_pics img.item_pics_add {opacity:0;filter:alpha(opacity=0);}
+.item_pics:hover img.item_pics_add {opacity:1;filter:alpha(opacity=100);}
+.item_pics:hover img.item_pics_main, .item_pics img.item_pics_main:hover {opacity:0;filter:alpha(opacity=0);}
+
+.item_price {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: bolder;
+}
+
+.item_price > s {
+    color: grey;
+    margin-left: 15px;
+}
+
+.item_name {
+    margin-top: 5px;
+    font-size: 14px;
+}
 

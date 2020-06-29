@@ -1,7 +1,7 @@
 import React from 'react';
 import {Header} from './Components/GlobalParts/Header'
 import {Home} from './Components/Home.js'
-import {Catalog} from "./Components/ShopParts/Catalog";
+import {Catalog} from "./Components/ShopParts/Catalog/Catalog";
 import {Delivery} from "./Components/UtilParts/Delivery";
 import {Contacts} from "./Components/UtilParts/Contacts";
 import {Route, Switch, BrowserRouter} from "react-router-dom"

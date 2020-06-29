@@ -6,7 +6,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import {Catalog} from '../ShopParts/Catalog';
+import {Catalog} from '../ShopParts/Catalog/Catalog';
 import {Account} from '../UserParts/Account';
 import {Delivery} from '../UtilParts/Delivery';
 import {About} from '../UtilParts/About';
@@ -45,7 +45,7 @@ const Menu = () => {
 const Header = () => {
     return (
         <div className="header">
-            <Link to="/"><img className='logo' src="https://psv4.userapi.com/c856232/u89830763/docs/d12/c4a1f95621f5/logo.png"/></Link>
+            <Link to="/"><img className='logo' src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/></Link>
             <Menu counter={{wish: 5, cart: 2}}/>
             <UserFeatures counter={{wish: 5, cart: 2}}/>
         </div>
