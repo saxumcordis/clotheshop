@@ -150,6 +150,7 @@ a, a:visited{
     list-style-type: none;
     margin-left: 0;
     transition: all 0.2s;
+    width: 50px;
 }
 
 .catalog_categories :hover {
@@ -160,6 +161,7 @@ a, a:visited{
 .catalog_category {
     margin-top: 15px;
     font-size: 13px;
+    width: 50px;
 }
 
 

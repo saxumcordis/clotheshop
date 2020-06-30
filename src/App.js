@@ -9,6 +9,7 @@ import {About} from "./Components/UtilParts/About";
 import {Account} from "./Components/UserParts/Account";
 import {Wish} from "./Components/UserParts/Wish";
 import {Cart} from "./Components/UserParts/Cart";
+import Title from "react-document-title";
 
 
 function App() {
@@ -18,28 +19,44 @@ function App() {
                 <Header/>
                 <Switch>
                     <Route exact path="/catalog">
-                        <Catalog/>
+                        <Title title="Каталог">
+                            <Catalog/>
+                        </Title>
                     </Route>
                     <Route path="/delivery">
-                        <Delivery/>
+                        <Title title="Доставка">
+                            <Delivery/>
+                        </Title>
                     </Route>
                     <Route path="/contacts">
-                        <Contacts/>
+                        <Title title="Контакты">
+                            <Contacts/>
+                        </Title>
                     </Route>
                     <Route path="/about">
-                        <About/>
+                        <Title title="О нас">
+                            <About/>
+                        </Title>
                     </Route>
                     <Route path="/cart">
-                        <Cart/>
+                        <Title title="Корзина">
+                            <Cart/>
+                        </Title>
                     </Route>
                     <Route path="/wish">
-                        <Wish/>
+                        <Title title="Список желаемого">
+                            <Wish/>
+                        </Title>
                     </Route>
                     <Route path="/account">
-                        <Account/>
+                        <Title title="Личный кабинет">
+                            <Account/>
+                        </Title>
                     </Route>
                     <Route exact path="/">
-                        <Home/>
+                        <Title title="MIKTINA">
+                            <Home/>
+                        </Title>
                     </Route>
                 </Switch>
             </BrowserRouter>
