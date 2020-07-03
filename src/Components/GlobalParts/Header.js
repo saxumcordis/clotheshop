@@ -6,13 +6,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import {Catalog} from '../ShopParts/Catalog/Catalog';
-import {Account} from '../UserParts/Account';
-import {Delivery} from '../UtilParts/Delivery';
-import {About} from '../UtilParts/About';
-import {Contacts} from '../UtilParts/Contacts';
-import {Wish} from '../UserParts/Wish';
-import {Cart} from '../UserParts/Cart';
+
 
 const UserFeatures = ({counter}) => {
     return (

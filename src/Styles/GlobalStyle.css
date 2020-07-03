@@ -172,10 +172,48 @@ a, a:visited{
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
-.size_box {
+.filter_box {
     font-size: 13px;
+    display: flex;
+    flex-direction: row;
 }
 
+.filter {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.filter_element {
+    margin-left: 20px;
+    height: 15px;
+    transition: all 0.2s;
+    text-decoration: underline;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+.filter :hover {
+    text-decoration: none;
+}
+
+.color_list{
+    z-index: 10;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: white;
+    width: 200px;
+    height: auto;
+    padding: 10px 0;
+}
+
+.color_list > *{
+    margin-top: 10px;
+    text-decoration: none;
+    width: 70px;
+}
 
 .catalog_items {
     width: 100%;
