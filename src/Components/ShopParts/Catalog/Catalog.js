@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {CatalogMenu} from "./CatalogMenu";
-import {Link} from "react-router-dom"
+import {ItemPreview} from "./ItemPreview";
 import {Filter} from "./Filter";
 
 const beautePrice = price => {
@@ -11,11 +11,14 @@ const beautePrice = price => {
     return th + " " + hd;
 };
 
+
 const Item = ({item}) => {
+    const [itemPreview, setItemPreview] = useState(false);
     const price = item.product_price;
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
     return (
-        <div className="item">
+        <div className="item" onClick={() => setItemPreview(true)}>
+            {itemPreview && <ItemPreview id={item.product_id}/>}
             <span className="item_pics">
                 <img className="item_pics_main" src={item.picture_1} alt={item.product_name}/>
                 <img className="item_pics_add" src={item.picture_2} alt={item.product_name}/>

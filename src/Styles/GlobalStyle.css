@@ -266,3 +266,263 @@ a, a:visited{
     font-size: 14px;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index: 50;
+}
+
+
+.item_preview {
+    position: absolute;
+    background: white;
+    width: 1015px;
+    height: 615px;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.item_gallery {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.item_gallery_box {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    height: 530px;
+}
+
+.item_gallery_feed {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
+    height: 500px;
+}
+
+.item_picture {
+    width: 80px;
+    height: 112px;
+    margin-top: 5px;
+}
+
+.item_head_picture {
+    margin-top: 20px;
+    margin-left: 5px;
+    width: 360px;
+    height: 505px;
+    transition: all 0.4s ease;
+}
+
+.scroll_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80px;
+    margin-top: 5px;
+    margin-left: 4px;
+}
+
+.button_scroll {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+#up {
+    transform: rotate(270deg);
+}
+#down {
+    transform: rotate(90deg);
+}
+
+.item_preview_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-left: 10px;
+    width: 450px;
+}
+
+.item_preview_info_name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 430px;
+    margin-left: 20px;
+    height: 55px;
+}
+
+.item_preview_info_name > h1 {
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 0;
+    display: block;
+    flex-shrink: 0;
+    width: 60%;
+}
+.item_preview_info_name > h3 {
+    color: grey;
+    font-size: 12px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    text-align: right;
+    display: block;
+    flex-shrink: 0;
+    margin-top: 0
+}
+
+.item_sizes {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    position: relative;
+}
+
+.button_size {
+    background: #fff;
+    border: 1px solid #c0c0c0;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.button_size_selected {
+    background: #fff;
+    border: 1px solid #000000;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.button_size_selected:hover {
+    background: #fff;
+    border: 1px solid #1d1d1d;
+    transition: all 0.4s ease;
+}
+
+.button_size_unavailable {
+    background: #c0c0c0;
+    border: 1px solid #c0c0c0;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    cursor: default;
+    text-decoration-color: black;
+    opacity: 0.3;
+    margin-left: 20px;
+
+}
+
+.button_size:hover {
+    border: 1px solid #8f8f8f;
+    transition: all 0.4s ease;
+}
+
+.cart_wish_box {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.cart_button {
+    background-color: #252525;
+    border: 1px solid #252525;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.wish_button {
+    display: block;
+    min-width: 32px;
+    background-color: #252525;
+    border: 9px solid #252525;
+    margin-left: 10px;
+    transition: all 0.4s ease;
+}
+
+.wish_button:hover {
+    background-color: #444;
+    border: 9px solid #444;
+    transition: all 0.4s ease;
+}
+.cart_button:hover {
+    background-color: #444;
+    transition: all 0.4s ease;
+}
+
+.item_preview_info_text{
+    font-size: 14px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.other_colors {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.other_color_item {
+    width: 80px;
+    height: 100px;
+    margin-left: 5px;
+}
+
+.full {
+    margin-left: 20px;
+    font-size: 14px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.full:hover {
+    text-decoration: none;
+}
