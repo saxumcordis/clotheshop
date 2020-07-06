@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Header} from './Components/GlobalParts/Header'
 import {Home} from './Components/Home.js'
 import {Catalog} from "./Components/ShopParts/Catalog/Catalog";
@@ -10,9 +10,11 @@ import {Account} from "./Components/UserParts/Account";
 import {Wish} from "./Components/UserParts/Wish";
 import {Cart} from "./Components/UserParts/Cart";
 import Title from "react-document-title";
+import {Footer} from "./Components/GlobalParts/Footer";
 
 
 function App() {
+    const [currentPath, setPath] = useState(window.location.pathname);
     return (
         <div>
             <BrowserRouter>
@@ -20,46 +22,48 @@ function App() {
                 <Switch>
                     <Route exact path="/catalog">
                         <Title title="Каталог">
-                            <Catalog/>
+                            <Catalog setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/delivery">
                         <Title title="Доставка">
-                            <Delivery/>
+                            <Delivery setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/contacts">
                         <Title title="Контакты">
-                            <Contacts/>
+                            <Contacts setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/about">
                         <Title title="О нас">
-                            <About/>
+                            <About setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/cart">
                         <Title title="Корзина">
-                            <Cart/>
+                            <Cart setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/wish">
                         <Title title="Список желаемого">
-                            <Wish/>
+                            <Wish setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route path="/account">
                         <Title title="Личный кабинет">
-                            <Account/>
+                            <Account setPath={setPath}/>
                         </Title>
                     </Route>
                     <Route exact path="/">
                         <Title title="MIKTINA">
-                            <Home/>
+                            <Home setPath={setPath}/>
                         </Title>
                     </Route>
                 </Switch>
+                {currentPath !== "/" ? <Footer/> : null}
             </BrowserRouter>
+            {console.log(window.location.pathname)}
         </div>
     );
 }

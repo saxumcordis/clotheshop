@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {
     BrowserRouter as Router,
@@ -21,15 +21,17 @@ const UserFeatures = ({counter}) => {
             </li>
         </ul>
     )
-}
+};
 
 const Menu = () => {
+    const [currentLink, setLink] = useState(window.location.pathname);
     return (
             <ul className="menu">
-                <li><Link to="/catalog">Онлайн-магазин</Link></li>
-                <li><Link to="/delivery">Доставка</Link></li>
-                <li><Link to="/about">О нас</Link></li>
-                <li><Link to="/contacts">Контакты</Link></li>
+                <Link to="/"><img className='logo' onClick={() => setLink('/')} src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/></Link>
+                <li className={currentLink === '/catalog' ? 'menu_active' : null} onClick={() => setLink('/catalog')}><Link to="/catalog">Онлайн магазин</Link></li>
+                <li className={currentLink === '/delivery' ? 'menu_active' : null} onClick={() => setLink('/delivery')}><Link to="/delivery">Доставка</Link></li>
+                <li className={currentLink === '/about' ? 'menu_active' : null} onClick={() => setLink('/about')}><Link to="/about">О нас</Link></li>
+                <li className={currentLink === '/contacts' ? 'menu_active' : null} onClick={() => setLink('/contacts')}><Link to="/contacts">Контакты</Link></li>
                 <li>+7 965 127 81 99</li>
             </ul>
     )
@@ -39,8 +41,7 @@ const Menu = () => {
 const Header = () => {
     return (
         <div className="header">
-            <Link to="/"><img className='logo' src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/></Link>
-            <Menu counter={{wish: 5, cart: 2}}/>
+            <Menu/>
             <UserFeatures counter={{wish: 5, cart: 2}}/>
         </div>
     )

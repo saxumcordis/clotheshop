@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 
 
 const activePicture = {
-    'border': '3px solid #252525'
+    'border': '3px solid #252525',
+    'borderLeft': '4px solid #252525',
+    'marginLeft': '-1px'
 };
 
 const ItemGallery = ({item}) => {
@@ -34,13 +36,16 @@ const ItemGallery = ({item}) => {
     );
 };
 
-const ItemPreview = ({id}) => {
-
+const ItemPreview = ({id, setItemPreview}) => {
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState('');
     const [sameItems, setSameItems] = useState('');
 
     const handleSize = newSize => setSize(newSize);
+    const handleClick = event => {
+        if (event.target === document.getElementsByClassName('overlay')[0])
+            setItemPreview(false);
+    };
 
     useEffect(() => {
         (async () => {
@@ -52,11 +57,10 @@ const ItemPreview = ({id}) => {
         setTimeout(async () => {
             const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);
             setSameItems(await sameItems.json());
-        }, 1000);
+        }, 50);
     }
-    console.log(sameItems);
     return (
-        <div className="overlay">
+        <div className="overlay" onClick={handleClick}>
             {item &&
             <div className="item_preview">
                 <ItemGallery item={item}/>
@@ -85,11 +89,16 @@ const ItemPreview = ({id}) => {
                     <div className="other_colors">
                         <p>Другие цвета:</p>
                         <div className="other_colors_gallery">
-                            {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в наличии</p> : sameItems.map(item => <img key={item.product_id} className="other_color_item"
-                                                                     src={item.picture_3}/>))}
+                            {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
+                                наличии</p> : sameItems.map(item => <img key={item.product_id}
+                                                                         className="other_color_item"
+                                                                         src={item.picture_3}/>))}
                         </div>
                     </div>
                     <p className="full">Подробнее о товаре</p>
+                </div>
+                <div className="close_fancy">
+                    <span onClick={() => setItemPreview(false)}> × </span>
                 </div>
             </div>
             }

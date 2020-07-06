@@ -8,6 +8,11 @@
 
 @font-face { font-family: 'FuturaNewBook-Reg';  src: local('FuturaNewBook-Reg'), url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff'); }
 
+#root {
+    width: 100vw;
+    padding-bottom: 50px;
+    height: 100%;
+}
 
 body {
     background-color: #ffffff;
@@ -17,10 +22,60 @@ body {
     height: 100vh;
 }
 
+
 a, a:visited{
     color: black;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     text-decoration: none;
+    outline: none;
+}
+
+.footer {
+    margin-top: 50px;
+    width: 100vw;
+    height: 100px;
+    background: #dee9ec;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    bottom: 0;
+}
+
+
+.social {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.social_text {
+    transition: all 0.4s;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 100px;
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+}
+
+.social_text > img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.social_text:hover {
+    opacity: 0.7 !important;;
 }
 
 
@@ -31,15 +86,16 @@ a, a:visited{
     background-color: white;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     display: flex;
+    text-transform: uppercase;
+    font-weight: 600;
     flex-direction: row;
     position: fixed;
     z-index: 10;
 }
 
 .logo {
-    margin-top: 20px;
-    margin-left: 20px;
     width: 130px;
+    margin-left: -100px;
 }
 
 .menu {
@@ -54,8 +110,9 @@ a, a:visited{
 
 .menu > li {
     margin: 12px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    height: 20px;
 }
 
 .menu > li :hover, .user_features > li :hover {
@@ -63,7 +120,12 @@ a, a:visited{
     transition: 0.1s opacity;
 }
 
+.menu_active {
+    border-bottom: 2px solid #e1e1e1;
+}
+
 .user_features {
+    margin-left: 50px;
     flex-shrink: 0;
     width: 15vw;
     display: flex;
@@ -128,14 +190,21 @@ a, a:visited{
     flex-shrink: 0;
 }
 
+.with_footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .global_giv {
     margin-top: 70px;
-    position: absolute;
+    position: relative;
     width: 100vw;
     height: calc(100% - 70px);
     display: flex;
     flex-direction: row;
 }
+
 
 .catalog_menu {
     width: 17%;
@@ -247,7 +316,9 @@ a, a:visited{
 }
 
 .item_pics img.item_pics_add {opacity:0;filter:alpha(opacity=0);}
+.item_pics div.into_preview {opacity:0;filter:alpha(opacity=0);}
 .item_pics:hover img.item_pics_add {opacity:1;filter:alpha(opacity=100);}
+.item_pics:hover div.into_preview {opacity:1;filter:alpha(opacity=100);     transition: all 0.4s;}
 .item_pics:hover img.item_pics_main, .item_pics img.item_pics_main:hover {opacity:0;filter:alpha(opacity=0);}
 
 .item_price {
@@ -266,7 +337,23 @@ a, a:visited{
     font-size: 14px;
 }
 
+.into_preview {
+    margin-top: 380px;
+    background: #252525;
+    position: absolute;
+    width: 320px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    color: white;
+    font-size: 13px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
 .overlay {
+    display: inline-block;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -274,7 +361,7 @@ a, a:visited{
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
-    z-index: 50;
+    z-index: 10;
 }
 
 
@@ -282,7 +369,7 @@ a, a:visited{
     position: absolute;
     background: white;
     width: 1015px;
-    height: 615px;
+    height: 605px;
     z-index: 100;
     top: 50%;
     left: 50%;
@@ -292,11 +379,16 @@ a, a:visited{
     flex-wrap: nowrap;
 }
 
+
+.item_preview > * {
+    z-index: 100;
+}
+
 .item_gallery {
     display: flex;
     flex-direction: row;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 .item_gallery_box {
@@ -311,15 +403,17 @@ a, a:visited{
     flex-direction: column;
     width: 105px;
     overflow: hidden;
-    overflow-x: hidden;
+    scroll-behavior: smooth;
     position: relative;
-    height: 500px;
+    margin-top: 15px;
+    height: 505px;
 }
 
 .item_picture {
     width: 80px;
     height: 112px;
     margin-top: 5px;
+    margin-left: 3px;
 }
 
 .item_head_picture {
@@ -364,7 +458,7 @@ a, a:visited{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 430px;
+    width: 410px;
     margin-left: 20px;
     height: 55px;
 }
@@ -417,7 +511,7 @@ a, a:visited{
     justify-content: center;
     align-items: center;
     transition: all 0.4s ease;
-    margin-left: 20px;
+    margin-left: 22px;
     cursor: pointer;
 }
 
@@ -439,7 +533,7 @@ a, a:visited{
     cursor: default;
     text-decoration-color: black;
     opacity: 0.3;
-    margin-left: 20px;
+    margin-left: 22px;
 
 }
 
@@ -474,9 +568,10 @@ a, a:visited{
 .wish_button {
     display: block;
     min-width: 32px;
+    max-width: 32px;
     background-color: #252525;
     border: 9px solid #252525;
-    margin-left: 10px;
+    margin-left: 22px;
     transition: all 0.4s ease;
 }
 
@@ -525,4 +620,16 @@ a, a:visited{
 
 .full:hover {
     text-decoration: none;
+}
+
+.close_fancy {
+    color: #cccccc;
+    font-size: 50px;
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 0;
+    font-weight: 300;
+    z-index: 1;
+    cursor: pointer;
 }

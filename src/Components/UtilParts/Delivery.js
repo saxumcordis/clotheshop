@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Delivery = () => {
+const Delivery = ({setPath}) => {
+    setPath('/delivery');
     return (
-        <div className='global_giv'>
-    delivery
+        <div className='with_footer'>
+            <div className='global_giv'>
+                delivery
+            </div>
         </div>
     )
 };

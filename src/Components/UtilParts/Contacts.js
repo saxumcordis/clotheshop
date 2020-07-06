@@ -1,10 +1,13 @@
 import React from 'react'
 import {Header} from '../GlobalParts/Header'
 
-const Contacts = () => {
+const Contacts = ({setPath}) => {
+    setPath('/contacts');
     return (
-        <div className='global_giv'>
-            COntacts
+        <div className='with_footer'>
+            <div className='global_giv'>
+                Contacts
+            </div>
         </div>
     )
 };

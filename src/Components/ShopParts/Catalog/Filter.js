@@ -41,28 +41,27 @@ const handleFilter = (setFilter, filter, newFilter) => {
             } : filter.length === 2 ? filter.concat(newFilter) : [filter, newFilter])
 };
 
-const resetFilters = (props) => {
-    handleFilter(props.setActiveColor, props.activeColors, false);
-    handleFilter(props.setSizeFilter, props.sizeFilter,false)
+const resetFilters = ({activeColors, setActiveColor, setSizeFilter, sizeFilter}) => {
+    handleFilter(setActiveColor, activeColors, false);
+    handleFilter(setSizeFilter, sizeFilter,false)
 }
 
-const Filter = (props) => {
+const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter}) => {
     const [checkColor, setColor] = useState(null);
-    console.log(props.activeColors);
     return (
     <div className="filter_box">
         <ul className="filter">
             Размеры:
-            <li className="filter_element" onClick={() => handleFilter(props.setSizeFilter, props.sizeFilter,'small')} style={filterStyle(props.sizeFilter, 'small')}>42-44</li>
-            <li className="filter_element" onClick={() => handleFilter(props.setSizeFilter, props.sizeFilter,'medium')} style={filterStyle(props.sizeFilter, 'medium')}>46-48</li>
+            <li className="filter_element" onClick={() => handleFilter(setSizeFilter, sizeFilter,'small')} style={filterStyle(sizeFilter, 'small')}>42-44</li>
+            <li className="filter_element" onClick={() => handleFilter(setSizeFilter, sizeFilter,'medium')} style={filterStyle(sizeFilter, 'medium')}>46-48</li>
         </ul>
         <ul className="filter" >
             Цвет:
-            <li className="filter_element" onClick={() => setColor(!checkColor)}>{!props.activeColors ? "Выбрать" : "Выбрать  (" + (Array.isArray(props.activeColors) ? props.activeColors.length : 1) + ")"}</li>
+            <li className="filter_element" onClick={() => setColor(!checkColor)}>{!activeColors ? "Выбрать" : "Выбрать  (" + (Array.isArray(activeColors) ? activeColors.length : 1) + ")"}</li>
             <div className="color_list" hidden={!checkColor}>
-                {props.colors.map(e => Color(e, props.activeColors, props.setActiveColor, setColor))}
+                {colors.map(e => Color(e, activeColors, setActiveColor, setColor))}
             </div>
-            {props.activeColors && props.activeColors.length !== 0 || props.sizeFilter && props.sizeFilter.length !== 0 ? <li className="filter_element" onClick={() => resetFilters(props)}>Сбросить фильтр</li> : null}
+            {activeColors && activeColors.length !== 0 || sizeFilter && sizeFilter.length !== 0 ? <li className="filter_element" onClick={() => resetFilters({activeColors, setActiveColor, setSizeFilter, sizeFilter})}>Сбросить фильтр</li> : null}
         </ul>
     </div>
     )

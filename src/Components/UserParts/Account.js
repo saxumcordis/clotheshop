@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Account = () => {
+const Account = ({setPath}) => {
+    setPath('/account');
     return (
-        <div className='global_giv'>
-            Account
+        <div className='with_footer'>
+            <div className='global_giv'>
+                account
+            </div>
         </div>
     )
 }
