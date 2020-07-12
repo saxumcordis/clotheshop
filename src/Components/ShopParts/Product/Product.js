@@ -9,7 +9,7 @@ const Product = ({setPath}) => {
     setPath('/catalog');
     const [item, setItem] = useState(null);
     const [sameItems, setSameItems] = useState(null);
-
+    console.log(item);
     useEffect(() => {
         (async () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
@@ -26,17 +26,14 @@ const Product = ({setPath}) => {
         <div className='with_footer'>
             {item &&
             <div className="global_div">
-                { item !== 0 ?
                 <div className="product">
                     <ItemGallery item={item}/>
                     <div className="product_info">
                     </div>
                 </div>
-                    : item === 0 ? <NotFound/> : null
-                }
             </div>
             }
-            {!item ? <Loading/> : null}
+            {!item ? item === 0 ? <NotFound/> : <Loading/> : null}
         </div>
     )
 };
