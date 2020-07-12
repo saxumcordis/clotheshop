@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {CatalogMenu} from "./CatalogMenu";
-import {ItemPreview} from "./ItemPreview";
+import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
-import {Footer} from "../../GlobalParts/Footer";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 
-const beautePrice = price => {
+const beautyPrice = price => {
     let prString = price.toString();
     let length = prString.length;
     let hd = prString.slice(length - 3);
@@ -21,7 +20,6 @@ const Item = ({item}) => {
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
 
     const handleItemClick = event => {
-        console.log(event.target.className);
         if (event.target.className === "item_pics_add")
             setRedirect('/catalog/item/' + item.product_id);
     };
@@ -38,8 +36,8 @@ const Item = ({item}) => {
                 <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>
             </span>
                     <span className="item_name">{item.product_name}</span>
-                    {price === salePrice ? <span className="item_price">{beautePrice(price)} P</span> :
-                        <span className="item_price">{beautePrice(salePrice)} P<s>{beautePrice(price)} P</s></span>}
+                    {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)} P</span> :
+                        <span className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
                 </div>
     )
 };
@@ -83,4 +81,4 @@ const Catalog = ({setPath}) => {
 };
 
 
-export {Catalog};
+export {Catalog, Item};

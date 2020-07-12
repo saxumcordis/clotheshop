@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {ItemGallery} from "../Product/Gallery";
+import {ItemGallery} from "./Gallery";
+import {Link} from "react-router-dom";
 
 const ItemPreview = ({id, setItemPreview}) => {
     const [item, setItem] = useState(null);
@@ -55,12 +56,12 @@ const ItemPreview = ({id, setItemPreview}) => {
                         <p>Другие цвета:</p>
                         <div className="other_colors_gallery">
                             {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
-                                наличии</p> : sameItems.map(item => <img key={item.product_id}
+                                наличии</p> : sameItems.map(item => <Link to={(() => "/catalog/item" + item.product_id)}><img key={item.product_id}
                                                                          className="other_color_item"
-                                                                         src={item.picture_3}/>))}
+                                                                         src={item.picture_3}/></Link>))}
                         </div>
                     </div>
-                    <p className="full">Подробнее о товаре</p>
+                    <p className="full"><Link to={(() => "/catalog/item/" + item.product_id)}>Подробнее о товаре</Link></p>
                 </div>
                 <div className="close_fancy">
                     <span onClick={() => setItemPreview(false)}> × </span>
