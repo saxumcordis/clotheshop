@@ -3,6 +3,8 @@ import {CatalogMenu} from "./CatalogMenu";
 import {ItemPreview} from "./ItemPreview";
 import {Filter} from "./Filter";
 import {Footer} from "../../GlobalParts/Footer";
+import {Link, Redirect} from "react-router-dom";
+import {Loading} from "../../SystemParts/Loading";
 
 const beautePrice = price => {
     let prString = price.toString();
@@ -12,29 +14,39 @@ const beautePrice = price => {
     return th + " " + hd;
 };
 
-
 const Item = ({item}) => {
     const [itemPreview, setItemPreview] = useState(false);
+    const [redirect, setRedirect] = useState(null);
     const price = item.product_price;
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
+
+    const handleItemClick = event => {
+        console.log(event.target.className);
+        if (event.target.className === "item_pics_add")
+            setRedirect('/catalog/item/' + item.product_id);
+    };
+
+    if (redirect)
+        return (<Redirect push to={redirect}/>);
     return (
-        <div className="item">
-            {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
-            <span className="item_pics">
+                <div className="item">
+                    {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
+                    <span className="item_pics" onClick={handleItemClick}>
                 <img className="item_pics_main" src={item.picture_1} alt={item.product_name}/>
-                <img className="item_pics_add" src={item.picture_2} alt={item.product_name}/>
+                <img className="item_pics_add" src={item.picture_2} id={(() => "item_" + item.product_id)()}
+                     alt={item.product_name}/>
                 <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>
             </span>
-            <span className="item_name">{item.product_name}</span>
-            {price === salePrice ? <span className="item_price">{beautePrice(price)} P</span> :
-                <span className="item_price">{beautePrice(salePrice)} P<s>{beautePrice(price)} P</s></span>}
-        </div>
+                    <span className="item_name">{item.product_name}</span>
+                    {price === salePrice ? <span className="item_price">{beautePrice(price)} P</span> :
+                        <span className="item_price">{beautePrice(salePrice)} P<s>{beautePrice(price)} P</s></span>}
+                </div>
     )
 };
 
 const Catalog = ({setPath}) => {
     setPath('/catalog');
-    const [catalog, setCatalog] = useState([]);
+    const [catalog, setCatalog] = useState(null);
     const [sizeFilter, setSizeFilter] = useState(false);
     const [activeColors, setActiveColor] = useState(false);
     useEffect(() => {
@@ -43,7 +55,7 @@ const Catalog = ({setPath}) => {
             setCatalog(await catalog.json());
         })();
     }, []);
-    const showCatalog = catalog.filter(item => !sizeFilter ? 1
+    const showCatalog = catalog && catalog.filter(item => !sizeFilter ? 1
         : sizeFilter.includes('small') ? item.small_size > 0
             : sizeFilter.includes('medium') ? item.medium_size > 0
                 : 1)
@@ -54,6 +66,7 @@ const Catalog = ({setPath}) => {
         <div className='with_footer'>
             <div className='global_giv'>
                 <CatalogMenu/>
+                {catalog &&
                 <div className="catalog_box">
                     <Filter sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}
                             colors={catalog.map(e => [e.product_color_name, e.color_code])} activeColors={activeColors}
@@ -62,6 +75,8 @@ const Catalog = ({setPath}) => {
                         {showCatalog.length > 0 ? showCatalog : <h1>Нет подходящих вещей</h1>}
                     </div>
                 </div>
+                }
+                {!catalog ? <Loading/> : null}
             </div>
         </div>
     )

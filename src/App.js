@@ -11,6 +11,7 @@ import {Wish} from "./Components/UserParts/Wish";
 import {Cart} from "./Components/UserParts/Cart";
 import Title from "react-document-title";
 import {Footer} from "./Components/GlobalParts/Footer";
+import {Product} from "./Components/ShopParts/Product/Product";
 
 
 function App() {
@@ -55,6 +56,11 @@ function App() {
                             <Account setPath={setPath}/>
                         </Title>
                     </Route>
+                    <Route path="/catalog/item/:id">
+                        <Title title="Просмотр">
+                            <Product setPath={setPath}/>
+                        </Title>
+                    </Route>
                     <Route exact path="/">
                         <Title title="MIKTINA">
                             <Home setPath={setPath}/>
@@ -63,7 +69,6 @@ function App() {
                 </Switch>
                 {currentPath !== "/" ? <Footer/> : null}
             </BrowserRouter>
-            {console.log(window.location.pathname)}
         </div>
     );
 }
