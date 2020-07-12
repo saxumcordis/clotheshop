@@ -12,6 +12,7 @@ import {Cart} from "./Components/UserParts/Cart";
 import Title from "react-document-title";
 import {Footer} from "./Components/GlobalParts/Footer";
 import {Product} from "./Components/ShopParts/Product/Product";
+import {NotFound} from "./Components/SystemParts/NotFound";
 
 
 function App() {
@@ -64,6 +65,11 @@ function App() {
                     <Route exact path="/">
                         <Title title="MIKTINA">
                             <Home setPath={setPath}/>
+                        </Title>
+                    </Route>
+                    <Route exact path="*">
+                        <Title title="Страницы не существует">
+                            <NotFound setPath={setPath}/>
                         </Title>
                     </Route>
                 </Switch>

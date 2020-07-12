@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 
 
-const NotFound = () => {
+const NotFound = ({setPath}) => {
+    setPath('notFound');
     return (
         <div className='with_footer'>
             <div className="global_div">
-                <div className="item_preview">
+                <div className="product">
                     <h1>Не найдено</h1>
                 </div>
             </div>
