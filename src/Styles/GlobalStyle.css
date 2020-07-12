@@ -512,7 +512,7 @@ a, a:visited{
     justify-content: center;
     align-items: center;
     transition: all 0.4s ease;
-    margin-left: 22px;
+    margin-left: 20px;
     cursor: pointer;
 }
 
@@ -534,7 +534,7 @@ a, a:visited{
     cursor: default;
     text-decoration-color: black;
     opacity: 0.3;
-    margin-left: 22px;
+    margin-left: 20px;
 
 }
 
