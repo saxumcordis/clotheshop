@@ -9,7 +9,7 @@ const Home = ({setPath}) => {
             <div className="home">
                 <div className='main_picture'>
                     <Link to='/catalog'><img
-                        src='https://iamstudio.ru/upload/iblock/5ca/5ca90b8dea2fe76a9eb53b8bb3a50d7a.jpg'/></Link>
+                        src='https://iamstudio.ru/upload/iblock/650/6504684b616f8808782455363a8e5659.JPG'/></Link>
                 </div>
                 <div className='additional_pictures'>
                     <a href="https://instagram.com/miktina/"><img

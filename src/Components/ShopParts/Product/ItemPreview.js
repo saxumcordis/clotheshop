@@ -45,7 +45,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                     </div>
                     <div className="cart_wish_box">
                         <button className="cart_button">В КОРЗИНУ</button>
-                        <img className="wish_button" src="к"/>
+                        <img className="wish_button" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594648024/heart_fha8br.png"/>
                     </div>
                     <div className="item_preview_info_text">
                         <p>Цвет : {item.product_color_name.toLowerCase()}</p>

@@ -27,18 +27,19 @@ const Item = ({item}) => {
     if (redirect)
         return (<Redirect push to={redirect}/>);
     return (
-                <div className="item">
-                    {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
-                    <span className="item_pics" onClick={handleItemClick}>
+        <div className="item">
+            {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
+            <span className="item_pics" onClick={handleItemClick}>
+                <img className="wish_catalog" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594650783/heart2_l7vzsg.png" alt="Добавить в список желаний"/>
                 <img className="item_pics_main" src={item.picture_1} alt={item.product_name}/>
                 <img className="item_pics_add" src={item.picture_2} id={(() => "item_" + item.product_id)()}
                      alt={item.product_name}/>
                 <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>
             </span>
-                    <span className="item_name">{item.product_name}</span>
-                    {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)} P</span> :
-                        <span className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
-                </div>
+            <span className="item_name">{item.product_name}</span>
+            {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)} P</span> :
+                <span className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
+        </div>
     )
 };
 

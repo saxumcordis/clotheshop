@@ -146,7 +146,8 @@ a, a:visited{
 
 .main_icon {
     margin: 12px;
-    width: 20px;
+    max-width: 20px;
+    height: 20px;
     float: left;
 }
 
@@ -320,6 +321,7 @@ a, a:visited{
 .item_pics:hover img.item_pics_add {opacity:1;filter:alpha(opacity=100);}
 .item_pics:hover div.into_preview {opacity:1;filter:alpha(opacity=100);     transition: all 0.4s;}
 .item_pics:hover img.item_pics_main, .item_pics img.item_pics_main:hover {opacity:0;filter:alpha(opacity=0);}
+.item_pics:hover img.wish_catalog {opacity:1;filter:alpha(opacity=100);     transition: all 0.2s;}
 
 .item_price {
     font-size: 14px;
@@ -568,19 +570,34 @@ a, a:visited{
 
 .wish_button {
     display: block;
-    min-width: 32px;
-    max-width: 32px;
+    min-width: 24px;
+    max-width: 24px;
     background-color: #252525;
-    border: 9px solid #252525;
+    border: 13px solid #252525;
     margin-left: 22px;
     transition: all 0.4s ease;
 }
 
 .wish_button:hover {
     background-color: #444;
-    border: 9px solid #444;
+    border: 13px solid #444;
     transition: all 0.4s ease;
 }
+
+.wish_catalog {
+    display: block;
+    position: absolute;
+    z-index: 15;
+    right: 10px;
+    top: 10px;
+    min-width: 24px;
+    max-width: 24px;
+    max-height: 24px;
+    margin-left: 22px;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+
 .cart_button:hover {
     background-color: #444;
     transition: all 0.4s ease;
