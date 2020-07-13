@@ -56,7 +56,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                         <p>Другие цвета:</p>
                         <div className="other_colors_gallery">
                             {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
-                                наличии</p> : sameItems.map(item => <Link to={(() => "/catalog/item" + item.product_id)}><img key={item.product_id}
+                                наличии</p> : sameItems.map(item => <Link to={(() => "/catalog/item/" + item.product_id)}><img key={item.product_id}
                                                                          className="other_color_item"
                                                                          src={item.picture_3}/></Link>))}
                         </div>

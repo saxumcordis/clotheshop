@@ -561,6 +561,7 @@ a, a:visited{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-weight: 600;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     width: 200px;
     height: 50px;
@@ -570,10 +571,10 @@ a, a:visited{
 
 .wish_button {
     display: block;
-    min-width: 24px;
-    max-width: 24px;
+    min-width: 22px;
+    max-width: 22px;
     background-color: #252525;
-    border: 13px solid #252525;
+    border: 14px solid #252525;
     margin-left: 22px;
     transition: all 0.4s ease;
 }
@@ -806,6 +807,24 @@ a, a:visited{
     position: relative;
     width: 100vw;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.recommended_box > p {
+    font-size: 16px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    margin-left: 10px;
+}
+
+.recommended {
+    display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.recommended > .item > .item_price, .recommended > .item > .item_name {
+    font-size: 12px;
+    font-weight: 600;
 }

@@ -40,7 +40,6 @@ const MainBox = ({item}) => {
 
 const Product = ({setPath}) => {
     const id = useParams().id;
-    setPath('/catalog');
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState('');
     const [sameItems, setSameItems] = useState(null);
@@ -48,7 +47,6 @@ const Product = ({setPath}) => {
 
     const price = item && item.product_price;
     const salePrice = item && Math.floor((100 - item.sale_percent) * price / 100);
-    console.log((+price) === (+salePrice));
 
     useEffect(() => {
         (async () => {
@@ -107,7 +105,7 @@ const Product = ({setPath}) => {
             </div>
             }
             {!item ? item === 0 ? <NotFound/> : <Loading/> :
-            <Recommended/>}
+            <Recommended filterId={item.product_id}/>}
         </div>
     )
 };
