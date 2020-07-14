@@ -39,6 +39,7 @@ const MainBox = ({item}) => {
 };
 
 const Product = ({setPath}) => {
+    setPath('/catalog');
     const id = useParams().id;
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState('');
@@ -48,12 +49,19 @@ const Product = ({setPath}) => {
     const price = item && item.product_price;
     const salePrice = item && Math.floor((100 - item.sale_percent) * price / 100);
 
+    const reRenderSameItems = async () => {
+        const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);
+        setSameItems(await sameItems.json());
+    }
+
     useEffect(() => {
         (async () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
             setItem(await item.json());
         })();
-    }, []);
+        if (sameItems)
+            reRenderSameItems();
+    }, [id]);
     if (item && !sameItems) {
         setTimeout(async () => {
             const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);

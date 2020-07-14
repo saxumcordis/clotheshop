@@ -22,6 +22,8 @@ const ItemGallery = ({item, place}) => {
     for (let i = 1; i <= 8; ++i)
         if (item['picture_' + i] != 0)
             gallery.push(item['picture_' + i]);
+        if (!gallery.some(e => e === activePhoto))
+            setActivePhoto( gallery[0]);
     return (
         <div className="item_gallery">
             <div className="item_gallery_box">

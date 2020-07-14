@@ -43,7 +43,7 @@ const Recommended = ({filterId}) => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getRecommended');
             setItems(await catalog.json());
         })();
-    }, []);
+    }, [filterId]);
 
     const showItems = items && items.filter(item => item.product_id !== filterId).map(item => <Item
         key={item.product_id} item={item}/>);
