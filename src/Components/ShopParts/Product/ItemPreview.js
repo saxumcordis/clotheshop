@@ -21,7 +21,7 @@ const ItemPreview = ({id, setItemPreview}) => {
     }, []);
     if (item && !sameItems) {
         setTimeout(async () => {
-            const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);
+            const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
             setSameItems(await sameItems.json());
         }, 50);
     }

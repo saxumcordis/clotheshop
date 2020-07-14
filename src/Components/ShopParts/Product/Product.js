@@ -45,12 +45,12 @@ const Product = ({setPath}) => {
     const [selectedSize, setSize] = useState('');
     const [sameItems, setSameItems] = useState(null);
     const handleSize = newSize => setSize(newSize);
-
     const price = item && item.product_price;
     const salePrice = item && Math.floor((100 - item.sale_percent) * price / 100);
 
     const reRenderSameItems = async () => {
-        const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);
+        console.log(item);
+        const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
         setSameItems(await sameItems.json());
     }
 
@@ -59,12 +59,12 @@ const Product = ({setPath}) => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
             setItem(await item.json());
         })();
-        if (sameItems)
+        if (item && sameItems)
             reRenderSameItems();
     }, [id]);
     if (item && !sameItems) {
         setTimeout(async () => {
-            const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id + '&code=' + item.product_code);
+            const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
             setSameItems(await sameItems.json());
         }, 50);
     }
