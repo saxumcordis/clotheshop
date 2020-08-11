@@ -829,3 +829,32 @@ a, a:visited{
     font-size: 12px;
     font-weight: 600;
 }
+
+.delivery_box {
+    margin-left: 220px;
+    margin-top: 30px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.delivery_box  h1 {
+    font-size: 1.75em;
+}
+
+.delivery_box h2 {
+    font-size: 1.35em;
+}
+
+.delivery_box p {
+    font-size: 13px;
+    width: 700px;
+}
+
+.phones li {
+    text-decoration: underline;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.phones li:hover {
+    text-decoration: none;
+}
