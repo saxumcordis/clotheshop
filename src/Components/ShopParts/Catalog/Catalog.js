@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import {CatalogMenu} from "./CatalogMenu";
 import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
 import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
+import {addToWishList, isItemWished, removeFromWishList} from "../../../Service/ItemService";
+import {useWishList} from "../../../Service/WishListContext";
 
 const beautyPrice = price => {
     let prString = price.toString();
@@ -18,19 +20,29 @@ const Item = ({item}) => {
     const [redirect, setRedirect] = useState(null);
     const price = item.product_price;
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
-
+    const {add, remove, wishList} = useWishList();
+    const isWished = useMemo(() => wishList.some(e => e === item.product_id), [wishList]);
     const handleItemClick = event => {
         if (event.target.className === "item_pics_add")
             setRedirect('/catalog/item/' + item.product_id);
     };
-
+    useEffect(() => console.log('a'), [wishList]);
+    const handleWish = () => {
+      isWished ? remove(item.product_id) : add(item.product_id);
+    };
     if (redirect)
         return (<Redirect push to={redirect}/>);
     return (
         <div className="item">
             {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
             <span className="item_pics" onClick={handleItemClick}>
-                <img className="wish_catalog" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594650783/heart2_l7vzsg.png" alt="Добавить в список желаний"/>
+                {isWished ?
+                    <img className="wish_catalog" onClick={handleWish}
+                         src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"
+                         alt="Удалить из списка желаний"/>
+                    : <img className="wish_catalog" onClick={handleWish}
+                           src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594650783/heart2_l7vzsg.png"
+                           alt="Добавить в список желаний"/>}
                 <img className="item_pics_main" src={item.picture_1} alt={item.product_name}/>
                 <img className="item_pics_add" src={item.picture_2} id={(() => "item_" + item.product_id)()}
                      alt={item.product_name}/>

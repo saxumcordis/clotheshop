@@ -1,11 +1,7 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
+
 
 
 const UserFeatures = ({counter}) => {

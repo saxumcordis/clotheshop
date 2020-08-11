@@ -13,6 +13,7 @@ import Title from "react-document-title";
 import {Footer} from "./Components/GlobalParts/Footer";
 import {Product} from "./Components/ShopParts/Product/Product";
 import {NotFound} from "./Components/SystemParts/NotFound";
+import {PersistWish, WishProvider} from "./Service/WishListContext";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     return (
         <div>
             <BrowserRouter>
+                <WishProvider>
                 <Header/>
                 <Switch>
                     <Route exact path="/catalog">
@@ -74,6 +76,8 @@ function App() {
                     </Route>
                 </Switch>
                 {currentPath !== "/" ? <Footer/> : null}
+                <PersistWish/>
+                </WishProvider>
             </BrowserRouter>
         </div>
     );

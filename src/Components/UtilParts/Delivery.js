@@ -75,7 +75,7 @@ const Delivery = ({setPath}) => {
                         Возврат переведенных средств, производится на Ваш банковский счет в течение 5—30 рабочих дней
                         (срок зависит от Банка, который выдал Вашу банковскую карту).
                         <img style={{width: "500px", marginTop: "20px"}}
-                            src="https://lh3.googleusercontent.com/Kd4vtIt3k14b2spuRlHMVwTCW4oEsE1U4XF0pFbNMvLGOW9-bccrsCNWZs-LNohoq9mBT26XozEBbp7poWCvcD7GBfwFq4cd8eJr5WbeZ664bB2NG-uGoBv2Hy5F9XhapU9f2PI7"/>
+                            src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/4b5f17f4b36879a582e12fb1f85b4f2b_tphhou.png"/>
                     </p>
                 </div>
             </div>

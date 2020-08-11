@@ -581,7 +581,7 @@ a, a:visited{
 
 .wish_button:hover {
     background-color: #444;
-    border: 13px solid #444;
+    border: 14px solid #444;
     transition: all 0.4s ease;
 }
 
