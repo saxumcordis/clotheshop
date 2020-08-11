@@ -422,8 +422,8 @@ a, a:visited{
 .item_head_picture {
     margin-top: 20px;
     margin-left: 5px;
-    width: 360px;
-    height: 505px;
+    max-width: 555px;
+    max-height: 800px;
     transition: all 0.4s ease;
 }
 
@@ -597,6 +597,7 @@ a, a:visited{
     display: block;
     min-width: 22px;
     max-width: 22px;
+    max-height: 22px;
     background-color: #252525;
     border: 14px solid #252525;
     margin-left: 22px;
