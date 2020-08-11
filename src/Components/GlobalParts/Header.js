@@ -17,7 +17,7 @@ const UserFeatures = () => {
                                       src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({wishList.length})</span></Link>
             </li>
             <li><Link to="/cart"><img className="main_icon"
-                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({cart.map(e => e.quantity).reduce((a,b) => a + b)})</span></Link>
+                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({cart.length ? cart.map(e => e.quantity).reduce((a,b) => a + b) : 0})</span></Link>
             </li>
         </ul>
     )
