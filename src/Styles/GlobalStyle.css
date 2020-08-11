@@ -830,13 +830,13 @@ a, a:visited{
     font-weight: 600;
 }
 
-.delivery_box {
+.delivery_box, .about_box, .contacts_box {
     margin-left: 220px;
     margin-top: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
-.delivery_box  h1 {
+.delivery_box  h1, .contacts_box h1 {
     font-size: 1.75em;
 }
 
@@ -844,7 +844,7 @@ a, a:visited{
     font-size: 1.35em;
 }
 
-.delivery_box p {
+.delivery_box p{
     font-size: 13px;
     width: 700px;
 }
@@ -857,4 +857,9 @@ a, a:visited{
 
 .phones li:hover {
     text-decoration: none;
+}
+
+.about_box p {
+    width: 450px;
+    font-size: 16px;
 }

@@ -32,7 +32,7 @@ const Menu = () => {
                 <li className={currentLink === '/delivery' ? 'menu_active' : null} onClick={() => setLink('/delivery')}><Link to="/delivery">Доставка</Link></li>
                 <li className={currentLink === '/about' ? 'menu_active' : null} onClick={() => setLink('/about')}><Link to="/about">О нас</Link></li>
                 <li className={currentLink === '/contacts' ? 'menu_active' : null} onClick={() => setLink('/contacts')}><Link to="/contacts">Контакты</Link></li>
-                <li>+7 965 127 81 99</li>
+                <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
             </ul>
     )
 };
