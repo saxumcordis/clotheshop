@@ -26,7 +26,6 @@ const Item = ({item}) => {
         if (event.target.className === "item_pics_add")
             setRedirect('/catalog/item/' + item.product_id);
     };
-    useEffect(() => console.log('a'), [wishList]);
     const handleWish = () => {
       isWished ? remove(item.product_id) : add(item.product_id);
     };

@@ -14,6 +14,7 @@ import {Footer} from "./Components/GlobalParts/Footer";
 import {Product} from "./Components/ShopParts/Product/Product";
 import {NotFound} from "./Components/SystemParts/NotFound";
 import {PersistWish, WishProvider} from "./Service/WishListContext";
+import {CartProvider, PersistCart} from "./Service/CartContext";
 
 
 function App() {
@@ -22,65 +23,68 @@ function App() {
         <div>
             <BrowserRouter>
                 <WishProvider>
-                <Header/>
-                <Switch>
-                    <Route exact path="/catalog">
-                        <Title title="Каталог">
-                            <Catalog setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/delivery">
-                        <Title title="Доставка">
-                            <Delivery setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/contacts">
-                        <Title title="Контакты">
-                            <Contacts setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/about">
-                        <Title title="О нас">
-                            <About setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/cart">
-                        <Title title="Корзина">
-                            <Cart setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/wish">
-                        <Title title="Список желаемого">
-                            <Wish setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/account">
-                        <Title title="Личный кабинет">
-                            <Account setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route path="/catalog/item/:id">
-                        <Title title="Просмотр">
-                            <Product setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route exact path="/">
-                        <Title title="MIKTINA">
-                            <Home setPath={setPath}/>
-                        </Title>
-                    </Route>
-                    <Route exact path="*">
-                        <Title title="Страницы не существует">
-                            <NotFound setPath={setPath}/>
-                        </Title>
-                    </Route>
-                </Switch>
-                {currentPath !== "/" ? <Footer/> : null}
-                <PersistWish/>
+                    <CartProvider>
+                        <Header/>
+                        <Switch>
+                            <Route exact path="/catalog">
+                                <Title title="Каталог">
+                                    <Catalog setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/delivery">
+                                <Title title="Доставка">
+                                    <Delivery setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/contacts">
+                                <Title title="Контакты">
+                                    <Contacts setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/about">
+                                <Title title="О нас">
+                                    <About setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/cart">
+                                <Title title="Корзина">
+                                    <Cart setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/wish">
+                                <Title title="Список желаемого">
+                                    <Wish setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/account">
+                                <Title title="Личный кабинет">
+                                    <Account setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route path="/catalog/item/:id">
+                                <Title title="Просмотр">
+                                    <Product setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route exact path="/">
+                                <Title title="MIKTINA">
+                                    <Home setPath={setPath}/>
+                                </Title>
+                            </Route>
+                            <Route exact path="*">
+                                <Title title="Страницы не существует">
+                                    <NotFound setPath={setPath}/>
+                                </Title>
+                            </Route>
+                        </Switch>
+                        {currentPath !== "/" ? <Footer/> : null}
+                        <PersistWish/>
+                        <PersistCart/>
+                    </CartProvider>
                 </WishProvider>
             </BrowserRouter>
         </div>
-    );
+);
 }
 
 export default App;

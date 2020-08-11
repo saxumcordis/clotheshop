@@ -1,19 +1,23 @@
 import React, {useContext, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {Link} from "react-router-dom";
+import {useWishList} from "../../Service/WishListContext";
+import {useCart} from "../../Service/CartContext";
 
 
 
-const UserFeatures = ({counter}) => {
+const UserFeatures = () => {
+    const {wishList} = useWishList();
+    const {cart} = useCart();
     return (
         <ul className='user_features'>
             <li><Link to="/account"><img className="main_icon"
                                          src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649302/user1_qptnba.png'/></Link></li>
             <li><Link to="/wish"><img className="main_icon"
-                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({counter.wish})</span></Link>
+                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({wishList.length})</span></Link>
             </li>
             <li><Link to="/cart"><img className="main_icon"
-                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({counter.cart})</span></Link>
+                                      src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({cart.map(e => e.quantity).reduce((a,b) => a + b)})</span></Link>
             </li>
         </ul>
     )
@@ -38,7 +42,7 @@ const Header = () => {
     return (
         <div className="header">
             <Menu/>
-            <UserFeatures counter={{wish: 5, cart: 2}}/>
+            <UserFeatures/>
         </div>
     )
 };
