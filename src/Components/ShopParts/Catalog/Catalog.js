@@ -36,7 +36,7 @@ const Item = ({item}) => {
             {itemPreview && <ItemPreview id={item.product_id} setItemPreview={setItemPreview}/>}
             <span className="item_pics" onClick={handleItemClick}>
                 {isWished ?
-                    <img className="wish_catalog" onClick={handleWish}
+                    <img className="wish_catalog wished" onClick={handleWish}
                          src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"
                          alt="Удалить из списка желаний"/>
                     : <img className="wish_catalog" onClick={handleWish}

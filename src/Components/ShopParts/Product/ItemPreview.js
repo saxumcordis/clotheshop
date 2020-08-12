@@ -17,7 +17,7 @@ const ItemPreview = ({id, setItemPreview}) => {
         setWished(!isWished);
     };
 
-    const {addToCart, cart} = useCart();
+    const {addToCart} = useCart();
 
     const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
     const handleClick = event => {

@@ -338,6 +338,7 @@ a, a:visited{
 .item_name {
     margin-top: 5px;
     font-size: 15px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .into_preview {
@@ -353,6 +354,7 @@ a, a:visited{
     height: 50px;
     cursor: pointer;
     transition: all 0.7s;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .overlay {
@@ -422,8 +424,9 @@ a, a:visited{
 .item_head_picture {
     margin-top: 20px;
     margin-left: 5px;
-    max-width: 555px;
-    max-height: 800px;
+    max-width: 400px;
+    min-width: 400px;
+    max-height: 500px;
     transition: all 0.4s ease;
 }
 
@@ -482,7 +485,7 @@ a, a:visited{
     text-align: right;
     display: block;
     flex-shrink: 0;
-    margin-top: 0
+    margin-top: 0;
 }
 
 .item_sizes {
@@ -629,12 +632,13 @@ a, a:visited{
     transition: all 0.4s ease;
 }
 
-.item_preview_info_text{
+.item_preview_info_text {
     font-size: 14px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     margin-top: 30px;
     margin-left: 20px;
     font-weight: 600;
+    text-align: left;
 }
 
 .other_colors {
@@ -855,7 +859,7 @@ a, a:visited{
     font-weight: 600;
 }
 
-.delivery_box, .about_box, .contacts_box {
+.delivery_box, .about_box, .contacts_box, .wish_box {
     margin-left: 220px;
     margin-top: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
@@ -863,6 +867,10 @@ a, a:visited{
 
 .delivery_box  h1, .contacts_box h1 {
     font-size: 1.75em;
+}
+
+.wish_box h1 {
+    font-size: 24px;
 }
 
 .delivery_box h2 {
@@ -887,4 +895,21 @@ a, a:visited{
 .about_box p {
     width: 450px;
     font-size: 16px;
+}
+
+.wish_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.wished {
+    opacity: 1;
+}
+
+.empty_list {
+    font-size: 15px;
+    margin-left: 150px;
+    margin-top: 0;
+    font-weight: 500;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }

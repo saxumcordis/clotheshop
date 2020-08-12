@@ -52,7 +52,7 @@ function App() {
                                 </Title>
                             </Route>
                             <Route path="/wish">
-                                <Title title="Список желаемого">
+                                <Title title="Список желаний">
                                     <Wish setPath={setPath}/>
                                 </Title>
                             </Route>

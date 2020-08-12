@@ -20,7 +20,7 @@ const ItemGallery = ({item, place}) => {
         return newId < 0 ? 0 : newId === gallery.length ? (gallery.length - 1) : newId;
     };
     for (let i = 1; i <= 8; ++i)
-        if (item['picture_' + i] != 0)
+        if (item['picture_' + i] !== 0)
             gallery.push(item['picture_' + i]);
         if (!gallery.some(e => e === activePhoto))
             setActivePhoto( gallery[0]);
@@ -47,7 +47,7 @@ const ItemGallery = ({item, place}) => {
                          src='https://static.tildacdn.com/tild3636-3131-4463-b465-636239623632/-png-1.png'/>
                 </div>
             </div>
-            <img className="item_head_picture" style={(() => bigHeadPicture(place))()} src={activePhoto}/>
+            <img className="item_head_picture" style={(() => bigHeadPicture(place))()} src={activePhoto} alt="Изображение продукта"/>
         </div>
     );
 };
