@@ -573,10 +573,9 @@ a, a:visited{
 }
 
 .disabled {
-    opacity: 0.2;
     cursor: default;
-    background-color: #b1b1b1;
-    border: 1px solid #a6a6a6;
+    background-color: #252525;
+    border: 1px solid #252525;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -595,6 +594,7 @@ a, a:visited{
     margin-top: 5px;
     font-size: 13px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    color: grey;
 }
 .wish_button {
     display: block;
@@ -635,7 +635,7 @@ a, a:visited{
 .item_preview_info_text {
     font-size: 14px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
-    margin-top: 30px;
+    margin-top: 35px;
     margin-left: 20px;
     font-weight: 600;
     text-align: left;

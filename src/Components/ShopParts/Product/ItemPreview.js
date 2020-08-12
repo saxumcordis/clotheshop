@@ -60,7 +60,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                     </div>
                     <div className="cart_wish_box">
                         <button className={!selectedSize ? "disabled" : "cart_button"}
-                                onClick={() => addToCart({
+                                onClick={() => selectedSize && addToCart({
                                     id: item.product_id,
                                     size: selectedSize,
                                     name: item.product_name,
