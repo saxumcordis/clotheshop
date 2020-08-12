@@ -1,0 +1,38 @@
+.background_drawer .open{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(111, 111, 111, 0.9);
+    z-index: 5;
+    top: 0;
+    right: 0;
+}
+
+.background_drawer .close {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(111, 111, 111, 0.9);
+    z-index: 5;
+    top: 0;
+    right: 0;
+}
+
+.side_drawer {
+    margin-top: 70px;
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35%;
+    z-index: 200;
+    box-shadow: 1px 0 7px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.side_drawer.open {
+    transform: translateX(0);
+}

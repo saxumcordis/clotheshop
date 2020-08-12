@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {Footer} from "./GlobalParts/Footer";
+import {Drawer} from "./SystemParts/Drawer";
+
 
 const Home = ({setPath}) => {
     setPath('/');
@@ -21,7 +23,7 @@ const Home = ({setPath}) => {
             </div>
         </div>
     )
-}
+};
 
 
 export {Home};

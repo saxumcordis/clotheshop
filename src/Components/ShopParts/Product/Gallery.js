@@ -20,7 +20,7 @@ const ItemGallery = ({item, place}) => {
         return newId < 0 ? 0 : newId === gallery.length ? (gallery.length - 1) : newId;
     };
     for (let i = 1; i <= 8; ++i)
-        if (item['picture_' + i] !== 0)
+        if (item['picture_' + i] !== '0')
             gallery.push(item['picture_' + i]);
         if (!gallery.some(e => e === activePhoto))
             setActivePhoto( gallery[0]);

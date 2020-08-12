@@ -299,13 +299,13 @@ a, a:visited{
 }
 
 .item_pics {
-    height: 430px;
+    height: 480px;
     width: 320px;
     position: relative;
 }
 
 .item_pics > img {
-    height: 430px;
+    height: 480px;
     width: 320px;
     position:absolute;
 }
@@ -342,7 +342,7 @@ a, a:visited{
 }
 
 .into_preview {
-    margin-top: 380px;
+    margin-top: 430px;
     background: #252525;
     position: absolute;
     width: 320px;
@@ -424,9 +424,10 @@ a, a:visited{
 .item_head_picture {
     margin-top: 20px;
     margin-left: 5px;
-    max-width: 400px;
-    min-width: 400px;
+    max-width: 300px;
+    min-width: 300px;
     max-height: 500px;
+    min-height: 500px;
     transition: all 0.4s ease;
 }
 
@@ -865,6 +866,10 @@ a, a:visited{
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
+.delivery_box {
+    width: 800px;
+}
+
 .delivery_box  h1, .contacts_box h1 {
     font-size: 1.75em;
 }
@@ -877,7 +882,7 @@ a, a:visited{
     font-size: 1.35em;
 }
 
-.delivery_box p{
+.delivery_box span {
     font-size: 13px;
     width: 700px;
 }

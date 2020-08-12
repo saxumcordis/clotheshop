@@ -15,10 +15,14 @@ import {Product} from "./Components/ShopParts/Product/Product";
 import {NotFound} from "./Components/SystemParts/NotFound";
 import {PersistWish, WishProvider} from "./Service/WishListContext";
 import {CartProvider, PersistCart} from "./Service/CartContext";
+import {DrawerProvider, useDrawer} from "./Service/Drawer";
+import {Drawer} from "./Components/SystemParts/Drawer";
 
 
 function App() {
     const [currentPath, setPath] = useState(window.location.pathname);
+    const {status, setStatus} = useDrawer();
+    console.log(status);
     return (
         <div>
             <BrowserRouter>
@@ -80,6 +84,7 @@ function App() {
                         {currentPath !== "/" ? <Footer/> : null}
                         <PersistWish/>
                         <PersistCart/>
+                        <Drawer state={status}/>
                     </CartProvider>
                 </WishProvider>
             </BrowserRouter>

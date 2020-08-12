@@ -11,7 +11,7 @@ const ItemPreview = ({id, setItemPreview}) => {
 
     const {add, remove, wishList} = useWishList();
     const [isWished, setWished] = useState(item && wishList.find(e => e === item.product_id));
-    const [sizeWarning, setSizeWarning] = useState(1);
+    const [sizeWarning, setSizeWarning] = useState(null);
     const handleWish = () => {
         isWished ? remove(item.product_id) : add(item.product_id);
         setWished(!isWished);
@@ -60,7 +60,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                     </div>
                     <div className="cart_wish_box">
                         <button className={!selectedSize ? "disabled" : "cart_button"}
-                                onClick={() => selectedSize && addToCart({
+                                onClick={() => selectedSize ? addToCart({
                                     id: item.product_id,
                                     size: selectedSize,
                                     name: item.product_name,
@@ -68,7 +68,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                                     price: item.product_price,
                                     discount: item.sale_percent,
                                     quantity: 1,
-                                })}>В КОРЗИНУ
+                                }) : setSizeWarning(1)}>В КОРЗИНУ
                         </button>
                         {isWished ? <img className="wish_button" onClick={handleWish}
                                          src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"

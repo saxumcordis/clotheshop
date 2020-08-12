@@ -16,8 +16,6 @@ export const CartProvider = ({children}) => {
 
 export const useCart = () => useContext(CartContext);
 
-export const CartConsumer = CartContext.Consumer;
-
 export const PersistCart = () => {
     const {cart} = useCart();
     useEffect(() => {
