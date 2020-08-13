@@ -8,7 +8,7 @@ const activePicture = {
 
 const bigHeadPicture = (place) => {
     if (place === 'Product')
-        return {width: "555px", height: "auto"};
+        return {minWidth: "480px", minHeight: "700px"};
     return null;
 };
 
@@ -25,7 +25,7 @@ const ItemGallery = ({item, place}) => {
         if (!gallery.some(e => e === activePhoto))
             setActivePhoto( gallery[0]);
     return (
-        <div className="item_gallery">
+        <div className="item_gallery" style={place === 'Product' ? {width: "600px"} : null}>
             <div className="item_gallery_box">
                 <div className="item_gallery_feed" id="igf">
                     {gallery.map(picture => <img key={gallery.indexOf(picture)} onClick={() => setActivePhoto(picture)}

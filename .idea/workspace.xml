@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Catalog/Catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Catalog/Catalog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Catalog/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Catalog/Filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Drawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +56,7 @@
       <workItem from="1597137611936" duration="15194000" />
       <workItem from="1597168127435" duration="11274000" />
       <workItem from="1597236062392" duration="20692000" />
-      <workItem from="1597322671283" duration="7353000" />
+      <workItem from="1597322671283" duration="7863000" />
     </task>
     <servers />
   </component>

@@ -426,8 +426,8 @@ a, a:visited{
 .item_head_picture {
     margin-top: 20px;
     margin-left: 5px;
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 350px;
+    min-width: 350px;
     max-height: 500px;
     min-height: 500px;
     transition: all 0.4s ease;
@@ -652,6 +652,13 @@ a, a:visited{
     font-weight: 600;
     display: flex;
     flex-direction: column;
+}
+
+.other_colors_gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .other_color_item {
