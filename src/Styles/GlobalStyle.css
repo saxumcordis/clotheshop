@@ -246,6 +246,7 @@ a, a:visited{
     font-size: 13px;
     display: flex;
     flex-direction: row;
+    width: 80%;
 }
 
 .filter {

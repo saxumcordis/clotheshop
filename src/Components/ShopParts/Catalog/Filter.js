@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 const activeFilter = {
     'backgroundColor': '#e5e5e5',
@@ -51,8 +51,10 @@ const resetFilters = ({activeColors, setActiveColor, setSizeFilter, sizeFilter})
     handleFilter(setSizeFilter, sizeFilter, [])
 };
 
-const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter}) => {
+const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter, sort, setSort}) => {
     const [checkColor, setColor] = useState(null);
+    const [checkSort, setSortCheck] = useState(null);
+
     return (
         <div className="filter_box">
             <ul className="filter">
@@ -74,6 +76,20 @@ const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter
                     <li className="filter_element"
                         onClick={() => resetFilters({activeColors, setActiveColor, setSizeFilter, sizeFilter})}>Сбросить
                         фильтр</li> : null}
+            </ul>
+            <ul className="filter" style={{marginLeft: 'auto', width: "250px"}}>
+                Сортировка:
+                <li className="filter_element" onClick={() => setSortCheck(!checkSort)}>{sort.name}</li>
+                <div className="color_list" hidden={!checkSort}>
+                    <li className="filter_element" style={{width: "200px"}}
+                        onClick={() => {setSort({name: 'По цене (по возрастанию)', type: 'price', dir: 'asc'}); setSortCheck(!checkSort)}}>По цене
+                        (по возрастанию)
+                    </li>
+                    <li className="filter_element" style={{width: "200px"}}
+                        onClick={() => {setSort({name: 'По цене (по убыванию)', type: 'price', dir: 'desc'}); setSortCheck(!checkSort)}}>По цене (по
+                        убыванию)
+                    </li>
+                </div>
             </ul>
         </div>
     )

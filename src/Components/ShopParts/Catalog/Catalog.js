@@ -7,6 +7,12 @@ import {Loading} from "../../SystemParts/Loading";
 import {addToWishList, isItemWished, removeFromWishList} from "../../../Service/ItemService";
 import {useWishList} from "../../../Service/WishListContext";
 
+const getPriceDiff = (a, b) => {
+  const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
+  const second = Math.floor((100 - b.sale_percent) * b.product_price / 100);
+  return first - second;
+};
+
 const beautyPrice = price => {
     let prString = price.toString();
     let length = prString.length;
@@ -59,7 +65,7 @@ const Catalog = ({setPath}) => {
     const [catalog, setCatalog] = useState(null);
     const [sizeFilter, setSizeFilter] = useState([]);
     const [activeColors, setActiveColor] = useState([]);
-    console.log(sizeFilter);
+    const [sort, setSort] = useState({name: 'По цене (по возрастанию)', type: 'price', dir: 'asc'});
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
@@ -70,6 +76,7 @@ const Catalog = ({setPath}) => {
     || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
         .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))
+        .sort((a, b) => sort.dir === 'asc' ? getPriceDiff(a, b) : getPriceDiff(b, a))
         .map(item => <Item key={item.product_id} item={item}/>);
     return (
         <div className='with_footer'>
@@ -80,7 +87,7 @@ const Catalog = ({setPath}) => {
                     <Filter sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}
                             colors={catalog.filter(item => sizeFilter.includes('small') && item.small_size > 0
                                 || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0).map(e => [e.product_color_name, e.color_code])} activeColors={activeColors}
-                            setActiveColor={setActiveColor}/>
+                            setActiveColor={setActiveColor} sort={sort} setSort={setSort}/>
                     <div className="catalog_items">
                         {showCatalog.length > 0 ? showCatalog : <h1>Нет подходящих вещей</h1>}
                     </div>
