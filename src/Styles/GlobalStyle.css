@@ -914,6 +914,8 @@ a, a:visited{
 .wish_div {
     display: flex;
     flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .wished {
