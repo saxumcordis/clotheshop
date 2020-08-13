@@ -15,7 +15,7 @@ import {Product} from "./Components/ShopParts/Product/Product";
 import {NotFound} from "./Components/SystemParts/NotFound";
 import {PersistWish, WishProvider} from "./Service/WishListContext";
 import {CartProvider, PersistCart} from "./Service/CartContext";
-import {DrawerProvider, useDrawer} from "./Service/Drawer";
+import {useDrawer} from "./Service/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
 
 
@@ -89,7 +89,7 @@ function App() {
                 </WishProvider>
             </BrowserRouter>
         </div>
-);
+    );
 }
 
 export default App;

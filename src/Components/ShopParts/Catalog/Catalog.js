@@ -57,19 +57,18 @@ const Item = ({item}) => {
 const Catalog = ({setPath}) => {
     setPath('/catalog');
     const [catalog, setCatalog] = useState(null);
-    const [sizeFilter, setSizeFilter] = useState(false);
-    const [activeColors, setActiveColor] = useState(false);
+    const [sizeFilter, setSizeFilter] = useState([]);
+    const [activeColors, setActiveColor] = useState([]);
+    console.log(sizeFilter);
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
             setCatalog(await catalog.json());
         })();
     }, []);
-    const showCatalog = catalog && catalog.filter(item => !sizeFilter ? 1
-        : sizeFilter.includes('small') ? item.small_size > 0
-            : sizeFilter.includes('medium') ? item.medium_size > 0
-                : 1)
-        .filter(item => !activeColors ? 1
+    const showCatalog = catalog && catalog.filter(item => sizeFilter.includes('small') && item.small_size > 0
+    || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
+        .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))
         .map(item => <Item key={item.product_id} item={item}/>);
     return (
@@ -79,7 +78,8 @@ const Catalog = ({setPath}) => {
                 {catalog &&
                 <div className="catalog_box">
                     <Filter sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}
-                            colors={catalog.map(e => [e.product_color_name, e.color_code])} activeColors={activeColors}
+                            colors={catalog.filter(item => sizeFilter.includes('small') && item.small_size > 0
+                                || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0).map(e => [e.product_color_name, e.color_code])} activeColors={activeColors}
                             setActiveColor={setActiveColor}/>
                     <div className="catalog_items">
                         {showCatalog.length > 0 ? showCatalog : <h1>Нет подходящих вещей</h1>}
