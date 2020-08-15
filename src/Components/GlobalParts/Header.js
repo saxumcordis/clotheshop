@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {Link} from "react-router-dom";
 import {useWishList} from "../../Service/WishListContext";
@@ -6,11 +6,25 @@ import {useCart} from "../../Service/CartContext";
 import {Drawer} from "../SystemParts/Drawer";
 import {useDrawer} from "../../Service/Drawer";
 
+const cartHandler = (e) => {
+    if (e.which === 2) {
+        e.preventDefault();
+        return <Link to="/cart"/>
+    }
+};
 
 const UserFeatures = () => {
     const {wishList} = useWishList();
     const {cart} = useCart();
     const {setStatus, status} = useDrawer();
+    useLayoutEffect(() => {
+        let cart = document.getElementById('cart');
+        cart.addEventListener('auxclick', function(e) {
+            if (e.button === 1) {
+                window.open("/cart");
+            }
+        });
+    });
     return (
         <ul className='user_features'>
             <li><Link to="/account"><img className="main_icon"
@@ -19,9 +33,9 @@ const UserFeatures = () => {
             <li><Link to="/wish"><img className="main_icon"
                                       src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({wishList.length})</span></Link>
             </li>
-            <li onClick={() => setStatus(status === 'open' ? 'close' : 'open')}><Link to="/cart"><img
+            <li onClick={() => setStatus(status === 'open' ? 'close' : 'open')}><a id="cart" href="javascript:;"><img
                 className="main_icon"
-                src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({cart.length ? cart.map(e => e.quantity).reduce((a, b) => a + b) : 0})</span></Link>
+                src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({cart.length ? cart.map(e => e.quantity).reduce((a, b) => a + b) : 0})</span></a>
             </li>
         </ul>
     )

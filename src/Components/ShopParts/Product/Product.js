@@ -6,6 +6,7 @@ import {Loading} from "../../SystemParts/Loading";
 import {Recommended} from "./Recommended";
 import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
+import {useDrawer} from "../../../Service/Drawer";
 
 const beautyPrice = price => {
     let prString = price.toString();
@@ -17,7 +18,7 @@ const beautyPrice = price => {
 
 const activeMainBox = {
     "borderBottom": "2px solid black"
-}
+};
 
 const MainBox = ({item}) => {
     const [content, setContent] = useState('description');
@@ -58,6 +59,20 @@ const Product = ({setPath}) => {
     const [sizeWarning, setSizeWarning] = useState(null);
 
     const {addToCart} = useCart();
+    const {open} = useDrawer();
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: item.product_id,
+            size: selectedSize,
+            name: item.product_name,
+            photo: item.picture_1,
+            price: item.product_price,
+            discount: item.sale_percent,
+            quantity: 1,
+        });
+        open();
+    };
 
     const handleWish = () => {
         isWished ? remove(item.product_id) : add(item.product_id);
@@ -113,15 +128,7 @@ const Product = ({setPath}) => {
                         </div>
                         <div className="cart_wish_box">
                             <button className={!selectedSize ? "disabled" : "cart_button"}
-                                    onClick={() => selectedSize ? addToCart({
-                                        id: item.product_id,
-                                        size: selectedSize,
-                                        name: item.product_name,
-                                        photo: item.picture_1,
-                                        price: item.product_price,
-                                        discount: item.sale_percent,
-                                        quantity: 1,
-                                    }) : setSizeWarning(1)}>В КОРЗИНУ
+                                    onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>В КОРЗИНУ
                             </button>
                             {isWished ? <img className="wish_button" onClick={handleWish}
                                              src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"

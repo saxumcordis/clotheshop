@@ -3,7 +3,7 @@ import styles from "../../Styles/Drawer.css";
 import {useDrawer} from "../../Service/Drawer";
 export const Drawer = ({component, state}) => {
     const [drawerClass, setDrawerClass] = useState('side_drawer');
-    const {close, status} = useDrawer();
+    const {status} = useDrawer();
     if (state === 'open' && !drawerClass.split(' ').includes('open'))
         setDrawerClass('side_drawer open');
     if (state === 'close' && drawerClass.split(' ').includes('open'))

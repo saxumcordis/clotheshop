@@ -1,4 +1,4 @@
-.background_drawer .open{
+.background_drawer.open{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -6,9 +6,10 @@
     z-index: 5;
     top: 0;
     right: 0;
+    transition: 0.4s easy;
 }
 
-.background_drawer .close {
+.background_drawer.close {
     display: none;
     position: fixed;
     width: 100%;
@@ -17,6 +18,7 @@
     z-index: 5;
     top: 0;
     right: 0;
+    transition: 0.4s easy;
 }
 
 .side_drawer {
