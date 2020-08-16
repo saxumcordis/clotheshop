@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useCart} from "../../../Service/CartContext";
 import {beautyPrice} from "../Product/Product";
+import {useDrawer} from "../../../Service/Drawer";
+import {TotalCartDrawer} from "./TotalDrawer";
 
 
 const QuantityInput = ({item}) => {
-    const [inputValue, setValue] = useState(item.quantity);
     const {cart, updateItem} = useCart();
+    const [inputValue, setValue] = useState(item.quantity);
+    console.log(cart);
     const handleValueChange = e => {
         if (/^[0-9]*$/.test(e.target.value)) {
             const newValue = !e.target.value.length ? 1 : +e.target.value > +item.limit ? +item.limit : +e.target.value === 0 ? 1 : +e.target.value;
@@ -18,11 +21,12 @@ const QuantityInput = ({item}) => {
         else
             e.target.value = item.quantity;
     };
+    useEffect(() => setValue(item.quantity), [cart]);
     return (
         <input type="text" min="0" max={item.limit}
-               defaultValue={inputValue} onChange={handleValueChange}/>
+               value={inputValue} onChange={handleValueChange}/>
     )
-}
+};
 
 const ItemDrawer = ({item}) => {
 
@@ -55,9 +59,12 @@ const ItemDrawer = ({item}) => {
 
 export const CartDrawer = () => {
     const {cart} = useCart();
+    const {close} = useDrawer();
     return (
         <div className="cart_drawer">
             {cart.map(item => <ItemDrawer key={item.id + item.size} item={item}/>)}
+            {!cart.length && <p className="small_cart_empty">Корзина пуста <p onClick={() => close()}>Продолжить покупки </p></p>}
+            {!!cart.length && <TotalCartDrawer/>}
         </div>
     )
 };
