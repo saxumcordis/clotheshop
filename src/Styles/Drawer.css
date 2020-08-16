@@ -6,7 +6,8 @@
     z-index: 5;
     top: 0;
     right: 0;
-    transition: 0.4s easy;
+    transition: opacity 1s ease-out;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .background_drawer.close {
@@ -28,7 +29,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 35%;
+    width: 36%;
     z-index: 200;
     box-shadow: 1px 0 7px rgba(0,0,0,0.5);
     transform: translateX(100%);
@@ -37,4 +38,11 @@
 
 .side_drawer.open {
     transform: translateX(0);
+}
+
+.title_drawer_cart {
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
 }

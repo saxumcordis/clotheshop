@@ -66,7 +66,7 @@ const Product = ({setPath}) => {
             id: item.product_id,
             size: selectedSize,
             name: item.product_name,
-            photo: item.picture_1,
+            photo: item.picture_2,
             price: item.product_price,
             discount: item.sale_percent,
             quantity: 1,
@@ -80,7 +80,6 @@ const Product = ({setPath}) => {
     };
 
     const reRenderSameItems = async () => {
-        console.log(item);
         const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
         setSameItems(await sameItems.json());
     };

@@ -6,8 +6,6 @@ const Wish = ({setPath}) => {
     setPath('/wish');
     const {wishList} = useWishList();
     const [wishCatalog, setWishCatalog] = useState(null);
-    console.log(wishCatalog);
-    console.log(wishList);
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
@@ -17,7 +15,6 @@ const Wish = ({setPath}) => {
 
     const showWishCatalog = wishCatalog && wishCatalog.filter(item => wishList.find(e => e === item.product_id)).map(item =>
         <Item key={item.product_id} item={item}/>);
-    console.log(showWishCatalog);
     return (
         <div className='with_footer'>
             <div className='global_giv'>

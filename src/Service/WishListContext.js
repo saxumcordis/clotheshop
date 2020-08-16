@@ -6,7 +6,8 @@ export const WishProvider = ({children}) => {
     const [wishList, setWishList] = useState(localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList')) : []);
     const add = useCallback(product => setWishList(wishList => wishList.concat(product)), [setWishList]);
     const remove = useCallback(product => setWishList(wishList => wishList.filter(e => e !== product)), [setWishList]);
-    const value = {wishList, setWishList, add, remove};
+    const countWishItems = wishList.length;
+    const value = {wishList, setWishList, add, remove, countWishItems};
     return <WishContext.Provider value={value}>{children}</WishContext.Provider>
 };
 

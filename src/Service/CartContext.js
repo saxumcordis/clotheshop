@@ -10,7 +10,8 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
     const addToCart = useCallback(product => setCart(cart => cart.map(e => e.id === product.id && e.size === product.size ? ({...e, quantity: e.quantity + 1}) : e).concat(isInCart(cart, product.id, product.size) ? [] : [product])), [setCart]);
     const removeFromCart = useCallback(product => setCart(cart => cart.filter(e => e !== product)), [setCart]);
-    const value = {cart, setCart, addToCart, removeFromCart};
+    const countCartItems = useCallback(cart.map(e => e.quantity).reduce((a, b) => a + b, 0), [setCart]);
+    const value = {cart, setCart, addToCart, removeFromCart, countCartItems};
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 };
 

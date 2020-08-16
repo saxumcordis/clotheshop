@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 
 const activeFilter = {
     'backgroundColor': '#e5e5e5',
@@ -7,11 +7,10 @@ const activeFilter = {
 };
 
 const colorPalette = (colorCode) => {
-    console.log(colorCode);
     return {
         'backgroundColor': colorCode,
-        'min-width': '10px',
-        'min-height': '10px',
+        'minWidth': '10px',
+        'minHeight': '10px',
         'display': 'block',
         'marginTop': '2.5px'
     }

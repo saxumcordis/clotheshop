@@ -21,8 +21,7 @@ import {Drawer} from "./Components/SystemParts/Drawer";
 
 function App() {
     const [currentPath, setPath] = useState(window.location.pathname);
-    const {status, setStatus} = useDrawer();
-    console.log(status);
+    const {status} = useDrawer();
     return (
         <div>
             <BrowserRouter>

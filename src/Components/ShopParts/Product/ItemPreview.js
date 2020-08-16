@@ -3,6 +3,7 @@ import {ItemGallery} from "./Gallery";
 import {Link} from "react-router-dom";
 import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
+import {useDrawer} from "../../../Service/Drawer";
 
 const ItemPreview = ({id, setItemPreview}) => {
     const [item, setItem] = useState(null);
@@ -18,6 +19,21 @@ const ItemPreview = ({id, setItemPreview}) => {
     };
 
     const {addToCart} = useCart();
+    const {open} = useDrawer();
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: item.product_id,
+            size: selectedSize,
+            name: item.product_name,
+            photo: item.picture_1,
+            price: item.product_price,
+            discount: item.sale_percent,
+            quantity: 1,
+        });
+        setItemPreview(false);
+        open();
+    };
 
     const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
     const handleClick = event => {
@@ -60,15 +76,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                     </div>
                     <div className="cart_wish_box">
                         <button className={!selectedSize ? "disabled" : "cart_button"}
-                                onClick={() => selectedSize ? addToCart({
-                                    id: item.product_id,
-                                    size: selectedSize,
-                                    name: item.product_name,
-                                    photo: item.picture_1,
-                                    price: item.product_price,
-                                    discount: item.sale_percent,
-                                    quantity: 1,
-                                }) : setSizeWarning(1)}>В КОРЗИНУ
+                                onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>В КОРЗИНУ
                         </button>
                         {isWished ? <img className="wish_button" onClick={handleWish}
                                          src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"

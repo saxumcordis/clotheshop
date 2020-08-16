@@ -930,3 +930,15 @@ a, a:visited{
     font-weight: 500;
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
+
+.cart_drawer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.small_cart_item {
+    width: 90%;
+    margin-left: 50px;
+    height: 150px;
+}
