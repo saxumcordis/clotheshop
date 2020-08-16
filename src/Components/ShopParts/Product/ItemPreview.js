@@ -29,6 +29,7 @@ const ItemPreview = ({id, setItemPreview}) => {
             photo: item.picture_1,
             price: item.product_price,
             discount: item.sale_percent,
+            limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
             quantity: 1,
         });
         setItemPreview(false);

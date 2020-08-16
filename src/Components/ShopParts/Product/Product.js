@@ -8,12 +8,12 @@ import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
 import {useDrawer} from "../../../Service/Drawer";
 
-const beautyPrice = price => {
+export const beautyPrice = price => {
     let prString = price.toString();
     let length = prString.length;
     let hd = prString.slice(length - 3);
     let th = prString.slice(0, length - 3);
-    return th + " " + hd;
+    return th + " " + hd + " P";
 };
 
 const activeMainBox = {
@@ -69,6 +69,8 @@ const Product = ({setPath}) => {
             photo: item.picture_2,
             price: item.product_price,
             discount: item.sale_percent,
+            art: item.product_code,
+            limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
             quantity: 1,
         });
         open();
@@ -91,6 +93,7 @@ const Product = ({setPath}) => {
         })();
         if (item && sameItems)
             reRenderSameItems();
+        setSize(null);
     }, [id]);
 
     useEffect(() => {
@@ -112,9 +115,9 @@ const Product = ({setPath}) => {
                         <div className="product_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
                             <h3>№ {item.product_code}</h3></div>
                         {(+price) === (+salePrice) ? <span style={{marginLeft: "20px", marginTop: "-15px"}}
-                                                           className="item_price">{beautyPrice(price)} P</span> :
+                                                           className="item_price">{beautyPrice(price)}</span> :
                             <span style={{marginLeft: "20px", marginTop: "-15px"}}
-                                  className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
+                                  className="item_price">{beautyPrice(salePrice)}<s>{beautyPrice(price)}</s></span>}
                         <div className="product_sizes" style={{marginTop: "10px"}}>
                             <div
                                 className={item.small_size <= 0 ? "button_size_unavailable" : selectedSize !== '42-44' ? "button_size" : "button_size_selected"}
@@ -148,8 +151,8 @@ const Product = ({setPath}) => {
                             <p>Другие цвета:</p>
                             <div className="other_colors_gallery">
                                 {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
-                                    наличии</p> : sameItems.map(item => <Link
-                                    to={(() => "/catalog/item/" + item.product_id)}><img key={item.product_id}
+                                    наличии</p> : sameItems.map(item => <Link key={item.product_id + "2"}
+                                    to={(() => "/catalog/item/" + item.product_id)}><img
                                                                                          className="other_color_item"
                                                                                          src={item.picture_3}/></Link>))}
                             </div>

@@ -6,19 +6,12 @@ import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {addToWishList, isItemWished, removeFromWishList} from "../../../Service/ItemService";
 import {useWishList} from "../../../Service/WishListContext";
+import {beautyPrice} from "../Product/Product";
 
 const getPriceDiff = (a, b) => {
   const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
   const second = Math.floor((100 - b.sale_percent) * b.product_price / 100);
   return first - second;
-};
-
-const beautyPrice = price => {
-    let prString = price.toString();
-    let length = prString.length;
-    let hd = prString.slice(length - 3);
-    let th = prString.slice(0, length - 3);
-    return th + " " + hd;
 };
 
 const Item = ({item}) => {
@@ -54,8 +47,8 @@ const Item = ({item}) => {
                 <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>
             </span>
             <span className="item_name">{item.product_name}</span>
-            {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)} P</span> :
-                <span className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
+            {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)}</span> :
+                <span className="item_price">{beautyPrice(salePrice)}<s>{beautyPrice(price)}</s></span>}
         </div>
     )
 };
