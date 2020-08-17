@@ -31,7 +31,6 @@ const ItemPreview = ({id, setItemPreview}) => {
             limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
             quantity: 1,
         });
-        setItemPreview(false);
     };
 
     const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
@@ -45,7 +44,7 @@ const ItemPreview = ({id, setItemPreview}) => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
             setItem(await item.json());
         })();
-    }, []);
+    }, [id]);
     useEffect(() => {
         setWished(item && wishList.find(e => e === item.product_id));
     }, [item]);
@@ -96,7 +95,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                         <div className="other_colors_gallery">
                             {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
                                 наличии</p> : sameItems.map(item => <Link
-                                to={(() => "/catalog/item/" + item.product_id)}><img key={item.product_id}
+                                to={(() => "/catalog/preview/" + item.product_id)}><img key={item.product_id}
                                                                                      className="other_color_item"
                                                                                      src={item.picture_3}/></Link>))}
                         </div>

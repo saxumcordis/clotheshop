@@ -106,7 +106,7 @@ const Product = ({setPath}) => {
     return (
         <div className='with_footer'>
             {item &&
-            <div className="global_div">
+            <div className="global_giv">
                 <div className="product">
                     <ItemGallery item={item} place={"Product"}/>
                     <div className="product_preview_info" style={{marginLeft: "40px"}}>
