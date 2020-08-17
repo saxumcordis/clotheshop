@@ -55,7 +55,10 @@ const ItemDrawer = ({item}) => {
                             textDecoration: "line-through",
                             fontSize: "9px"
                         }}>{beautyPrice(quantity * item.price)}</p></p>}</td>
-                    <td className="small_cart_item_table_remove"><span onClick={() => removeFromCart(item)}>×</span>
+                    <td className="small_cart_item_table_remove"><span onClick={() => {
+                        if (window.confirm("Действительно хотите удалить товар из корзины?"))
+                            removeFromCart(item);
+                    }}>×</span>
                     </td>
                 </tr>
             </table>

@@ -15,6 +15,7 @@ const getPriceDiff = (a, b) => {
 };
 
 const Item = ({item}) => {
+    const {path} = usePath();
     const [itemPreview, setItemPreview] = useState(false);
     const [redirect, setRedirect] = useState(null);
     const price = item.product_price;
@@ -26,7 +27,12 @@ const Item = ({item}) => {
             setRedirect('/catalog/item/' + item.product_id);
     };
     const handleWish = () => {
-      isWished ? remove(item.product_id) : add(item.product_id);
+        let result = window.confirm("Вы действительно хотите удалить товар из списка желаемого?");
+        if (path === "/wish" && result)
+            remove(item.product_id);
+        else
+            isWished && path !== "/wish" ? remove(item.product_id) : add(item.product_id);
+
     };
     if (redirect)
         return (<Redirect push to={redirect}/>);

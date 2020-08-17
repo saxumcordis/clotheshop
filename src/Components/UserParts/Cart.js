@@ -48,7 +48,10 @@ const CartItem = ({index, item}) => {
                                     fontSize: "9px"
                                 }}>{beautyPrice(quantity * item.price)}</p></p>}
                         </td>
-                        <td style={{width: "10%"}} className="cart_item_table_remove"><span onClick={() => removeFromCart(item)}>×</span>
+                        <td style={{width: "10%"}} className="cart_item_table_remove"><span onClick={() => {
+                            if (window.confirm("Действительно хотите удалить товар из корзины?"))
+                                removeFromCart(item);
+                        }}>×</span>
                         </td>
                     </tr>
                     </tbody>
