@@ -6,7 +6,7 @@ import {TotalCartDrawer} from "./TotalDrawer";
 import {Link} from "react-router-dom";
 
 
-const QuantityInput = ({item}) => {
+export const QuantityInput = ({item}) => {
     const {cart, updateItem} = useCart();
     const [inputValue, setValue] = useState(item.quantity);
     const {showWarning} = useDrawer();

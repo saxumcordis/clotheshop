@@ -1131,12 +1131,14 @@ a, a:visited{
 
 .small_cart_total_price {
     font-size: 13px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     width: 80%;
     text-align: right;
 }
 
 .small_cart_total_confirm {
+    margin-top: 5px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -1146,7 +1148,8 @@ a, a:visited{
     margin-left: -50px;
 }
 
-.small_cart_total_confirm_button {
+.cart_total_confirm_button {
+    text-align: center;
     color: white;
     font-size: 12px;
     text-transform: uppercase;
@@ -1179,9 +1182,120 @@ a, a:visited{
 
 .cart_box {
     margin-top: 70px;
+    width: 100%;
+    height: calc(100% - 70px);
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart_box h1 {
     font-size: 24px;
 }
+
+.cart_item_list {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.cart_item {
+    direction:ltr;
+    display: flex;
+    width: 90%;
+    height: 170px;
+    min-height: 120px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 20px 0;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.cart_item_photo {
+    width: 90px;
+    height: 130px;
+}
+
+.cart_item_table {
+    width: 90%;
+    margin-left: 20px;
+}
+
+
+.cart_item_table table {
+    border: 1px solid #e1e1e1;
+    border-collapse: collapse;
+    height: 130px;
+    width: 100%;
+}
+
+.cart_item_table table td {
+    border: 1px solid #e1e1e1;
+    padding: 10px 14px;
+}
+
+.cart_item_table_name {
+    width: 110px;
+    text-align: left;
+}
+
+.cart_item_table_quantity > input {
+    width: 48px;
+    height: 20px;
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    color: black;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    margin: auto;
+    line-height: 20px;
+    position: relative;
+    top: 7px;
+}
+
+.cart_item_table_price {
+    margin-left: 20px;
+    padding: 20px 45px;
+    text-align: left;
+}
+
+.cart_item_table_remove {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.4s all;
+    text-align: center;
+}
+.cart_item_table_remove:hover{
+    opacity: 0.7;
+    transition: 0.4s all;
+}
+
+.cart_total {
+    margin-top: 10px;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cart_total p {
+    text-decoration: underline;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0;
+}
+.cart_total p:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
