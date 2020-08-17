@@ -27,7 +27,7 @@ const Item = ({item}) => {
             setRedirect('/catalog/item/' + item.product_id);
     };
     const handleWish = () => {
-        let result = window.confirm("Вы действительно хотите удалить товар из списка желаемого?");
+        let result = path === "/wish" && window.confirm("Вы действительно хотите удалить товар из списка желаемого?");
         if (path === "/wish" && result)
             remove(item.product_id);
         else
