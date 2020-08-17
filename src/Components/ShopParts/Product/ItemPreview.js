@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {ItemGallery} from "./Gallery";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
 import {useDrawer} from "../../../Service/Drawer";
 
 const ItemPreview = ({id, setItemPreview}) => {
     const [item, setItem] = useState(null);
+    const [itemId, setId] = useState(id);
     const [selectedSize, setSize] = useState(null);
     const [sameItems, setSameItems] = useState('');
-
     const {add, remove, wishList} = useWishList();
     const [isWished, setWished] = useState(item && wishList.find(e => e === item.product_id));
     const [sizeWarning, setSizeWarning] = useState(null);
@@ -41,19 +41,18 @@ const ItemPreview = ({id, setItemPreview}) => {
 
     useEffect(() => {
         (async () => {
-            const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
+            const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + (itemId));
             setItem(await item.json());
         })();
-    }, [id]);
+    }, [itemId]);
     useEffect(() => {
         setWished(item && wishList.find(e => e === item.product_id));
     }, [item]);
-    if (item && !sameItems) {
-        setTimeout(async () => {
-            const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
-            setSameItems(await sameItems.json());
-        }, 50);
-    }
+    useEffect(() => {
+        (async () => {
+        const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + itemId);
+        setSameItems(await sameItems.json());
+    })()}, [itemId]);
     return (
         <div className="overlay" onClick={handleClick}>
             {item &&
@@ -95,7 +94,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                         <div className="other_colors_gallery">
                             {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
                                 наличии</p> : sameItems.map(item => <Link
-                                to={(() => "/catalog/preview/" + item.product_id)}><img key={item.product_id}
+                                to={(() => "/catalog/")}><img key={item.product_id} onClick={() => setId(item.product_id)}
                                                                                      className="other_color_item"
                                                                                      src={item.picture_3}/></Link>))}
                         </div>

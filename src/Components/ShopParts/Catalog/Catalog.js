@@ -4,7 +4,6 @@ import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
 import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
-import {addToWishList, isItemWished, removeFromWishList} from "../../../Service/ItemService";
 import {useWishList} from "../../../Service/WishListContext";
 import {beautyPrice} from "../Product/Product";
 

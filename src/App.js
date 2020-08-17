@@ -17,6 +17,7 @@ import {PersistWish, WishProvider} from "./Service/WishListContext";
 import {CartProvider, PersistCart} from "./Service/CartContext";
 import {useDrawer} from "./Service/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
+import {ItemPreview} from "./Components/ShopParts/Product/ItemPreview";
 
 
 function App() {

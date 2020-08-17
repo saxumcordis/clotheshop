@@ -703,7 +703,7 @@ a, a:visited{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .product_gallery {
@@ -871,15 +871,19 @@ a, a:visited{
     font-size: 12px;
     font-weight: 600;
 }
-
-.delivery_box, .about_box, .contacts_box, .wish_box {
+ .about_box, .contacts_box, .wish_box {
     margin-left: 220px;
     margin-top: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
 .delivery_box {
     width: 800px;
+    margin-left: 220px;
+    margin-top: 30px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .delivery_box  h1, .contacts_box h1 {
