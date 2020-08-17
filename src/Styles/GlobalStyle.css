@@ -697,13 +697,13 @@ a, a:visited{
 }
 
 .product {
-    width: 100%;
+    width: 90%;
     height: 100%;
     margin-top: 70px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .product_gallery {
