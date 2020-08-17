@@ -64,22 +64,29 @@ const CartItem = ({index, item}) => {
 const Cart = () => {
     const {cart} = useCart();
     const {setPath} = usePath();
-    const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart]);
+    const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b, 0), [cart]);
     useEffect(() => setPath('/cart'));
     return (
         <div className='with_footer'>
             <div className='global_giv'>
                 <div className="cart_box">
                     <h1>Ваша корзина</h1>
-                    <div className="cart_item_list">
-                        {cart.map(item => <CartItem key={cart.indexOf(item) + "_cart_item"} index={cart.indexOf(item)}
-                                                    item={item}/>)}
-                    </div>
-                    <div className="cart_total">
+                    {!!cart.length && <div className="cart">
+                        <div className="cart_item_list">
+                            {cart.map(item => <CartItem key={cart.indexOf(item) + "_cart_item"}
+                                                        index={cart.indexOf(item)}
+                                                        item={item}/>)}
+                        </div>
+                        <div className="cart_total">
+                            <Link to="/catalog"><p>Продолжить покупки</p></Link>
+                            <span>ИТОГО: {beautyPrice(totalPrice)}</span>
+                        </div>
+                        <span className="cart_total_confirm_button">Оформить заказ</span>
+                    </div>}
+                    {!cart.length && <div className="cart_empty">
+                        <h3>Тут ничего нет :(</h3>
                         <Link to="/catalog"><p>Продолжить покупки</p></Link>
-                        <span>ИТОГО: {beautyPrice(totalPrice)}</span>
-                    </div>
-                    <span className="cart_total_confirm_button">Оформить заказ</span>
+                    </div>}
                 </div>
             </div>
         </div>
