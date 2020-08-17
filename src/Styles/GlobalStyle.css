@@ -938,7 +938,7 @@ a, a:visited{
 
 .cart_drawer {
     width: 98%;
-    height: 500px;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
