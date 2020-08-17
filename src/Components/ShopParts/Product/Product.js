@@ -69,7 +69,6 @@ const Product = () => {
             limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
             quantity: 1};
         !isLimit(product) ? addToCart(product) : showWarning();
-        console.log(product);
     };
 
     const handleWish = () => {

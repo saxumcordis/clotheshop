@@ -18,19 +18,19 @@ const ItemPreview = ({id, setItemPreview}) => {
         setWished(!isWished);
     };
 
-    const {addToCart} = useCart();
+    const {addToCart, isLimit, showWarning, limitWarning} = useCart();
 
     const handleAddToCart = () => {
-        addToCart({
-            id: item.product_id,
+        const product = {id: item.product_id,
             size: selectedSize,
             name: item.product_name,
-            photo: item.picture_1,
+            photo: item.picture_2,
             price: item.product_price,
             discount: item.sale_percent,
+            art: item.product_code,
             limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
-            quantity: 1,
-        });
+            quantity: 1};
+        !isLimit(product) ? addToCart(product) : showWarning();
     };
 
     const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
@@ -84,6 +84,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                         }
                     </div>
                     {sizeWarning && <span className="size_cart_warning">Выберите желаемый размер</span>}
+                    {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                     <div className="item_preview_info_text">
                         <p>Цвет : {item.product_color_name.toLowerCase()}</p>
                         <p>Материал : {item.product_material.toLowerCase()}</p>
