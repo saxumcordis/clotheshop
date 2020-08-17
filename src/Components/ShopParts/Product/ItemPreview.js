@@ -19,7 +19,6 @@ const ItemPreview = ({id, setItemPreview}) => {
     };
 
     const {addToCart} = useCart();
-    const {open} = useDrawer();
 
     const handleAddToCart = () => {
         addToCart({
@@ -33,7 +32,6 @@ const ItemPreview = ({id, setItemPreview}) => {
             quantity: 1,
         });
         setItemPreview(false);
-        open();
     };
 
     const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};

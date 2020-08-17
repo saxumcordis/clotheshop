@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/ShopParts/Cart/TotalDrawer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Cart/CartDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Cart/CartDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +61,8 @@
       <workItem from="1597236062392" duration="20692000" />
       <workItem from="1597322671283" duration="13473000" />
       <workItem from="1597500909632" duration="6957000" />
-      <workItem from="1597517664911" duration="23457000" />
+      <workItem from="1597517664911" duration="24386000" />
+      <workItem from="1597655624952" duration="230000" />
     </task>
     <servers />
   </component>

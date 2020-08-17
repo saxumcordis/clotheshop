@@ -59,7 +59,6 @@ const Product = ({setPath}) => {
     const [sizeWarning, setSizeWarning] = useState(null);
 
     const {addToCart} = useCart();
-    const {open} = useDrawer();
 
     const handleAddToCart = () => {
         addToCart({
@@ -73,7 +72,6 @@ const Product = ({setPath}) => {
             limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
             quantity: 1,
         });
-        open();
     };
 
     const handleWish = () => {
