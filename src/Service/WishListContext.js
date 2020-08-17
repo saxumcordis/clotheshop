@@ -13,8 +13,6 @@ export const WishProvider = ({children}) => {
 
 export const useWishList = () => useContext(WishContext);
 
-export const WishConsumer = WishContext.Consumer;
-
 export const PersistWish = () => {
     const {wishList} = useWishList();
     useEffect(() => {

@@ -205,6 +205,7 @@ a, a:visited{
     height: calc(100% - 70px);
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 
@@ -870,8 +871,6 @@ a, a:visited{
     font-weight: 600;
 }
  .about_box, .contacts_box, .wish_box {
-    margin-left: 220px;
-    margin-top: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     display: flex;
     justify-content: center;
@@ -879,7 +878,6 @@ a, a:visited{
 
 .delivery_box {
     width: 800px;
-    margin-left: 220px;
     margin-top: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
@@ -1177,4 +1175,13 @@ a, a:visited{
 }
 .small_cart_total_confirm span:hover {
     text-decoration: none;
+}
+
+.cart_box {
+    margin-top: 70px;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.cart_box h1 {
+    font-size: 24px;
 }

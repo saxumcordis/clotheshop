@@ -7,7 +7,9 @@ const Cart = () => {
     return (
         <div className='with_footer'>
             <div className='global_giv'>
-                wish
+                <div className="cart_box">
+                    <h1>Ваша корзина</h1>
+                </div>
             </div>
         </div>
     )
