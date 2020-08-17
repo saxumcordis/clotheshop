@@ -17,11 +17,11 @@ import {PersistWish, WishProvider} from "./Service/WishListContext";
 import {CartProvider, PersistCart} from "./Service/CartContext";
 import {useDrawer} from "./Service/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
-import {ItemPreview} from "./Components/ShopParts/Product/ItemPreview";
+import {usePath} from "./Service/PathContext";
 
 
 function App() {
-    const [currentPath, setPath] = useState(window.location.pathname);
+    const {path, setPath} = usePath();
     const {status} = useDrawer();
     return (
         <div>
@@ -32,56 +32,56 @@ function App() {
                         <Switch>
                             <Route exact path="/catalog">
                                 <Title title="Каталог">
-                                    <Catalog setPath={setPath}/>
+                                    <Catalog/>
                                 </Title>
                             </Route>
                             <Route path="/delivery">
                                 <Title title="Доставка">
-                                    <Delivery setPath={setPath}/>
+                                    <Delivery/>
                                 </Title>
                             </Route>
                             <Route path="/contacts">
                                 <Title title="Контакты">
-                                    <Contacts setPath={setPath}/>
+                                    <Contacts/>
                                 </Title>
                             </Route>
                             <Route path="/about">
                                 <Title title="О нас">
-                                    <About setPath={setPath}/>
+                                    <About/>
                                 </Title>
                             </Route>
                             <Route path="/cart">
                                 <Title title="Корзина">
-                                    <Cart setPath={setPath}/>
+                                    <Cart/>
                                 </Title>
                             </Route>
                             <Route path="/wish">
                                 <Title title="Список желаний">
-                                    <Wish setPath={setPath}/>
+                                    <Wish/>
                                 </Title>
                             </Route>
                             <Route path="/account">
                                 <Title title="Личный кабинет">
-                                    <Account setPath={setPath}/>
+                                    <Account/>
                                 </Title>
                             </Route>
                             <Route path="/catalog/item/:id">
                                 <Title title="Просмотр">
-                                    <Product setPath={setPath}/>
+                                    <Product/>
                                 </Title>
                             </Route>
                             <Route exact path="/">
                                 <Title title="MIKTINA">
-                                    <Home setPath={setPath}/>
+                                    <Home/>
                                 </Title>
                             </Route>
                             <Route exact path="*">
                                 <Title title="Страницы не существует">
-                                    <NotFound setPath={setPath}/>
+                                    <NotFound/>
                                 </Title>
                             </Route>
                         </Switch>
-                        {currentPath !== "/" ? <Footer/> : null}
+                        {path !== "/" ? <Footer/> : null}
                         <PersistWish/>
                         <PersistCart/>
                         <Drawer state={status}/>

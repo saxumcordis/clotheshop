@@ -196,7 +196,6 @@ a, a:visited{
     flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
 }
 
 .global_giv {

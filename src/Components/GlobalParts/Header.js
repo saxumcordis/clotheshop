@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useLayoutEffect, useState} from 'react'
+import React, {useLayoutEffect, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {Link} from "react-router-dom";
 import {useWishList} from "../../Service/WishListContext";
 import {useCart} from "../../Service/CartContext";
-import {Drawer} from "../SystemParts/Drawer";
 import {useDrawer} from "../../Service/Drawer";
+import {usePath} from "../../Service/PathContext";
 
 
 const UserFeatures = () => {
@@ -36,19 +36,19 @@ const UserFeatures = () => {
 };
 
 const Menu = () => {
-    const [currentLink, setLink] = useState(window.location.pathname);
+    const {path} = usePath();
     const {close} = useDrawer();
     return (
         <ul className="menu">
-            <Link to="/" onClick={() => close()}><img className='logo' onClick={() => setLink('/')}
+            <Link to="/" onClick={() => close()}><img className='logo'
                               src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/></Link>
-            <li className={currentLink === '/catalog' ? 'menu_active' : null} onClick={() => {setLink('/catalog'); close()}}><Link
+            <li className={path === '/catalog' ? 'menu_active' : null} onClick={() => {close()}}><Link
                 to="/catalog">Онлайн магазин</Link></li>
-            <li className={currentLink === '/delivery' ? 'menu_active' : null} onClick={() => {setLink('/delivery'); close()}}>
+            <li className={path === '/delivery' ? 'menu_active' : null} onClick={() => {close()}}>
                 <Link to="/delivery">Доставка</Link></li>
-            <li className={currentLink === '/about' ? 'menu_active' : null} onClick={() => {setLink('/about'); close()}}><Link
+            <li className={path === '/about' ? 'menu_active' : null} onClick={() => {close()}}><Link
                 to="/about">О нас</Link></li>
-            <li className={currentLink === '/contacts' ? 'menu_active' : null} onClick={() => {setLink('/contacts'); close()}}>
+            <li className={path === '/contacts' ? 'menu_active' : null} onClick={() => {close()}}>
                 <Link to="/contacts">Контакты</Link></li>
             <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
         </ul>

@@ -6,7 +6,8 @@ import {Loading} from "../../SystemParts/Loading";
 import {Recommended} from "./Recommended";
 import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
-import {useDrawer} from "../../../Service/Drawer";
+import {usePath} from "../../../Service/PathContext";
+
 
 export const beautyPrice = price => {
     let prString = price.toString();
@@ -14,10 +15,6 @@ export const beautyPrice = price => {
     let hd = prString.slice(length - 3);
     let th = prString.slice(0, length - 3);
     return th + " " + hd + " P";
-};
-
-const activeMainBox = {
-    "borderBottom": "2px solid black"
 };
 
 const MainBox = ({item}) => {
@@ -45,8 +42,9 @@ const MainBox = ({item}) => {
     )
 };
 
-const Product = ({setPath}) => {
-    setPath('/catalog');
+const Product = () => {
+    const {setPath} = usePath();
+    useEffect(() => setPath('/catalog'));
     const id = useParams().id;
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState(null);

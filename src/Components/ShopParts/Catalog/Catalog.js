@@ -6,6 +6,7 @@ import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {useWishList} from "../../../Service/WishListContext";
 import {beautyPrice} from "../Product/Product";
+import {usePath} from "../../../Service/PathContext";
 
 const getPriceDiff = (a, b) => {
   const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
@@ -52,8 +53,9 @@ const Item = ({item}) => {
     )
 };
 
-const Catalog = ({setPath}) => {
-    setPath('/catalog');
+const Catalog = () => {
+    const {setPath} = usePath();
+    useEffect(() => setPath('/catalog'));
     const [catalog, setCatalog] = useState(null);
     const [sizeFilter, setSizeFilter] = useState([]);
     const [activeColors, setActiveColor] = useState([]);

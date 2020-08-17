@@ -8,7 +8,6 @@ import {TotalCartDrawer} from "./TotalDrawer";
 const QuantityInput = ({item}) => {
     const {cart, updateItem} = useCart();
     const [inputValue, setValue] = useState(item.quantity);
-    console.log(cart);
     const handleValueChange = e => {
         if (/^[0-9]*$/.test(e.target.value)) {
             const newValue = !e.target.value.length ? 1 : +e.target.value > +item.limit ? +item.limit : +e.target.value === 0 ? 1 : +e.target.value;

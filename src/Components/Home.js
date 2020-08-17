@@ -1,17 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import {Footer} from "./GlobalParts/Footer";
-import {Drawer} from "./SystemParts/Drawer";
+import {usePath} from "../Service/PathContext";
 
 
-const Home = ({setPath}) => {
-    setPath('/');
+const Home = () => {
+    const {setPath} = usePath();
+    useEffect(() => setPath('/'));
     return (
         <div className="with_footer">
             <div className="home">
                 <div className='main_picture'>
                     <Link to='/catalog'><img
-                        src='https://iamstudio.ru/upload/iblock/650/6504684b616f8808782455363a8e5659.JPG'/></Link>
+                        src='https://iamstudio.ru/upload/iblock/d4c/d4c974f437c38f01d84c5b5d43e6e909.jpeg'/></Link>
                 </div>
                 <div className='additional_pictures'>
                     <a href="https://instagram.com/miktina/"><img

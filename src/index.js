@@ -6,11 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import {DrawerProvider} from "./Service/Drawer";
 import {CartProvider} from "./Service/CartContext";
+import {PathProvider} from "./Service/PathContext";
 
 ReactDOM.render(
     <React.StrictMode>
         <DrawerProvider>
-            <App/>
+            <PathProvider>
+                <App/>
+            </PathProvider>
         </DrawerProvider>
     </React.StrictMode>,
     document.getElementById('root')

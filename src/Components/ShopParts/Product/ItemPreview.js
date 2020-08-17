@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {ItemGallery} from "./Gallery";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useWishList} from "../../../Service/WishListContext";
 import {useCart} from "../../../Service/CartContext";
-import {useDrawer} from "../../../Service/Drawer";
+
 
 const ItemPreview = ({id, setItemPreview}) => {
     const [item, setItem] = useState(null);
