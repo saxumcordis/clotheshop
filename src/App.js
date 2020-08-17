@@ -21,7 +21,7 @@ import {usePath} from "./Service/PathContext";
 
 
 function App() {
-    const {path, setPath} = usePath();
+    const {path} = usePath();
     const {status} = useDrawer();
     return (
         <div>

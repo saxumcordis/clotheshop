@@ -698,7 +698,6 @@ a, a:visited{
 .product {
     width: 90%;
     height: 100%;
-    margin-top: 70px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

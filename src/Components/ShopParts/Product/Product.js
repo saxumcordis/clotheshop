@@ -56,11 +56,10 @@ const Product = () => {
     const [isWished, setWished] = useState(item && wishList.find(e => e === item.product_id));
     const [sizeWarning, setSizeWarning] = useState(null);
 
-    const {addToCart} = useCart();
+    const {addToCart, isLimit, showWarning, limitWarning} = useCart();
 
     const handleAddToCart = () => {
-        addToCart({
-            id: item.product_id,
+        const product = {id: item.product_id,
             size: selectedSize,
             name: item.product_name,
             photo: item.picture_2,
@@ -68,8 +67,9 @@ const Product = () => {
             discount: item.sale_percent,
             art: item.product_code,
             limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
-            quantity: 1,
-        });
+            quantity: 1};
+        !isLimit(product) ? addToCart(product) : showWarning();
+        console.log(product);
     };
 
     const handleWish = () => {
@@ -125,7 +125,7 @@ const Product = () => {
                             </div>
                         </div>
                         <div className="cart_wish_box">
-                            <button className={!selectedSize ? "disabled" : "cart_button"}
+                            <button className={"cart_button"}
                                     onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>В КОРЗИНУ
                             </button>
                             {isWished ? <img className="wish_button" onClick={handleWish}
@@ -137,6 +137,7 @@ const Product = () => {
                             }
                         </div>
                         {sizeWarning && <span className="size_cart_warning">Выберите желаемый размер</span>}
+                        {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                         <div className="product_preview_info_text">
                             <p>Цвет : {item.product_color_name.toLowerCase()}</p>
                             <p>Материал : {item.product_material.toLowerCase()}</p>

@@ -8,11 +8,40 @@ export const CartContext = React.createContext({});
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
-    const addToCart = useCallback(product => setCart(cart => cart.map(e => e.id === product.id && e.size === product.size ? ({...e, quantity: e.quantity + 1}) : e).concat(isInCart(cart, product.id, product.size) ? [] : [product])), [setCart]);
+    const [limitWarning, setLimitWarning] = useState(false);
+    const showWarning = useCallback(() => {
+        setLimitWarning(true);
+        setTimeout(() => setLimitWarning(false), 3000);
+    }, [setCart]);
+    const isLimit = useCallback((product) => {
+        try {
+            return (cart.find(e => e.id === product.id && e.size === product.size).quantity >= product.limit);
+        }
+        catch {
+            return 0;
+        }
+    }, [cart]);
+    const addToCart = useCallback(product => setCart(cart => cart.map(e => e.id === product.id && e.size === product.size ? ({
+        ...e,
+        quantity: e.quantity + 1
+    }) : e).concat(isInCart(cart, product.id, product.size) ? [] : [product])), [setCart]);
     const removeFromCart = useCallback(product => setCart(cart => cart.filter(e => e !== product)), [setCart]);
-    const updateItem = useCallback((item, newQuantity) => setCart(cart.map(i => i.id === item.id && i.size === item.size ? ({...i, quantity: newQuantity}) : i)), [cart]);
+    const updateItem = useCallback((item, newQuantity) => setCart(cart.map(i => i.id === item.id && i.size === item.size ? ({
+        ...i,
+        quantity: newQuantity
+    }) : i)), [cart]);
     const countCartItems = cart.map(e => e.quantity).reduce((a, b) => a + b, 0);
-    const value = {cart, setCart, addToCart, removeFromCart, countCartItems, updateItem};
+    const value = {
+        cart,
+        setCart,
+        addToCart,
+        removeFromCart,
+        countCartItems,
+        updateItem,
+        isLimit,
+        limitWarning,
+        showWarning
+    };
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 };
 
