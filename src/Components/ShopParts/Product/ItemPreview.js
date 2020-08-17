@@ -43,6 +43,7 @@ const ItemPreview = ({id, setItemPreview}) => {
         (async () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + (itemId));
             setItem(await item.json());
+            setSize(null);
         })();
     }, [itemId]);
     useEffect(() => {
