@@ -71,6 +71,7 @@ export const CartDrawer = () => {
     const {close, warning} = useDrawer();
     return (
         <div className="cart_drawer">
+            <h1 className="title_drawer_cart">Ваша корзина</h1>
             {warning &&
             <p className={"cart_drawer_warning " + (warning ? "" : "disabled")}>Для оформления заказа недостаточно
                 товара</p>}

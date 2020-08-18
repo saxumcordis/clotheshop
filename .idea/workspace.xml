@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/UserContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SystemParts/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SystemParts/Drawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Drawer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +32,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -65,7 +68,7 @@
       <workItem from="1597500909632" duration="6957000" />
       <workItem from="1597517664911" duration="24386000" />
       <workItem from="1597655624952" duration="19912000" />
-      <workItem from="1597696630791" duration="1525000" />
+      <workItem from="1597696630791" duration="4012000" />
     </task>
     <servers />
   </component>

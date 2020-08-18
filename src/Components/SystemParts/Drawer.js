@@ -7,7 +7,7 @@ import {usePath} from "../../Service/PathContext";
 export const Drawer = ({state}) => {
     const {path} = usePath();
     const [drawerClass, setDrawerClass] = useState('side_drawer');
-    const {status, close} = useDrawer();
+    const {status, close, component} = useDrawer();
     if (state === 'open' && !drawerClass.split(' ').includes('open'))
         setDrawerClass('side_drawer open');
     if (state === 'close' && drawerClass.split(' ').includes('open'))
@@ -21,8 +21,7 @@ export const Drawer = ({state}) => {
         return (
             <div className={"background_drawer " + status} id="cart_drawer" onClick={handleClick}>
                 <div className={drawerClass}>
-                    <h1 className="title_drawer_cart">Ваша корзина</h1>
-                    <CartDrawer/>
+                    {component}
                 </div>
             </div>
         );
