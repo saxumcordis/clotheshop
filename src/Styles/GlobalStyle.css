@@ -1462,7 +1462,7 @@ a, a:visited{
     transition: 0.2s ease all;
 }
 
-.pre_reg_box {
+.switch_box {
     width: 100%;
     align-items: center;
     text-align: center;
@@ -1470,7 +1470,7 @@ a, a:visited{
     flex-direction: column;
 }
 
-.pre_reg_box .title {
+.switch_box .title {
     opacity: 0.5;
     color: black;
     font-size: 13px;
@@ -1478,7 +1478,7 @@ a, a:visited{
     padding-bottom: 15px;
 }
 
-.pre_reg_button {
+.switch_button {
     margin-top: -15px;
     color: black;
     font-size: 13px;
@@ -1489,7 +1489,7 @@ a, a:visited{
     transition: 0.2ms ease all;
 }
 
-.pre_reg_button:hover {
+.switch_button:hover {
     text-decoration: none;
     transition: 0.2ms ease all;
 }

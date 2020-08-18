@@ -10,7 +10,10 @@ export const RegisterDrawer = () => {
                 <h1>Зарегистрируйтесь на MIKTINA</h1>
                 <h3>ДЛЯ ДОСТУПА К ВАШИМ ЗАКАЗАМ, ОТЛОЖЕННЫМ ТОВАРАМ И БЫСТРОЙ ПОКУПКЕ</h3>
             </div>
-            <p onClick={() => setStage('login')}>Боба</p>
+            <div className="switch_box">
+                <p className="switch title">Вы наш клиент?</p>
+                <p className="switch_button" onClick={() => setStage('login')}>ВОЙДИТЕ В ЛИЧНЫЙ КАБИНЕТ</p>
+            </div>
         </div>
     );
 };
@@ -30,9 +33,9 @@ export const LoginDrawer = () => {
                 <p className="lost_password_link">Забыли пароль?</p>
                 <button className="login_button">Войти</button>
             </div>
-            <div className="pre_reg_box">
-                <p className="pre_reg_box title"> У вас ещё нет аккаунта?</p>
-                <p className="pre_reg_button" onClick={() => setStage('register')}>ЗАРЕГИСТРИРУЙТЕСЬ</p>
+            <div className="switch_box">
+                <p className="switch title"> У вас ещё нет аккаунта?</p>
+                <p className="switch_button" onClick={() => setStage('register')}>ЗАРЕГИСТРИРУЙТЕСЬ</p>
             </div>
         </div>
     );
