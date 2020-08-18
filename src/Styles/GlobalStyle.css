@@ -1422,6 +1422,9 @@ a, a:visited{
     width: 100%;
 }
 
+.login_form input label {
+}
+
 .lost_password_link {
     margin-top: -5px;
     margin-left: auto;

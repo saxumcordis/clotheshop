@@ -1,6 +1,10 @@
 import {useUser} from "../../Service/UserContext";
 import React, {useState} from "react";
 
+
+const validateInput = e => {
+};
+
 export const RegisterDrawer = () => {
     const {setStage} = useUser();
 
@@ -9,6 +13,17 @@ export const RegisterDrawer = () => {
             <div className="login_drawer_title">
                 <h1>Зарегистрируйтесь на MIKTINA</h1>
                 <h3>ДЛЯ ДОСТУПА К ВАШИМ ЗАКАЗАМ, ОТЛОЖЕННЫМ ТОВАРАМ И БЫСТРОЙ ПОКУПКЕ</h3>
+            </div>
+            <div className="login_form" style={{marginTop: "10px"}}>
+                <input type="text" placeholder="Email" name="register_email"/>
+                <input type="text" placeholder="Имя" name="register_name"/>
+                <input type="text" placeholder="Фамилия" name="register_surname"/>
+                <input type="text" placeholder="+_ (___) ___-__-__" name="register_phone" onChange={validateInput}/>
+                <input type="date" placeholder="Дата рождения" name="register_birth_date"
+                       min="1900-01-01" max="2020-01-01"/>
+                <input type="password" placeholder="Пароль" name="register_pass"/>
+                <input type="password" placeholder="Повторите пароль" name="register_confirm_pass"/>
+                <button className="login_button">Зарегистрироваться</button>
             </div>
             <div className="switch_box">
                 <p className="switch title">Вы наш клиент?</p>
