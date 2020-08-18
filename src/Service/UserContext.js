@@ -8,7 +8,7 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState('guest');
     const login = useCallback(() => setUser('member'), [setUser]);
     const logout = useCallback(() => setUser('guest'), [setUser]);
-    const [stage, setStage] = useState('register');
+    const [stage, setStage] = useState('login');
 
     const value = {login, logout, user, stage, setStage};
 
