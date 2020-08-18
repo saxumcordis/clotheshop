@@ -5,6 +5,25 @@ import React, {useState} from "react";
 const validateInput = e => {
 };
 
+export const RestoreDrawer = () => {
+    const {setStage} = useUser();
+    return (
+        <div className="login_drawer">
+            <div className="login_drawer_title">
+                <h1>Восстановление пароля</h1>
+                <h3>Для восстановления пароля, пожалуйста, укажите Вашу электронную почту</h3>
+            </div>
+            <div className="login_form" style={{marginTop: "10px"}}>
+                <input type="text" placeholder="Ваша электронная почта"/>
+                <button className="login_button">Восстановить пароль</button>
+            </div>
+            <div className="switch_box" style={{marginTop: "30px"}}>
+                <p className="switch_button" onClick={() => setStage('login')}>Вернуться назад</p>
+            </div>
+        </div>
+    );
+};
+
 export const RegisterDrawer = () => {
     const {setStage} = useUser();
 
@@ -45,7 +64,7 @@ export const LoginDrawer = () => {
             <div className="login_form">
                 <input type="text" placeholder="Email / Номер телефона" name="user_login"/>
                 <input type="password" placeholder="Пароль" name="user_pass"/>
-                <p className="lost_password_link">Забыли пароль?</p>
+                <p className="lost_password_link" onClick={() => setStage('restore')}>Забыли пароль?</p>
                 <button className="login_button">Войти</button>
             </div>
             <div className="switch_box">
@@ -61,7 +80,8 @@ export const AccountDrawer = () => {
     return (
         <div className="account_drawer">
             {stage === 'login' ? <LoginDrawer/>
-                : <RegisterDrawer/>}
+                : stage === 'register' ? <RegisterDrawer/>
+            : <RestoreDrawer/>}
         </div>
     )
 };
