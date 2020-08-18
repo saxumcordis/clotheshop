@@ -6,12 +6,16 @@ import {useCart} from "../../Service/CartContext";
 import {useDrawer} from "../../Service/Drawer";
 import {usePath} from "../../Service/PathContext";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
+import {useUser} from "../../Service/UserContext";
+import {Account} from "../UserParts/Account";
+import {AccountDrawer} from "../UserParts/AccountDrawer";
 
 
 const UserFeatures = () => {
     const {countWishItems} = useWishList();
     const {countCartItems} = useCart();
     const {setStatus, status, close, setComponentRender, component} = useDrawer();
+    const {user} = useUser();
     useLayoutEffect(() => {
         let cart = document.getElementById('cart');
         cart.addEventListener('auxclick', function (e) {
@@ -22,16 +26,32 @@ const UserFeatures = () => {
     });
     return (
         <ul className='user_features'>
-            <li onClick={() => close()}><Link to="/account"><img className="main_icon"
-                                                                 src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649302/user1_qptnba.png'/></Link>
-            </li>
+            {user !== 'guest' ? <li onClick={() => close()}><Link to="/account"><img className="main_icon"
+                                                                                     src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649302/user1_qptnba.png'/></Link>
+
+                </li>
+                : <li onClick={() => {
+                    if (status === 'close' && component !== <AccountDrawer/>)
+                        setComponentRender(<AccountDrawer/>);
+                    if (status === 'open' && component !== <AccountDrawer/>)
+                        setComponentRender(<AccountDrawer/>);
+                    else
+                        setStatus(status === 'open' ? 'close' : 'open');
+                }
+                }><img className="main_icon"
+                       src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649302/user1_qptnba.png'/>
+                </li>
+            }
             <li onClick={() => close()}><Link to="/wish"><img className="main_icon"
                                                               src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({countWishItems})</span></Link>
             </li>
             <li onClick={() => {
                 if (status === 'close' && component !== <CartDrawer/>)
                     setComponentRender(<CartDrawer/>);
-                setStatus(status === 'open' ? 'close' : 'open')
+                if (status === 'open' && component !== <CartDrawer/>)
+                    setComponentRender(<CartDrawer/>);
+                else
+                    setStatus(status === 'open' ? 'close' : 'open');
             }}><a id="cart" href="javascript:;"><img
                 className="main_icon"
                 src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({countCartItems})</span></a>

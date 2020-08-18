@@ -144,6 +144,10 @@ a, a:visited{
     font-weight: bold;
 }
 
+.user_features > li > * {
+    cursor: pointer;
+}
+
 .main_icon {
     margin: 12px;
     max-width: 20px;
@@ -1327,3 +1331,22 @@ a, a:visited{
     cursor: pointer;
 }
 
+.account_drawer {
+    width: 98%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_drawer h1 {
+    font-size: 21px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-left: 50px;
+}
+.login_drawer h3 {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.5;
+    margin-left: 50px;
+}

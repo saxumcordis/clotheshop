@@ -18,6 +18,7 @@ import {CartProvider, PersistCart} from "./Service/CartContext";
 import {useDrawer} from "./Service/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
 import {usePath} from "./Service/PathContext";
+import {UserProvider} from "./Service/UserContext";
 
 
 function App() {
@@ -28,63 +29,65 @@ function App() {
             <BrowserRouter>
                 <WishProvider>
                     <CartProvider>
-                        <Header/>
-                        <Switch>
-                            <Route exact path="/catalog">
-                                <Title title="Каталог">
-                                    <Catalog/>
-                                </Title>
-                            </Route>
-                            <Route path="/delivery">
-                                <Title title="Доставка">
-                                    <Delivery/>
-                                </Title>
-                            </Route>
-                            <Route path="/contacts">
-                                <Title title="Контакты">
-                                    <Contacts/>
-                                </Title>
-                            </Route>
-                            <Route path="/about">
-                                <Title title="О нас">
-                                    <About/>
-                                </Title>
-                            </Route>
-                            <Route path="/cart">
-                                <Title title="Корзина">
-                                    <Cart/>
-                                </Title>
-                            </Route>
-                            <Route path="/wish">
-                                <Title title="Список желаний">
-                                    <Wish/>
-                                </Title>
-                            </Route>
-                            <Route path="/account">
-                                <Title title="Личный кабинет">
-                                    <Account/>
-                                </Title>
-                            </Route>
-                            <Route path="/catalog/item/:id">
-                                <Title title="Просмотр">
-                                    <Product/>
-                                </Title>
-                            </Route>
-                            <Route exact path="/">
-                                <Title title="MIKTINA">
-                                    <Home/>
-                                </Title>
-                            </Route>
-                            <Route exact path="*">
-                                <Title title="Страницы не существует">
-                                    <NotFound/>
-                                </Title>
-                            </Route>
-                        </Switch>
-                        {path !== "/" ? <Footer/> : null}
-                        <PersistWish/>
-                        <PersistCart/>
-                        <Drawer state={status}/>
+                        <UserProvider>
+                            <Header/>
+                            <Switch>
+                                <Route exact path="/catalog">
+                                    <Title title="Каталог">
+                                        <Catalog/>
+                                    </Title>
+                                </Route>
+                                <Route path="/delivery">
+                                    <Title title="Доставка">
+                                        <Delivery/>
+                                    </Title>
+                                </Route>
+                                <Route path="/contacts">
+                                    <Title title="Контакты">
+                                        <Contacts/>
+                                    </Title>
+                                </Route>
+                                <Route path="/about">
+                                    <Title title="О нас">
+                                        <About/>
+                                    </Title>
+                                </Route>
+                                <Route path="/cart">
+                                    <Title title="Корзина">
+                                        <Cart/>
+                                    </Title>
+                                </Route>
+                                <Route path="/wish">
+                                    <Title title="Список желаний">
+                                        <Wish/>
+                                    </Title>
+                                </Route>
+                                <Route path="/account">
+                                    <Title title="Личный кабинет">
+                                        <Account/>
+                                    </Title>
+                                </Route>
+                                <Route path="/catalog/item/:id">
+                                    <Title title="Просмотр">
+                                        <Product/>
+                                    </Title>
+                                </Route>
+                                <Route exact path="/">
+                                    <Title title="MIKTINA">
+                                        <Home/>
+                                    </Title>
+                                </Route>
+                                <Route exact path="*">
+                                    <Title title="Страницы не существует">
+                                        <NotFound/>
+                                    </Title>
+                                </Route>
+                            </Switch>
+                            {path !== "/" ? <Footer/> : null}
+                            <PersistWish/>
+                            <PersistCart/>
+                            <Drawer state={status}/>
+                        </UserProvider>
                     </CartProvider>
                 </WishProvider>
             </BrowserRouter>
