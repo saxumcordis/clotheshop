@@ -14,7 +14,7 @@ import {AccountDrawer} from "../UserParts/AccountDrawer";
 const UserFeatures = () => {
     const {countWishItems} = useWishList();
     const {countCartItems} = useCart();
-    const {setStatus, status, close, setComponentRender, component} = useDrawer();
+    const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
     const {user} = useUser();
     useLayoutEffect(() => {
         let cart = document.getElementById('cart');
@@ -31,12 +31,17 @@ const UserFeatures = () => {
 
                 </li>
                 : <li onClick={() => {
-                    if (status === 'close' && component !== <AccountDrawer/>)
+                    if (status === 'close') {
+                        setComponentName('login');
                         setComponentRender(<AccountDrawer/>);
-                    if (status === 'open' && component !== <AccountDrawer/>)
+                        setStatus('open');
+                    }
+                    else if (status === 'open' && componentName === 'login')
+                        setStatus('close');
+                    else if (status === 'open' && componentName !== 'login') {
                         setComponentRender(<AccountDrawer/>);
-                    else
-                        setStatus(status === 'open' ? 'close' : 'open');
+                        setComponentName('login');
+                    }
                 }
                 }><img className="main_icon"
                        src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649302/user1_qptnba.png'/>
@@ -46,12 +51,17 @@ const UserFeatures = () => {
                                                               src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({countWishItems})</span></Link>
             </li>
             <li onClick={() => {
-                if (status === 'close' && component !== <CartDrawer/>)
+                if (status === 'close') {
+                    setComponentName('cart');
                     setComponentRender(<CartDrawer/>);
-                if (status === 'open' && component !== <CartDrawer/>)
+                    setStatus('open');
+                }
+                else if (status === 'open' && componentName === 'cart')
+                    setStatus('close');
+                else if (status === 'open' && componentName !== 'cart') {
                     setComponentRender(<CartDrawer/>);
-                else
-                    setStatus(status === 'open' ? 'close' : 'open');
+                    setComponentName('cart');
+                }
             }}><a id="cart" href="javascript:;"><img
                 className="main_icon"
                 src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({countCartItems})</span></a>
