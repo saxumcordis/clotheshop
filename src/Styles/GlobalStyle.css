@@ -682,10 +682,12 @@ a, a:visited{
     font-weight: 600;
     text-decoration: underline;
     margin-top: 20px;
+    transition: 0.2s ease all;
 }
 
 .full:hover {
     text-decoration: none;
+    transition: 0.2s ease all;
 }
 
 .close_fancy {
@@ -842,10 +844,12 @@ a, a:visited{
     font-family: 'FuturaNewBook-Reg', sans-serif;
     text-decoration: underline;
     margin-top: 0;
+    transition: 0.2s ease all;
 }
 
 .full_delivery:hover {
     text-decoration: none;
+    transition: 0.2s ease all;
 }
 
 .recommended_box {
@@ -907,10 +911,12 @@ a, a:visited{
     text-decoration: underline;
     margin-top: 5px;
     cursor: pointer;
+    transition: 0.2s ease all;
 }
 
 .phones li:hover {
     text-decoration: none;
+    transition: 0.2s ease all;
 }
 
 .about_box p {
@@ -1068,10 +1074,12 @@ a, a:visited{
 .small_cart_empty p {
     text-decoration: underline;
     text-transform: uppercase;
+    transition: 0.2s ease all;
+    cursor: pointer;
 }
 .small_cart_empty p:hover {
     text-decoration: none;
-    cursor: pointer;
+    transition: 0.2s ease all;
 }
 
 .small_cart_total {
@@ -1131,6 +1139,13 @@ a, a:visited{
     line-height: 27px;
     text-align: center;
     border: 0;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.coupon_form button:hover {
+    transition: 0.2s ease all;
+    opacity: 0.9;
 }
 
 .small_cart_total_price {
@@ -1167,6 +1182,13 @@ a, a:visited{
     border-radius: 1px;
     display: block;
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.cart_total_confirm_button:hover {
+    opacity: 0.9;
+    transition: 0.2s ease all;
 }
 
 .small_cart_total_confirm p {
@@ -1179,9 +1201,11 @@ a, a:visited{
     margin-top: 40px;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    transition: 0.2s ease all;
 }
-.small_cart_total_confirm span:hover {
+.small_cart_total_confirm p:hover {
     text-decoration: none;
+    transition: 0.2s ease all;
 }
 
 .cart_box {
@@ -1212,10 +1236,12 @@ a, a:visited{
     font-size: 16px;
     font-weight: 600;
     margin: 0;
+    transition: 0.2s ease all;
 }
 .cart_empty p:hover {
     text-decoration: none;
     cursor: pointer;
+    transition: 0.2s ease all;
 }
 
 
@@ -1325,10 +1351,12 @@ a, a:visited{
     font-size: 11px;
     font-weight: 600;
     margin: 0;
+    transition: 0.2s ease all;
 }
 .cart_total p:hover {
     text-decoration: none;
     cursor: pointer;
+    transition: 0.2s ease all;
 }
 
 .account_drawer {
@@ -1336,17 +1364,132 @@ a, a:visited{
     height: 80vh;
     display: flex;
     flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
-.login_drawer h1 {
+.login_drawer {
+    width: calc(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.login_drawer_title {
+    width: 85%;
+    margin-left: 50px;
+}
+
+.login_drawer_title h1 {
     font-size: 21px;
     text-transform: uppercase;
     font-weight: 400;
-    margin-left: 50px;
 }
-.login_drawer h3 {
+.login_drawer_title h3 {
     font-size: 13px;
     font-weight: 400;
     opacity: 0.5;
-    margin-left: 50px;
+}
+
+.login_form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 222px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.login_form input {
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    display: block;
+    margin-bottom: 15px;
+    padding: 0 14px;
+    height: 35px;
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: black;
+    font-size: 14px;
+    line-height: 25px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.lost_password_link {
+    margin-top: -5px;
+    margin-left: auto;
+    font-size: 12px;
+    opacity: 0.5;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.lost_password_link:hover {
+    text-decoration: none;
+    transition: 0.2s ease all;
+}
+
+.login_button {
+    opacity: 1;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    width: 150px;
+    height: 32px;
+    background-color: #252525;
+    border: 1px solid #252525;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    display: block;
+    margin: auto;
+    transition: 0.2s ease all;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.login_button:hover {
+    opacity: 0.9;
+    transition: 0.2s ease all;
+}
+
+.pre_reg_box {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.pre_reg_box .title {
+    opacity: 0.5;
+    color: black;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+
+.pre_reg_button {
+    margin-top: -15px;
+    color: black;
+    font-size: 13px;
+    display: inline-block;
+    text-decoration: underline;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2ms ease all;
+}
+
+.pre_reg_button:hover {
+    text-decoration: none;
+    transition: 0.2ms ease all;
 }
