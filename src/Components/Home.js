@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import {Footer} from "./GlobalParts/Footer";
-import {usePath} from "../Service/PathContext";
+import {usePath} from "../Service/Contexts/PathContext";
 
 
 const Home = () => {

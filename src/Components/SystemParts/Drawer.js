@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styles from "../../Styles/Drawer.css";
-import {useDrawer} from "../../Service/Drawer";
+import {useDrawer} from "../../Service/Contexts/Drawer";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
-import {usePath} from "../../Service/PathContext";
+import {usePath} from "../../Service/Contexts/PathContext";
 
 export const Drawer = ({state}) => {
     const {path} = usePath();

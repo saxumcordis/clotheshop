@@ -13,12 +13,12 @@ import Title from "react-document-title";
 import {Footer} from "./Components/GlobalParts/Footer";
 import {Product} from "./Components/ShopParts/Product/Product";
 import {NotFound} from "./Components/SystemParts/NotFound";
-import {PersistWish, WishProvider} from "./Service/WishListContext";
-import {CartProvider, PersistCart} from "./Service/CartContext";
-import {useDrawer} from "./Service/Drawer";
+import {PersistWish, WishProvider} from "./Service/Contexts/WishListContext";
+import {CartProvider, PersistCart} from "./Service/Contexts/CartContext";
+import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
-import {usePath} from "./Service/PathContext";
-import {UserProvider} from "./Service/UserContext";
+import {usePath} from "./Service/Contexts/PathContext";
+import {UserProvider} from "./Service/Contexts/UserContext";
 
 
 function App() {

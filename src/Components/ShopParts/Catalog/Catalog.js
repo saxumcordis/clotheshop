@@ -4,9 +4,9 @@ import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
 import {Redirect} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
-import {useWishList} from "../../../Service/WishListContext";
+import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {beautyPrice} from "../Product/Product";
-import {usePath} from "../../../Service/PathContext";
+import {usePath} from "../../../Service/Contexts/PathContext";
 
 const getPriceDiff = (a, b) => {
   const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import {useWishList} from "../../Service/WishListContext";
+import {useWishList} from "../../Service/Contexts/WishListContext";
 import {Item} from "../ShopParts/Catalog/Catalog";
-import {usePath} from "../../Service/PathContext";
+import {usePath} from "../../Service/Contexts/PathContext";
 
 const Wish = () => {
     const {setPath} = usePath();

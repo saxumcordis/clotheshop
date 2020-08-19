@@ -4,9 +4,9 @@ import {NotFound} from "../../SystemParts/NotFound";
 import {ItemGallery} from "./Gallery";
 import {Loading} from "../../SystemParts/Loading";
 import {Recommended} from "./Recommended";
-import {useWishList} from "../../../Service/WishListContext";
-import {useCart} from "../../../Service/CartContext";
-import {usePath} from "../../../Service/PathContext";
+import {useWishList} from "../../../Service/Contexts/WishListContext";
+import {useCart} from "../../../Service/Contexts/CartContext";
+import {usePath} from "../../../Service/Contexts/PathContext";
 
 
 export const beautyPrice = price => {

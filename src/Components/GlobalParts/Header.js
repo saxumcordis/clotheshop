@@ -1,12 +1,12 @@
 import React, {useLayoutEffect, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {Link} from "react-router-dom";
-import {useWishList} from "../../Service/WishListContext";
-import {useCart} from "../../Service/CartContext";
-import {useDrawer} from "../../Service/Drawer";
-import {usePath} from "../../Service/PathContext";
+import {useWishList} from "../../Service/Contexts/WishListContext";
+import {useCart} from "../../Service/Contexts/CartContext";
+import {useDrawer} from "../../Service/Contexts/Drawer";
+import {usePath} from "../../Service/Contexts/PathContext";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
-import {useUser} from "../../Service/UserContext";
+import {useUser} from "../../Service/Contexts/UserContext";
 import {Account} from "../UserParts/Account";
 import {AccountDrawer} from "../UserParts/AccountDrawer";
 

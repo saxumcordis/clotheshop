@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {ItemGallery} from "./Gallery";
 import {Link} from "react-router-dom";
-import {useWishList} from "../../../Service/WishListContext";
-import {useCart} from "../../../Service/CartContext";
+import {useWishList} from "../../../Service/Contexts/WishListContext";
+import {useCart} from "../../../Service/Contexts/CartContext";
 
 
 const ItemPreview = ({id, setItemPreview}) => {

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Header} from '../GlobalParts/Header'
-import {usePath} from "../../Service/PathContext";
+import {usePath} from "../../Service/Contexts/PathContext";
 
 const Contacts = () => {
     const {setPath} = usePath();

@@ -1,7 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {useCart} from "../../../Service/CartContext";
+import {useCart} from "../../../Service/Contexts/CartContext";
 import {beautyPrice} from "../Product/Product";
-import {useDrawer} from "../../../Service/Drawer";
+import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {TotalCartDrawer} from "./TotalDrawer";
 import {Link} from "react-router-dom";
 

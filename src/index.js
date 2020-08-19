@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
-import {DrawerProvider} from "./Service/Drawer";
-import {CartProvider} from "./Service/CartContext";
-import {PathProvider} from "./Service/PathContext";
+import {DrawerProvider} from "./Service/Contexts/Drawer";
+import {CartProvider} from "./Service/Contexts/CartContext";
+import {PathProvider} from "./Service/Contexts/PathContext";
 
 ReactDOM.render(
     <React.StrictMode>

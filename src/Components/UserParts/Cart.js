@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect} from 'react'
-import {usePath} from "../../Service/PathContext";
-import {useCart} from "../../Service/CartContext";
+import {usePath} from "../../Service/Contexts/PathContext";
+import {useCart} from "../../Service/Contexts/CartContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../ShopParts/Cart/CartDrawer";
 import {beautyPrice} from "../ShopParts/Product/Product";

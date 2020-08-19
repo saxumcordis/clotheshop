@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {usePath} from "../../Service/PathContext";
+import {usePath} from "../../Service/Contexts/PathContext";
 
 const Account = () => {
     const {setPath} = usePath();
