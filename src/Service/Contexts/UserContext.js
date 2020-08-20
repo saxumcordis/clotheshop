@@ -9,7 +9,7 @@ export const UserProvider = ({children}) => {
     const [registerStatus, setRegisterStatus] = useState(0);
     const login = useCallback(() => setUser('member'), [setUser]);
     const logout = useCallback(() => setUser('guest'), [setUser]);
-    const [stage, setStage] = useState('register');
+    const [stage, setStage] = useState('login');
 
     const value = {login, logout, user, stage, setStage, registerStatus, setRegisterStatus};
 

@@ -7,6 +7,7 @@ import {
     validateRegister
 } from "../../Service/Validation/registerValidation";
 import {registerNewUser} from "../../Service/Server/register";
+import {useDrawer} from "../../Service/Contexts/Drawer";
 
 
 export const RestoreDrawer = () => {
@@ -29,28 +30,29 @@ export const RestoreDrawer = () => {
 };
 
 export const StatusRegisterDrawer = () => {
-    const {registerStatus} = useUser();
-    console.log(registerStatus);
-    if (+(registerStatus) === 1)
-        return (
-            <div className="login_drawer">
-                <div className="login_drawer_title">
-                    <h1>Спасибо за регистрацию</h1>
-                    <h3>Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту</h3>
-                </div>
+    const {registerStatus, setRegisterStatus, setStage} = useUser();
+    const refreshStatus = () => {
+        setTimeout(() => {
+            setStage('register');
+            setRegisterStatus(0);
+        }, 4000);
+        return null;
+    }
+    const messages = {
+        1: ['Спасибо за регистрацию', 'Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту'],
+        10: ['Пользователь с таким email существует', 'Заполните форму регистрации повторно, указав другой Email'],
+        0: ['none', 'none']
+    };
+    return (
+        <div className="login_drawer">
+            <div className="login_drawer_title">
+                <h1>{messages[registerStatus][0]}</h1>
+                <h3>{messages[registerStatus][1]}</h3>
+                {registerStatus === 10 ? refreshStatus() : null}
             </div>
-        );
-    if ((+registerStatus) === 10)
-        return (
-            <div className="login_drawer">
-                <div className="login_drawer_title">
-                    <h1>Пользователь с таким email существует</h1>
-                    <h3>Заполните форму регистрации повторно, указав другой Email</h3>
-                </div>
-            </div>
-        );
-    else
-    return <p>{registerStatus}</p>
+        </div>
+    );
+
 };
 
 export const RegisterDrawer = () => {
@@ -91,7 +93,8 @@ export const RegisterDrawer = () => {
                     <input type="text" id="register_name" placeholder="Имя" name="register_name"/>
                     <input type="text" id="register_surname" placeholder="Фамилия" name="register_surname"/>
                     <input type="text" id="register_phone" placeholder="+_ (___) ___-__-__" name="register_phone"/>
-                    <input type="date" id="register_birth_date" placeholder="Дата рождения" name="register_birth_date"
+                    <input type="date" id="register_birth_date" placeholder="Дата рождения"
+                           name="register_birth_date"
                            min="1900-01-01" max="2020-01-01" onChange={() => validateBirthDate()}/>
                     <input type="password" id="register_pass" placeholder="Пароль" name="register_pass"
                            onChange={() => validatePassword()}/>
