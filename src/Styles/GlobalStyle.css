@@ -29,7 +29,10 @@ a, a:visited{
     text-decoration: none;
     outline: none;
 }
-
+button {
+    outline: 0;
+    outline-offset: 0;
+}
 .footer {
     margin-top: 50px;
     width: 100vw;
@@ -1437,6 +1440,8 @@ a, a:visited{
 }
 
 .login_form input {
+    outline: 0;
+    outline-offset: 0;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     display: block;
     margin-bottom: 15px;
