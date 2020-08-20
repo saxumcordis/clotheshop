@@ -29,26 +29,39 @@ export const RestoreDrawer = () => {
 };
 
 export const StatusRegisterDrawer = () => {
-    const {getRegisterStatus} = useUser();
-    return (
-        <div className="login_drawer">
-            <div className="login_drawer_title">
-                <h1>Спасибо за регистрацию</h1>
-                <h3>Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту</h3>
+    const {registerStatus} = useUser();
+    console.log(registerStatus);
+    if (+(registerStatus) === 1)
+        return (
+            <div className="login_drawer">
+                <div className="login_drawer_title">
+                    <h1>Спасибо за регистрацию</h1>
+                    <h3>Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту</h3>
+                </div>
             </div>
-        </div>
-    );
+        );
+    if ((+registerStatus) === 10)
+        return (
+            <div className="login_drawer">
+                <div className="login_drawer_title">
+                    <h1>Пользователь с таким email существует</h1>
+                    <h3>Заполните форму регистрации повторно, указав другой Email</h3>
+                </div>
+            </div>
+        );
+    else
+    return <p>{registerStatus}</p>
 };
 
 export const RegisterDrawer = () => {
-    const {setStage, sendRegisterStatus, getRegisterStatus} = useUser();
+    const {setStage, setRegisterStatus, registerStatus} = useUser();
 
     const sendRegister = () => {
         const data = registerNewUser();
         (async () => {
             const response = await fetch(data);
-            if (!getRegisterStatus) {
-                sendRegisterStatus(await response.json());
+            if (!registerStatus) {
+                setRegisterStatus(await response.json());
             }
         })();
         return <></>;
@@ -60,7 +73,7 @@ export const RegisterDrawer = () => {
             evt.preventDefault();
             if (validateRegister()) {
                 sendRegister();
-                setStage('registered');
+                setTimeout(() => setStage('registered'), 1000);
                 return;
             } else return;
         });
@@ -72,7 +85,7 @@ export const RegisterDrawer = () => {
                 <h3>ДЛЯ ДОСТУПА К ВАШИМ ЗАКАЗАМ, ОТЛОЖЕННЫМ ТОВАРАМ И БЫСТРОЙ ПОКУПКЕ</h3>
             </div>
             <div className="login_form" style={{marginTop: "10px"}}>
-                <form id="register_form" style={{width: "222px"}}>
+                <form id="register_form" method="post" style={{width: "222px"}}>
                     <input type="email" id="register_email" placeholder="Email" name="register_email"
                            onChange={() => validateEmail()}/>
                     <input type="text" id="register_name" placeholder="Имя" name="register_name"/>
@@ -125,8 +138,8 @@ export const AccountDrawer = () => {
         <div className="account_drawer">
             {stage === 'login' ? <LoginDrawer/>
                 : stage === 'register' ? <RegisterDrawer/>
-                : stage === 'registered' ? <StatusRegisterDrawer/>
-                    : <RestoreDrawer/>}
+                    : stage === 'registered' ? <StatusRegisterDrawer/>
+                        : <RestoreDrawer/>}
         </div>
     )
 };

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/Validation/registerValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/UserParts/AccountDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/AccountDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Contexts/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contexts/UserContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Server/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Server/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +72,7 @@
       <workItem from="1597866046202" duration="1647000" />
       <workItem from="1597913754018" duration="4210000" />
       <workItem from="1597921444273" duration="702000" />
-      <workItem from="1597932921097" duration="8565000" />
+      <workItem from="1597932921097" duration="10109000" />
     </task>
     <servers />
   </component>
