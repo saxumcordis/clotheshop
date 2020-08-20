@@ -4,6 +4,7 @@ import {useCart} from "../../Service/Contexts/CartContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../ShopParts/Cart/CartDrawer";
 import {beautyPrice} from "../ShopParts/Product/Product";
+import {useDrawer} from "../../Service/Contexts/Drawer";
 
 const CartItem = ({index, item}) => {
 
@@ -64,6 +65,7 @@ const CartItem = ({index, item}) => {
 const Cart = () => {
     const {cart} = useCart();
     const {setPath} = usePath();
+    const {warning} = useDrawer();
     const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b, 0), [cart]);
     useEffect(() => setPath('/cart'));
     return (
@@ -71,6 +73,9 @@ const Cart = () => {
             <div className='global_giv'>
                 <div className="cart_box">
                     <h1>Ваша корзина</h1>
+                    {warning &&
+                    <p className={"cart_warning " + (warning ? "" : "disabled")}>Для оформления заказа недостаточно
+                        товара</p>}
                     {!!cart.length && <div className="cart">
                         <div className="cart_item_list">
                             {cart.map(item => <CartItem key={cart.indexOf(item) + "_cart_item"}

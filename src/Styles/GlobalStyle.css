@@ -1359,6 +1359,37 @@ a, a:visited{
     transition: 0.2s ease all;
 }
 
+.cart_warning {
+    width: 330px;
+    position: relative;
+    color: #fff;
+    border-radius: 4px;
+    font-size: .9rem;
+    padding: .3rem .6rem;
+    max-width: 350px;
+    text-align: center;
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #333;
+    opacity: 1;
+    transition: 0.4s opacity;
+}
+
+.cart_warning::before {
+    content: "i";
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: .6rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 11px;
+    border: 1px solid white;
+}
+
 .account_drawer {
     width: 98%;
     height: 80vh;
@@ -1420,9 +1451,6 @@ a, a:visited{
     line-height: 25px;
     box-sizing: border-box;
     width: 100%;
-}
-
-.login_form input label {
 }
 
 .lost_password_link {
