@@ -6,6 +6,7 @@ import {usePath} from "../../Service/Contexts/PathContext";
 
 export const Drawer = ({state}) => {
     const {path} = usePath();
+    const {componentName} = useDrawer();
     const [drawerClass, setDrawerClass] = useState('side_drawer');
     const {status, close, component} = useDrawer();
     if (state === 'open' && !drawerClass.split(' ').includes('open'))
@@ -17,7 +18,7 @@ export const Drawer = ({state}) => {
         if (event.target === document.getElementById('cart_drawer'))
             close();
     };
-    if (path !== '/cart')
+    if (path !== '/cart' || componentName !== 'cart')
         return (
             <div className={"background_drawer " + status} id="cart_drawer" onClick={handleClick}>
                 <div className={drawerClass}>
