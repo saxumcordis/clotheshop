@@ -31,6 +31,9 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\src\Service\Contexts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Coding\PROJECTS\miktinashop\public" />
     </key>
@@ -65,6 +68,10 @@
       <workItem from="1597517664911" duration="24386000" />
       <workItem from="1597655624952" duration="19912000" />
       <workItem from="1597696630791" duration="18316000" />
+      <workItem from="1597866046202" duration="1647000" />
+      <workItem from="1597913754018" duration="4210000" />
+      <workItem from="1597921444273" duration="702000" />
+      <workItem from="1597932921097" duration="428000" />
     </task>
     <servers />
   </component>

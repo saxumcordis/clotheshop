@@ -37,7 +37,7 @@ export const RegisterDrawer = () => {
                 <input type="text" placeholder="Email" name="register_email"/>
                 <input type="text" placeholder="Имя" name="register_name"/>
                 <input type="text" placeholder="Фамилия" name="register_surname"/>
-                <input type="text" placeholder="+_ (___) ___-__-__" name="register_phone" onChange={validateInput}/>
+                <input type="text" placeholder="+_ (___) ___-__-__" name="register_phone"/>
                 <input type="date" placeholder="Дата рождения" name="register_birth_date"
                        min="1900-01-01" max="2020-01-01"/>
                 <input type="password" placeholder="Пароль" name="register_pass"/>
