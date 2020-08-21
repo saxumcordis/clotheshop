@@ -17,7 +17,5 @@ export const carryLoginData = (method) => {
 };
 
 export const hideEmail = (email) => {
-    let temp = email.split('');
-    temp.splice(3, email.length / 2, "*".repeat(email.length / 2));
-    return temp;
+    return email.replace(/(?<=^.).+(?=.@.+)/, v => '*'.repeat(v.length))
 };
