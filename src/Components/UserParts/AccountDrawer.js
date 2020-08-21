@@ -1,5 +1,5 @@
 import {useUser} from "../../Service/Contexts/UserContext";
-import React, {useLayoutEffect, useState} from "react";
+import React, {useLayoutEffect} from "react";
 import {
     isPassConfirmed, validateBirthDate,
     validateEmail,
@@ -7,7 +7,8 @@ import {
     validateRegister
 } from "../../Service/Validation/registerValidation";
 import {registerNewUser} from "../../Service/Server/register";
-import {useDrawer} from "../../Service/Contexts/Drawer";
+import {loginUser} from "../../Service/Server/login";
+import {validateLogin} from "../../Service/Validation/loginValidation";
 
 
 export const RestoreDrawer = () => {
@@ -30,14 +31,14 @@ export const RestoreDrawer = () => {
 };
 
 export const StatusRegisterDrawer = () => {
-    const {registerStatus, setRegisterStatus, setStage} = useUser();
+    const {stageStatus, setStageStatus, setStage} = useUser();
     const refreshStatus = () => {
         setTimeout(() => {
             setStage('register');
-            setRegisterStatus(0);
+            setStageStatus(0);
         }, 4000);
         return null;
-    }
+    };
     const messages = {
         1: ['Спасибо за регистрацию', 'Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту'],
         10: ['Пользователь с таким email существует', 'Заполните форму регистрации повторно, указав другой Email'],
@@ -46,27 +47,62 @@ export const StatusRegisterDrawer = () => {
     return (
         <div className="login_drawer">
             <div className="login_drawer_title">
-                <h1>{messages[registerStatus][0]}</h1>
-                <h3>{messages[registerStatus][1]}</h3>
-                {registerStatus === 10 ? refreshStatus() : null}
+                <h1>{messages[stageStatus][0]}</h1>
+                <h3>{messages[stageStatus][1]}</h3>
+                {stageStatus === 10 ? refreshStatus() : null}
             </div>
         </div>
     );
 
 };
 
+export const StatusLoginDrawer = () => {
+    const {stageStatus, setStageStatus, setUser} = useUser();
+    const refreshStatus = () => {
+        setTimeout(() => {
+            setStageStatus(0);
+            window.location.reload();
+        }, 3000);
+        return null;
+    };
+    if (stageStatus.token) {
+        setUser(stageStatus);
+        refreshStatus();
+        return (
+            <div className="login_drawer">
+                <div className="login_drawer_title">
+                    <h1>Вход выполнен успешно</h1>
+                    <h3>Сейчас Вы будете перенаправлены на главную страницу</h3>
+                </div>
+            </div>
+        );
+    }
+    else if (stageStatus === -3)
+        return (
+            <div className="login_drawer">
+                <div className="login_drawer_title">
+                    <h1>Ваша учётная запись не была активирована</h1>
+                    <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу почту</h3>
+                    <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия запросите письмо заново</p>
+                </div>
+            </div>
+        );
+    else
+        return <></>
+
+};
+
 export const RegisterDrawer = () => {
-    const {setStage, setRegisterStatus, registerStatus} = useUser();
+    const {setStage, stageStatus, setStageStatus} = useUser();
 
     const sendRegister = () => {
         const data = registerNewUser();
         (async () => {
             const response = await fetch(data);
-            if (!registerStatus) {
-                setRegisterStatus(await response.json());
+            if (!stageStatus) {
+                setStageStatus(await response.json());
             }
         })();
-        return <></>;
     };
 
     useLayoutEffect(() => {
@@ -113,8 +149,30 @@ export const RegisterDrawer = () => {
 };
 
 export const LoginDrawer = () => {
-    const {setStage, registerStatus} = useUser();
-    console.log(registerStatus);
+    const {setStage, stageStatus, setStageStatus} = useUser();
+
+    const sendLogin = () => {
+        const data = loginUser();
+        (async () => {
+            const response = await fetch(data);
+            if (!stageStatus) {
+                setStageStatus(await response.json());
+            }
+        })();
+    };
+
+    useLayoutEffect(() => {
+        let form = document.getElementById('login_form');
+        form.addEventListener('submit', function (evt) {
+            evt.preventDefault();
+            if (validateLogin()) {
+                sendLogin();
+                setTimeout(() => setStage('logged'), 1000);
+                return;
+            } else return;
+        });
+    });
+
     return (
         <div className="login_drawer">
             <div className="login_drawer_title">
@@ -122,10 +180,13 @@ export const LoginDrawer = () => {
                 <h3>ДЛЯ ДОСТУПА К ВАШИМ ЗАКАЗАМ, ОТЛОЖЕННЫМ ТОВАРАМ И БЫСТРОЙ ПОКУПКЕ</h3>
             </div>
             <div className="login_form">
-                <input type="text" placeholder="Email / Номер телефона" name="user_login"/>
-                <input type="password" placeholder="Пароль" name="user_pass"/>
-                <p className="lost_password_link" onClick={() => setStage('restore')}>Забыли пароль?</p>
-                <button className="login_button">Войти</button>
+                <form style={{width: "222px"}} method="post" id="login_form">
+                    <input type="email" id="login_email" placeholder="Email" name="user_login" required/>
+                    <input type="password" id="login_password" placeholder="Пароль" name="user_pass" required/>
+                    <p className="lost_password_link" onClick={() => setStage('restore')}>Забыли пароль?</p>
+                    <input type="submit" style={{color: "white"}} className="login_button" value="Войти"
+                           onClick={() => validateLogin()}/>
+                </form>
             </div>
             <div className="switch_box">
                 <p className="switch title"> У вас ещё нет аккаунта?</p>
@@ -142,6 +203,7 @@ export const AccountDrawer = () => {
             {stage === 'login' ? <LoginDrawer/>
                 : stage === 'register' ? <RegisterDrawer/>
                     : stage === 'registered' ? <StatusRegisterDrawer/>
+                    : stage === 'logged' ? <StatusLoginDrawer/>
                         : <RestoreDrawer/>}
         </div>
     )

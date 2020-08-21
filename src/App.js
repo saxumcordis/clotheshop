@@ -18,7 +18,7 @@ import {CartProvider, PersistCart} from "./Service/Contexts/CartContext";
 import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
 import {usePath} from "./Service/Contexts/PathContext";
-import {UserProvider} from "./Service/Contexts/UserContext";
+import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 
 
 function App() {
@@ -86,6 +86,7 @@ function App() {
                             {path !== "/" ? <Footer/> : null}
                             <PersistWish/>
                             <PersistCart/>
+                            <PersistUser/>
                             <Drawer state={status}/>
                         </UserProvider>
                     </CartProvider>
