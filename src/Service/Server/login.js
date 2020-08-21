@@ -5,3 +5,19 @@ export const loginUser = () => {
     const data = 'email=' + emailValue + '&password=' + passValue;
     return url + data;
 };
+
+export const carryLoginData = (method) => {
+    if (method === 'set')
+    localStorage.setItem('login_email', JSON.stringify(document.getElementById('login_email').value));
+    else if (method === 'get') {
+        const login = JSON.parse(localStorage.getItem('login_email'));
+        setTimeout(() => localStorage.removeItem('login_email'), 10000);
+        return login;
+    }
+};
+
+export const hideEmail = (email) => {
+    let temp = email.split('');
+    temp.splice(3, email.length / 2, "*".repeat(email.length / 2));
+    return temp;
+};

@@ -1,5 +1,5 @@
 import {useUser} from "../../Service/Contexts/UserContext";
-import React, {useLayoutEffect} from "react";
+import React, {useCallback, useLayoutEffect} from "react";
 import {
     isPassConfirmed, validateBirthDate,
     validateEmail,
@@ -7,7 +7,7 @@ import {
     validateRegister
 } from "../../Service/Validation/registerValidation";
 import {registerNewUser} from "../../Service/Server/register";
-import {loginUser} from "../../Service/Server/login";
+import {carryLoginData, hideEmail, loginUser} from "../../Service/Server/login";
 import {validateLogin} from "../../Service/Validation/loginValidation";
 
 
@@ -58,6 +58,7 @@ export const StatusRegisterDrawer = () => {
 
 export const StatusLoginDrawer = () => {
     const {stageStatus, setStageStatus, setUser, setStage} = useUser();
+    const loginEmail = useCallback(carryLoginData('get'), [setUser]);
     const refreshStatus = () => {
         setTimeout(() => {
             setStageStatus(0);
@@ -88,8 +89,8 @@ export const StatusLoginDrawer = () => {
             <div className="login_drawer">
                 <div className="login_drawer_title">
                     <h1>Ваша учётная запись не была активирована</h1>
-                    <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу почту</h3>
-                    <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия запросите письмо заново</p>
+                    <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу почту {hideEmail(loginEmail)}</h3>
+                    <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия <span className="switch_button">запросите письмо заново</span></p>
                 </div>
             </div>
         );
@@ -182,8 +183,9 @@ export const LoginDrawer = () => {
         let form = document.getElementById('login_form');
         form.addEventListener('submit', function (evt) {
             evt.preventDefault();
-            if (validateLogin()) {
+            if (!stageStatus && validateLogin()) {
                 sendLogin();
+                carryLoginData('set');
                 setTimeout(() => setStage('logged'), 1000);
                 return;
             } else return;
