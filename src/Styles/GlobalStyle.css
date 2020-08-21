@@ -213,6 +213,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 
