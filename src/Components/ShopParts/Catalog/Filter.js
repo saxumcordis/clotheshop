@@ -24,7 +24,7 @@ const activeColorStyle = (activeColors, colorCode) => {
         } : null;
 };
 
-const Color = (color, activeColors, setActiveColor, setCheckColor) => {
+const Color = ({color, activeColors, setActiveColor, setCheckColor}) => {
     return (
         <li className="filter_element" style={activeColorStyle(activeColors, color[1])} key={color[1]} onClick={() => {
             setCheckColor(0);
@@ -69,7 +69,7 @@ const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter
                 <li className="filter_element"
                     onClick={() => setColor(!checkColor)}>{!activeColors.length ? "Выбрать" : "Выбрать  (" + activeColors.length + ")"}</li>
                 <div className="color_list" hidden={!checkColor}>
-                    {colors.map(e => Color(e, activeColors, setActiveColor, setColor))}
+                    {colors.map((e, i) => <Color key={e + i} color={e} activeColors={activeColors} setActiveColor={setActiveColor} setCheckColor={setColor}/>)}
                 </div>
                 {activeColors && activeColors.length !== 0 || sizeFilter && sizeFilter.length !== 0 ?
                     <li className="filter_element"
