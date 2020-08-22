@@ -28,7 +28,7 @@ export const RegisterDrawer = () => {
             evt.preventDefault();
             if (validateRegister()) {
                 sendRegister();
-                setTimeout(() => setStage('registered'), 1000);
+                setTimeout(() => setStage('registered'), 1500);
                 return;
             } else return;
         });
