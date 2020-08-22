@@ -12,8 +12,7 @@ export const StatusLoginDrawer = () => {
     const refreshStatus = () => {
         setTimeout(() => {
             setStageStatus(0);
-            console.log(cart);
-            console.log(wishList);
+            window.location = "/catalog";
         }, 3000);
         return null;
     };
