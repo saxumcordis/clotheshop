@@ -1,14 +1,19 @@
 import {useUser} from "../../../../Service/Contexts/UserContext";
 import React, {useCallback} from "react";
 import {carryLoginData, hideEmail} from "../../../../Service/Server/login";
+import {useCart} from "../../../../Service/Contexts/CartContext";
+import {useWishList} from "../../../../Service/Contexts/WishListContext";
 
 export const StatusLoginDrawer = () => {
     const {stageStatus, setStageStatus, setUser, setStage} = useUser();
+    const {setCart, cart} = useCart();
+    const {setWishList, wishList} = useWishList();
     const loginEmail = useCallback(carryLoginData('get'), [setUser]);
     const refreshStatus = () => {
         setTimeout(() => {
             setStageStatus(0);
-            window.location = "/catalog";
+            console.log(cart);
+            console.log(wishList);
         }, 3000);
         return null;
     };
@@ -18,7 +23,15 @@ export const StatusLoginDrawer = () => {
             setStage('login');
         }, 3000);
     };
+    const initCart = async (token) => {
+        fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_cart&token=' + token).then(response => response.json()).then(response => setCart(response));
+    };
+    const initWish = async (token) => {
+        fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_wish&token=' + token).then(response => response.json()).then(response => setWishList(response));
+    };
     if (stageStatus.token) {
+        initCart(stageStatus.token);
+        initWish(stageStatus.token);
         setUser(stageStatus);
         refreshStatus();
         return (
@@ -29,14 +42,15 @@ export const StatusLoginDrawer = () => {
                 </div>
             </div>
         );
-    }
-    else if (stageStatus === -3)
+    } else if (stageStatus === -3)
         return (
             <div className="login_drawer">
                 <div className="login_drawer_title">
                     <h1>Ваша учётная запись не была активирована</h1>
-                    <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу почту {hideEmail(loginEmail)}</h3>
-                    <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия <span className="switch_button">запросите письмо заново</span></p>
+                    <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу
+                        почту {hideEmail(loginEmail)}</h3>
+                    <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия <span
+                        className="switch_button">запросите письмо заново</span></p>
                 </div>
             </div>
         );
@@ -50,8 +64,7 @@ export const StatusLoginDrawer = () => {
                 </div>
             </div>
         );
-    }
-    else
+    } else
         return <></>
 
 };
