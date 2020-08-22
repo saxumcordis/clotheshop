@@ -24,7 +24,14 @@ const Account = () => {
         return (
             <div className='with_footer'>
                 <div className='global_giv'>
-                    account
+                    <div className='account_left'>
+                    </div>
+                    <div className='account_right'>
+                            <div className="account_right_title">
+                                <h1>Личный кабинет</h1>
+                                <h3>Выход</h3>
+                            </div>
+                    </div>
                 </div>
             </div>
         )

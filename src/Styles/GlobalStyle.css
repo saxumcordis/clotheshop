@@ -1546,3 +1546,57 @@ button {
 .policy_text span:hover {
     text-decoration: underline;
 }
+
+.account_left {
+    width: 64%;
+}
+
+.account_right {
+    margin-top: 20px;
+    position: relative;
+    min-width: 400px;
+    width: 36%;
+    max-width: 400px;
+    padding-left: 50px;
+    height: 400px;
+}
+
+.account_right::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    left: -2px;
+    top: 0;
+    background: #f8f8f8;
+}
+
+.account_right_title {
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    justify-content: space-between;
+}
+
+.account_right_title h1 {
+    font-size: 19px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.account_right_title h3 {
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.5);
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.account_right_title h3:hover {
+    text-decoration: none;
+}
