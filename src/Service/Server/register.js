@@ -9,6 +9,8 @@ export const registerNewUser = () => {
     const surnameValue = document.getElementById('register_surname').value;
     const birthDayValue = document.getElementById('register_birth_date').value;
     const phoneValue = document.getElementById('register_phone').value;
+    const cart = localStorage.getItem('cart');
+    const wishlist = localStorage.getItem('wishList');
     const url = "https://miktina.herokuapp.com/backend/user/register.php?register&";
     const data = {
         name: nameValue,
@@ -18,9 +20,12 @@ export const registerNewUser = () => {
         birth: birthDayValue,
         pass: passwordValue,
         confirmPass: confirmValue,
+        cart: cart,
+        wish: wishlist,
     };
     const convertData = "name=" + data.name + "&surname=" + data.surname + "&phone=" + data.phone + "&email=" + data.email
-        + "&birth=" + data.birth + "&password=" + data.pass + "&confirm_password=" + data.confirmPass;
+        + "&birth=" + data.birth + "&password=" + data.pass + "&confirm_password=" + data.confirmPass + "&cart=" + data.cart
+        + "&wish_list=" + data.wish;
     return url + convertData;
 
 };
