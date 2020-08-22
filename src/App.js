@@ -19,6 +19,7 @@ import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
 import {usePath} from "./Service/Contexts/PathContext";
 import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
+import {Policy} from "./Components/UtilParts/Policy";
 
 
 function App() {
@@ -47,9 +48,14 @@ function App() {
                                         <Contacts/>
                                     </Title>
                                 </Route>
-                                <Route path="/about">
+                                <Route exact path="/about">
                                     <Title title="О нас">
                                         <About/>
+                                    </Title>
+                                </Route>
+                                <Route exact path="/about/policy">
+                                    <Title title="Юридическая информация">
+                                        <Policy/>
                                     </Title>
                                 </Route>
                                 <Route path="/cart">
