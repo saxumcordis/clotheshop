@@ -86,20 +86,16 @@ const Product = () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
             setItem(await item.json());
         })();
-        if (item && sameItems)
-            reRenderSameItems();
         setSize(null);
     }, [id]);
 
     useEffect(() => {
         setWished(item && wishList.find(e => e === item.product_id));
-    }, [item]);
-    if (item && !sameItems) {
-        setTimeout(async () => {
+        item && !sameItems && setTimeout(async () => {
             const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
             setSameItems(await sameItems.json());
         }, 50);
-    }
+    }, [item]);
     return (
         <div className='with_footer'>
             {item &&
