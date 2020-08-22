@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {updateUserCart, updateUserWish} from "../Server/userStorage";
+import {updateUserWish} from "../Server/userStorage";
 
 export const WishContext = React.createContext({});
 

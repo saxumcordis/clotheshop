@@ -6,8 +6,8 @@ import {useWishList} from "../../../../Service/Contexts/WishListContext";
 
 export const StatusLoginDrawer = () => {
     const {stageStatus, setStageStatus, setUser, setStage} = useUser();
-    const {setCart, cart} = useCart();
-    const {setWishList, wishList} = useWishList();
+    const {setCart} = useCart();
+    const {setWishList} = useWishList();
     const loginEmail = useCallback(carryLoginData('get'), [setUser]);
     const refreshStatus = () => {
         setTimeout(() => {

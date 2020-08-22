@@ -10,7 +10,6 @@ export const CartContext = React.createContext({});
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
     const [limitWarning, setLimitWarning] = useState(false);
-    const updateCartStorage = useCallback(() => updateUserCart(cart, JSON.parse(localStorage.getItem('user'))), [cart]);
     const showWarning = useCallback(() => {
         setLimitWarning(true);
         setTimeout(() => setLimitWarning(false), 3000);

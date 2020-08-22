@@ -1,4 +1,3 @@
-import {useUser} from "../Contexts/UserContext";
 import React from "react";
 
 export const registerNewUser = () => {
