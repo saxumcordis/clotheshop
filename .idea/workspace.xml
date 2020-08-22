@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/Server/userStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" afterDir="false" />
-    </list>
+    <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
       <workItem from="1597932921097" duration="11424000" />
       <workItem from="1597960645017" duration="8009000" />
       <workItem from="1598011053341" duration="7695000" />
-      <workItem from="1598090763191" duration="6529000" />
+      <workItem from="1598090763191" duration="6786000" />
     </task>
     <servers />
   </component>

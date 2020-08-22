@@ -229,7 +229,7 @@ button {
 .catalog_categories > *{
     list-style-type: none;
     margin-left: 0;
-    transition: all 0.2s;
+    transition: all 0.3s;
     width: 50px;
 }
 
