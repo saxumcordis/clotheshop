@@ -1530,3 +1530,19 @@ button {
     text-decoration: none;
     transition: 0.2ms ease all;
 }
+
+.policy_text {
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.policy_text span {
+    text-decoration: none;
+    color: #000;
+}
+
+.policy_text span:hover {
+    text-decoration: underline;
+}

@@ -8,6 +8,7 @@ import {
     validatePassword,
     validateRegister
 } from "../../../Service/Validation/registerValidation";
+import {Link} from "react-router-dom";
 
 export const RegisterDrawer = () => {
     const {setStage, stageStatus, setStageStatus} = useUser();
@@ -53,6 +54,7 @@ export const RegisterDrawer = () => {
                            onChange={() => validatePassword()}/>
                     <input type="password" id="register_confirm_pass" placeholder="Повторите пароль"
                            name="register_confirm_pass" onChange={() => isPassConfirmed()}/>
+                    <p className="policy_text">НАЖИМАЯ НА КНОПКУ, ВЫ ДАЕТЕ СОГЛАСИЕ НА ОБРАБОТКУ СВОИХ <span><Link to="/about/policy">ПЕРСОНАЛЬНЫХ ДАННЫХ.</Link></span></p>
                     <input type="submit" value="Зарегистрироваться" style={{color: "white"}}
                            onClick={() => validateRegister()} className="login_button"/>
                 </form>
