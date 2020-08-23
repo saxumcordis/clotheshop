@@ -21,7 +21,6 @@ export const PersistUser = () => {
     const {user, personal} = useUser();
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('personal', JSON.stringify(personal));
     }, [user]);
 
     return <></>
