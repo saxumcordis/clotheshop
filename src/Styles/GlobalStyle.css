@@ -1601,3 +1601,45 @@ button {
 .account_right_title h3:hover {
     text-decoration: none;
 }
+
+.account_right_personal {
+    width: 400px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.account_right_personal p {
+    color: rgba(0,0,0,.5);
+    font-size: 13px;
+    width: 80%;
+}
+
+.account_right_personal_field {
+    display: flex;
+    flex-direction: row;
+    min-width: 350px;
+    justify-content: space-between;
+}
+
+.personal_field {
+    margin-top: 10px;
+    display: inline-block;
+    color: black;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.value {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.value:hover {
+    text-decoration: none;
+}
+
+.personal_edit_form {
+
+}
