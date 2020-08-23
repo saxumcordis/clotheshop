@@ -9,7 +9,7 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : 'guest');
     const [stageStatus, setStageStatus] = useState(0);
     const login = useCallback((user) => setUser(user), [setUser]);
-    const logout = useCallback(() => setUser('guest'), [setUser]);
+    const logout = useCallback(() => localStorage.removeItem('user'), [setUser]);
     const [stage, setStage] = useState('login');
 
     const value = {login, logout, user, setUser, stage, setStage, stageStatus, setStageStatus};

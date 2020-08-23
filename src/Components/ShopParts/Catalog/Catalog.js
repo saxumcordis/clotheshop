@@ -74,7 +74,7 @@ const Catalog = () => {
             setCatalog(await catalog.json());
         })();
     }, [setCatalog]);
-    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0).filter(item => sizeFilter.includes('small') && item.small_size > 0
+    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).filter(item => sizeFilter.includes('small') && item.small_size > 0
     || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
         .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))

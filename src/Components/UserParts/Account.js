@@ -6,12 +6,17 @@ import {AccountDrawer} from "./AccountDrawer";
 
 const Account = () => {
     const {setPath} = usePath();
-    const {user, setStage} = useUser();
+    const {user, setStage, logout} = useUser();
     const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
     useEffect(() => {
         setPath('/account');
     });
-    console.log(user);
+
+    const logOut = () => {
+      logout();
+      window.location.reload();
+    };
+
     if (user === 'guest')
         return (
             <div className='with_footer'>
@@ -29,7 +34,7 @@ const Account = () => {
                     <div className='account_right'>
                             <div className="account_right_title">
                                 <h1>Личный кабинет</h1>
-                                <h3>Выход</h3>
+                                <h3 onClick={() => logOut()}>Выход</h3>
                             </div>
                     </div>
                 </div>
