@@ -6,7 +6,7 @@ import {AccountDrawer} from "./AccountDrawer";
 
 const Account = () => {
     const {setPath} = usePath();
-    const {user, setStage, logout} = useUser();
+    const {user, setStage, logout, personal} = useUser();
     const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
     useEffect(() => {
         setPath('/account');
@@ -41,7 +41,7 @@ const Account = () => {
                             <div className='account_right_personal_edit'>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Имя:</span>
-                                    <span className='personal_field value'>SOSIK</span>
+                                    <span className='personal_field value'>{personal.name}</span>
                                 </p>
                                 <form className="personal_edit_form">
                                     <p className="">
@@ -53,19 +53,19 @@ const Account = () => {
                                 </form>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Фамилия:</span>
-                                    <span className='personal_field value'>SOSIK</span>
+                                    <span className='personal_field value'>{personal.surname}</span>
                                 </p>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Логин:</span>
-                                    <span className='personal_field'>1</span>
+                                    <span className='personal_field'>{personal.email}</span>
                                 </p>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Пароль:</span>
-                                    <span className='personal_field value'>***********</span>
+                                    <span className='personal_field value'>********</span>
                                 </p>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Дата рождения</span>
-                                    <span className='personal_field value'>1</span>
+                                    <span className='personal_field value'>{personal.birth}</span>
                                 </p>
                             </div>
                         </div>

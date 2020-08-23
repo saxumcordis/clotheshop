@@ -5,7 +5,7 @@ import {useCart} from "../../../../Service/Contexts/CartContext";
 import {useWishList} from "../../../../Service/Contexts/WishListContext";
 
 export const StatusLoginDrawer = () => {
-    const {stageStatus, setStageStatus, setUser, setStage} = useUser();
+    const {stageStatus, setStageStatus, setUser, setStage, setPersonal} = useUser();
     const {setCart} = useCart();
     const {setWishList} = useWishList();
     const loginEmail = useCallback(carryLoginData('get'), [setUser]);
@@ -28,10 +28,14 @@ export const StatusLoginDrawer = () => {
     const initWish = async (token) => {
         fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_wish&token=' + token).then(response => response.json()).then(response => setWishList(response));
     };
+    const initPersonal = async (token) => {
+        fetch('http://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token).then(response => response.json()).then(response => localStorage.setItem('personal', JSON.stringify(response)));
+    };
     if (stageStatus.token) {
         initCart(stageStatus.token);
         initWish(stageStatus.token);
         setUser(stageStatus);
+        initPersonal(stageStatus.token);
         refreshStatus();
         return (
             <div className="login_drawer">
