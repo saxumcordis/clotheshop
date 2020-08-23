@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useMemo} from 'react';
+import {useParams} from 'react-router-dom';
 import {CatalogMenu} from "./CatalogMenu";
 import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
@@ -62,6 +63,7 @@ const Item = ({item}) => {
 const Catalog = () => {
     const {setPath} = usePath();
     useEffect(() => setPath('/catalog'));
+    const categoryId = useParams().id;
     const [catalog, setCatalog] = useState(null);
     const [sizeFilter, setSizeFilter] = useState([]);
     const [activeColors, setActiveColor] = useState([]);
@@ -71,8 +73,8 @@ const Catalog = () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
             setCatalog(await catalog.json());
         })();
-    }, []);
-    const showCatalog = catalog && catalog.filter(item => sizeFilter.includes('small') && item.small_size > 0
+    }, [setCatalog]);
+    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0).filter(item => sizeFilter.includes('small') && item.small_size > 0
     || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
         .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))

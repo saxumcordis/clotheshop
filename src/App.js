@@ -38,6 +38,11 @@ function App() {
                                         <Catalog/>
                                     </Title>
                                 </Route>
+                                <Route path="/catalog/category/:id">
+                                    <Title title="Каталог">
+                                        <Catalog/>
+                                    </Title>
+                                </Route>
                                 <Route path="/delivery">
                                     <Title title="Доставка">
                                         <Delivery/>

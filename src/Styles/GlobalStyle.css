@@ -239,9 +239,10 @@ button {
 }
 
 .catalog_category {
+    cursor: pointer;
     margin-top: 15px;
     font-size: 13px;
-    width: 50px;
+    width: 100px;
 }
 
 
