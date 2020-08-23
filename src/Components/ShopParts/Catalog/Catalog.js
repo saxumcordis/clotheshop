@@ -10,9 +10,9 @@ import {beautyPrice} from "../Product/Product";
 import {usePath} from "../../../Service/Contexts/PathContext";
 
 const getPriceDiff = (a, b) => {
-  const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
-  const second = Math.floor((100 - b.sale_percent) * b.product_price / 100);
-  return first - second;
+    const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
+    const second = Math.floor((100 - b.sale_percent) * b.product_price / 100);
+    return first - second;
 };
 
 const Item = ({item}) => {
@@ -75,7 +75,7 @@ const Catalog = () => {
         })();
     }, [setCatalog]);
     const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).filter(item => sizeFilter.includes('small') && item.small_size > 0
-    || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
+        || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
         .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))
         .sort((a, b) => sort.dir === 'asc' ? getPriceDiff(a, b) : getPriceDiff(b, a))
@@ -87,8 +87,9 @@ const Catalog = () => {
                 {catalog &&
                 <div className="catalog_box">
                     <Filter sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}
-                            colors={catalog.filter(item => sizeFilter.includes('small') && item.small_size > 0
-                                || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0).map(e => [e.product_color_name, e.color_code])} activeColors={activeColors}
+                            colors={catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).filter(item => sizeFilter.includes('small') && item.small_size > 0
+                                || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0).map(e => [e.product_color_name, e.color_code])}
+                            activeColors={activeColors}
                             setActiveColor={setActiveColor} sort={sort} setSort={setSort}/>
                     <div className="catalog_items">
                         {showCatalog.length > 0 ? showCatalog : <h1>Нет подходящих вещей</h1>}
