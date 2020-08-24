@@ -1652,7 +1652,7 @@ button {
     display: none;
 }
 
-.personal_edit_form > input {
+.personal_button {
     outline: none;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     width: 150px;
@@ -1675,7 +1675,7 @@ button {
     cursor: pointer;
 }
 
-.personal_edit_form > input:hover {
+.personal_button:hover {
     opacity: 0.9;
     transition: 0.4s ease all;
 }
