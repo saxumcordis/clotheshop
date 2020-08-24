@@ -1,9 +1,6 @@
-import React, {useEffect} from 'react'
-import {usePath} from "../../Service/Contexts/PathContext";
+import React from 'react'
 
 const About = () => {
-    const {setPath} = usePath();
-    useEffect(() => setPath('/about'));
     return (
         <div className='with_footer'>
             <div className='global_giv'>

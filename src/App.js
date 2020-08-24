@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Header} from './Components/GlobalParts/Header'
 import {Home} from './Components/Home.js'
 import {Catalog} from "./Components/ShopParts/Catalog/Catalog";
 import {Delivery} from "./Components/UtilParts/Delivery";
 import {Contacts} from "./Components/UtilParts/Contacts";
-import {Route, Switch, BrowserRouter} from "react-router-dom"
+import {Route, Switch,useLocation} from "react-router-dom"
 import {About} from "./Components/UtilParts/About";
 import {Account} from "./Components/UserParts/Account";
 import {Wish} from "./Components/UserParts/Wish";
@@ -17,17 +17,15 @@ import {PersistWish, WishProvider} from "./Service/Contexts/WishListContext";
 import {CartProvider, PersistCart} from "./Service/Contexts/CartContext";
 import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
-import {usePath} from "./Service/Contexts/PathContext";
 import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 
 
 function App() {
-    const {path} = usePath();
     const {status} = useDrawer();
+    const location = useLocation();
     return (
         <div>
-            <BrowserRouter>
                 <WishProvider>
                     <CartProvider>
                         <UserProvider>
@@ -94,7 +92,7 @@ function App() {
                                     </Title>
                                 </Route>
                             </Switch>
-                            {path !== "/" ? <Footer/> : null}
+                            {location.pathname !== "/" ? <Footer/> : null}
                             <PersistWish/>
                             <PersistCart/>
                             <PersistUser/>
@@ -102,7 +100,6 @@ function App() {
                         </UserProvider>
                     </CartProvider>
                 </WishProvider>
-            </BrowserRouter>
         </div>
     );
 }

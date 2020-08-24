@@ -1,13 +1,11 @@
 import React, {useLayoutEffect, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {useWishList} from "../../Service/Contexts/WishListContext";
 import {useCart} from "../../Service/Contexts/CartContext";
 import {useDrawer} from "../../Service/Contexts/Drawer";
-import {usePath} from "../../Service/Contexts/PathContext";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
 import {useUser} from "../../Service/Contexts/UserContext";
-import {Account} from "../UserParts/Account";
 import {AccountDrawer} from "../UserParts/AccountDrawer";
 
 
@@ -71,25 +69,25 @@ const UserFeatures = () => {
 };
 
 const Menu = () => {
-    const {path} = usePath();
+    const location = useLocation();
     const {close} = useDrawer();
     return (
         <ul className="menu">
             <Link to="/" onClick={() => close()}><img className='logo'
                                                       src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/></Link>
-            <li className={path === '/catalog' ? 'menu_active' : null} onClick={() => {
+            <li className={location.pathname === '/catalog' ? 'menu_active' : null} onClick={() => {
                 close()
             }}><Link
                 to="/catalog">Онлайн магазин</Link></li>
-            <li className={path === '/delivery' ? 'menu_active' : null} onClick={() => {
+            <li className={location.pathname === '/delivery' ? 'menu_active' : null} onClick={() => {
                 close()
             }}>
                 <Link to="/delivery">Доставка</Link></li>
-            <li className={path === '/about' ? 'menu_active' : null} onClick={() => {
+            <li className={location.pathname === '/about' ? 'menu_active' : null} onClick={() => {
                 close()
             }}><Link
                 to="/about">О нас</Link></li>
-            <li className={path === '/contacts' ? 'menu_active' : null} onClick={() => {
+            <li className={location.pathname === '/contacts' ? 'menu_active' : null} onClick={() => {
                 close()
             }}>
                 <Link to="/contacts">Контакты</Link></li>

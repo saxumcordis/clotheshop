@@ -1,10 +1,6 @@
-import React, {useEffect} from 'react'
-import {Header} from '../GlobalParts/Header'
-import {usePath} from "../../Service/Contexts/PathContext";
+import React from 'react'
 
 const Contacts = () => {
-    const {setPath} = usePath();
-    useEffect(() => setPath('/contacts'));
     return (
         <div className='with_footer'>
             <div className='global_giv'>

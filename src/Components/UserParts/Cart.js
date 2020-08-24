@@ -1,5 +1,4 @@
-import React, {useCallback, useEffect} from 'react'
-import {usePath} from "../../Service/Contexts/PathContext";
+import React, {useCallback} from 'react'
 import {useCart} from "../../Service/Contexts/CartContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../ShopParts/Cart/CartDrawer";
@@ -64,10 +63,8 @@ const CartItem = ({index, item}) => {
 
 const Cart = () => {
     const {cart} = useCart();
-    const {setPath} = usePath();
     const {warning} = useDrawer();
     const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b, 0), [cart]);
-    useEffect(() => setPath('/cart'));
     return (
         <div className='with_footer'>
             <div className='global_giv'>

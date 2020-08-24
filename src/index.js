@@ -10,11 +10,11 @@ import {PathProvider} from "./Service/Contexts/PathContext";
 
 ReactDOM.render(
     <React.StrictMode>
+        <BrowserRouter>
         <DrawerProvider>
-            <PathProvider>
                 <App/>
-            </PathProvider>
         </DrawerProvider>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );

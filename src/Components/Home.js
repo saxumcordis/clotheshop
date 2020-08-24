@@ -1,12 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom';
 import {Footer} from "./GlobalParts/Footer";
-import {usePath} from "../Service/Contexts/PathContext";
 
 
 const Home = () => {
-    const {setPath} = usePath();
-    useEffect(() => setPath('/'));
     return (
         <div className="with_footer">
             <div className="home">

@@ -3,11 +3,10 @@ import {useParams} from 'react-router-dom';
 import {CatalogMenu} from "./CatalogMenu";
 import {ItemPreview} from "../Product/ItemPreview";
 import {Filter} from "./Filter";
-import {Redirect} from "react-router-dom";
+import {Redirect, useLocation} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {beautyPrice} from "../Product/Product";
-import {usePath} from "../../../Service/Contexts/PathContext";
 
 const getPriceDiff = (a, b) => {
     const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
@@ -16,7 +15,7 @@ const getPriceDiff = (a, b) => {
 };
 
 const Item = ({item}) => {
-    const {path} = usePath();
+    const location = useLocation();
     const [itemPreview, setItemPreview] = useState(false);
     const [redirect, setRedirect] = useState(null);
     const price = item.product_price;
@@ -28,11 +27,11 @@ const Item = ({item}) => {
             setRedirect('/catalog/item/' + item.product_id);
     };
     const handleWish = () => {
-        let result = path === "/wish" && window.confirm("Вы действительно хотите удалить товар из списка желаемого?");
-        if (path === "/wish" && result)
+        let result = location.pathname === "/wish" && window.confirm("Вы действительно хотите удалить товар из списка желаемого?");
+        if (location.pathname === "/wish" && result)
             remove(item.product_id);
         else
-            isWished && path !== "/wish" ? remove(item.product_id) : add(item.product_id);
+            isWished && location.pathname !== "/wish" ? remove(item.product_id) : add(item.product_id);
 
     };
     if (redirect)
@@ -61,8 +60,6 @@ const Item = ({item}) => {
 };
 
 const Catalog = () => {
-    const {setPath} = usePath();
-    useEffect(() => setPath('/catalog'));
     const categoryId = useParams().id;
     const [catalog, setCatalog] = useState(null);
     const [sizeFilter, setSizeFilter] = useState([]);
