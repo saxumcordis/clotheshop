@@ -6,11 +6,13 @@ import {AccountDrawer} from "./AccountDrawer";
 
 const Account = () => {
     const {setPath} = usePath();
-    const {user, setStage, logout, personal} = useUser();
+    const {user, setStage, logout, personal, setPersonal} = useUser();
+    console.log(personal);
     const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
     useEffect(() => {
         setPath('/account');
-    });
+
+    }, [setPath]);
 
     const logOut = () => {
         logout();
