@@ -51,7 +51,7 @@ export const RegisterDrawer = () => {
                            name="register_birth_date"
                            min="1900-01-01" max="2020-01-01" onChange={() => validateBirthDate()}/>
                     <input type="password" id="register_pass" placeholder="Пароль" name="register_pass"
-                           onChange={() => validatePassword()}/>
+                           onChange={() => validatePassword('register_pass')}/>
                     <input type="password" id="register_confirm_pass" placeholder="Повторите пароль"
                            name="register_confirm_pass" onChange={() => isPassConfirmed()}/>
                     <p className="policy_text">НАЖИМАЯ НА КНОПКУ, ВЫ ДАЕТЕ СОГЛАСИЕ НА ОБРАБОТКУ СВОИХ <span><Link to="/about/policy">ПЕРСОНАЛЬНЫХ ДАННЫХ.</Link></span></p>

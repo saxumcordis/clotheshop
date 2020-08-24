@@ -1608,6 +1608,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .account_right_personal p {
@@ -1641,5 +1642,80 @@ button {
 }
 
 .personal_edit_form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 25px;
+}
 
+.personal_edit_form {
+    display: none;
+}
+
+.personal_edit_form > input {
+    outline: none;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+    width: 150px;
+    min-height: 48px;
+    background-color: #252525;
+    border: 1px solid #252525;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    color: white;
+    position: relative;
+    top: 3px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 18px;
+    clear: both;
+    display: block;
+    text-transform: uppercase;
+    transition: 0.4s ease all;
+    cursor: pointer;
+}
+
+.personal_edit_form > input:hover {
+    opacity: 0.9;
+    transition: 0.4s ease all;
+}
+
+
+.personal_edit_text {
+}
+
+.personal_edit_text > label {
+    display: block;
+    cursor: default;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    color: black;
+    font-size: 11px;
+    line-height: 10px;
+    padding-bottom: 9px;
+    text-transform: uppercase;
+
+}
+
+.personal_edit_text > input {
+    margin-top: 15px;
+    outline: none;
+    max-width: 172px;
+    height: 33px;
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 28px;
+    padding: 0 13px;
+    color: black;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.personal_edit_text > span {
+    width: 300px;
 }

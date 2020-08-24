@@ -14,8 +14,8 @@ export const validateEmail = () => {
     }
 };
 
-export const validatePassword = () => {
-    const passwordInput = document.getElementById('register_pass');
+export const validatePassword = (id) => {
+    const passwordInput = document.getElementById(id);
     const passwordValue = passwordInput.value;
     let issueArr = [];
     if (!/^.{7,15}$/.test(passwordValue))
