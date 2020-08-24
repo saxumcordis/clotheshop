@@ -31,7 +31,7 @@ export const StatusLoginDrawer = () => {
         setWishList(await response.json())
     };
     const initPersonal = async (token) => {
-        const response = await fetch('http://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token);
+        const response = await fetch('https://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token);
         localStorage.setItem('personal', JSON.stringify(await response.json()))
     };
     if (stageStatus.token) {
