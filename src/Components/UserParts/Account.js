@@ -10,7 +10,7 @@ const setPersonalFormView = (id) => {
 };
 
 const Account = () => {
-    const {user, logout, personal} = useUser();
+    const {user, logout, personal, setPersonal} = useUser();
     const logOut = () => {
         logout();
         window.location.reload();
@@ -48,7 +48,7 @@ const Account = () => {
                                         <label>Новое имя</label>
                                         <input required type="text" name="NAME" id="personal_name_input"/>
                                     </p>
-                                    <button className="personal_button" onClick={() => {updatePersonalField('name')}}>Сохранить</button>
+                                    <button className="personal_button" onClick={() => {updatePersonalField('name', setPersonal)}}>Сохранить</button>
                                 </div>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Фамилия:</span>
@@ -59,7 +59,7 @@ const Account = () => {
                                         <label>Новая фамилия</label>
                                         <input required type="text" name="SURNAME" id="personal_surname_input"/>
                                     </p>
-                                    <button className="personal_button" onClick={() => {updatePersonalField('surname')}}>Сохранить</button>
+                                    <button className="personal_button" onClick={() => {updatePersonalField('surname', setPersonal)}}>Сохранить</button>
                                 </div>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Логин:</span>
@@ -75,7 +75,7 @@ const Account = () => {
                                         <span>Должен содержать от 7 до 15 символов, включать в себя буквы нижнего, верхнего регистров, цифру и спец.символ</span>
                                         <input required type="password" id="personal_password_input" name="PASSWORD" onChange={() => validatePassword('personal_password_input')}/>
                                     </p>
-                                    <button className="personal_button" onClick={() => {if (validatePassword('personal_password_input')) updatePersonalField('password')}}>Сохранить</button>
+                                    <button className="personal_button" onClick={() => {if (validatePassword('personal_password_input')) updatePersonalField('password', setPersonal)}}>Сохранить</button>
                                 </div>
                                 <p className='account_right_personal_field'>
                                     <span className='personal_field'>Дата рождения</span>
@@ -90,7 +90,7 @@ const Account = () => {
                                         <label>Новый телефон</label>
                                         <input required type="text" name="PHONE" id="personal_phone_input"/>
                                     </p>
-                                    <button className="personal_button" onClick={() => {updatePersonalField('phone')}}>Сохранить</button>
+                                    <button className="personal_button" onClick={() => {updatePersonalField('phone', setPersonal)}}>Сохранить</button>
                                 </div>
                             </div>
                         </div>
