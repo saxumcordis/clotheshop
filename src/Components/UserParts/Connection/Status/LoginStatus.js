@@ -1,12 +1,12 @@
 import {useUser} from "../../../../Service/Contexts/UserContext";
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 import {carryLoginData, hideEmail} from "../../../../Service/Server/login";
 import {useCart} from "../../../../Service/Contexts/CartContext";
 import {useWishList} from "../../../../Service/Contexts/WishListContext";
 
 export const StatusLoginDrawer = () => {
-    const {stageStatus, setStageStatus, setUser, setStage, setPersonal} = useUser();
-    const {setCart} = useCart();
+    const {stageStatus, setStageStatus, setUser, setStage, setPersonal, user} = useUser();
+    const {setCart, cart} = useCart();
     const {setWishList} = useWishList();
     const loginEmail = useCallback(carryLoginData('get'), [setUser]);
     const refreshStatus = () => {
@@ -23,6 +23,7 @@ export const StatusLoginDrawer = () => {
         }, 3000);
     };
     const initCart = async (token) => {
+        console.log(cart);
         const response = await fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_cart&token=' + token);
         setCart(await response.json())
     };
@@ -34,11 +35,17 @@ export const StatusLoginDrawer = () => {
         const response = await fetch('https://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token);
         localStorage.setItem('personal', JSON.stringify(await response.json()))
     };
-    if (stageStatus.token) {
-        initCart(stageStatus.token);
-        initWish(stageStatus.token);
-        setUser(stageStatus);
-        setTimeout(() => initPersonal(stageStatus.token), 1000);
+
+    useEffect(() => {
+        if (stageStatus.token && user === 'guest') {
+            setTimeout(() => initCart(stageStatus.token), 1000);
+            setTimeout(() => initWish(stageStatus.token), 1000);
+            setUser(stageStatus);
+            setTimeout(() => initPersonal(stageStatus.token), 1000);
+        }
+    }, [stageStatus]);
+
+    if (stageStatus.token && user === 'guest') {
         refreshStatus();
         return (
             <div className="login_drawer">

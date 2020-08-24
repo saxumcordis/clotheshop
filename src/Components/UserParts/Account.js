@@ -1,19 +1,8 @@
-import React, {useEffect} from 'react'
-import {usePath} from "../../Service/Contexts/PathContext";
+import React from 'react'
 import {useUser} from "../../Service/Contexts/UserContext";
-import {useDrawer} from "../../Service/Contexts/Drawer";
-import {AccountDrawer} from "./AccountDrawer";
 
 const Account = () => {
-    const {setPath} = usePath();
-    const {user, setStage, logout, personal, setPersonal} = useUser();
-    console.log(personal);
-    const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
-    useEffect(() => {
-        setPath('/account');
-
-    }, [setPath]);
-
+    const {user, logout, personal} = useUser();
     const logOut = () => {
         logout();
         window.location.reload();
