@@ -1559,7 +1559,9 @@ button {
     width: 36%;
     max-width: 400px;
     padding-left: 50px;
-    height: 400px;
+    height: 80vh;
+    overflow-x: hidden;;
+    overflow-y: auto;
 }
 
 .account_right::before {
@@ -1571,6 +1573,22 @@ button {
     left: -2px;
     top: 0;
     background: #f8f8f8;
+}
+
+.account_right::-webkit-scrollbar {
+    width: 3px;
+}
+
+.account_right::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.account_right::-webkit-scrollbar-thumb {
+    background: #999999;
+}
+
+.account_right::-webkit-scrollbar-thumb:hover {
+    background: #999999;
 }
 
 .account_right_title {
