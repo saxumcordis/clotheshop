@@ -23,13 +23,16 @@ export const StatusLoginDrawer = () => {
         }, 3000);
     };
     const initCart = async (token) => {
-        fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_cart&token=' + token).then(response => response.json()).then(response => setCart(response));
+        const response = await fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_cart&token=' + token);
+        setCart(await response.json())
     };
     const initWish = async (token) => {
-        fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_wish&token=' + token).then(response => response.json()).then(response => setWishList(response));
+        const response = await fetch('https://miktina.herokuapp.com/backend/user/storage.php?get_wish&token=' + token);
+        setWishList(await response.json())
     };
     const initPersonal = async (token) => {
-        fetch('http://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token).then(response => response.json()).then(response => localStorage.setItem('personal', JSON.stringify(response)));
+        const response = await fetch('http://miktina.herokuapp.com/backend/user/account.php?get_user&token=' + token);
+        localStorage.setItem('personal', JSON.stringify(await response.json()))
     };
     if (stageStatus.token) {
         initCart(stageStatus.token);
