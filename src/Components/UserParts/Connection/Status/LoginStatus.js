@@ -38,7 +38,7 @@ export const StatusLoginDrawer = () => {
         initCart(stageStatus.token);
         initWish(stageStatus.token);
         setUser(stageStatus);
-        initPersonal(stageStatus.token);
+        setTimeout(() => initPersonal(stageStatus.token), 1000);
         refreshStatus();
         return (
             <div className="login_drawer">
