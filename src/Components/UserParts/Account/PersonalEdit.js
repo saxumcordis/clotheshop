@@ -1,7 +1,7 @@
-import React from 'react'
-import {useUser} from "../../Service/Contexts/UserContext";
-import {validatePassword} from "../../Service/Validation/registerValidation";
-import {updatePersonalField} from "../../Service/Server/personalSettings";
+import {useUser} from "../../../Service/Contexts/UserContext";
+import {updatePersonalField} from "../../../Service/Server/personalSettings";
+import {validatePassword} from "../../../Service/Validation/registerValidation";
+import React from "react";
 
 const setPersonalFormView = (id) => {
     const form = document.getElementById(id);
@@ -9,7 +9,10 @@ const setPersonalFormView = (id) => {
     form.hidden = !form.hidden;
 };
 
-const AccountEdit = () => {
+
+
+
+export const PersonalEdit = () => {
     const {personal, setPersonal} = useUser();
     return (
         <div className='account_right_personal_edit'>
@@ -86,41 +89,3 @@ const AccountEdit = () => {
         </div>
     )
 };
-
-const Account = () => {
-    const {user, logout} = useUser();
-    const logOut = () => {
-        logout();
-        window.location.reload();
-    };
-
-    if (user === 'guest')
-        return (
-            <div className='with_footer'>
-                <div className='global_giv'>
-                    <p>Вы не авторизованы.</p>
-                </div>
-            </div>
-        );
-    else
-        return (
-            <div className='with_footer'>
-                <div className='global_giv'>
-                    <div className='account_left'>
-                    </div>
-                    <div className='account_right'>
-                        <div className="account_right_title">
-                            <h1>Личный кабинет</h1>
-                            <h3 onClick={() => logOut()}>Выход</h3>
-                        </div>
-                        <div className='account_right_personal'>
-                            <p>Подчёркнутые поля можно изменить. Для изменения поля кликните на него.</p>
-                            <AccountEdit/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-}
-
-export {Account};

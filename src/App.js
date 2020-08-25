@@ -6,7 +6,7 @@ import {Delivery} from "./Components/UtilParts/Delivery";
 import {Contacts} from "./Components/UtilParts/Contacts";
 import {Route, Switch,useLocation} from "react-router-dom"
 import {About} from "./Components/UtilParts/About";
-import {Account} from "./Components/UserParts/Account";
+import {Account} from "./Components/UserParts/Account/Account";
 import {Wish} from "./Components/UserParts/Wish";
 import {Cart} from "./Components/UserParts/Cart";
 import Title from "react-document-title";
