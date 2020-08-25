@@ -1,5 +1,5 @@
-const alertRedInput = "#ff0000";
-const defaultInput = "#e1e1e1";
+export const alertRedInput = "#ff0000";
+export const defaultInput = "#e1e1e1";
 
 export const validateEmail = () => {
     const emailInput = document.getElementById('register_email');
