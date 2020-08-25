@@ -15,6 +15,7 @@ export const RegisterDrawer = () => {
 
     const sendRegister = () => {
         const data = registerNewUser();
+        console.log('a');
         (async () => {
             const response = await fetch(data);
             if (!stageStatus) {
@@ -33,7 +34,7 @@ export const RegisterDrawer = () => {
                 return;
             } else return;
         });
-    });
+    }, [setStageStatus]);
     return (
         <div className="login_drawer">
             <div className="login_drawer_title">

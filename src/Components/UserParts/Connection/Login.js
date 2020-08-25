@@ -27,7 +27,7 @@ export const LoginDrawer = () => {
                 return;
             } else return;
         });
-    });
+    }, [setStageStatus]);
 
     return (
         <div className="login_drawer">
