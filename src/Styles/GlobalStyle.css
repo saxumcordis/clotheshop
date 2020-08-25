@@ -1762,6 +1762,7 @@ button {
 }
 
 .address_field input {
+    outline: none;
     margin-top: 5px;
     margin-right: 15px;
     height: 33px;
@@ -1774,4 +1775,9 @@ button {
     color: black;
     font-size: 11px;
     text-transform: uppercase;
+}
+
+.address_warning {
+    width: 350px;
+    color: #999;
 }
