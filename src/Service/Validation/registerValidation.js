@@ -77,6 +77,6 @@ export const validateBirthDate = () => {
 }
 
 export const validateRegister = () => {
-    if (validateEmail() && validatePassword() && isPassConfirmed() && validateBirthDate())
+    if (validateEmail() && validatePassword('register_pass') && isPassConfirmed() && validateBirthDate())
         return 1;
 };
