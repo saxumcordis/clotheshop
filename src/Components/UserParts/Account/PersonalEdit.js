@@ -71,11 +71,6 @@ export const PersonalEdit = () => {
                 <span className='personal_field'>Дата рождения</span>
                 <span className='personal_field'>{personal.birth}</span>
             </p>
-            <p className='account_right_personal_field'>
-                <span className='personal_field'>Телефон</span>
-                <span className='personal_field value'
-                      onClick={() => setPersonalFormView('personal_phone')}>{personal.phone}</span>
-            </p>
         </div>
     )
 };
