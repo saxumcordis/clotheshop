@@ -3,6 +3,7 @@ import React from "react";
 
 export const StatusRegisterDrawer = () => {
     const {stageStatus, setStageStatus, setStage} = useUser();
+    console.log(stageStatus);
     const refreshStatus = () => {
         setTimeout(() => {
             setStage('register');
@@ -13,7 +14,7 @@ export const StatusRegisterDrawer = () => {
     const messages = {
         1: ['Спасибо за регистрацию', 'Для активации Вашего профиля следуйте инструкциям, которые были высланы Вам на почту'],
         10: ['Пользователь с таким email существует', 'Заполните форму регистрации повторно, указав другой Email'],
-        0: ['none', 'none']
+        0: ['Произошла ошибка на сервере', 'Повторите попытку регистрации позже.']
     };
     return (
         <div className="login_drawer">
