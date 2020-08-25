@@ -1,6 +1,7 @@
 import React from 'react'
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {PersonalEdit} from "./PersonalEdit";
+import {AddressEdit} from "./AddressEdit";
 
 const Account = () => {
     const {user, logout} = useUser();
@@ -36,6 +37,7 @@ const Account = () => {
                             <div className="account_right_title">
                                 <h1 style={{fontSize: "18px"}}><strong>Адрес доставки</strong></h1>
                             </div>
+                            <AddressEdit/>
                         </div>
                     </div>
                 </div>
