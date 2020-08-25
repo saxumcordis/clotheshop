@@ -1397,19 +1397,35 @@ button {
 
 .account_drawer {
     width: 98%;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    align-content: center;
-    align-items: center;
 }
 
 .login_drawer {
     width: calc(100%);
+    height: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-family: 'FuturaNewBook-Reg', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.login_drawer::-webkit-scrollbar {
+    width: 3px;
+}
+
+.login_drawer::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.login_drawer::-webkit-scrollbar-thumb {
+    background: #999999;
+}
+
+.login_drawer::-webkit-scrollbar-thumb:hover {
+    background: #999999;
 }
 
 .login_drawer_title {
