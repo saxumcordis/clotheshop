@@ -32,6 +32,11 @@ const Account = () => {
                             <p>Подчёркнутые поля можно изменить. Для изменения поля кликните на него.</p>
                             <PersonalEdit/>
                         </div>
+                        <div className='account_right_address'>
+                            <div className="account_right_title">
+                                <h1 style={{fontSize: "18px"}}><strong>Адрес доставки</strong></h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
