@@ -21,6 +21,8 @@ const updatePersonalAddress = (update, data) => {
         if (personal.hasOwnProperty(field) && field !== 'id')
             personal[field] = data[field];
     }
+    localStorage.setItem('personal', JSON.stringify(personal));
+    update(personal);
 };
 
 
