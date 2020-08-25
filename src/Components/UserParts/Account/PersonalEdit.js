@@ -76,16 +76,6 @@ export const PersonalEdit = () => {
                 <span className='personal_field value'
                       onClick={() => setPersonalFormView('personal_phone')}>{personal.phone}</span>
             </p>
-            <div className="personal_edit_form" id="personal_phone" hidden>
-                <p className="personal_edit_text">
-                    <label>Новый телефон</label>
-                    <input required type="text" name="PHONE" id="personal_phone_input"/>
-                </p>
-                <button className="personal_button" onClick={() => {
-                    updatePersonalField('phone', setPersonal)
-                }}>Сохранить
-                </button>
-            </div>
         </div>
     )
 };
