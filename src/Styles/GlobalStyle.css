@@ -316,6 +316,7 @@ button {
     height: 480px;
     width: 320px;
     position: relative;
+    cursor: pointer;
 }
 
 .item_pics > img {
