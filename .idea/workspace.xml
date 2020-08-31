@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/Style/Gift.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/boxElements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JavaScript/kasha/src/Components/Gift.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/Components/Gift.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JavaScript/kasha/src/Style/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/Style/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/miktinashop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/miktinashop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Connection/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Connection/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Connection/Status/RegisterStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Connection/Status/RegisterStatus.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,13 +26,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../JavaScript/kasha" />
   </component>
   <component name="ProjectId" id="1dtihH6F80pIuPLhKD9rh9tukN5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaScript/kasha" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -80,7 +86,11 @@
       <workItem from="1598090763191" duration="19481000" />
       <workItem from="1598196327712" duration="10707000" />
       <workItem from="1598264119185" duration="13572000" />
-      <workItem from="1598361729003" duration="8604000" />
+      <workItem from="1598361729003" duration="10130000" />
+      <workItem from="1598466235522" duration="45000" />
+      <workItem from="1598515115634" duration="14710000" />
+      <workItem from="1598621108464" duration="6626000" />
+      <workItem from="1598864208558" duration="9497000" />
     </task>
     <servers />
   </component>

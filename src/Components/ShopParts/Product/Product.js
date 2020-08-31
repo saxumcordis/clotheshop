@@ -6,7 +6,6 @@ import {Loading} from "../../SystemParts/Loading";
 import {Recommended} from "./Recommended";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
-import {usePath} from "../../../Service/Contexts/PathContext";
 
 
 export const beautyPrice = price => {
@@ -43,8 +42,6 @@ const MainBox = ({item}) => {
 };
 
 const Product = () => {
-    const {setPath} = usePath();
-    useEffect(() => setPath('/catalog'));
     const id = useParams().id;
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState(null);
