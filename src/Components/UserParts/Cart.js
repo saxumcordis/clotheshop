@@ -83,7 +83,7 @@ const Cart = () => {
                             <Link to="/catalog"><p>Продолжить покупки</p></Link>
                             <span>ИТОГО: {beautyPrice(totalPrice)}</span>
                         </div>
-                        <span className="cart_total_confirm_button">Оформить заказ</span>
+                        <Link to="/order"><span className="cart_total_confirm_button">Оформить заказ</span></Link>
                     </div>}
                     {!cart.length && <div className="cart_empty">
                         <h3>Тут ничего нет :(</h3>

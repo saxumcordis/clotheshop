@@ -19,6 +19,7 @@ import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
 import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
+import {Order} from "./Components/ShopParts/Order/Order";
 
 
 function App() {
@@ -79,6 +80,11 @@ function App() {
                                 <Route path="/catalog/item/:id">
                                     <Title title="Просмотр">
                                         <Product/>
+                                    </Title>
+                                </Route>
+                                <Route exact path="/order">
+                                    <Title title="Оформление заказа">
+                                        <Order/>
                                     </Title>
                                 </Route>
                                 <Route exact path="/">
