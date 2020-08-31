@@ -1214,7 +1214,7 @@ button {
     transition: 0.2s ease all;
 }
 
-.cart_box {
+.cart_box, .order_box {
     margin-top: 70px;
     width: 100%;
     height: calc(100% - 70px);
@@ -1794,8 +1794,90 @@ button {
     text-transform: uppercase;
 }
 
+.address_field > input::placeholder {
+    color: black;
+}
+
 .address_warning {
     width: 350px;
     color: #999;
     font-size: 13px;
+}
+
+.order_box {
+    align-items: flex-start;
+}
+
+.order_left_column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    width: 450px;
+}
+
+.order_title {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 450px;
+    height: 40px;
+}
+
+.order_title h1 {
+    margin: 0;
+    color: black;
+    font-size: 21px;
+    text-transform: uppercase;
+    width: 300px;
+    position: relative;
+}
+.order_title span {
+    color: #cccccc;
+    font-size: 17px;
+    width: 6px;
+    text-align: center;
+    display: block;
+    background: white;
+    height: 54px;
+    padding: 5px 0;
+    font-weight: 600;
+}
+
+.order_form {
+    margin-top: 0;
+    min-width: 440px;
+    min-height: 300px;
+    border-right: 1px solid #cccccc;
+}
+
+.order_field {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    color: #999;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.order_field > input {
+    margin-top: 10px;
+    outline: none;
+    max-width: 172px;
+    height: 33px;
+    border: 1px solid #e1e1e1;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 28px;
+    padding: 0 13px;
+    color: black;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.order_field > input::placeholder {
+    color: black;
+    font-size: 14px;
 }
