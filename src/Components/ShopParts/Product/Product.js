@@ -73,11 +73,6 @@ const Product = () => {
         setWished(!isWished);
     };
 
-    const reRenderSameItems = async () => {
-        const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + id);
-        setSameItems(await sameItems.json());
-    };
-
     useEffect(() => {
         (async () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + id);
@@ -99,7 +94,7 @@ const Product = () => {
             <div className="global_giv">
                 <div className="product">
                     <ItemGallery item={item} place={"Product"}/>
-                    <div className="product_preview_info" style={{marginLeft: "40px"}}>
+                    <div className="product_preview_info">
                         <div className="product_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
                             <h3>№ {item.product_code}</h3></div>
                         {(+price) === (+salePrice) ? <span style={{marginLeft: "20px", marginTop: "-15px"}}

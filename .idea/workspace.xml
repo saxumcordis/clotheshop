@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Styles/MediaStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Product/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -35,12 +38,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\src\Styles" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\UserParts\Account" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Service\Contexts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,7 +90,8 @@
       <workItem from="1598466235522" duration="45000" />
       <workItem from="1598515115634" duration="14710000" />
       <workItem from="1598621108464" duration="6626000" />
-      <workItem from="1598864208558" duration="15496000" />
+      <workItem from="1598864208558" duration="15791000" />
+      <workItem from="1598963691665" duration="7166000" />
     </task>
     <servers />
   </component>

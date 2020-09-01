@@ -20,7 +20,7 @@ import {Drawer} from "./Components/SystemParts/Drawer";
 import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 import {Order} from "./Components/ShopParts/Order/Order";
-
+import Style from "./Styles/MediaStyle.css";
 
 function App() {
     const {status} = useDrawer();

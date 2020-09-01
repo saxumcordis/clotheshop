@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from 'react'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
 import Style from '../../Styles/GlobalStyle.css';
 import {Link, useLocation} from "react-router-dom";
 import {useWishList} from "../../Service/Contexts/WishListContext";
@@ -71,6 +71,7 @@ const UserFeatures = () => {
 const Menu = () => {
     const location = useLocation();
     const {close} = useDrawer();
+
     return (
         <ul className="menu">
             <Link to="/" onClick={() => close()}><img className='logo'
@@ -91,7 +92,9 @@ const Menu = () => {
                 close()
             }}>
                 <Link to="/contacts">Контакты</Link></li>
+            {(document.getElementsByTagName('body')[0].offsetWidth > 1100) ?
             <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
+                : null }
         </ul>
     )
 };

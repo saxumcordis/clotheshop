@@ -411,6 +411,14 @@ button {
     margin-left: 25px;
 }
 
+.item_gallery_product {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-left: 25px;
+    width: 600px;
+}
+
 .item_gallery_box {
     display: flex;
     flex-direction: column;
@@ -436,13 +444,16 @@ button {
     margin-left: 3px;
 }
 
+.item_gallery_product .item_head_picture {
+    max-width: 480px;
+    max-height: 700px;
+}
+
 .item_head_picture {
     margin-top: 20px;
     margin-left: 5px;
     max-width: 350px;
-    min-width: 350px;
     max-height: 500px;
-    min-height: 500px;
     transition: all 0.4s ease;
 }
 
@@ -726,7 +737,7 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 50px;
-    margin-left: 10px;
+    margin-left: 40px;
     width: 450px;
 }
 
