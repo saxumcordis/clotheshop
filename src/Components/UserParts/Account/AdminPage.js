@@ -46,7 +46,7 @@ export const AdminPage = () => {
         }
     }, [setAdmin]);
 
-    if (user === 'guest' && !isAdmin) {
+    if (!isAdmin) {
         return (<AdminLogin/>)
     }
 
