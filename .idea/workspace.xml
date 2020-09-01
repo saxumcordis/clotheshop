@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/AdminPart/ItemList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/AdminPage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +35,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\AdminPart" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Styles" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\UserParts\Account" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Service\Contexts" />
@@ -85,7 +88,7 @@
       <workItem from="1598515115634" duration="14710000" />
       <workItem from="1598621108464" duration="6626000" />
       <workItem from="1598864208558" duration="15791000" />
-      <workItem from="1598963691665" duration="14600000" />
+      <workItem from="1598963691665" duration="15739000" />
     </task>
     <servers />
   </component>

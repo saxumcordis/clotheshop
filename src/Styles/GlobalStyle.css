@@ -1892,3 +1892,9 @@ button {
     color: black;
     font-size: 14px;
 }
+
+.admin_items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

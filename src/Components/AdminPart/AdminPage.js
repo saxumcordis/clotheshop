@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useUser} from "../../Service/Contexts/UserContext";
 import {loginAdmin} from "../../Service/Server/login";
+import {ItemList} from "./ItemList";
 
 const AdminLogin = () => {
 
@@ -53,7 +54,7 @@ export const AdminPage = () => {
     return (
         <div className="with_footer">
             <div className="global_giv">
-                b
+                <ItemList/>
             </div>
         </div>
     )
