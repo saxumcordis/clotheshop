@@ -6,7 +6,7 @@
 
     .menu {
         justify-content: flex-start;
-        width: 35%;
+        width: 50%;
 
     }
     .menu li {
@@ -16,6 +16,7 @@
 
     .user_features {
         margin-left: 0;
+        width: 24%;
     }
 
     .global_giv {

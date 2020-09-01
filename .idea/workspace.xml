@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Styles/MediaStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Product/Gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Product/Product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
-    </list>
+    <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +83,7 @@
       <workItem from="1598515115634" duration="14710000" />
       <workItem from="1598621108464" duration="6626000" />
       <workItem from="1598864208558" duration="15791000" />
-      <workItem from="1598963691665" duration="7166000" />
+      <workItem from="1598963691665" duration="7409000" />
     </task>
     <servers />
   </component>
