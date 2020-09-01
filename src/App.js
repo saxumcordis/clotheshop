@@ -21,7 +21,7 @@ import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 import {Order} from "./Components/ShopParts/Order/Order";
 import Style from "./Styles/MediaStyle.css";
-import {AdminPage} from "./Components/UserParts/Account/AdminPage";
+import {AdminPage} from "./Components/AdminPart/AdminPage";
 
 function App() {
     const {status} = useDrawer();

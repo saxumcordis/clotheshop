@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {useUser} from "../../../Service/Contexts/UserContext";
-import {loginAdmin} from "../../../Service/Server/login";
+import {useUser} from "../../Service/Contexts/UserContext";
+import {loginAdmin} from "../../Service/Server/login";
 
 const AdminLogin = () => {
 
