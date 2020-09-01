@@ -21,6 +21,7 @@ import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 import {Order} from "./Components/ShopParts/Order/Order";
 import Style from "./Styles/MediaStyle.css";
+import {AdminPage} from "./Components/UserParts/Account/AdminPage";
 
 function App() {
     const {status} = useDrawer();
@@ -85,6 +86,11 @@ function App() {
                                 <Route exact path="/order">
                                     <Title title="Оформление заказа">
                                         <Order/>
+                                    </Title>
+                                </Route>
+                                <Route exact path="/miktinaAdminPageService">
+                                    <Title title="Панель администратора">
+                                        <AdminPage/>
                                     </Title>
                                 </Route>
                                 <Route exact path="/">
