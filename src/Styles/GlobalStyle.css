@@ -1893,8 +1893,32 @@ button {
     font-size: 14px;
 }
 
+.admin_items_box {
+    display: flex;
+    flex-direction: column;
+}
+
 .admin_items {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.admin_item_table_box {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.admin_item_table_box table {
+    width: 1000px;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.admin_table_image {
+    width: 150px;
+    height: 200px;
 }

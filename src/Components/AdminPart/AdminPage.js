@@ -38,7 +38,7 @@ const AdminLogin = () => {
 };
 
 export const AdminPage = () => {
-    const {user, isAdmin, setAdmin} = useUser();
+    const {isAdmin, setAdmin} = useUser();
 
     useEffect(() => {
         if (isAdmin) {
