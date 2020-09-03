@@ -1,19 +1,56 @@
 import React from 'react';
 import {fields} from './ProductFields';
+import {useUser} from "../../Service/Contexts/UserContext";
+
+
+const renameFields = () => {
+    return fields.map(field => field.name === 'product_color_name' ? {
+        ...field,
+        name: 'product_color_id'
+    } : field.name === 'category_name' ? {...field, name: 'category_id'} : field);
+};
+
+const initFields = () => {
+    return renameFields().map(field => {
+        if (/^product_color_id/.test(field.name)) {
+            const temp = document.getElementById('new_item_color');
+            field.value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('');
+        } else if (/^category_id/.test(field.name)) {
+            const temp = document.getElementById('new_item_category');
+            field.value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('');
+        } else
+            field.value = document.getElementById("new_" + field.name + "_input").value;
+        return field;
+    });
+};
 
 export const AddNewItem = ({categories, colors}) => {
+
+    const {isAdmin} = useUser();
 
     const changeFormView = () => {
         const form = document.getElementById('new_item_form');
         form.hidden = !form.hidden;
     };
 
+    const addItem = async () => {
+        if (window.confirm("Добавить продукт?")) {
+            const url = 'https://miktina.herokuapp.com/backend/user/admin.php?addProduct&token=';
+            const token = isAdmin.token;
+            const data = initFields().map(field => "&" + field.name + "=" + field.value).join('');
+            const response = await fetch(url + token + data);
+            alert(await response.text());
+            window.location.reload();
+        }
+    };
+
+
     const handleField = (field) => {
         let tableRow = [];
         tableRow.push(<td>{field.text}</td>);
         if (/^picture/.test(field.name)) {
             tableRow.push(<td>{field.required}</td>);
-            tableRow.push(<td><input type="text" placeholder="URL" id={"new_" + field.text + "_input"}/></td>);
+            tableRow.push(<td><input type="text" placeholder="URL" id={"new_" + field.name + "_input"}/></td>);
         } else if (/^product_color_name/.test(field.name)) {
             tableRow.push(<td>{field.required}</td>);
             tableRow.push(<td><select id="new_item_color">
@@ -21,20 +58,20 @@ export const AddNewItem = ({categories, colors}) => {
             </select></td>);
         } else if (/^category_name/.test(field.name)) {
             tableRow.push(<td>{field.required}</td>);
-            tableRow.push(<td><select id="new_category_select">
+            tableRow.push(<td><select id="new_item_category">
                 {categories.map(e => <option
                     id={"new_category_" + e.category_id + "_input"}>{e.category_name}</option>)}
             </select></td>);
         } else {
             tableRow.push(<td>{field.required}</td>);
-            tableRow.push(<td><input type="text" id={"new_" + field.name + "_input"} placeholder="Новое значение"/></td>);
+            tableRow.push(<td><input type="text" id={"new_" + field.name + "_input"} placeholder="Новое значение"/>
+            </td>);
         }
 
         return tableRow;
     };
 
     const fieldsToTable = () => {
-        console.log(fields);
         return fields.map(field => <tr>{handleField(field)}
         </tr>);
     };
@@ -54,6 +91,7 @@ export const AddNewItem = ({categories, colors}) => {
                     {fieldsToTable()}
                     </tbody>
                 </table>
+                <button onClick={() => addItem()}>Добавить</button>
             </div>
         </div>);
     return <></>
