@@ -15,6 +15,16 @@ const ItemEdition = ({item, categories, colors}) => {
 
     const {isAdmin} = useUser();
 
+    const removeItem = async () => {
+        if (window.confirm("Желаете удалить продукт?")) {
+            const url = 'https://miktina.herokuapp.com/backend/user/admin.php?removeProduct&productId=';
+            const data = item.product_id + "&token=" + isAdmin.token;
+            const response = await fetch(url + data);
+            alert (await response.text());
+            window.location.reload();
+        }
+    };
+
     const submitChange = async (field) => {
         let value = "";
         if (field === "category_name") {
@@ -105,6 +115,7 @@ const ItemEdition = ({item, categories, colors}) => {
                     {itemToTable()}
                     </tbody>
                 </table>
+                <button onClick={() => removeItem()}>Удалить товар </button>
             </div>
         );
     else
