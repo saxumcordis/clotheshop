@@ -1896,6 +1896,7 @@ button {
 .admin_items_box {
     display: flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 
 .admin_items {
