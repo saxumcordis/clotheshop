@@ -20,8 +20,13 @@ const ItemEdition = ({item, categories, colors}) => {
         if (field === "category_name") {
             field = "product_category_id";
             const temp = document.getElementById('new_category_select');
-            value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('')
-        } else
+            value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('');
+        }
+        else if (field === "product_color_name") {
+            const temp = document.getElementById('new_color_select');
+            value = temp.options[temp.selectedIndex].value;
+        }
+        else
             value = document.getElementById(field + "_input").value;
         const url = 'https://miktina.herokuapp.com/backend/user/admin.php?updateProduct&productId=';
         const data = item.product_id + "&field=" + field + "&value=" + value + "&token=" + isAdmin.token;
@@ -46,10 +51,10 @@ const ItemEdition = ({item, categories, colors}) => {
         } else if (/^product_color_name/.test(field)) {
             tableRow.push(<td>{item[field]}</td>);
             tableRow.push(<td><select id="new_color_select">
-                {colors.map((e, i) => <option id={"color_" + i + "_input"}>{e}</option>)}
+                {colors.map((e, i) => <option id={"color_" + i + "_input"}>{e.color_name}</option>)}
             </select></td>);
             tableRow.push(<td>
-                ВРЕМЕННО НЕ РАБОТАЕТ
+                <button onClick={() => submitChange(field)}>Сохранить</button>
             </td>);
         } else if (/^category_name/.test(field)) {
             tableRow.push(<td>{item[field]}</td>);
@@ -60,7 +65,7 @@ const ItemEdition = ({item, categories, colors}) => {
                 <button onClick={() => submitChange(field)}>Сохранить</button>
             </td>);
         } else if (/^color_code/.test(field)) {
-            tableRow.push(<td>{item[field]}</td>);
+            tableRow.push(<td><input type="color" value={item[field]} disabled/></td>);
             tableRow.push(<td>-</td>);
             tableRow.push(<td>-</td>);
         } else {
@@ -111,14 +116,16 @@ const ItemEdition = ({item, categories, colors}) => {
 export const ItemList = () => {
     const [catalog, setCatalog] = useState(null);
     const [categories, setCategories] = useState(null);
+    const [colors, setColors] = useState(null);
     const [item, setItem] = useState(0);
-    const colors = catalog && catalog.map(e => e.product_color_name);
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getAdminProducts');
             setCatalog(await catalog.json());
             const categories = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCategories');
             setCategories(await categories.json());
+            const colors = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getColors');
+            setColors(await colors.json());
         })();
     }, [setCatalog]);
 
