@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useUser} from "../../Service/Contexts/UserContext";
 import {ItemEdition} from "./ItemEdition";
+import {AddNewItem} from "./AddNewItem";
 
 const Item = ({item, onClick}) => {
     return (
@@ -35,6 +36,7 @@ export const ItemList = () => {
                 {catalog && catalog.map(item => <Item onClick={() => setItem(item)} key={item.product_id}
                                                       item={item}/>)}
             </div>
+            <AddNewItem categories={categories} colors={colors}/>
             <ItemEdition item={item} categories={categories} colors={colors}/>
         </div>
     )

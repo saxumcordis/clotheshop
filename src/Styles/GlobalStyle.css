@@ -1913,7 +1913,7 @@ button {
     overflow-y: auto;
 }
 
-.admin_item_table_box table {
+.admin_item_table_box table, .admin_new_item table {
     width: 1000px;
     justify-content: space-around;
     margin-top: 50px;
@@ -1922,4 +1922,13 @@ button {
 .admin_table_image {
     width: 150px;
     height: 200px;
+}
+
+.admin_new_item {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
