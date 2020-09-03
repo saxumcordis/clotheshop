@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {useUser} from "../../Service/Contexts/UserContext";
 
 const Item = ({item, onClick}) => {
     return (
@@ -12,6 +13,8 @@ const Item = ({item, onClick}) => {
 
 const ItemEdition = ({item, categories, colors}) => {
 
+    const {isAdmin} = useUser();
+
     const submitChange = async (field) => {
         let value = "";
         if (field === "category_name") {
@@ -20,8 +23,8 @@ const ItemEdition = ({item, categories, colors}) => {
             value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('')
         } else
             value = document.getElementById(field + "_input").value;
-        const url = 'https://miktina.herokuapp.com/backend/catalog/products.php?updateProduct&productId=';
-        const data = item.product_id + "&field=" + field + "&value=" + value;
+        const url = 'https://miktina.herokuapp.com/backend/user/admin.php?updateProduct&productId=';
+        const data = item.product_id + "&field=" + field + "&value=" + value + "&token=" + isAdmin.token;
         const response = await fetch(url + data);
         alert(await response.text());
         window.location.reload();
