@@ -3,7 +3,8 @@ import {useUser} from "../../Service/Contexts/UserContext";
 import {loginAdmin} from "../../Service/Server/login";
 import {ItemList} from "./ItemList";
 import {Navigation} from "./Navigation";
-import {Categories, Colors} from "./EditTools";
+import {Colors} from "./Colors";
+import {Categories} from "./Categories";
 
 const AdminLogin = () => {
 

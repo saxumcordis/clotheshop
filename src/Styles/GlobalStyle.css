@@ -1964,7 +1964,20 @@ button {
 }
 
 .admin_categories_box, .admin_colors_box {
+    width: 80%;
     display: none;
     flex-direction: column;
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin_categories_box table, .admin_colors_box table {
+    width: 100%;
+    justify-content: space-around;
+    border-collapse: collapse;
+}
+.admin_categories_box table tr td, .admin_colors_box table tr td {
+    border: 1px solid black;
+    text-align: center;
 }

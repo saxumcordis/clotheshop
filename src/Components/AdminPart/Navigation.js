@@ -3,10 +3,16 @@ import React from 'react'
 
 export const Navigation = () => {
 
+    const items = ['admin_items_box', 'admin_categories_box', 'admin_colors_box'];
+
     const handleView = (item_id) => {
         const elem = document.getElementById(item_id);
         const currentStatus = elem.style.display;
         elem.style.display = currentStatus === 'none' || currentStatus === "" ? 'flex' : 'none';
+        if (currentStatus !== 'flex')
+            items.filter(e => e !== item_id).forEach(e => {
+                document.getElementById(e).style.display = 'none';
+            })
     };
 
     return (
