@@ -9,7 +9,7 @@ import {useUser} from "../../Service/Contexts/UserContext";
 import {AccountDrawer} from "../UserParts/AccountDrawer";
 
 
-const UserFeatures = () => {
+export const UserFeatures = () => {
     const {countWishItems} = useWishList();
     const {countCartItems} = useCart();
     const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();

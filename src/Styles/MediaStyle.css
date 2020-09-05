@@ -18,6 +18,35 @@
     }
 }
 
+@media screen and (max-width: 1000px) {
+    .header {
+        max-width: 1000px;
+        justify-content: space-around;
+    }
+
+    .logo {
+        width: 130px;
+        margin-left: 25px;
+        margin-top: 15px;
+    }
+
+    .user_features {
+        width: 15%;
+        font-size: 7px;
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .user_features > li > a > span {
+        position: absolute;
+        padding: 13px 0;
+        font-weight: bold;
+    }
+    .main_icon  {
+        max-width: 16px;
+        max-height: 16px;
+    }
+}
+
 @media screen and (max-width: 850px) {
 
     .additional_pictures {
@@ -31,7 +60,13 @@
 
     .header {
         max-width: 850px;
-        justify-content: flex-start;
+        justify-content: space-around;
+    }
+
+    .logo {
+        width: 130px;
+        margin-left: 0;
+        margin-top: 15px;
     }
 
     .menu {

@@ -101,6 +101,72 @@ button {
     margin-left: -100px;
 }
 
+.small_menu {
+    background: url('https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/15211315791553239378-512.png');
+    background-size: cover;
+    min-width: 55px;
+    max-height: 70px;
+    cursor: pointer;
+}
+
+
+.small_menu_drawer {
+    position: absolute;
+    background-color: rgba(111, 111, 111, 0.9);
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 70px;
+}
+
+.small_menu_ul {
+    position: absolute;
+    background: #fff;
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    margin-top: 0;
+    cursor: default;
+    list-style-type: none;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+.small_menu_ul h3 {
+    border-top: 1px solid #ebebeb;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.small_menu_ul h3 * {
+    font-size: 17px;
+    margin-top: 15px;
+    font-weight: 600;
+
+}
+
+.small_menu_ul li {
+    height: 50px;
+    border-top: 1px solid #ebebeb;
+    margin-top: 15px;
+    line-height: 60px;
+}
+
+.small_menu_ul li * {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.4s ease-in-out;
+    font-weight: 400;
+}
+
+.small_menu_ul li a:hover {
+    opacity: 0.7;
+    transition: 0.4s ease-in-out;
+}
+
 .menu {
     width: 60vw;
     margin-left: 60px;
@@ -129,6 +195,7 @@ button {
 
 .user_features {
     margin-left: 50px;
+    height: 70px;
     flex-shrink: 0;
     width: 15vw;
     display: flex;
