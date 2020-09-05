@@ -70,7 +70,6 @@ const AddNewColor = () => {
         if (window.confirm("Добавить новый цвет?")) {
             const name = document.getElementById('new_color_name').value;
             const code = document.getElementById('new_color_code').value.slice(1);
-            console.log(code);
             const url = 'https://miktina.herokuapp.com/backend/user/admin.php?addColor&token=';
             const data = isAdmin.token + "&name=" + name + "&code=" + code;
             const response = await fetch(url + data);
@@ -113,8 +112,6 @@ const AddNewColor = () => {
 export const Colors = () => {
 
     const [colors, setColors] = useState(0);
-    console.log(colors);
-
     useEffect(() => {
         (async () => {
             const colors = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getColors');
