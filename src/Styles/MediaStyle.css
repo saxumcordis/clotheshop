@@ -1,6 +1,16 @@
+@media screen and (max-width: 1100px) {
+    .home {
+        max-width: 1100px;
+
+    }
+    .main_picture {
+        max-width: 1000px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .header {
-        max-height: 1100px;
+        max-width: 700px;
         justify-content: flex-start;
     }
 
