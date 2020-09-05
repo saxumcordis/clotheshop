@@ -3,14 +3,34 @@
         max-width: 1100px;
 
     }
-    .main_picture {
-        max-width: 1000px;
+
+    .additional_pictures {
+    height: 550px;
+    }
+
+    .additional_pictures > * > img {
+        width: 400px;
+        height: 550px;
+    }
+
+    .menu li {
+        font-size: 13px;
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
+
+    .additional_pictures {
+        height: 450px;
+    }
+
+    .additional_pictures > * > img {
+        width: 300px;
+        height: 450px;
+    }
+
     .header {
-        max-width: 700px;
+        max-width: 850px;
         justify-content: flex-start;
     }
 

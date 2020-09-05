@@ -174,10 +174,12 @@ button {
 .main_picture {
     position: relative;
     height: 600px;
+    background: url('https://iamstudio.ru/upload/iblock/6d0/6d01bbfb67c15689a193239f57dcfd39.jpg');
+    background-size: cover;
 }
 
 .main_picture > * > img {
-    width: 100%;
+
     max-height: 600px;
 }
 
