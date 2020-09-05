@@ -7,13 +7,16 @@ import {BrowserRouter} from 'react-router-dom';
 import {DrawerProvider} from "./Service/Contexts/Drawer";
 import {CartProvider} from "./Service/Contexts/CartContext";
 import {PathProvider} from "./Service/Contexts/PathContext";
+import {UserProvider} from "./Service/Contexts/UserContext";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-        <DrawerProvider>
-                <App/>
-        </DrawerProvider>
+            <UserProvider>
+                <DrawerProvider>
+                    <App/>
+                </DrawerProvider>
+            </UserProvider>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')

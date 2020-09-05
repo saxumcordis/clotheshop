@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Header} from './Components/GlobalParts/Header'
 import {Home} from './Components/Home.js'
 import {Catalog} from "./Components/ShopParts/Catalog/Catalog";
@@ -17,20 +17,24 @@ import {PersistWish, WishProvider} from "./Service/Contexts/WishListContext";
 import {CartProvider, PersistCart} from "./Service/Contexts/CartContext";
 import {useDrawer} from "./Service/Contexts/Drawer";
 import {Drawer} from "./Components/SystemParts/Drawer";
-import {PersistUser, UserProvider} from "./Service/Contexts/UserContext";
+import {PersistUser, useUser} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 import {Order} from "./Components/ShopParts/Order/Order";
 import Style from "./Styles/MediaStyle.css";
 import {AdminPage} from "./Components/AdminPart/AdminPage";
+import {validateSession} from "./Service/Validation/sessionValidation";
 
 function App() {
     const {status} = useDrawer();
     const location = useLocation();
+    const {user, setUser} = useUser();
+
+    useEffect(function() {validateSession(user, setUser)}, [setUser]);
+
     return (
         <div>
                 <WishProvider>
                     <CartProvider>
-                        <UserProvider>
                             <Header/>
                             <Switch>
                                 <Route exact path="/catalog">
@@ -109,7 +113,6 @@ function App() {
                             <PersistCart/>
                             <PersistUser/>
                             <Drawer state={status}/>
-                        </UserProvider>
                     </CartProvider>
                 </WishProvider>
         </div>
