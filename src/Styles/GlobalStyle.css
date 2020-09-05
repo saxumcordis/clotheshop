@@ -1966,4 +1966,5 @@ button {
 .admin_categories_box, .admin_colors_box {
     display: none;
     flex-direction: column;
+    margin-top: 50px;
 }

@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/AdminPart/EditTools.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/ItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/ItemList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/EditTools.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/EditTools.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <workItem from="1599039564265" duration="4671000" />
       <workItem from="1599071433428" duration="5890000" />
       <workItem from="1599127748778" duration="13708000" />
-      <workItem from="1599294579370" duration="3194000" />
+      <workItem from="1599294579370" duration="3829000" />
     </task>
     <servers />
   </component>
