@@ -9,7 +9,7 @@ const Home = () => {
             <div className="home">
                 <div className='main_picture'>
                     <Link to='/catalog'><img
-                        src='https://iamstudio.ru/upload/iblock/d4c/d4c974f437c38f01d84c5b5d43e6e909.jpeg'/></Link>
+                        src='https://iamstudio.ru/upload/iblock/6d0/6d01bbfb67c15689a193239f57dcfd39.jpg'/></Link>
                 </div>
                 <div className='additional_pictures'>
                     <a href="https://instagram.com/miktina/"><img
