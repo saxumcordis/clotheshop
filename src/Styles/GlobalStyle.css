@@ -1893,8 +1893,38 @@ button {
     font-size: 14px;
 }
 
-.admin_items_box {
+.admin_page {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.admin_navigation {
+    width: 100%;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.admin_nav_button {
+    background: #444;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 90px;
+    font-size: 14px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+}
+
+.admin_nav_button:hover {
+    background: #666;
+}
+
+.admin_items_box {
+    display: none;
     flex-direction: column;
     margin-left: 25px;
 }
@@ -1931,4 +1961,9 @@ button {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.admin_categories_box, .admin_colors_box {
+    display: none;
+    flex-direction: column;
 }

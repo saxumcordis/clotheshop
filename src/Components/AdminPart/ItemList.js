@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {useUser} from "../../Service/Contexts/UserContext";
 import {ItemEdition} from "./ItemEdition";
 import {AddNewItem} from "./AddNewItem";
 
@@ -31,7 +30,7 @@ export const ItemList = () => {
     }, [setCatalog]);
 
     return (
-        <div className="admin_items_box">
+        <div className="admin_items_box" id="admin_items_box">
             <div className="admin_items">
                 {catalog && catalog.map(item => <Item onClick={() => setItem(item)} key={item.product_id}
                                                       item={item}/>)}

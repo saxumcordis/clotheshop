@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {useUser} from "../../Service/Contexts/UserContext";
 import {loginAdmin} from "../../Service/Server/login";
 import {ItemList} from "./ItemList";
+import {Navigation} from "./Navigation";
+import {Categories, Colors} from "./EditTools";
 
 const AdminLogin = () => {
 
@@ -27,10 +29,10 @@ const AdminLogin = () => {
         <div className="with_footer">
             <div className="global_giv">
                 <div className="login_form">
-                        <input type="email" id="login_email" placeholder="MIKTINA" name="user_login" required/>
-                        <input type="password" id="login_password" placeholder="MIKTINA" name="user_pass" required/>
-                        <input type="submit" style={{color: "white"}} className="login_button" value="Войти"
-                               onClick={() => sendLogin()}/>
+                    <input type="email" id="login_email" placeholder="MIKTINA" name="user_login" required/>
+                    <input type="password" id="login_password" placeholder="MIKTINA" name="user_pass" required/>
+                    <input type="submit" style={{color: "white"}} className="login_button" value="Войти"
+                           onClick={() => sendLogin()}/>
                 </div>
             </div>
         </div>
@@ -54,7 +56,12 @@ export const AdminPage = () => {
     return (
         <div className="with_footer">
             <div className="global_giv">
-                <ItemList/>
+                <div className="admin_page">
+                    <Navigation/>
+                    <ItemList/>
+                    <Categories/>
+                    <Colors/>
+                </div>
             </div>
         </div>
     )
