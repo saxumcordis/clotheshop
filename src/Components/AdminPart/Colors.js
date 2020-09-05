@@ -11,12 +11,18 @@ const ColorsTable = ({colors}) => {
         const url = 'https://miktina.herokuapp.com/backend/user/admin.php?changeColor&id=';
         const data = color_id + "&name=" + newColorName + "&code=" + newColorCode + "&token=" + isAdmin.token;
         const response = await fetch(url + data);
-        alert (await response.text());
+        alert(await response.text());
         window.location.reload();
     };
 
-    const removeColor = (color_id) => {
-
+    const removeColor = async (color_id) => {
+        if (window.confirm("Удалить цвет? [ВАЖНО] Если существует продукт с выбранным цветом, это может привести к ошибке")) {
+            const url = 'https://miktina.herokuapp.com/backend/user/admin.php?removeColor&id=';
+            const data = color_id + "&token=" + isAdmin.token;
+            const response = await fetch(url + data);
+            alert(await response.text());
+            window.location.reload();
+        }
     };
 
     const tableView = () => {
@@ -53,16 +59,52 @@ const ColorsTable = ({colors}) => {
 
 
 const AddNewColor = () => {
+    const {isAdmin} = useUser();
+
     const changeFormView = () => {
         const form = document.getElementById('new_color_form');
         form.hidden = !form.hidden;
+    };
+
+    const addColor = async () => {
+        if (window.confirm("Добавить новый цвет?")) {
+            const name = document.getElementById('new_color_name').value;
+            const code = document.getElementById('new_color_code').value.slice(1);
+            console.log(code);
+            const url = 'https://miktina.herokuapp.com/backend/user/admin.php?addColor&token=';
+            const data = isAdmin.token + "&name=" + name + "&code=" + code;
+            const response = await fetch(url + data);
+            alert(await response.text());
+            window.location.reload();
+        }
     };
 
     return (
         <div className="admin_new_item">
             <button onClick={() => changeFormView()}>Добавить новый цвет</button>
             <div className="new_item_form" id="new_color_form" hidden={true}>
-                aa
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Field</td>
+                        <td>Required</td>
+                        <td>Value</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Название</td>
+                        <td>Обязательное поле</td>
+                        <td><input type="text" id="new_color_name" placeholder="Укажите название цвета"/></td>
+                    </tr>
+                    <tr>
+                        <td>Код</td>
+                        <td>Обязательное поле</td>
+                        <td><input type="color" id="new_color_code"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button onClick={() => addColor()}>Добавить</button>
             </div>
         </div>
     )
@@ -71,6 +113,7 @@ const AddNewColor = () => {
 export const Colors = () => {
 
     const [colors, setColors] = useState(0);
+    console.log(colors);
 
     useEffect(() => {
         (async () => {
