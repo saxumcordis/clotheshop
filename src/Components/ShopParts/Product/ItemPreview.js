@@ -3,6 +3,7 @@ import {ItemGallery} from "./Gallery";
 import {Link} from "react-router-dom";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
+import {useMedia} from "use-media";
 
 
 const ItemPreview = ({id, setItemPreview}) => {
@@ -39,6 +40,8 @@ const ItemPreview = ({id, setItemPreview}) => {
             setItemPreview(false);
     };
 
+    const isDesktop = useMedia('screen and (min-width: 960px)');
+
     useEffect(() => {
         (async () => {
             const item = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getProduct&id=' + (itemId));
@@ -58,10 +61,11 @@ const ItemPreview = ({id, setItemPreview}) => {
         <div className="overlay" onClick={handleClick}>
             {item &&
             <div className="item_preview">
+                {!isDesktop && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1></div>}
                 <ItemGallery item={item}/>
                 <div className="item_preview_info">
-                    <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
-                        <h3>№ {item.product_code}</h3></div>
+                    {isDesktop && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
+                        <h3>№ {item.product_code}</h3></div>}
                     <div className="item_sizes">
                         <div
                             className={item.small_size <= 0 ? "button_size_unavailable" : selectedSize !== '42-44' ? "button_size" : "button_size_selected"}
