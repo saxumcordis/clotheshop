@@ -1758,6 +1758,13 @@ button {
     text-decoration: underline;
 }
 
+.not_logged {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 .account_left {
     width: 64%;
 }

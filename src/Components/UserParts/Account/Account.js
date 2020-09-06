@@ -2,22 +2,31 @@ import React from 'react'
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {PersonalEdit} from "./PersonalEdit";
 import {AddressEdit} from "./AddressEdit";
+import {useDrawer} from "../../../Service/Contexts/Drawer";
+import {AccountDrawer} from "../AccountDrawer";
 
 const Account = () => {
     const {user, logout} = useUser();
+    const {setStatus,status, setComponentRender, setComponentName} = useDrawer();
     const logOut = () => {
         logout();
         window.location.reload();
     };
 
-    if (user === 'guest')
+    if (user === 'guest' && status !== 'open') {
+        setComponentName('login');
+        setComponentRender(<AccountDrawer/>);
+        setStatus('open');
         return (
             <div className='with_footer'>
                 <div className='global_giv'>
-                    <p>Вы не авторизованы.</p>
+                    <div className="not_logged">
+                        <p>Авторизация</p>
+                    </div>
                 </div>
             </div>
         );
+    }
     else
         return (
             <div className='with_footer'>
