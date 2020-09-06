@@ -32,13 +32,11 @@ function App() {
 
     useEffect(function() {validateSession(user, setUser)}, [setUser]);
 
-    const bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
 
     return (
         <div>
                 <WishProvider>
                     <CartProvider>
-                        {bodyWidth > 1000 ? <Header/> : <SmallHeader/>}
                             <Switch>
                                 <Route exact path="/catalog">
                                     <Title title="Каталог">

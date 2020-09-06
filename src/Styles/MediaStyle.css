@@ -1,0 +1,121 @@
+@media screen and (max-width: 1100px) {
+    .home {
+        max-width: 1100px;
+
+    }
+
+    .additional_pictures {
+    height: 550px;
+    }
+
+    .additional_pictures > * > img {
+        width: 400px;
+        height: 550px;
+    }
+
+    .menu li {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        max-width: 1000px;
+        justify-content: space-around;
+    }
+
+    .logo {
+        width: 130px;
+        margin-left: 25px;
+        margin-top: 15px;
+    }
+
+    .user_features {
+        width: 15%;
+        font-size: 7px;
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .user_features > li > a > span {
+        position: absolute;
+        padding: 13px 0;
+        font-weight: bold;
+    }
+    .main_icon  {
+        max-width: 16px;
+        max-height: 16px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    .additional_pictures {
+        height: 450px;
+    }
+
+    .additional_pictures > * > img {
+        width: 300px;
+        height: 450px;
+    }
+
+    .header {
+        max-width: 850px;
+        justify-content: space-around;
+    }
+
+    .logo {
+        width: 130px;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .menu {
+        justify-content: flex-start;
+        width: 50%;
+
+    }
+    .menu li {
+        font-size: 12px;
+        margin-left: 25px;
+    }
+
+    .user_features {
+        margin-left: 0;
+        width: 24%;
+    }
+
+    .global_giv {
+        width: 1100px;
+        justify-content: flex-start;
+    }
+    .product {
+        flex-direction: column;
+        max-width: 600px;
+        align-items: center;
+    }
+
+    .item_gallery_product {
+        width: 300px;
+    }
+
+    .item_gallery_box {
+        width: 300px;
+    }
+
+    .item_gallery_product .item_head_picture {
+        max-width: 300px;
+        max-height: 450px;
+    }
+
+    .product_preview_info {
+        margin-left: 130px;
+    }
+
+    .product_preview_info_name {
+        width: 400px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+}
