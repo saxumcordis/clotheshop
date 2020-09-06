@@ -292,6 +292,39 @@
     .full {
         font-size: 11px;
     }
+
+    .product {
+        margin: auto;
+        flex-direction: column;
+        max-width: 750px;
+        align-items: center;
+    }
+    .product_preview_info_text {
+        font-size: 11px;
+    }
+
+    .product_details_menu {
+        width: 300px;
+    }
+
+    .product_details_menu_element, .product_details_menu_element_active {
+        font-size: 11px;
+    }
+
+    .recommended_box {
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .recommended {
+        width: 100%;
+    }
+
+    .recommended > .item > .item_price, .recommended > .item > .item_name {
+        font-size: 9px;
+    }
+
 }
 
 @media screen and (max-width: 850px) {

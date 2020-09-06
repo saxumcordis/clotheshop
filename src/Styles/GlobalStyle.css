@@ -953,7 +953,6 @@ button {
     color: #000;
     line-height: 1.7;
     font-size: 13px;
-    /* margin-bottom: 30px; */
     width: 488px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     height: 96px;
@@ -1035,6 +1034,7 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 20px;
+    overflow-x: auto;
 }
 
 .recommended_box > p {
@@ -1144,19 +1144,19 @@ button {
     overflow-y: auto;
 }
 
-.cart_drawer::-webkit-scrollbar {
+.cart_drawer::-webkit-scrollbar .recommended::-webkit-scrollbar {
     width: 3px;
 }
 
-.cart_drawer::-webkit-scrollbar-track {
+.cart_drawer::-webkit-scrollbar-track .recommended::-webkit-scrollbar-track {
     background: #ffffff;
 }
 
-.cart_drawer::-webkit-scrollbar-thumb {
+.cart_drawer::-webkit-scrollbar-thumb .recommended::-webkit-scrollbar-track{
     background: #999999;
 }
 
-.cart_drawer::-webkit-scrollbar-thumb:hover {
+.cart_drawer::-webkit-scrollbar-thumb:hover .recommended::-webkit-scrollbar-track{
     background: #999999;
 }
 
