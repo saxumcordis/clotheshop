@@ -55,6 +55,9 @@ button {
     bottom: 0;
 }
 
+.company {
+    width: 20%;
+}
 
 .social {
     margin-left: 100px;
@@ -107,7 +110,7 @@ button {
 }
 
 .small_menu {
-    min-width: 55px;
+    max-width: 55px;
     min-height: 70px;
     cursor: pointer;
 }
@@ -115,6 +118,7 @@ button {
 .small_menu_icon {
     max-width: 55px;
     max-height: 70px;
+    margin-top: 5px;
 }
 
 .small_menu_icon_rotated {
@@ -141,7 +145,7 @@ button {
     position: absolute;
     background: #fff;
     width: 300px;
-    height: 100vh;
+    height: 390px;
     overflow-y: auto;
     margin-top: 0;
     cursor: default;
@@ -803,7 +807,7 @@ button {
     z-index: 5;
     right: 10px;
     top: 10px;
-    min-width: 24px;
+    min-width: 8px;
     max-width: 24px;
     max-height: 24px;
     margin-left: 22px;
@@ -1066,6 +1070,11 @@ button {
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
+.delivery_image {
+    width: 500px;
+    margin-top: 20px;
+}
+
 .delivery_box h1, .contacts_box h1 {
     font-size: 1.75em;
 }
@@ -1078,9 +1087,9 @@ button {
     font-size: 1.35em;
 }
 
-.delivery_box span {
-    font-size: 13px;
-    width: 700px;
+.delivery_text {
+    font-size: 15px;
+    max-width: 600px;
 }
 
 .phones li {
