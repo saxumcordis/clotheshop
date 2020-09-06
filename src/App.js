@@ -40,7 +40,7 @@ function App() {
         <div>
                 <WishProvider>
                     <CartProvider>
-                        {bodyWidth > 1000 ? <Header/> : <SmallHeader/>}
+                        {bodyWidth && bodyWidth > 1000 ? <Header/> : <SmallHeader/>}
                             <Switch>
                                 <Route exact path="/catalog">
                                     <Title title="Каталог">
