@@ -102,14 +102,11 @@ const Menu = () => {
 
 const Header = () => {
 
-    const isDesktop = useMedia('screen and (max-width: 1000px)');
 
         return (
-                isDesktop ? <div className="header">
-                        <Menu/>
-                        <UserFeatures/>
-                    </div>
-                    : <SmallHeader/>
+            <div className="antonchik"/>
+
+
         )
 
 };

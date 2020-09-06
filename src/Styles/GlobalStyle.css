@@ -14,6 +14,18 @@
     height: 100%;
 }
 
+.antonchik {
+    width: 100px;
+    height: 100px;
+    background: green;
+}
+
+@media screen and (max-width: 1000px) {
+    .antonchik {
+        background: red;
+    }
+}
+
 body {
     background-color: #ffffff;
     width: 100vw;
