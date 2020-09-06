@@ -102,7 +102,7 @@ const Menu = () => {
 
 const Header = () => {
 
-    const isDesktop = useMedia('screen and (max-width: 1000px)');
+    const isDesktop = useMedia('screen and (min-width: 1000px)');
 
         return (
                 isDesktop ? <div className="header">
