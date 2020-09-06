@@ -23,7 +23,6 @@ import {Order} from "./Components/ShopParts/Order/Order";
 import Style from "./Styles/MediaStyle.css";
 import {AdminPage} from "./Components/AdminPart/AdminPage";
 import {validateSession} from "./Service/Validation/sessionValidation";
-import {SmallHeader} from "./Components/GlobalParts/SmallHeader";
 
 function App() {
     const {status} = useDrawer();
@@ -32,15 +31,11 @@ function App() {
 
     useEffect(function() {validateSession(user, setUser)}, [setUser]);
 
-    const bodyWidth = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
-
     return (
         <div>
                 <WishProvider>
                     <CartProvider>
-                        {bodyWidth && bodyWidth > 1000 ? <Header/> : <SmallHeader/>}
+                        <Header/>
                             <Switch>
                                 <Route exact path="/catalog">
                                     <Title title="Каталог">

@@ -7,6 +7,8 @@ import {useDrawer} from "../../Service/Contexts/Drawer";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
 import {useUser} from "../../Service/Contexts/UserContext";
 import {AccountDrawer} from "../UserParts/AccountDrawer";
+import {useMedia} from 'use-media';
+import {SmallHeader} from "./SmallHeader";
 
 
 export const UserFeatures = () => {
@@ -33,8 +35,7 @@ export const UserFeatures = () => {
                         setComponentName('login');
                         setComponentRender(<AccountDrawer/>);
                         setStatus('open');
-                    }
-                    else if (status === 'open' && componentName === 'login')
+                    } else if (status === 'open' && componentName === 'login')
                         setStatus('close');
                     else if (status === 'open' && componentName !== 'login') {
                         setComponentRender(<AccountDrawer/>);
@@ -53,8 +54,7 @@ export const UserFeatures = () => {
                     setComponentName('cart');
                     setComponentRender(<CartDrawer/>);
                     setStatus('open');
-                }
-                else if (status === 'open' && componentName === 'cart')
+                } else if (status === 'open' && componentName === 'cart')
                     setStatus('close');
                 else if (status === 'open' && componentName !== 'cart') {
                     setComponentRender(<CartDrawer/>);
@@ -93,20 +93,25 @@ const Menu = () => {
             }}>
                 <Link to="/contacts">Контакты</Link></li>
             {(document.getElementsByTagName('body')[0].offsetWidth > 1100) ?
-            <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
-                : null }
+                <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
+                : null}
         </ul>
     )
 };
 
 
 const Header = () => {
-    return (
-        <div className="header">
-            <Menu/>
-            <UserFeatures/>
-        </div>
-    )
+
+    const isDesktop = useMedia({minWidth: '1000px'});
+
+        return (
+                isDesktop ? <div className="header">
+                        <Menu/>
+                        <UserFeatures/>
+                    </div>
+                    : <SmallHeader/>
+        )
+
 };
 
 
