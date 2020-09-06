@@ -1,29 +1,20 @@
 @font-face {
     font-family: 'fonte2e59564eadbc8a9636de9d0b7acfa12';
 
-    src:    url('https://nomail.com.ua/files/eot/e2e59564eadbc8a9636de9d0b7acfa12.eot?#iefix') format('embedded-opentype'),
+    src: url('https://nomail.com.ua/files/eot/e2e59564eadbc8a9636de9d0b7acfa12.eot?#iefix') format('embedded-opentype'),
     url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff'),
     url('https://nomail.com.ua/files/woff2/e2e59564eadbc8a9636de9d0b7acfa12.woff2') format('woff2');
 }
 
-@font-face { font-family: 'FuturaNewBook-Reg';  src: local('FuturaNewBook-Reg'), url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff'); }
+@font-face {
+    font-family: 'FuturaNewBook-Reg';
+    src: local('FuturaNewBook-Reg'), url('https://nomail.com.ua/files/woff/e2e59564eadbc8a9636de9d0b7acfa12.woff') format('woff');
+}
 
 #root {
     width: 100vw;
     padding-bottom: 50px;
     height: 100%;
-}
-
-.antonchik {
-    width: 100px;
-    height: 100px;
-    background: green;
-}
-
-@media screen and (max-width: 1000px) {
-    .antonchik {
-        background: red;
-    }
 }
 
 body {
@@ -35,16 +26,18 @@ body {
 }
 
 
-a, a:visited{
+a, a:visited {
     color: black;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     text-decoration: none;
     outline: none;
 }
+
 button {
     outline: 0;
     outline-offset: 0;
 }
+
 .footer {
     margin-top: 50px;
     width: 100vw;
@@ -114,11 +107,24 @@ button {
 }
 
 .small_menu {
-    background: url('https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/15211315791553239378-512.png');
-    background-size: cover;
     min-width: 55px;
-    max-height: 70px;
+    min-height: 70px;
     cursor: pointer;
+}
+
+.small_menu_icon {
+    max-width: 55px;
+    max-height: 70px;
+}
+
+.small_menu_icon_rotated {
+    max-width: 55px;
+    max-height: 70px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 
@@ -220,6 +226,7 @@ button {
     font-size: 12px;
     position: relative;
 }
+
 .user_features > li > a > span {
     position: absolute;
     padding: 15px 0;
@@ -250,6 +257,7 @@ button {
     opacity: 1;
     transition: all 0.4s
 }
+
 .main_picture {
     position: relative;
     height: 600px;
@@ -307,7 +315,7 @@ button {
     font-size: 14px;
 }
 
-.catalog_categories > *{
+.catalog_categories > * {
     list-style-type: none;
     margin-left: 0;
     transition: all 0.2s;
@@ -316,7 +324,7 @@ button {
 
 .catalog_categories :hover {
     opacity: 0.5;
-    transition: all 0.2s ;
+    transition: all 0.2s;
 }
 
 .catalog_category {
@@ -342,10 +350,12 @@ button {
 }
 
 .filter {
+    width: 30%;
     list-style-type: none;
     display: flex;
     flex-direction: row;
 }
+
 
 .filter_element {
     margin-left: 20px;
@@ -361,7 +371,24 @@ button {
     text-decoration: none;
 }
 
-.color_list{
+.select {
+    min-width: 80px;
+}
+
+.reset {
+    min-width: 100px;
+}
+
+.color {
+    min-width: 170px;
+}
+
+.sort {
+    margin-left: 100px;
+    min-width: 250px;
+}
+
+.color_list {
     z-index: 10;
     position: absolute;
     margin-top: 20px;
@@ -372,11 +399,28 @@ button {
     padding: 10px 0;
 }
 
-.color_list > *{
+.color_list > * {
     margin-top: 10px;
     text-decoration: none;
     width: 70px;
 }
+
+.color_palette {
+    min-width: 10px;
+    min-height: 10px;
+    max-height: 10px;
+    margin-left: 3px;
+}
+.color_item {
+    width: 100px;
+    font-size: 15px;
+    height: 15px;
+    line-height: 15px;
+}
+.color_item * {
+    margin-top: 1px;
+}
+
 
 .catalog_items {
     width: 100%;
@@ -403,8 +447,9 @@ button {
 .item_pics > img {
     height: 480px;
     width: 320px;
-    position:absolute;
+    position: absolute;
 }
+
 .item_pics img {
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -412,12 +457,37 @@ button {
     transition: all 0.4s ease-in-out;
 }
 
-.item_pics img.item_pics_add {opacity:0;filter:alpha(opacity=0);}
-.item_pics div.into_preview {opacity:0;filter:alpha(opacity=0);}
-.item_pics:hover img.item_pics_add {opacity:1;filter:alpha(opacity=100);}
-.item_pics:hover div.into_preview {opacity:1;filter:alpha(opacity=100);     transition: all 0.4s;}
-.item_pics:hover img.item_pics_main, .item_pics img.item_pics_main:hover {opacity:0;filter:alpha(opacity=0);}
-.item_pics:hover img.wish_catalog {opacity:1;filter:alpha(opacity=100);     transition: all 0.2s;}
+.item_pics img.item_pics_add {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.item_pics div.into_preview {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.item_pics:hover img.item_pics_add {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.item_pics:hover div.into_preview {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transition: all 0.4s;
+}
+
+.item_pics:hover img.item_pics_main, .item_pics img.item_pics_main:hover {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.item_pics:hover img.wish_catalog {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transition: all 0.2s;
+}
 
 .item_price {
     font-size: 14px;
@@ -552,9 +622,11 @@ button {
     height: 30px;
     flex-shrink: 0;
 }
+
 #up {
     transform: rotate(270deg);
 }
+
 #down {
     transform: rotate(90deg);
 }
@@ -586,6 +658,7 @@ button {
     flex-shrink: 0;
     width: 60%;
 }
+
 .item_preview_info_name > h3 {
     color: grey;
     font-size: 13px;
@@ -704,6 +777,7 @@ button {
     font-family: 'FuturaNewBook-Reg', sans-serif;
     color: grey;
 }
+
 .wish_button {
     display: block;
     min-width: 22px;
@@ -840,6 +914,7 @@ button {
     flex-shrink: 0;
     width: 70%;
 }
+
 .product_preview_info_name > h3 {
     color: grey;
     font-size: 13px;
@@ -857,7 +932,7 @@ button {
     position: relative;
 }
 
-.product_preview_info_text{
+.product_preview_info_text {
     font-size: 14px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     margin-top: 30px;
@@ -976,7 +1051,8 @@ button {
     font-size: 12px;
     font-weight: 600;
 }
- .about_box, .contacts_box, .wish_box {
+
+.about_box, .contacts_box, .wish_box {
     font-family: 'FuturaNewBook-Reg', sans-serif;
     display: flex;
     justify-content: center;
@@ -988,7 +1064,7 @@ button {
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
-.delivery_box  h1, .contacts_box h1 {
+.delivery_box h1, .contacts_box h1 {
     font-size: 1.75em;
 }
 
@@ -1104,7 +1180,7 @@ button {
 }
 
 .small_cart_item {
-    direction:ltr;
+    direction: ltr;
     display: flex;
     width: 100%;
     margin-left: 50px;
@@ -1158,7 +1234,8 @@ button {
     cursor: pointer;
     transition: 0.4s all;
 }
-.small_cart_item_table_remove:hover{
+
+.small_cart_item_table_remove:hover {
     opacity: 0.7;
     transition: 0.4s all;
 }
@@ -1175,6 +1252,7 @@ button {
     transition: 0.2s ease all;
     cursor: pointer;
 }
+
 .small_cart_empty p:hover {
     text-decoration: none;
     transition: 0.2s ease all;
@@ -1301,6 +1379,7 @@ button {
     cursor: pointer;
     transition: 0.2s ease all;
 }
+
 .small_cart_total_confirm p:hover {
     text-decoration: none;
     transition: 0.2s ease all;
@@ -1336,6 +1415,7 @@ button {
     margin: 0;
     transition: 0.2s ease all;
 }
+
 .cart_empty p:hover {
     text-decoration: none;
     cursor: pointer;
@@ -1361,7 +1441,7 @@ button {
 }
 
 .cart_item {
-    direction:ltr;
+    direction: ltr;
     display: flex;
     width: 90%;
     height: 170px;
@@ -1431,7 +1511,8 @@ button {
     transition: 0.4s all;
     text-align: center;
 }
-.cart_item_table_remove:hover{
+
+.cart_item_table_remove:hover {
     opacity: 0.7;
     transition: 0.4s all;
 }
@@ -1451,6 +1532,7 @@ button {
     margin: 0;
     transition: 0.2s ease all;
 }
+
 .cart_total p:hover {
     text-decoration: none;
     cursor: pointer;
@@ -1531,6 +1613,7 @@ button {
     text-transform: uppercase;
     font-weight: 400;
 }
+
 .login_drawer_title h3 {
     font-size: 13px;
     font-weight: 400;
@@ -1717,7 +1800,7 @@ button {
 .account_right_title h3 {
     margin: 0;
     padding: 0;
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     text-decoration: underline;
     font-size: 18px;
     font-weight: 400;
@@ -1739,7 +1822,7 @@ button {
 }
 
 .account_right_personal p {
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     font-size: 13px;
     width: 80%;
 }
@@ -1924,6 +2007,7 @@ button {
     width: 300px;
     position: relative;
 }
+
 .order_title span {
     color: #cccccc;
     font-size: 17px;
@@ -2058,6 +2142,7 @@ button {
     justify-content: space-around;
     border-collapse: collapse;
 }
+
 .admin_categories_box table tr td, .admin_colors_box table tr td {
     border: 1px solid black;
     text-align: center;

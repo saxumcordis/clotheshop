@@ -1,4 +1,4 @@
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1280px) {
     .home {
         max-width: 1100px;
 
@@ -18,7 +18,7 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 960px) {
     .header {
         max-width: 1000px;
         justify-content: space-around;
@@ -32,11 +32,11 @@
 
     .user_features {
         width: 15%;
-        font-size: 7px;
         margin-top: 15px;
         margin-left: 0;
     }
     .user_features > li > a > span {
+        font-size: 9px;
         position: absolute;
         padding: 13px 0;
         font-weight: bold;
@@ -44,6 +44,92 @@
     .main_icon  {
         max-width: 16px;
         max-height: 16px;
+    }
+
+    .filter_box {
+        font-size: 9px;
+    }
+
+    .filter {
+        width: 35%;
+    }
+    .size {
+        width: 25px;
+        height: 10px;
+    }
+
+    .color {
+        min-width: 180px;
+    }
+
+    .select {
+        min-width: 30px;
+    }
+
+    .reset {
+        min-width: 70px;
+        max-width: 70px;
+        margin-left: 20px;
+    }
+
+    .sort {
+        margin-left: 5px;
+        min-width: 200px;
+    }
+
+    .color_palette {
+        min-width: 8px;
+        min-height: 8px;
+        max-height: 8px;
+        margin-left: 3px;
+    }
+    .color_item {
+        margin-left: 5px;
+        font-size: 9px;
+        height: 10px;
+        line-height: 10px;
+    }
+    .color_item * {
+        margin-top: 1px;
+    }
+
+    .catalog_menu {
+        font-size: 10px;
+    }
+    .catalog_categories * {
+        font-size: 10px;
+    }
+
+    .item_pics {
+        height: 350px;
+        width: 220px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .item_pics > img {
+        height: 350px;
+        width: 220px;
+        position:absolute;
+    }
+
+    .item_price {
+        font-size: 9px;
+    }
+    .item_name {
+        font-size: 10px;
+    }
+
+    .into_preview {
+        margin-top: 320px;
+        background: #252525;
+        position: absolute;
+        width: 220px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 30px;
+        font-size: 9px;
+        height: 30px;
     }
 }
 

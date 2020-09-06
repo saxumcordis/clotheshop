@@ -8,11 +8,7 @@ const activeFilter = {
 
 const colorPalette = (colorCode) => {
     return {
-        'backgroundColor': colorCode,
-        'minWidth': '10px',
-        'minHeight': '10px',
-        'display': 'block',
-        'marginTop': '2.5px'
+        'backgroundColor': colorCode
     }
 };
 
@@ -26,10 +22,10 @@ const activeColorStyle = (activeColors, colorCode) => {
 
 const Color = ({color, activeColors, setActiveColor, setCheckColor}) => {
     return (
-        <li className="filter_element" style={activeColorStyle(activeColors, color[1])} key={color[1]} onClick={() => {
+        <li className="filter_element color_item" style={activeColorStyle(activeColors, color[1])} key={color[1]} onClick={() => {
             setCheckColor(0);
             handleFilter(setActiveColor, activeColors, color[1])
-        }}><span style={colorPalette(color[1])}/><span style={{marginLeft: '8px'}}>{color[0]}</span></li>
+        }}><span className="color_palette" style={colorPalette(color[1])}/><span style={{marginLeft: '8px'}}>{color[0]}</span></li>
     )
 };
 
@@ -58,25 +54,25 @@ const Filter = ({activeColors, colors, setActiveColor, setSizeFilter, sizeFilter
         <div className="filter_box">
             <ul className="filter">
                 Размеры:
-                <li className="filter_element" onClick={() => handleFilter(setSizeFilter, sizeFilter, 'small')}
+                <li className="filter_element size" onClick={() => handleFilter(setSizeFilter, sizeFilter, 'small')}
                     style={filterStyle(sizeFilter, 'small')}>42-44</li>
-                <li className="filter_element" onClick={() => handleFilter(setSizeFilter, sizeFilter, 'medium')}
+                <li className="filter_element size" onClick={() => handleFilter(setSizeFilter, sizeFilter, 'medium')}
                     style={filterStyle(sizeFilter, 'medium')}>46-48
                 </li>
             </ul>
-            <ul className="filter">
+            <ul className="filter color">
                 Цвет:
-                <li className="filter_element"
+                <li className="filter_element select"
                     onClick={() => setColor(!checkColor)}>{!activeColors.length ? "Выбрать" : "Выбрать  (" + activeColors.length + ")"}</li>
                 <div className="color_list" hidden={!checkColor}>
                     {colors.map((e, i) => <Color key={e + i} color={e} activeColors={activeColors} setActiveColor={setActiveColor} setCheckColor={setColor}/>)}
                 </div>
                 {activeColors && activeColors.length !== 0 || sizeFilter && sizeFilter.length !== 0 ?
-                    <li className="filter_element"
+                    <li className="filter_element reset"
                         onClick={() => resetFilters({activeColors, setActiveColor, setSizeFilter, sizeFilter})}>Сбросить
                         фильтр</li> : null}
             </ul>
-            <ul className="filter" style={{marginLeft: 'auto', width: "250px"}}>
+            <ul className="filter sort">
                 Сортировка:
                 <li className="filter_element" onClick={() => setSortCheck(!checkSort)}>{sort.name}</li>
                 <div className="color_list" hidden={!checkSort}>
