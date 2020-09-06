@@ -411,12 +411,14 @@ button {
     max-height: 10px;
     margin-left: 3px;
 }
+
 .color_item {
     width: 100px;
     font-size: 15px;
     height: 15px;
     line-height: 15px;
 }
+
 .color_item * {
     margin-top: 1px;
 }
@@ -1096,6 +1098,22 @@ button {
 .about_box p {
     width: 450px;
     font-size: 16px;
+}
+
+.about_image {
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.contacts_image {
+    max-width: 700px;
+    max-height: 200px;
+    border-radius: 5px;
+    margin-left: 80px;
+    margin-top: 30px;
 }
 
 .wish_div {

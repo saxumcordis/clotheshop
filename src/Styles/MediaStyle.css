@@ -131,6 +131,117 @@
         font-size: 9px;
         height: 30px;
     }
+
+    .about_box, .contacts_box, .delivery_box {
+        font-size: 9px;
+    }
+
+    .about_box p {
+        font-size: 12px;
+    }
+
+    .about_image {
+        max-width: 300px;
+        max-height: 300px;
+        border-radius: 5px;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+
+    .contacts_image {
+        max-width: 300px;
+        max-height: 50px;
+        border-radius: 5px;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+
+    .login_drawer {
+        height: 350px
+    }
+    .login_drawer_title h1 {
+        font-size: 14px;
+    }
+    .login_drawer_title h3 {
+        font-size: 10px;
+    }
+
+
+    .account_right {
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+    .account_right_title {
+        width: 250px;
+    }
+    .account_right_title h1 {
+        font-size: 14px;
+    }
+    .account_right_title h3 {
+        font-size: 12px;
+    }
+
+    .account_right_personal {
+        max-width: 300px;
+        font-size: 12px;
+    }
+    .account_right_personal p {
+        font-size: 9px;
+    }
+
+
+    .account_right_personal_field {
+        min-width: 250px;
+    }
+
+    .personal_field {
+        font-size: 10px;
+    }
+
+    .personal_edit_form {
+        width: 300px;
+    }
+
+    .personal_edit_text > label {
+        font-size: 9px;
+        margin-top: -5px;
+    }
+
+    .personal_edit_text > input {
+        font-size: 9px;
+        margin-top: 5px;
+        max-height: 25px;
+    }
+
+    .personal_button {
+        width: 100px;
+        min-height: 30px;
+        max-height: 30px;
+        font-size: 9px
+    }
+
+    .account_right_address {
+        width: 300px;
+    }
+    .account_right_address_edit {
+        width: 300px;
+    }
+    .address_warning {
+        font-size: 9px;
+        width: 250px;
+    }
+
+    .address_field {
+        font-size: 9px;
+    }
+
+    .address_field input {
+        font-size: 7px;
+        margin-top: 5px;
+        height: 25px;
+        max-width: 80px;
+    }
 }
 
 @media screen and (max-width: 850px) {

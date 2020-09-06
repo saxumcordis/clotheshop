@@ -13,7 +13,7 @@ const Contacts = () => {
                         <li><a href="https://instagram.com/miktina">Instagram @miktina</a></li>
                     </ul>
                 </div>
-                <img style={{maxWidth: "700px", marginLeft: "70px", maxHeight: "200px", marginTop: "30px"}} src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/>
+                <img className="contacts_image" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/>
             </div>
         </div>
     )

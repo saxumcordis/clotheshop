@@ -35,7 +35,7 @@ const Account = () => {
                         </div>
                         <div className='account_right_address'>
                             <div className="account_right_title">
-                                <h1 style={{fontSize: "18px"}}><strong>Адрес доставки</strong></h1>
+                                <h1><strong>Адрес доставки</strong></h1>
                             </div>
                             <p className="address_warning" id="address_warning">Внимательно заполните все поля. Если поле остаётся пустым, <u>оставьте прочерк</u>.</p>
                             <AddressEdit/>

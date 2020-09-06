@@ -16,6 +16,9 @@ export const UserFeatures = () => {
     const {countCartItems} = useCart();
     const {setStatus, status, close, setComponentRender, componentName, setComponentName} = useDrawer();
     const {user} = useUser();
+
+    const isDesktop = useMedia('screen and (min-width: 960px)');
+
     useLayoutEffect(() => {
         let cart = document.getElementById('cart');
         cart.addEventListener('auxclick', function (e) {
@@ -50,7 +53,7 @@ export const UserFeatures = () => {
             <li onClick={() => close()}><Link to="/wish"><img className="main_icon"
                                                               src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649366/heart_1_duwkep.png'/><span>({countWishItems})</span></Link>
             </li>
-            <li onClick={() => {
+            <li onClick={isDesktop ? () => {
                 if (status === 'close') {
                     setComponentName('cart');
                     setComponentRender(<CartDrawer/>);
@@ -62,7 +65,7 @@ export const UserFeatures = () => {
                     setComponentRender(<CartDrawer/>);
                     setComponentName('cart');
                 }
-            }}><a id="cart" href="javascript:;"><img
+            } : null}><a id="cart" href={isDesktop ? "javascript:;" : "/cart"}><img
                 className="main_icon"
                 src='https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594649146/bag_fvitoi.png'/><span>({countCartItems})</span></a>
             </li>
