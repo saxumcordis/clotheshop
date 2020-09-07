@@ -817,6 +817,7 @@ button {
 
 .cart_button:hover {
     background-color: #444;
+    border: 1px solid #444;
     transition: all 0.4s ease;
 }
 
@@ -911,7 +912,7 @@ button {
     height: 55px;
 }
 
-.product_preview_info_name > h1 {
+.product_preview_info_name  h1 {
     font-family: 'FuturaNewBook-Reg', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -921,7 +922,7 @@ button {
     width: 70%;
 }
 
-.product_preview_info_name > h3 {
+.product_preview_info_name  h3 {
     color: grey;
     font-size: 13px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
@@ -1658,6 +1659,10 @@ button {
     align-content: center;
     justify-content: center;
     text-align: center;
+}
+
+.login_form form {
+    width: 222px;
 }
 
 .login_form input {

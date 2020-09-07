@@ -36,7 +36,7 @@ export const LoginDrawer = () => {
                 <h3>ДЛЯ ДОСТУПА К ВАШИМ ЗАКАЗАМ, ОТЛОЖЕННЫМ ТОВАРАМ И БЫСТРОЙ ПОКУПКЕ</h3>
             </div>
             <div className="login_form">
-                <form style={{width: "222px"}} method="post" id="login_form">
+                <form method="post" id="login_form">
                     <input type="email" id="login_email" placeholder="Email" name="user_login" required/>
                     <input type="password" id="login_password" placeholder="Пароль" name="user_pass" required/>
                     <p className="lost_password_link" onClick={() => setStage('restore')}>Забыли пароль?</p>

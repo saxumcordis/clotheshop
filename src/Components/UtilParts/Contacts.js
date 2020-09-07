@@ -12,8 +12,8 @@ const Contacts = () => {
                         <li><a href="mailto: miktinaonline@gmail.com">miktinaonline@gmail.com</a></li>
                         <li><a href="https://instagram.com/miktina">Instagram @miktina</a></li>
                     </ul>
+                    <img className="contacts_image" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/>
                 </div>
-                <img className="contacts_image" src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1593432477/logo_esqdc9.png"/>
             </div>
         </div>
     )

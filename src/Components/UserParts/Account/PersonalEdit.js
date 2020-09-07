@@ -58,7 +58,7 @@ export const PersonalEdit = () => {
             <div className="personal_edit_form" id="personal_password" hidden>
                 <p className="personal_edit_text">
                     <label>Новый пароль</label>
-                    <span>Должен содержать от 7 до 15 символов, включать в себя буквы нижнего, верхнего регистров, цифру и спец.символ</span>
+                    <span className="password_warning">Должен содержать от 7 до 15 символов, включать в себя буквы нижнего, верхнего регистров, цифру и спец.символ</span>
                     <input required type="password" id="personal_password_input" name="PASSWORD"
                            onChange={() => validatePassword('personal_password_input')}/>
                 </p>
