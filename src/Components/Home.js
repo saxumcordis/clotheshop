@@ -14,7 +14,7 @@ const Home = () => {
                 <div className='additional_pictures'>
                     <a href="https://instagram.com/miktina/"><img
                         src='https://iamstudio.ru/upload/iblock/82b/82b8598135960550d211242fc51059d2.jpg'/></a>
-                    <Link to='/catalog/sale/'><img
+                    <Link to='/catalog/category/sale/'><img
                         src='https://iamstudio.ru/upload/iblock/214/21451daef777285a22ff628df6dbdd26.jpg'/></Link>
                 </div>
                 <Footer/>
