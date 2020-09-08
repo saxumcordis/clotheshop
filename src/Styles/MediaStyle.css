@@ -400,6 +400,34 @@
         font-size: 9px;
     }
 
+    .order_title {
+        width: 350px;
+    }
+    .order_title h1 {
+        font-size: 13px;
+    }
+
+    .order_title span {
+        font-size: 12px;
+    }
+
+    .order_form {
+        margin-top: -5px;
+        min-width: 347px;
+        max-width: 347px;
+        min-height: 300px;
+    }
+
+    .order_field {
+        font-size: 9px;
+    }
+
+    .order_field > input {
+        font-size: 11px;
+    }
+    .order_field > input::placeholder {
+        font-size: 11px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -1050,5 +1078,44 @@
         height: 25px;
         font-size: 7px;
         line-height: 25px
+    }
+
+    .order_title {
+        width: 300px;
+    }
+    .order_title h1 {
+        font-size: 9px;
+    }
+
+    .order_title span {
+        font-size: 10px;
+    }
+
+    .order_left_column {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 450px;
+    }
+
+    .order_form {
+        margin-top: -10px;
+        min-width: 297px;
+        max-width: 297px;
+        min-height: 300px;
+    }
+
+    .order_field {
+        font-size: 7px;
+    }
+
+    .order_field > input {
+        font-size: 8px;
+        width: 150px;
+        height: 25px;
+    }
+    .order_field > input::placeholder {
+        font-size: 8px;
     }
 }
