@@ -16,6 +16,29 @@
     .menu li {
         font-size: 13px;
     }
+
+    .small_cart_item_photo {
+        max-height: 90px;
+        max-width: 65px;
+    }
+
+    .small_cart_item_table_name {
+        width: 100px;
+        margin-left: 0;
+    }
+
+    .small_cart_item_table_name p {
+        font-size: 11px;
+    }
+
+    .small_cart_item_table_quantity > input {
+        margin-left: 0;
+    }
+    .small_cart_item_table_price {
+        margin-left: -5px;
+        font-size: 9px;
+        padding: 15px;
+    }
 }
 
 @media screen and (max-width: 960px) {
@@ -164,6 +187,7 @@
         margin-left: 80px;
         margin-top: 30px;
     }
+
 
     .login_drawer {
         height: 450px
@@ -1015,5 +1039,16 @@
 
     .recommended > .item > .item_price, .recommended > .item > .item_name, .recommended > .item > .item_price {
         font-size: 7px;
+    }
+
+    .cart_total span, .cart_total p {
+        font-size: 10px;
+    }
+
+    .cart_total_confirm_button {
+        width: 80px;
+        height: 25px;
+        font-size: 7px;
+        line-height: 25px
     }
 }

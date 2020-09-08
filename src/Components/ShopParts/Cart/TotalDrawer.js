@@ -28,7 +28,7 @@ export const TotalCartDrawer = () => {
                 <span>ИТОГО: {beautyPrice(totalPrice)}</span>
             </div>
             <div className="small_cart_total_confirm">
-                <Link to="/order"><span className="cart_total_confirm_button">Оформить заказ</span></Link>
+                <Link to="/order" onClick={() => close()}><span className="cart_total_confirm_button">Оформить заказ</span></Link>
                 <p onClick={() => close()}>Продолжить покупки</p>
             </div>
         </div>);
