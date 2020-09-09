@@ -20,8 +20,8 @@ const CartItem = ({index, item}) => {
                 <table>
                     {index === 0 ? <thead>
                         <tr>
-                            <td style={{width: "27%"}}>Товар</td>
-                            <td style={{width: "27%", textAlign: "center"}}>Количество</td>
+                            <td className="cart_item_table_name">Товар</td>
+                            <td className="cart_item_table_quantity">Количество</td>
                             <td>Цена</td>
                             <td/>
                         </tr>
@@ -35,7 +35,7 @@ const CartItem = ({index, item}) => {
                         <td style={{width: "27%"}} className="cart_item_table_name">
                             <p>{item.name + " (" + item.size + ")"}</p>
                             <p>Размер : {item.size}</p>
-                            <p style={{fontSize: "9px", color: "#999999", paddingBottom: 0}}>art: {item.art}</p>
+                            <p className="cart_item_table_code">art: {item.art}</p>
                         </td>
                         <td style={{width: "30%", textAlign: "center"}} className="cart_item_table_quantity">
                             <QuantityInput item={item}/>

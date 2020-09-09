@@ -912,7 +912,7 @@ button {
     height: 55px;
 }
 
-.product_preview_info_name  h1 {
+.product_preview_info_name h1 {
     font-family: 'FuturaNewBook-Reg', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -922,7 +922,7 @@ button {
     width: 70%;
 }
 
-.product_preview_info_name  h3 {
+.product_preview_info_name h3 {
     color: grey;
     font-size: 13px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
@@ -1162,11 +1162,11 @@ button {
     background: #ffffff;
 }
 
-.cart_drawer::-webkit-scrollbar-thumb .recommended::-webkit-scrollbar-track{
+.cart_drawer::-webkit-scrollbar-thumb .recommended::-webkit-scrollbar-track {
     background: #999999;
 }
 
-.cart_drawer::-webkit-scrollbar-thumb:hover .recommended::-webkit-scrollbar-track{
+.cart_drawer::-webkit-scrollbar-thumb:hover .recommended::-webkit-scrollbar-track {
     background: #999999;
 }
 
@@ -1507,6 +1507,12 @@ button {
 .cart_item_table_name {
     width: 110px;
     text-align: left;
+}
+
+.cart_item_table_code {
+    font-size: 9px;
+    color: #999;
+    padding-bottom: 0;
 }
 
 .cart_item_table_quantity > input {

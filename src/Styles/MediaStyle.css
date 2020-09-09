@@ -1792,14 +1792,14 @@
     }
 
     .cart_total span, .cart_total p {
-        font-size: 10px;
+        font-size: 6px;
     }
 
     .cart_total_confirm_button {
-        width: 80px;
-        height: 25px;
+        width: 70px;
+        height: 15px;
         font-size: 7px;
-        line-height: 25px
+        line-height: 15px
     }
 
     .order_title {
@@ -1841,5 +1841,65 @@
     }
     .order_field > input::placeholder {
         font-size: 4px;
+    }
+
+    .cart_box {
+        margin-top: 30px;
+    }
+
+    .cart_box h1 {
+        font-size: 13px;
+    }
+
+    .cart_item {
+        font-size: 4px;
+        height: 80px;
+    }
+
+    .cart_item_photo {
+        width: 40px;
+        height: 60px;
+    }
+
+    .cart_item_table {
+        min-height: 70px;
+        max-height: 70px;
+    }
+    .cart_item_table table {
+        min-height: 70px;
+        max-height: 70px;
+    }
+
+    .cart_item_table_code {
+        font-size: 3px;
+    }
+    .cart_item_table_quantity > input {
+        width: 36px;
+        margin-top: 0;
+        height: 10px;
+        border: 1px solid #e1e1e1;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        color: black;
+        font-size: 4px;
+        text-transform: uppercase;
+        display: block;
+        text-align: center;
+        line-height: 10px;
+        position: relative;
+    }
+
+    .cart_item_table_price {
+        margin-left: 20px;
+        font-size: 4px;
+        text-align: left;
+    }
+
+    .cart_item_table_remove {
+        font-size: 4px;
+        cursor: pointer;
+        transition: 0.4s all;
+        text-align: center;
     }
 }
