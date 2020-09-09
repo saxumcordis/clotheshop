@@ -7,6 +7,7 @@ import {Redirect, useLocation} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {beautyPrice} from "../Product/Product";
+import {useMedia} from "use-media";
 
 const getPriceDiff = (a, b) => {
     const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
@@ -20,6 +21,9 @@ const Item = ({item}) => {
     const [redirect, setRedirect] = useState(null);
     const price = item.product_price;
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
+
+    const {isWide} = useMedia('screen and (min-width: 600px)');
+
     const {add, remove, wishList} = useWishList();
     const isWished = useMemo(() => wishList.some(e => e === item.product_id), [wishList]);
     const handleItemClick = event => {
@@ -50,7 +54,7 @@ const Item = ({item}) => {
                 <img className="item_pics_main" src={item.picture_1} alt={item.product_name}/>
                 <img className="item_pics_add" src={item.picture_2} id={(() => "item_" + item.product_id)()}
                      alt={item.product_name}/>
-                <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>
+                {isWide && <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>}
             </span>
             <span className="item_name">{item.product_name}</span>
             {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)}</span> :
