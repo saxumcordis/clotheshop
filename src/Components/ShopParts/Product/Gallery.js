@@ -1,11 +1,5 @@
 import React, {useState} from "react";
 
-const activePicture = {
-    'border': '3px solid #252525',
-    'borderLeft': '4px solid #252525',
-    'marginLeft': '-1px'
-};
-
 const ItemGallery = ({item, place}) => {
     const [activePhoto, setActivePhoto] = useState(item.picture_1);
     let gallery = [];
@@ -23,8 +17,7 @@ const ItemGallery = ({item, place}) => {
             <div className="item_gallery_box">
                 <div className="item_gallery_feed" id="igf">
                     {gallery.map(picture => <img key={gallery.indexOf(picture)} onClick={() => setActivePhoto(picture)}
-                                                 style={activePhoto === picture ? activePicture : null}
-                                                 className="item_picture" src={picture}/>)}
+                                                 className={"item_picture " + (activePhoto === picture ? "item_picture_active" : "")} src={picture}/>)}
                 </div>
                 <div className="scroll_box">
                     <img className='button_scroll' id="down"

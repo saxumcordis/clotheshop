@@ -329,6 +329,10 @@
         margin: auto;
     }
 
+    .item_picture_active {
+        border: 1px solid #252525;
+    }
+
     .item_preview_info {
         margin-left: auto;
         margin-right: auto;
@@ -905,6 +909,10 @@
     .item_picture {
         width: 60px;
         height: 80px;
+    }
+
+    .item_picture_active {
+        border: 1px solid #252525;
     }
 
     .item_head_picture {
@@ -1607,22 +1615,27 @@
     }
 
     .item_gallery_product {
-        width: 400px;
+        width: 300px;
     }
 
     .item_gallery_box {
-        width: 80px;
-        height: 300px;
+        width: 50px;
+        height: 200px;
     }
 
     .item_gallery_feed {
-        width: 80px;
-        height: 300px;
+        width: 50px;
+        height: 200px;
     }
 
     .item_picture {
-        width: 60px;
-        height: 80px;
+        width: 44px;
+        height: 65px;
+    }
+
+    .item_picture_active {
+        border: 1px solid black;
+        margin-left: 2px;
     }
 
     .item_head_picture {
@@ -1634,14 +1647,14 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 60px;
+        width: 44px;
         margin-top: 5px;
         margin-left: 4px;
     }
 
     .button_scroll {
-        width: 20px;
-        height: 20px;
+        width: 12px;
+        height: 12px;
         flex-shrink: 0;
     }
 
@@ -1663,39 +1676,62 @@
         visibility: hidden;
         width: 0;
     }
-    .item_sizes, .cart_wish_box {
-        margin: auto;
+    .product_sizes{
         width: auto;
         font-size: 10px;
+        margin-left: 100px;
     }
 
     .button_size {
-        width: 40px;
-        height: 30px;
-        font-size: 10px;
+        width: 20px;
+        height: 10px;
+        font-size: 4px;
+        border: 1px solid #c0c0c0;
+    }
+
+    .button_size:hover {
+        border: 1px solid #8f8f8f;
     }
 
     .button_size_selected {
-        width: 40px;
+        background: #fff;
+        border: 1px solid #000000;
+        height: 10px;
+        width: 20px;
+        font-size: 4px;
+    }
+
+    .button_size_selected:hover {
+        background: #fff;
+        border: 1px solid #1d1d1d;
+        transition: all 0.4s ease;
+    }
+
+    .button_size_unavailable {
+        background: #c0c0c0;
+        border: 1px solid #c0c0c0;
+        height: 10px;
+        width: 20px;
+        margin-left: 20px;
+
     }
 
     .cart_wish_box {
         margin-top: 15px;
+        margin-left: 70px;
     }
 
     .cart_button {
         background-color: #252525;
         border: 1px solid #252525;
         color: white;
-        text-align: center;
         text-decoration: none;
-        display: inline-block;
-        font-size: 7px;
+        font-size: 4px;
         font-weight: 600;
         font-family: 'FuturaNewBook-Reg', sans-serif;
-        width: 110px;
+        width: 90px;
         line-height: 5px;
-        height: 25px;
+        height: 10px;
         cursor: pointer;
         transition: all 0.4s ease;
     }
@@ -1733,48 +1769,56 @@
     }
 
     .product {
-        margin: auto;
+        margin-left: 50px;
         flex-direction: column;
-        max-width: 550px;
+        min-width: 350px;
+        max-width: 350px;
         align-items: center;
     }
+
+    .product_preview_info {
+        margin-top: 10px;
+    }
     .product_preview_info_text {
-        font-size: 9px;
+        font-size: 4px;
+        margin-top: 0;
     }
 
     .product_preview_info_name {
-        width: 300px;
+        width: 150px;
+        margin-top: 0;
+        margin-left: 80px;
     }
     .product_preview_info_name h1 {
-        font-size: 10px;
+        font-size: 7px;
     }
 
     .product_preview_info_name h3 {
-        font-size: 9px
+        font-size: 6px
     }
 
     .product_preview_info .item_price {
-        font-size: 10px;
+        font-size: 6px;
+        margin-left:0;
     }
 
     .item_gallery_product .item_head_picture {
-        max-width: 300px;
-        max-height: 350px;
-    }
-
-    .product_sizes, .cart_wish_box {
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 150px;
+        max-height: 170px;
     }
 
 
 
     .product_details_menu {
-        width: 260px;
+        width: 150px;
     }
 
     .product_details_menu_element, .product_details_menu_element_active {
-        font-size: 10px;
+        font-size: 5px;
+    }
+
+    .product_detail {
+        font-size: 5px;
     }
 
     .recommended_box {
@@ -1788,7 +1832,7 @@
     }
 
     .recommended > .item > .item_price, .recommended > .item > .item_name, .recommended > .item > .item_price {
-        font-size: 7px;
+        font-size: 5px;
     }
 
     .cart_total span, .cart_total p {

@@ -601,6 +601,15 @@ button {
     margin-left: 3px;
 }
 
+.item_picture_active {
+    width: 80px;
+    height: 112px;
+    margin-top: 5px;
+    border: 3px solid #252525;
+    border-left: 4px solid #252525;
+    margin-left: 3px;
+}
+
 .item_gallery_product .item_head_picture {
     max-width: 480px;
     max-height: 700px;
