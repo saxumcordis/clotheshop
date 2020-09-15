@@ -4,10 +4,17 @@ import {PersonalEdit} from "./PersonalEdit";
 import {AddressEdit} from "./AddressEdit";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {AccountDrawer} from "../AccountDrawer";
+import {SaleView} from "./PersonalSale";
+
+
+const AccountLeft = () => {
+    const {personal} = useUser();
+    return <SaleView sale={personal.totalsale} totalSum={personal.totalsum}/>;
+};
 
 const Account = () => {
     const {user, logout} = useUser();
-    const {setStatus,status, setComponentRender, setComponentName} = useDrawer();
+    const {setStatus, status, setComponentRender, setComponentName} = useDrawer();
     const logOut = () => {
         logout();
         window.location.reload();
@@ -26,12 +33,12 @@ const Account = () => {
                 </div>
             </div>
         );
-    }
-    else
+    } else if (user !== 'guest')
         return (
             <div className='with_footer'>
                 <div className='global_giv'>
                     <div className='account_left'>
+                        <AccountLeft/>
                     </div>
                     <div className='account_right'>
                         <div className="account_right_title">
@@ -46,13 +53,21 @@ const Account = () => {
                             <div className="account_right_title">
                                 <h1><strong>Адрес доставки</strong></h1>
                             </div>
-                            <p className="address_warning" id="address_warning">Внимательно заполните все поля. Если поле остаётся пустым, <u>оставьте прочерк</u>.</p>
+                            <p className="address_warning" id="address_warning">Внимательно заполните все поля. Если
+                                поле остаётся пустым, <u>оставьте прочерк</u>.</p>
                             <AddressEdit/>
                         </div>
                     </div>
                 </div>
             </div>
-        )
-}
+        );
+    else return (<div className='with_footer'>
+            <div className='global_giv'>
+                <div className="not_logged">
+                    <p>Авторизация</p>
+                </div>
+            </div>
+        </div>);
+};
 
 export {Account};
