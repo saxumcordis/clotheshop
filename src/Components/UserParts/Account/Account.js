@@ -5,11 +5,16 @@ import {AddressEdit} from "./AddressEdit";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {AccountDrawer} from "../AccountDrawer";
 import {SaleView} from "./PersonalSale";
+import {OrderList} from "./AccountOrders";
 
 
 const AccountLeft = () => {
     const {personal} = useUser();
-    return <SaleView sale={personal.totalsale} totalSum={personal.totalsum}/>;
+    console.log('a');
+    return <div className='account_left'>
+        <SaleView sale={personal.totalsale} totalSum={personal.totalsum}/>
+        <OrderList/>
+    </div>;
 };
 
 const Account = () => {
@@ -37,9 +42,7 @@ const Account = () => {
         return (
             <div className='with_footer'>
                 <div className='global_giv'>
-                    <div className='account_left'>
                         <AccountLeft/>
-                    </div>
                     <div className='account_right'>
                         <div className="account_right_title">
                             <h1>Личный кабинет</h1>
