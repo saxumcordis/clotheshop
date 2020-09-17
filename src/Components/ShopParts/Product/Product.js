@@ -6,15 +6,7 @@ import {Loading} from "../../SystemParts/Loading";
 import {Recommended} from "./Recommended";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
-
-
-export const beautyPrice = price => {
-    let prString = price.toString();
-    let length = prString.length;
-    let hd = prString.slice(length - 3);
-    let th = prString.slice(0, length - 3);
-    return th + " " + hd + " P";
-};
+import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const MainBox = ({item}) => {
     const [content, setContent] = useState('description');
@@ -98,9 +90,9 @@ const Product = () => {
                         <div className="product_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
                             <h3>№ {item.product_code}</h3></div>
                         {(+price) === (+salePrice) ? <span style={{marginLeft: "20px", marginTop: "-15px"}}
-                                                           className="item_price">{beautyPrice(price)}</span> :
+                                                           className="item_price">{handlePrice(price)}</span> :
                             <span style={{marginLeft: "20px", marginTop: "-15px"}}
-                                  className="item_price">{beautyPrice(salePrice)}<s>{beautyPrice(price)}</s></span>}
+                                  className="item_price">{handlePrice(salePrice)}<s>{handlePrice(price)}</s></span>}
                         <div className="product_sizes" style={{marginTop: "10px"}}>
                             <div
                                 className={item.small_size <= 0 ? "button_size_unavailable" : selectedSize !== '42-44' ? "button_size" : "button_size_selected"}

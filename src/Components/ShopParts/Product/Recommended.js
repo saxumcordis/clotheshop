@@ -1,13 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Redirect} from "react-router-dom";
-
-const beautyPrice = price => {
-    let prString = price.toString();
-    let length = prString.length;
-    let hd = prString.slice(length - 3);
-    let th = prString.slice(0, length - 3);
-    return th + " " + hd;
-};
+import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const Item = ({item}) => {
     const [redirect, setRedirect] = useState(null);
@@ -29,8 +22,8 @@ const Item = ({item}) => {
                      alt={item.product_name}/>
             </span>
             <span className="item_name">{item.product_name}</span>
-            {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)} P</span> :
-                <span className="item_price">{beautyPrice(salePrice)} P<s>{beautyPrice(price)} P</s></span>}
+            {(+price) === (+salePrice) ? <span className="item_price">{handlePrice(price)} P</span> :
+                <span className="item_price">{handlePrice(salePrice)} P<s>{handlePrice(price)} P</s></span>}
         </div>
     )
 };

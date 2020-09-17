@@ -6,8 +6,8 @@ import {Filter} from "./Filter";
 import {Redirect, useLocation} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
-import {beautyPrice} from "../Product/Product";
 import {useMedia} from "use-media";
+import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const getPriceDiff = (a, b) => {
     const first = Math.floor((100 - a.sale_percent) * a.product_price / 100);
@@ -57,8 +57,8 @@ const Item = ({item}) => {
                 {isWide && <div className="into_preview" onClick={() => setItemPreview(true)}>БЫСТРЫЙ ПРОСМОТР</div>}
             </span>
             <span className="item_name">{item.product_name}</span>
-            {(+price) === (+salePrice) ? <span className="item_price">{beautyPrice(price)}</span> :
-                <span className="item_price">{beautyPrice(salePrice)}<s>{beautyPrice(price)}</s></span>}
+            {(+price) === (+salePrice) ? <span className="item_price">{handlePrice(price)}</span> :
+                <span className="item_price">{handlePrice(salePrice)}<s>{handlePrice(price)}</s></span>}
         </div>
     )
 };

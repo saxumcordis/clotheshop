@@ -1,9 +1,9 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useCart} from "../../../Service/Contexts/CartContext";
-import {beautyPrice} from "../Product/Product";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {TotalCartDrawer} from "./TotalDrawer";
 import {Link} from "react-router-dom";
+import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 
 export const QuantityInput = ({item}) => {
@@ -49,12 +49,12 @@ const ItemDrawer = ({item}) => {
                         <p>Размер : {item.size}</p>
                         <p style={{fontSize: "9px", color: "#999999", paddingBottom: 0}}>art: {item.art}</p></td>
                     <td className="small_cart_item_table_quantity">{<QuantityInput item={item}/>}</td>
-                    <td className="small_cart_item_table_price">{+salePrice === +item.price ? beautyPrice(quantity * item.price) :
-                        <p>{beautyPrice(quantity * salePrice)} <p style={{
+                    <td className="small_cart_item_table_price">{+salePrice === +item.price ? handlePrice(quantity * item.price) :
+                        <p>{handlePrice(quantity * salePrice)} <p style={{
                             color: "#999999",
                             textDecoration: "line-through",
                             fontSize: "9px"
-                        }}>{beautyPrice(quantity * item.price)}</p></p>}</td>
+                        }}>{handlePrice(quantity * item.price)}</p></p>}</td>
                     <td className="small_cart_item_table_remove"><span onClick={() => {
                         if (window.confirm("Действительно хотите удалить товар из корзины?"))
                             removeFromCart(item);

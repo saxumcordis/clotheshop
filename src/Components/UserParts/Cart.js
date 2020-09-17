@@ -2,8 +2,8 @@ import React, {useCallback} from 'react'
 import {useCart} from "../../Service/Contexts/CartContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../ShopParts/Cart/CartDrawer";
-import {beautyPrice} from "../ShopParts/Product/Product";
 import {useDrawer} from "../../Service/Contexts/Drawer";
+import {handlePrice} from "../../Service/StringHandler/StringHandler";
 
 const CartItem = ({index, item}) => {
 
@@ -41,12 +41,12 @@ const CartItem = ({index, item}) => {
                             <QuantityInput item={item}/>
                         </td>
                         <td className="cart_item_table_price">
-                            {+salePrice === +item.price ? beautyPrice(quantity * item.price) :
-                                <p>{beautyPrice(quantity * salePrice)} <p style={{
+                            {+salePrice === +item.price ? handlePrice(quantity * item.price) :
+                                <p>{handlePrice(quantity * salePrice)} <p style={{
                                     color: "#999999",
                                     textDecoration: "line-through",
                                     fontSize: "9px"
-                                }}>{beautyPrice(quantity * item.price)}</p></p>}
+                                }}>{handlePrice(quantity * item.price)}</p></p>}
                         </td>
                         <td style={{width: "10%"}} className="cart_item_table_remove"><span onClick={() => {
                             if (window.confirm("Действительно хотите удалить товар из корзины?"))
@@ -81,7 +81,7 @@ const Cart = () => {
                         </div>
                         <div className="cart_total">
                             <Link to="/catalog"><p>Продолжить покупки</p></Link>
-                            <span>ИТОГО: {beautyPrice(totalPrice)}</span>
+                            <span>ИТОГО: {handlePrice(totalPrice)}</span>
                         </div>
                         <Link to="/order"><span className="cart_total_confirm_button">Оформить заказ</span></Link>
                     </div>}

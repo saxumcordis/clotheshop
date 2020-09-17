@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react'
 import {useCart} from "../../../Service/Contexts/CartContext";
-import {beautyPrice} from "../Product/Product";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {Link} from "react-router-dom";
+import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const Coupon = () => {
     return (
@@ -25,7 +25,7 @@ export const TotalCartDrawer = () => {
         <div className="small_cart_total">
             <Coupon/>
             <div className="small_cart_total_price">
-                <span>ИТОГО: {beautyPrice(totalPrice)}</span>
+                <span>ИТОГО: {handlePrice(totalPrice)}</span>
             </div>
             <div className="small_cart_total_confirm">
                 <Link to="/order" onClick={() => close()}><span className="cart_total_confirm_button">Оформить заказ</span></Link>
