@@ -26,7 +26,6 @@ export const Order = () => {
 
     const {personal} = useUser();
     const {promo} = useCart();
-    console.log(promo);
 
     return (
         <div className='with_footer'>
@@ -43,6 +42,7 @@ export const Order = () => {
                         </div>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <div className="order_form">
+
                         </div>
                     </div>
                 </div>

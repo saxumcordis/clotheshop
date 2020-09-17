@@ -15,7 +15,6 @@ export const RegisterDrawer = () => {
 
     const sendRegister = () => {
         const data = registerNewUser();
-        console.log('a');
         (async () => {
             const response = await fetch(data);
             if (!stageStatus) {

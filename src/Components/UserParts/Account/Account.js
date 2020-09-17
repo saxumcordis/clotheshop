@@ -10,7 +10,6 @@ import {OrderList} from "./AccountOrders";
 
 const AccountLeft = () => {
     const {personal} = useUser();
-    console.log('a');
     return <div className='account_left'>
         <SaleView sale={personal.totalsale} totalSum={personal.totalsum}/>
         <OrderList/>

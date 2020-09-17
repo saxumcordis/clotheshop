@@ -23,8 +23,6 @@ export const CartProvider = ({children}) => {
         }
     }, [cart]);
     const addToCart = useCallback(product => {
-        console.log(product);
-        console.log(cart);
         let temp = cart.map(e => e.id === product.id && e.size === product.size ? ({
             ...e,
             quantity: e.quantity + 1

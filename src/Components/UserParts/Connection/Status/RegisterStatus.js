@@ -3,7 +3,6 @@ import React from "react";
 
 export const StatusRegisterDrawer = () => {
     const {stageStatus, setStageStatus, setStage} = useUser();
-    console.log(stageStatus);
     const refreshStatus = () => {
         setTimeout(() => {
             setStage('register');

@@ -18,7 +18,6 @@ const OrderItem = ({item, sale}) => {
 
 const Order = ({order}) => {
 
-    console.log(order);
     return (
         <div className="order">
             <div className="order_info">

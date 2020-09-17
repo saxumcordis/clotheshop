@@ -14,7 +14,7 @@ const Coupon = () => {
             <span>У Вас есть промо-код?</span>
             <div className="coupon_form">
                 <input type="text" id="promo_code_value"/>
-                <button onClick={() => console.log(enterPromo(user.token, setPromo))}>применить</button>
+                <button onClick={() => enterPromo(user.token, setPromo)}>применить</button>
             </div>
         </div>);
 };
@@ -24,7 +24,6 @@ export const TotalCartDrawer = () => {
     const {cart, promo} = useCart();
     const {close} = useDrawer();
     const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
-    console.log(totalPrice + " " + promo.sale);
     return (
         <div className="small_cart_total">
             <Coupon/>
