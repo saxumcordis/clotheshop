@@ -2,12 +2,30 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useAsync} from "../../../Service/useAsync";
 
+const months = {
+    1: "Января",
+    2: "Февраля",
+    3: "Марта",
+    4: "Апреля",
+    5: "Мая",
+    6: "Июня",
+    7: "Июля",
+    8: "Августа",
+    9: "Сентября",
+    10: "Октября",
+    11: "Ноября",
+    12: "Декабря"
+};
+
 const Order = ({item}) => {
 
-
+    console.log(item);
     return (
         <div className="order">
-            {item.order_id}
+            <div className="order_info">
+            </div>
+            <div className="order_items">
+            </div>
         </div>
     );
 };
@@ -21,10 +39,10 @@ export const OrderList = React.memo(() => {
     const {data, loading, error} = useAsync(getData);
 
 
-    if(loading)
+    if (loading)
         return <div>Идёт загрузка истории заказов...</div>;
 
-    if(error)
+    if (error)
         return <div>{error}</div>;
 
     return (

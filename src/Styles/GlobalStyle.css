@@ -1885,7 +1885,11 @@ button {
 }
 
 .orders_list {
+    height: 70vh;
+    overflow-x: hidden;;
+    overflow-y: auto;
     display: flex;
+
     flex-direction: column;
 }
 
@@ -1898,8 +1902,9 @@ button {
 .order {
     display: flex;
     flex-direction: row;
-    width: 500px;
-    height: 300px;
+    width: 90%;
+    height: 250px;
+    padding: 10px 5px;
     border-top: 1px solid rgba(112,112,112,.1) !important;
 }
 
@@ -1915,7 +1920,7 @@ button {
     overflow-y: auto;
 }
 
-.account_right::before {
+.account_right::before{
     content: "";
     display: block;
     position: absolute;
@@ -1926,19 +1931,19 @@ button {
     background: #f8f8f8;
 }
 
-.account_right::-webkit-scrollbar {
+.account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar {
     width: 3px;
 }
 
-.account_right::-webkit-scrollbar-track {
+.account_right::-webkit-scrollbar-track, .orders_list::-webkit-scrollbar-track {
     background: #ffffff;
 }
 
-.account_right::-webkit-scrollbar-thumb {
+.account_right::-webkit-scrollbar-thumb, .orders_list::-webkit-scrollbar-thumb {
     background: #999999;
 }
 
-.account_right::-webkit-scrollbar-thumb:hover {
+.account_right::-webkit-scrollbar-thumb:hover, .orders_list::-webkit-scrollbar-thumb:hover {
     background: #999999;
 }
 
