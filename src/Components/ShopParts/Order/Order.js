@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 
@@ -22,6 +22,50 @@ const contactFields = [
     }
 ];
 
+const addressFields = [
+    {
+        title: "Страна",
+        name: "country",
+    },
+    {
+        title: "Город",
+        name: "city",
+    },
+    {
+        title: "Улица",
+        name: "street",
+    },
+    {
+        title: "Индекс",
+        name: "zip",
+    },
+    {
+        title: "Дом",
+        name: "building",
+    },
+    {
+        title: "Корпус",
+        name: "pavilion",
+    },
+    {
+        title: "Квартира",
+        name: "flat",
+    },
+];
+
+const Delivery = () => {
+    const {personal} = useUser();
+
+    if (personal.country) {
+        if (/Россия/.test(personal.country))
+            if (/Москва/.test(personal.city ))
+                return 'ПРИМЕРОЧКА';
+            else return 'ПОЧТА РОССИИ';
+        else return 'СНГ'
+    }
+    return 2;
+};
+
 export const Order = () => {
 
     const {personal} = useUser();
@@ -42,7 +86,15 @@ export const Order = () => {
                         </div>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <div className="order_form">
-
+                            <div className="address_fields">
+                                {addressFields.map(e => <p className="order_field">
+                                    <label>{e.title}</label>
+                                    <input className="order_field_address" required placeholder={personal[e.name]}
+                                           type="text" name={e.name}
+                                           id={"order_" + e.name + "_input"}/>
+                                </p>)}
+                            </div>
+                            <Delivery/>
                         </div>
                     </div>
                 </div>

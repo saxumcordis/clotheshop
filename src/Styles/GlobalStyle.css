@@ -2276,6 +2276,13 @@ button {
     border-right: 1px solid #cccccc;
 }
 
+.address_fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
 .order_field {
     margin-bottom: 30px;
     display: flex;
@@ -2285,7 +2292,8 @@ button {
     text-transform: uppercase;
 }
 
-.order_field > input {
+
+.order_field > input, .order_field_address {
     margin-top: 10px;
     outline: none;
     max-width: 172px;
@@ -2302,9 +2310,14 @@ button {
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
-.order_field > input::placeholder {
+.order_field_address {
+    width: 120px;
+    margin-left: 15px;
+}
+
+.order_field > input::placeholder, order_field_address::placeholder {
     color: black;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .admin_page {
