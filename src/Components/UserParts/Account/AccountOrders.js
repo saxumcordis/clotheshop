@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
+import {useAsync} from "../../../Service/useAsync";
 
 const Order = ({item}) => {
 
@@ -16,15 +17,20 @@ export const OrderList = React.memo(() => {
     const {user} = useUser();
     const [orders, setOrders] = useState(0);
 
-    useEffect(() => { (async () => {
-        const url = "https://miktina.herokuapp.com/backend/user/orders.php?orderList&token=";
-            const orders = await fetch(url + user.token);
-            setOrders(await orders.json());
-        }
-    )()}, [setOrders]);
+    const getData = useCallback(() => fetch("https://miktina.herokuapp.com/backend/user/orders.php?orderList&token=" + user.token), [setOrders]);
+    const {data, loading, error} = useAsync(getData);
 
-    return <div className="orders_list">
-        <h1>История заказов</h1>
-        {orders ? orders.map((item, index) => <Order item={item} key={index}/>) : "Заказов нет"}
-    </div>
+
+    if(loading)
+        return <div>Идёт загрузка истории заказов...</div>;
+
+    if(error)
+        return <div>{error}</div>;
+
+    return (
+        <div className="orders_list">
+            <h1>История заказов</h1>
+            {data && data.map((item, index) => <Order item={item} key={index}/>)}
+        </div>
+    )
 });

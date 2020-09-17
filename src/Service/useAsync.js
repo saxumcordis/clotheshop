@@ -12,7 +12,8 @@ export const useAsync = (f, start = true) => {
         if(executed) {
             setLoading(true);
             Promise.resolve(f())
-                .then(setData)
+                .then(response => response.json())
+                .then(response => setData(response))
                 .catch(setError)
                 .finally(() => setLoading(false))
         }

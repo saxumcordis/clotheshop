@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/useAsync.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/useAsync.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/useAsync.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +100,7 @@
       <workItem from="1599489802786" duration="6966000" />
       <workItem from="1599559404815" duration="12327000" />
       <workItem from="1600174937421" duration="7597000" />
-      <workItem from="1600251197755" duration="4047000" />
+      <workItem from="1600251197755" duration="4555000" />
     </task>
     <servers />
   </component>
