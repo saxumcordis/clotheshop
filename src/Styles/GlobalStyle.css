@@ -1903,10 +1903,95 @@ button {
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 250px;
+    height: 300px;
     padding: 10px 5px;
     border-top: 1px solid rgba(112,112,112,.1) !important;
 }
+
+.order_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.order_info_title {
+
+}
+
+.order_info_title_id {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.order_info_title_date {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 400;
+    color: #999;
+}
+
+.order_info_details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.order_info_details_field {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #999;
+}
+
+.order_info_details_value {
+    margin-top: 2px;
+    color: black;
+}
+
+
+.order_items {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.order_item {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order_item_picture {
+    width: 145px;
+    height: 200px;
+}
+
+.order_item_name {
+    margin-top: 2px;
+    width: 145px;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.order_item_quantity {
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.order_item_price {
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.order_item_name:hover {
+    text-decoration: none;
+}
+
 
 .account_right {
     margin-top: 20px;
