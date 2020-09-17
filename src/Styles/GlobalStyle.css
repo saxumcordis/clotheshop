@@ -1884,6 +1884,25 @@ button {
     text-transform: uppercase;
 }
 
+.orders_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.orders_list h1 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.order {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    height: 300px;
+    border-top: 1px solid rgba(112,112,112,.1) !important;
+}
+
 .account_right {
     margin-top: 20px;
     position: relative;

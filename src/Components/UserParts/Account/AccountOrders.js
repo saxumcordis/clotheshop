@@ -1,8 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 
+const Order = ({item}) => {
+
+
+    return (
+        <div className="order">
+            {item.order_id}
+        </div>
+    );
+};
+
+
 export const OrderList = React.memo(() => {
-    const {personal, user} = useUser();
+    const {user} = useUser();
     const [orders, setOrders] = useState(0);
 
     useEffect(() => { (async () => {
@@ -13,6 +24,7 @@ export const OrderList = React.memo(() => {
     )()}, [setOrders]);
 
     return <div className="orders_list">
-        {orders ? orders.map(e => e.order_id) : "Заказов нет"}
+        <h1>История заказов</h1>
+        {orders ? orders.map((item, index) => <Order item={item} key={index}/>) : "Заказов нет"}
     </div>
 });
