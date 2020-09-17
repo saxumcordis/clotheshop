@@ -9,6 +9,7 @@ export const CartContext = React.createContext({});
 
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
+    const [promo, setPromo] = useState(0);
     const [limitWarning, setLimitWarning] = useState(false);
     const showWarning = useCallback(() => {
         setLimitWarning(true);
@@ -54,7 +55,9 @@ export const CartProvider = ({children}) => {
         updateItem,
         isLimit,
         limitWarning,
-        showWarning
+        showWarning,
+        promo,
+        setPromo
     };
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 };

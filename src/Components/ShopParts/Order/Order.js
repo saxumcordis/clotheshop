@@ -1,5 +1,6 @@
 import React from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
+import {useCart} from "../../../Service/Contexts/CartContext";
 
 
 const contactFields = [
@@ -24,6 +25,8 @@ const contactFields = [
 export const Order = () => {
 
     const {personal} = useUser();
+    const {promo} = useCart();
+    console.log(promo);
 
     return (
         <div className='with_footer'>
