@@ -57,16 +57,9 @@ const addressFields = [
     },
 ];
 
-const Delivery = () => {
-    const {personal} = useUser();
+const Delivery = ({address}) => {
 
-    if (personal.country) {
-        if (/Россия/.test(personal.country))
-            if (/Москва/.test(personal.city))
-                return 'ПРИМЕРОЧКА';
-            else return 'ПОЧТА РОССИИ';
-        else return 'СНГ'
-    }
+    console.log(address);
     return 2;
 };
 
@@ -78,15 +71,11 @@ export const Order = () => {
 
     useEffect(() =>{( async () => {
         if (user !== 'guest') {
-            const url = "https://miktina.herokuapp.com/backend/api/address.php?token=";
-            const data = user.token + "&initAddress&address=" + handleAddress(personal);
-            const response = await fetch(url + data);
-            setAddress(await response.json());
+            initAddress(user.token, handleAddress(personal), setAddress);
         }
     })();
     }, [setAddress]);
 
-    console.log(address);
     return (
         <div className='with_footer'>
             <div className='global_giv'>
@@ -102,14 +91,19 @@ export const Order = () => {
                         </div>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <div className="order_form">
+                            <p className="order_field">
+                                <label>Адрес доставки</label>
                             <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
-                                                onChange={setAddress} inputProps={{
-                                placeholder: handleAddress(personal),
-                                className: "order_field_address"
+                                                onChange={() => initAddress(user.token, document.getElementById("delivery_address_input").value, setAddress)} inputProps={{
+                                placeholder: handleAddress(personal) || "Укажите адрес доставки",
+                                className: "order_field_address",
+                                id: "delivery_address_input"
                             }}
                                                 suggestionClassName="address_suggestions"
                                                 highlightClassName="address_suggestions_highlight"
                             />
+                            </p>
+                            <Delivery address={address}/>
                         </div>
                     </div>
                 </div>

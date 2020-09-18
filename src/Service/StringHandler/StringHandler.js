@@ -12,7 +12,6 @@ export const handlePrice = (price) => {
 
 
 export const handleAddress = (personal) => {
-    console.log(personal);
     if (personal.length === 0)
         return "";
 
