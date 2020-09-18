@@ -9,3 +9,15 @@ export const handleOrderDate = (date) => {
 export const handlePrice = (price) => {
     return price.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ') + " P";
 };
+
+
+export const handleAddress = (personal) => {
+
+    const isNull = (field) => (field === "" || field === "-");
+
+    const city = "г " + personal.city;
+    const street = "ул " + personal.street;
+    const building = "д " + personal.building + (isNull(personal.pavilion) ? "" : " к " + personal.pavilion);
+    const flat = (isNull(personal.flat) ? "" : " кв " + personal.flat);
+    return [city, street,building, flat].join(', ');
+};

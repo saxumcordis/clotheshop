@@ -1,6 +1,9 @@
 import React, {useLayoutEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
+import {AddressSuggestions} from 'react-dadata';
+import 'react-dadata/dist/react-dadata.css';
+import {handleAddress} from "../../../Service/StringHandler/StringHandler";
 
 
 const contactFields = [
@@ -58,7 +61,7 @@ const Delivery = () => {
 
     if (personal.country) {
         if (/Россия/.test(personal.country))
-            if (/Москва/.test(personal.city ))
+            if (/Москва/.test(personal.city))
                 return 'ПРИМЕРОЧКА';
             else return 'ПОЧТА РОССИИ';
         else return 'СНГ'
@@ -70,6 +73,7 @@ export const Order = () => {
 
     const {personal} = useUser();
     const {promo} = useCart();
+    const [address, setAddress] = useState();
 
     return (
         <div className='with_footer'>
@@ -86,15 +90,14 @@ export const Order = () => {
                         </div>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <div className="order_form">
-                            <div className="address_fields">
-                                {addressFields.map(e => <p className="order_field">
-                                    <label>{e.title}</label>
-                                    <input className="order_field_address" required placeholder={personal[e.name]}
-                                           type="text" name={e.name}
-                                           id={"order_" + e.name + "_input"}/>
-                                </p>)}
-                            </div>
-                            <Delivery/>
+                            <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4" value={address}
+                                                onChange={setAddress} inputProps={{
+                                placeholder: handleAddress(personal),
+                                className: "order_field_address"
+                            }}
+                                                suggestionClassName="address_suggestions"
+                                                highlightClassName="address_suggestions_highlight"
+                            />
                         </div>
                     </div>
                 </div>

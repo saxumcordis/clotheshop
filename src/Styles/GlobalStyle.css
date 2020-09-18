@@ -2310,14 +2310,33 @@ button {
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
-.order_field_address {
-    width: 120px;
-    margin-left: 15px;
+
+.address_suggestions {
+    color: #999;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+
 }
 
-.order_field > input::placeholder, order_field_address::placeholder {
+.address_suggestions * {
+    margin-top: 2px;
+}
+
+.address_suggestions_highlight {
     color: black;
-    font-size: 13px;
+}
+
+.order_field_address {
+    width: 200px;
+    color: black;
+}
+
+.order_field > input::placeholder, .order_field_address::placeholder {
+    color: black;
+    font-size: 11px;
 }
 
 .admin_page {
