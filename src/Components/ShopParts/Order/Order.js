@@ -1,9 +1,10 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress} from "../../../Service/StringHandler/StringHandler";
+import {initAddress} from "../../../Service/Server/order";
 
 
 const contactFields = [
@@ -71,10 +72,21 @@ const Delivery = () => {
 
 export const Order = () => {
 
-    const {personal} = useUser();
+    const {personal, user} = useUser();
     const {promo} = useCart();
     const [address, setAddress] = useState();
 
+    useEffect(() =>{( async () => {
+        if (user !== 'guest') {
+            const url = "https://miktina.herokuapp.com/backend/api/address.php?token=";
+            const data = user.token + "&initAddress&address=" + handleAddress(personal);
+            const response = await fetch(url + data);
+            setAddress(await response.json());
+        }
+    })();
+    }, [setAddress]);
+
+    console.log(address);
     return (
         <div className='with_footer'>
             <div className='global_giv'>
@@ -82,7 +94,7 @@ export const Order = () => {
                     <div className="order_left_column">
                         <div className="order_title"><h1>Контактная информация</h1><span>1</span></div>
                         <div className="order_form">
-                            {contactFields.map(e => <p className="order_field">
+                            {contactFields.map((e, index) => <p key={index} className="order_field">
                                 <label>{e.title}</label>
                                 <input required placeholder={personal[e.name]} type="text" name={e.name}
                                        id={"order_" + e.name + "_input"}/>
@@ -90,7 +102,7 @@ export const Order = () => {
                         </div>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <div className="order_form">
-                            <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4" value={address}
+                            <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
                                                 onChange={setAddress} inputProps={{
                                 placeholder: handleAddress(personal),
                                 className: "order_field_address"

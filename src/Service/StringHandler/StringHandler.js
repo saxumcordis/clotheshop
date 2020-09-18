@@ -13,6 +13,9 @@ export const handlePrice = (price) => {
 
 export const handleAddress = (personal) => {
 
+    if (!personal.length)
+        return "";
+
     const isNull = (field) => (field === "" || field === "-");
 
     const city = "г " + personal.city;
