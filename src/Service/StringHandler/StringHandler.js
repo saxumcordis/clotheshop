@@ -12,8 +12,8 @@ export const handlePrice = (price) => {
 
 
 export const handleAddress = (personal) => {
-
-    if (!personal.length)
+    console.log(personal);
+    if (personal.length === 0)
         return "";
 
     const isNull = (field) => (field === "" || field === "-");
