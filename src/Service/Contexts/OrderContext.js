@@ -41,9 +41,13 @@ export const OrderProvider = ({children}) => {
         const temp = {...order, sale: newSale};
         setOrder(temp);
     }, [setOrder]);
+    const setOrderPayment = useCallback((newPayment) => {
+        const temp = {...order, sale: newPayment};
+        setOrder(temp);
+    }, [setOrder]);
 
     console.log(order);
-    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderItems, setOrderPersonal, setOrderSale};
+    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderItems, setOrderPersonal, setOrderSale, setOrderPayment};
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>
 };

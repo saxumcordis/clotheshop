@@ -204,6 +204,10 @@ const Address = () => {
     </div>
 };
 
+const Payment = () => {
+    const {setOrderPayment} = useOrder();
+};
+
 const Items = () => {
 
 };
