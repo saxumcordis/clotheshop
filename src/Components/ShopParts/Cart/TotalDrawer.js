@@ -6,14 +6,14 @@ import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 import {enterPromo} from "../../../Service/Server/order";
 import {useUser} from "../../../Service/Contexts/UserContext";
 
-const Coupon = () => {
+export const Coupon = () => {
     const {user} = useUser();
-    const {setPromo} = useCart();
+    const {setPromo, promo} = useCart();
     return (
         <div className="coupon_box">
             <span>У Вас есть промо-код?</span>
             <div className="coupon_form">
-                <input type="text" id="promo_code_value"/>
+                <input type="text" id="promo_code_value" placeholder={promo.value}/>
                 <button onClick={() => enterPromo(user.token, setPromo)}>применить</button>
             </div>
         </div>);

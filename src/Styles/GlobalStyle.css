@@ -2344,6 +2344,68 @@ button {
 
 }
 
+.checkbox_box, .delivery_vary {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox_box > label, .delivery_vary > label {
+    margin-top: 1px;
+    margin-left: 5px;
+}
+
+.checkbox {
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 1px solid #999;
+    border-radius: 50%;
+    padding: 9px;
+    display: inline-block;
+    position: relative;
+    margin-top: 0;
+}
+
+
+
+.checkbox:checked {
+    border: 1px solid black;
+    color: #99a1a7;
+}
+
+.checkbox:checked:after {
+    content: '\2714';
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 3px;
+    color: black;
+}
+
+.order_form > .small_cart_item {
+    width: 90%;
+    margin-left: 0;
+}
+
+.order_form > .small_cart_item > * > .small_cart_item_table_price {
+    font-size: 12px;
+}
+
+.order_summary_info {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.order_summary_info > span {
+}
+
+.order_summary_price {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
 .admin_page {
     display: flex;
     flex-direction: column;

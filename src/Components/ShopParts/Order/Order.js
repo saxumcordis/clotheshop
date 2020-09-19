@@ -3,9 +3,12 @@ import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
-import {handleAddress} from "../../../Service/StringHandler/StringHandler";
+import {handleAddress, handlePrice} from "../../../Service/StringHandler/StringHandler";
 import {initAddress} from "../../../Service/Server/order";
 import {useOrder} from "../../../Service/Contexts/OrderContext";
+import {Link} from "react-router-dom";
+import {QuantityInput} from "../Cart/CartDrawer";
+import {Coupon} from "../Cart/TotalDrawer";
 
 
 const contactFields = [
@@ -115,6 +118,10 @@ const deliveryModel = {
     price: "",
 };
 
+const paymentModel = {
+    type: "",
+};
+
 const DeliveryTime = ({delivery, setDelivery}) => {
 
     const timeSteps = [
@@ -126,7 +133,7 @@ const DeliveryTime = ({delivery, setDelivery}) => {
 
     return <ul className="order_delivery_time">
         <span>Выберете желаемое время доставки</span>
-            {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox" checked={delivery.time === item} onClick={() => setDelivery({...delivery, time: item})}/>
+            {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox" className="checkbox" checked={delivery.time === item} onClick={() => setDelivery({...delivery, time: item})}/>
             <label>{item}</label></p>)}
         </ul>
 };
@@ -143,13 +150,13 @@ const Delivery = ({address}) => {
 
 
     const deliveryInfo = {
-        courier: <p className="delivery_vary"><input type="checkbox" checked={delivery.type === "courier_delivery"}
+        courier: <p className="delivery_vary"><input type="checkbox" className="checkbox" checked={delivery.type === "courier_delivery"}
                                                      onClick={() => setDelivery({...delivery, type: "courier_delivery", price: calculateCourierDelivery()})}
                                                      id="courier_delivery"/><label>Доставка курьером с возможностью
             примерки - <span
                 style={{color: "red"}}>{calculateCourierDelivery()}</span> Р</label></p>,
         post: <p className="delivery_vary">
-            <input type="checkbox" id="post_delivery" checked={delivery.type === "post_delivery"}
+            <input type="checkbox" className="checkbox" id="post_delivery" checked={delivery.type === "post_delivery"}
                    onClick={() => setDelivery({...delivery, type: "post_delivery", price: 480})}/>
             <label>Доставка Почтой России - <span
                 style={{color: "red"}}>480</span> Р</label>
@@ -167,8 +174,9 @@ const Delivery = ({address}) => {
 const Personal = () => {
 
     const {personal} = useUser();
+    const [personalState, setPersonal] = useState(personal);
     const {setOrderPersonal} = useOrder();
-    useEffect(() => setOrderPersonal(personal), [personal]);
+    useEffect(() => setOrderPersonal(personalState), [personalState]);
 
     return <div className="order_form">
         {contactFields.map((e, index) => <p key={index} className="order_field">
@@ -205,16 +213,79 @@ const Address = () => {
 };
 
 const Payment = () => {
-    const {setOrderPayment} = useOrder();
+    const [payment, setPayment] = useState(paymentModel);
+    const {setOrderPayment, order} = useOrder();
+    useEffect(() => setOrderPayment(payment), [payment]);
+
+    return (
+        <div className="order_form">
+            <p className="checkbox_box">
+                <input type="checkbox" className="checkbox" disabled id="card_payment" checked={payment.type === "card_payment"}
+                       onClick={() => setPayment({...payment, type: "card_payment"})}/>
+                <label>Оплата картой на сайте</label>
+            </p>
+            {order.delivery.type === "courier_delivery" && <p className="checkbox_box">
+                <input type="checkbox" className="checkbox" id="cash_payment" checked={payment.type === "cash_payment"}
+                       onClick={() => setPayment({...payment, type: "cash_payment"})}/>
+                <label>Оплата наличными курьеру</label>
+            </p>
+            }
+            {order.delivery.type === "post_delivery" && <p className="checkbox_box">
+                <input type="checkbox" className="checkbox" id="post_payment" checked={payment.type === "post_payment"}
+                       onClick={() => setPayment({...payment, type: "post_payment"})}/>
+                <label>Оплата при получении</label>
+            </p>
+            }
+        </div>
+    )
+
 };
+
+const OrderItem = ({item}) => {
+
+    const salePrice = Math.floor((100 - item.discount) * item.price / 100);
+
+    return (<div className="small_cart_item">
+        <div className="small_cart_item_photo">
+            <Link to={"/catalog/item/" + item.id}><img src={item.photo} className="small_cart_item_photo"
+                                                       alt="Изображение товара"/></Link>
+        </div>
+        <table className="small_cart_item_table">
+            <td className="small_cart_item_table_name"><p>{item.name + " (" + item.size + ")"}</p>
+                <p>Размер : {item.size}</p>
+                <p style={{fontSize: "9px", color: "#999999", paddingBottom: 0}}>art: {item.art}</p></td>
+            <td className="small_cart_item_table_quantity">{item.quantity} шт</td>
+            <td className="small_cart_item_table_price">{+salePrice === +item.price ? handlePrice(item.quantity * item.price) : handlePrice(item.quantity * (+salePrice))}</td>
+        </table>
+    </div>);
+}
+
 
 const Items = () => {
+    const {cart} = useCart();
 
+    return (<div className="order_form">
+        {cart.map((item, index) => <OrderItem key={index} item={item}/>)}
+    </div>);
 };
 
 
-const Sale = () => {
-
+const Summary = () => {
+    const {promo, setPromo, cart} = useCart();
+    const {order} = useOrder();
+    const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
+    const finalPrice = (totalPrice * (100 - (promo && promo.sale)) / 100);
+    console.log(promo);
+    return (
+        <div className="order_form">
+            <div className="order_summary_info">
+                <span>Сумма товаров: {handlePrice(finalPrice)}</span>
+                <span>Доставка: {handlePrice(order.delivery.price)}</span>
+                <span className="order_summary_price">Итого: {handlePrice(finalPrice + order.delivery.price)}</span>
+            </div>
+            <Coupon/>
+        </div>
+    )
 };
 
 export const Order = () => {
@@ -236,8 +307,11 @@ export const Order = () => {
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <Address/>
                         <div className="order_title"><h1>Оплата</h1><span>3</span></div>
+                        <Payment/>
                         <div className="order_title"><h1>Подтверждение заказа</h1><span>4</span></div>
-                        <div className="order_title"><h1>Промокод</h1><span>5</span></div>
+                        <Items/>
+                        <div className="order_title"><h1>Итого</h1><span>5</span></div>
+                        <Summary/>
                     </div>
                 </div>
             </div>
