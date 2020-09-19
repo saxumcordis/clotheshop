@@ -147,8 +147,6 @@ const Delivery = ({address}) => {
         </p>
     };
 
-
-    console.log(address);
     return <div className="order_delivery_form">
         {isCourierArea() && calculateOutMKAD() ? deliveryInfo.courier : null}
         {deliveryType === "courier_delivery" && <DeliveryTime/>}
