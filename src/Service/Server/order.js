@@ -9,9 +9,11 @@ export const enterPromo = async (token, setPromo) => {
     }
 };
 
-export const initAddress = async(token, address, setAddress) => {
+export const initAddress = async(token, address, setAddress, setLoading) => {
+    setLoading(true);
     const url = "https://miktina.herokuapp.com/backend/api/address.php?token=";
     const data = token + "&initAddress&address=" + address;
     const response = await fetch(url + data);
     setAddress(await response.json());
+    setLoading(false);
 };
