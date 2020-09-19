@@ -34,7 +34,7 @@ export const CartProvider = ({children}) => {
         let temp = cart.filter(e => e !== product);
         setCart(temp);
         setTimeout(() => updateUserCart(temp, JSON.parse(localStorage.getItem('user'))), 1000);
-    }, [setCart]);
+    }, [setCart, cart]);
     const updateItem = useCallback((item, newQuantity) => {
         let temp = cart.map(i => i.id === item.id && i.size === item.size ? ({
             ...i,
