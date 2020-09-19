@@ -16,6 +16,7 @@ const orderModel = {
     },
     items: {},
     sale: {},
+    payment: {},
 };
 
 export const OrderProvider = ({children}) => {

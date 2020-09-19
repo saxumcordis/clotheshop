@@ -231,8 +231,9 @@ export const Order = () => {
                         <Personal/>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <Address/>
-                        <div className="order_title"><h1>Заказ</h1><span>3</span></div>
-                        <div className="order_title"><h1>Промокод</h1><span>4</span></div>
+                        <div className="order_title"><h1>Оплата</h1><span>3</span></div>
+                        <div className="order_title"><h1>Подтверждение заказа</h1><span>4</span></div>
+                        <div className="order_title"><h1>Промокод</h1><span>5</span></div>
                     </div>
                 </div>
             </div>
