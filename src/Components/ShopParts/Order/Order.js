@@ -1,10 +1,11 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useCallback, useEffect, useLayoutEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress} from "../../../Service/StringHandler/StringHandler";
 import {initAddress} from "../../../Service/Server/order";
+import {useOrder} from "../../../Service/Contexts/OrderContext";
 
 
 const contactFields = [
@@ -26,7 +27,7 @@ const contactFields = [
     }
 ];
 
-const address = {
+const address2 = {
     area: null,
     area_fias_id: null,
     area_kladr_id: null,
@@ -108,9 +109,13 @@ const address = {
     timezone: "UTC+3",
 };
 
-const DeliveryTime = () => {
+const deliveryModel = {
+    type: "",
+    time: "",
+    price: "",
+};
 
-    const [time, setTime] = useState();
+const DeliveryTime = ({delivery, setDelivery}) => {
 
     const timeSteps = [
         "09:00-12:00",
@@ -121,27 +126,31 @@ const DeliveryTime = () => {
 
     return <ul className="order_delivery_time">
         <span>Выберете желаемое время доставки</span>
-            {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox" checked={time === item} onClick={() => setTime(item)}/>
+            {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox" checked={delivery.time === item} onClick={() => setDelivery({...delivery, time: item})}/>
             <label>{item}</label></p>)}
         </ul>
 };
 
 const Delivery = ({address}) => {
-    const [deliveryType, setDeliveryType] = useState();
+    const [delivery, setDelivery] = useState(deliveryModel);
+    const {setOrderDelivery} = useOrder();
+
+    useEffect(() => setOrderDelivery(delivery), [delivery]);
 
     const isCourierArea = () => address.beltway_hit === "IN_MKAD" || (address.beltway_hit === "OUT_MKAD" && address.beltway_distance < 41);
     const calculateOutMKAD = () => address.beltway_distance < 10 ? 400 : (address.beltway_distance >= 10 && address.beltway_distance < 20) ? 500 : (address.beltway_distance >= 20 && address.beltway_distance < 40) ? 1000 : null;
-    const calculateCourierDelivery = () => address.beltway_hit === "IN_MKAD" ? 300 : calculateOutMKAD();
+    const calculateCourierDelivery = useCallback(() => isCourierArea() ? address.beltway_hit === "IN_MKAD" ? 300 : calculateOutMKAD() : 480, [address]);
+
 
     const deliveryInfo = {
-        courier: <p className="delivery_vary"><input type="checkbox" checked={deliveryType === "courier_delivery"}
-                                                     onClick={() => setDeliveryType("courier_delivery")}
+        courier: <p className="delivery_vary"><input type="checkbox" checked={delivery.deliveryType === "courier_delivery"}
+                                                     onClick={() => setDelivery({...delivery, deliveryType: "courier_delivery", deliveryPrice: calculateCourierDelivery()})}
                                                      id="courier_delivery"/><label>Доставка курьером с возможностью
             примерки - <span
                 style={{color: "red"}}>{calculateCourierDelivery()}</span> Р</label></p>,
         post: <p className="delivery_vary">
-            <input type="checkbox" id="post_delivery" checked={deliveryType === "post_delivery"}
-                   onClick={() => setDeliveryType("post_delivery")}/>
+            <input type="checkbox" id="post_delivery" checked={delivery.deliveryType === "post_delivery"}
+                   onClick={() => setDelivery({...delivery, deliveryType: "post_delivery", deliveryPrice: 480})}/>
             <label>Доставка Почтой России - <span
                 style={{color: "red"}}>480</span> Р</label>
         </p>
@@ -149,7 +158,7 @@ const Delivery = ({address}) => {
 
     return <div className="order_delivery_form">
         {isCourierArea() && calculateOutMKAD() ? deliveryInfo.courier : null}
-        {deliveryType === "courier_delivery" && <DeliveryTime/>}
+        {delivery.deliveryType === "courier_delivery" && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
         {deliveryInfo.post}
     </div>;
 };
@@ -158,17 +167,17 @@ export const Order = () => {
 
     const {personal, user} = useUser();
     const {promo} = useCart();
-    const [address, setAddress] = useState();
-    const [loading, setLoading] = useState(true);
+    const [address, setAddress] = useState(address2);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+    /*useEffect(() => {
         (async () => {
             if (user !== 'guest') {
                 initAddress(user.token, handleAddress(personal), setAddress, setLoading);
             }
         })();
-    }, [setAddress]);
-
+    }, [setAddress]);*/
+    console.log(address);
     return (
         <div className='with_footer'>
             <div className='global_giv'>
@@ -187,7 +196,7 @@ export const Order = () => {
                             <p className="order_field">
                                 <label>Адрес доставки</label>
                                 <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
-                                                    onChange={() => initAddress(user.token || "guest", document.getElementById("delivery_address_input").value, setAddress, setLoading)}
+                                                    //onChange={() => initAddress(user.token || "guest", document.getElementById("delivery_address_input").value, setAddress, setLoading)}
                                                     inputProps={{
                                                         placeholder: handleAddress(personal) || "Укажите адрес доставки",
                                                         className: "order_field_address",
