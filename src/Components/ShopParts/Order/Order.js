@@ -158,7 +158,7 @@ const Delivery = ({address}) => {
 
     return <div className="order_delivery_form">
         {isCourierArea() && calculateOutMKAD() ? deliveryInfo.courier : null}
-        {delivery.deliveryType === "courier_delivery" && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
+        {delivery.type === "courier_delivery" && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
         {deliveryInfo.post}
     </div>;
 };
@@ -202,7 +202,16 @@ const Address = () => {
         {loading && "Вычисляем стоимость доставки"}
         {address && !loading && <Delivery address={address}/>}
     </div>
-}
+};
+
+const Items = () => {
+
+};
+
+
+const Sale = () => {
+
+};
 
 export const Order = () => {
 
@@ -222,6 +231,8 @@ export const Order = () => {
                         <Personal/>
                         <div className="order_title"><h1>Доставка</h1><span>2</span></div>
                         <Address/>
+                        <div className="order_title"><h1>Заказ</h1><span>3</span></div>
+                        <div className="order_title"><h1>Промокод</h1><span>4</span></div>
                     </div>
                 </div>
             </div>

@@ -2339,6 +2339,11 @@ button {
     font-size: 11px;
 }
 
+.order_delivery_time {
+    overflow-y: auto;
+
+}
+
 .admin_page {
     display: flex;
     flex-direction: column;
