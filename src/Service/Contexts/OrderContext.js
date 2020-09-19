@@ -5,7 +5,6 @@ export const OrderContext = createContext(null);
 export const useOrder = () => useContext(OrderContext);
 
 const orderModel = {
-    personal: {},
     address: {
 
     },
@@ -14,7 +13,6 @@ const orderModel = {
         time: "",
         price: "",
     },
-    items: {},
     sale: {},
     payment: {
         type: "",
