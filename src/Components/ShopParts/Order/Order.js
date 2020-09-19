@@ -4,7 +4,7 @@ import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress, handlePrice} from "../../../Service/StringHandler/StringHandler";
-import {initAddress} from "../../../Service/Server/order";
+import {initAddress, initOrder} from "../../../Service/Server/order";
 import {useOrder} from "../../../Service/Contexts/OrderContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../Cart/CartDrawer";
@@ -266,6 +266,9 @@ const OrderItem = ({item}) => {
 
 const Items = () => {
     const {cart} = useCart();
+    const {setOrderItems} = useOrder();
+
+    useEffect(() => setOrderItems(cart), [cart]);
 
     return (<div className="order_form">
         {cart.map((item, index) => <OrderItem key={index} item={item}/>)}
@@ -275,10 +278,13 @@ const Items = () => {
 
 const Summary = () => {
     const {promo, cart} = useCart();
-    const {order} = useOrder();
-    const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
+    const {personal} = useUser();
+    const {order, setOrderSale} = useOrder();
+    const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
     const finalPrice = (totalPrice * (100 - (promo && promo.sale)) / 100);
-    console.log(promo);
+
+    useEffect(() => setOrderSale(promo), [promo]);
+
     return (
         <div className="order_form">
             <div className="order_summary_info">
@@ -293,7 +299,7 @@ const Summary = () => {
                 <span>WHATSAPP ЗАКАЗЫ</span>
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
-            <span className="cart_total_confirm_button">Оформить заказ</span>
+            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order)}>Оформить заказ</span>
         </div>
     )
 };

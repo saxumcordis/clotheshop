@@ -18,4 +18,6 @@ export const initAddress = async(token, address, setAddress, setLoading) => {
     setLoading(false);
 };
 
-export const initOrder = () => {};
+export const initOrder = (personal, items, order) => {
+
+};
