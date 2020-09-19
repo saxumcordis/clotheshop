@@ -42,7 +42,7 @@ export const OrderProvider = ({children}) => {
         setOrder(temp);
     }, [setOrder]);
     const setOrderPayment = useCallback((newPayment) => {
-        const temp = {...order, sale: newPayment};
+        const temp = {...order, payment: newPayment};
         setOrder(temp);
     }, [setOrder]);
 
