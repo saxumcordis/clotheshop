@@ -23,6 +23,7 @@ import {Order} from "./Components/ShopParts/Order/Order";
 import Style from "./Styles/MediaStyle.css";
 import {AdminPage} from "./Components/AdminPart/AdminPage";
 import {validateSession} from "./Service/Validation/sessionValidation";
+import {OrderProvider, PersistOrder} from "./Service/Contexts/OrderContext";
 
 function App() {
     const {status} = useDrawer();
@@ -35,6 +36,7 @@ function App() {
         <div>
                 <WishProvider>
                     <CartProvider>
+                        <OrderProvider>
                         <Header/>
                             <Switch>
                                 <Route exact path="/catalog">
@@ -112,7 +114,9 @@ function App() {
                             <PersistWish/>
                             <PersistCart/>
                             <PersistUser/>
+                            <PersistOrder/>
                             <Drawer state={status}/>
+                        </OrderProvider>
                     </CartProvider>
                 </WishProvider>
         </div>
