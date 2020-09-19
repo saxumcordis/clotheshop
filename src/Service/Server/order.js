@@ -17,3 +17,5 @@ export const initAddress = async(token, address, setAddress, setLoading) => {
     setAddress(await response.json());
     setLoading(false);
 };
+
+export const initOrder = () => {};

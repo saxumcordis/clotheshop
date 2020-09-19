@@ -24,29 +24,23 @@ const orderModel = {
 export const OrderProvider = ({children}) => {
     const [order, setOrder] = useState(localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : orderModel);
     const setOrderPersonal = useCallback((newPersonal) => {
-        const temp = {...order, personal: newPersonal};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, personal: newPersonal});
+    }, [order]);
     const setOrderAddress = useCallback((newAddress) => {
-        const temp = {...order, address: newAddress};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, address: newAddress});
+    }, [order]);
     const setOrderDelivery = useCallback((newDelivery) => {
-        const temp = {...order, delivery: newDelivery};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, delivery: newDelivery});
+    }, [order]);
     const setOrderItems = useCallback((newItems) => {
-        const temp = {...order, items: newItems};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, items: newItems});
+    }, [order]);
     const setOrderSale = useCallback((newSale) => {
-        const temp = {...order, sale: newSale};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, sale: newSale});
+    }, [order]);
     const setOrderPayment = useCallback((newPayment) => {
-        const temp = {...order, payment: newPayment};
-        setOrder(temp);
-    }, [setOrder]);
+        setOrder({...order, payment: newPayment});
+    }, [order]);
 
     console.log(order);
     const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderItems, setOrderPersonal, setOrderSale, setOrderPayment};

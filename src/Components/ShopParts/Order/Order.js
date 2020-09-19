@@ -139,8 +139,8 @@ const DeliveryTime = ({delivery, setDelivery}) => {
 };
 
 const Delivery = ({address}) => {
-    const [delivery, setDelivery] = useState(deliveryModel);
-    const {setOrderDelivery} = useOrder();
+    const {setOrderDelivery, order} = useOrder();
+    const [delivery, setDelivery] = useState(order.delivery);
 
     useEffect(() => setOrderDelivery(delivery), [delivery]);
 
@@ -213,12 +213,13 @@ const Address = () => {
 };
 
 const Payment = () => {
-    const [payment, setPayment] = useState(paymentModel);
     const {setOrderPayment, order} = useOrder();
+    const [payment, setPayment] = useState(order.payment);
     useEffect(() => setOrderPayment(payment), [payment]);
 
     return (
         <div className="order_form">
+            <label className="order_warning">Оплата картой онлайн временно недоступна</label>
             <p className="checkbox_box">
                 <input type="checkbox" className="checkbox" disabled id="card_payment" checked={payment.type === "card_payment"}
                        onClick={() => setPayment({...payment, type: "card_payment"})}/>
@@ -226,16 +227,18 @@ const Payment = () => {
             </p>
             {order.delivery.type === "courier_delivery" && <p className="checkbox_box">
                 <input type="checkbox" className="checkbox" id="cash_payment" checked={payment.type === "cash_payment"}
-                       onClick={() => setPayment({...payment, type: "cash_payment"})}/>
+                       onClick={() => setPayment({type: "cash_payment"})}/>
                 <label>Оплата наличными курьеру</label>
             </p>
             }
             {order.delivery.type === "post_delivery" && <p className="checkbox_box">
                 <input type="checkbox" className="checkbox" id="post_payment" checked={payment.type === "post_payment"}
-                       onClick={() => setPayment({...payment, type: "post_payment"})}/>
+                       onClick={() => setPayment({type: "post_payment"})}/>
                 <label>Оплата при получении</label>
             </p>
             }
+            {order.delivery.type === "courier_delivery" && payment.type === "post_payment" || order.delivery.type === "post_delivery" && payment.type === "cash_payment" ?
+                <label className="order_warning">Не забудьте выбрать тип оплаты</label> : null}
         </div>
     )
 
@@ -271,7 +274,7 @@ const Items = () => {
 
 
 const Summary = () => {
-    const {promo, setPromo, cart} = useCart();
+    const {promo, cart} = useCart();
     const {order} = useOrder();
     const totalPrice = useCallback(cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
     const finalPrice = (totalPrice * (100 - (promo && promo.sale)) / 100);
@@ -284,6 +287,13 @@ const Summary = () => {
                 <span className="order_summary_price">Итого: {handlePrice(finalPrice + order.delivery.price)}</span>
             </div>
             <Coupon/>
+            <div className="order_contacts">
+                <p>Официальные источники коммуникации</p>
+                <span>ТЕЛЕФОН ДЛЯ ПОДТВЕРЖДЕНИЯ ЗАКАЗА</span>
+                <span>WHATSAPP ЗАКАЗЫ</span>
+            </div>
+            <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
+            <span className="cart_total_confirm_button">Оформить заказ</span>
         </div>
     )
 };
@@ -312,6 +322,7 @@ export const Order = () => {
                         <Items/>
                         <div className="order_title"><h1>Итого</h1><span>5</span></div>
                         <Summary/>
+                        <div className="order_title"><label className="order_agreement">Нажимая на кнопку, Вы даёте согласие на обработку своих <Link to="/about/policy">персональных данных.</Link> </label><span/><span>:)</span></div>
                     </div>
                 </div>
             </div>
