@@ -143,14 +143,14 @@ const Delivery = ({address}) => {
 
 
     const deliveryInfo = {
-        courier: <p className="delivery_vary"><input type="checkbox" checked={delivery.deliveryType === "courier_delivery"}
-                                                     onClick={() => setDelivery({...delivery, deliveryType: "courier_delivery", deliveryPrice: calculateCourierDelivery()})}
+        courier: <p className="delivery_vary"><input type="checkbox" checked={delivery.type === "courier_delivery"}
+                                                     onClick={() => setDelivery({...delivery, type: "courier_delivery", price: calculateCourierDelivery()})}
                                                      id="courier_delivery"/><label>Доставка курьером с возможностью
             примерки - <span
                 style={{color: "red"}}>{calculateCourierDelivery()}</span> Р</label></p>,
         post: <p className="delivery_vary">
-            <input type="checkbox" id="post_delivery" checked={delivery.deliveryType === "post_delivery"}
-                   onClick={() => setDelivery({...delivery, deliveryType: "post_delivery", deliveryPrice: 480})}/>
+            <input type="checkbox" id="post_delivery" checked={delivery.type === "post_delivery"}
+                   onClick={() => setDelivery({...delivery, type: "post_delivery", price: 480})}/>
             <label>Доставка Почтой России - <span
                 style={{color: "red"}}>480</span> Р</label>
         </p>
