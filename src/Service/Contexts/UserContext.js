@@ -1,5 +1,4 @@
 import React, {createContext, useCallback, useContext, useEffect, useState} from 'react'
-import {useCart} from "./CartContext";
 
 export const UserContext = createContext(null);
 
