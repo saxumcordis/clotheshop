@@ -24,20 +24,20 @@ export const OrderProvider = ({children}) => {
         const temp = {...order, personal: newPersonal};
         setOrder(temp);
     }, [setOrder]);
-    const setOrderAddress = useCallback((newPersonal) => {
-        const temp = {...order, personal: newPersonal};
+    const setOrderAddress = useCallback((newAddress) => {
+        const temp = {...order, address: newAddress};
         setOrder(temp);
     }, [setOrder]);
     const setOrderDelivery = useCallback((newDelivery) => {
-        const temp = {...order, personal: newDelivery};
+        const temp = {...order, delivery: newDelivery};
         setOrder(temp);
     }, [setOrder]);
     const setOrderItems = useCallback((newItems) => {
-        const temp = {...order, personal: newItems};
+        const temp = {...order, items: newItems};
         setOrder(temp);
     }, [setOrder]);
     const setOrderSale = useCallback((newSale) => {
-        const temp = {...order, personal: newSale};
+        const temp = {...order, sale: newSale};
         setOrder(temp);
     }, [setOrder]);
 
