@@ -40,7 +40,6 @@ export const OrderProvider = ({children}) => {
         setOrder({...order, payment: newPayment});
     }, [order]);
 
-    console.log(order);
     const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderItems, setOrderPersonal, setOrderSale, setOrderPayment};
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>

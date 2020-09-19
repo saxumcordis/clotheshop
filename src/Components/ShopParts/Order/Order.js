@@ -191,7 +191,6 @@ const Address = () => {
     const {personal} = useUser();
     const [address, setAddress] = useState(address2);
     const [loading, setLoading] = useState(false);
-    console.log(address);
 
     return <div className="order_form">
         <p className="order_field">
@@ -278,7 +277,7 @@ const Items = () => {
 
 const Summary = () => {
     const {promo, cart} = useCart();
-    const {personal} = useUser();
+    const {personal, user} = useUser();
     const {order, setOrderSale} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
     const finalPrice = (totalPrice * (100 - (promo && promo.sale)) / 100);
@@ -299,7 +298,7 @@ const Summary = () => {
                 <span>WHATSAPP ЗАКАЗЫ</span>
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
-            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order)}>Оформить заказ</span>
+            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user)}>Оформить заказ</span>
         </div>
     )
 };
