@@ -19,16 +19,20 @@ export const initAddress = async (token, address, setAddress, setLoading) => {
 };
 
 const handleDelivery = (delivery) => {
-    return "&deliveryType=" + delivery.type + "&deliveryTime" + (delivery.time.length ? ("=" + delivery.time) : null);
+    return "&deliveryType=" + delivery.type + "&deliveryTime" + (delivery.time.length ? ("=" + delivery.time) : "");
 };
 
 const handlePayment = (payment) => {
     return "&paymentType=" + payment.type;
 };
 
-export const initOrder = async (personal, items, order, user) => {
-    const url = "https://miktina.herokuapp.com/backend/user/orders.php??submitOrder&token=";
-    const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment);
-    const response = await fetch(url + data);
-    console.log(await response.text());
+const handlePromo = (promo) => {
+    return "&promoSale=" + promo.sale;
+};
+
+export const initOrder = async (personal, items, order, user, promo) => {
+   // const url = "https://miktina.herokuapp.com/backend/user/orders.php?submitOrder&token=";
+    //const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment) + handlePromo(promo);
+    //const response = await fetch(url + data);
+   // console.log(await response.text());
 };

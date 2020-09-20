@@ -298,7 +298,7 @@ const Summary = () => {
                 <span>WHATSAPP ЗАКАЗЫ</span>
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
-            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user)}>Оформить заказ</span>
+            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user, promo)}>Оформить заказ</span>
         </div>
     )
 };
