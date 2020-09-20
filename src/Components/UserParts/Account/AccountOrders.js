@@ -69,7 +69,7 @@ export const OrderList = React.memo(() => {
     return (
         <div className="orders_list">
             <h1>История заказов</h1>
-            {data && data.map((order, index) => <Order order={order} key={index}/>)}
+            {data && data.sort((a, b) => b.order_id - a.order_id).map((order, index) => <Order order={order} key={index}/>)}
         </div>
     )
 });
