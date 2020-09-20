@@ -9,12 +9,12 @@ export const WishProvider = ({children}) => {
         const temp = wishList.concat(product);
         setWishList(temp);
         setTimeout(() => updateUserWish(temp, JSON.parse(localStorage.getItem('user'))), 1000);
-    }, [setWishList]);
+    }, [setWishList, wishList]);
     const remove = useCallback(product => {
         const temp = wishList.filter(e => e !== product);
         setWishList(temp);
         setTimeout(() => updateUserWish(temp, JSON.parse(localStorage.getItem('user'))), 1000);
-    }, [setWishList]);
+    }, [setWishList, wishList]);
     const countWishItems = wishList.length;
     const value = {wishList, setWishList, add, remove, countWishItems};
     return <WishContext.Provider value={value}>{children}</WishContext.Provider>
