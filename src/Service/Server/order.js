@@ -18,20 +18,17 @@ export const initAddress = async (token, address, setAddress, setLoading) => {
     setLoading(false);
 };
 
-const handleItems = (items) => {
-    let result = [];
-    items.forEach((item, index) => result.push("&itemId" + (index + 1) + "=" + item.id + "&itemSize" + (index + 1) + "=" + item.size + "&itemQuantity" + (index + 1) + "=" + item.quantity));
-    return result.join('') + "&countItems=" + items.length;
-};
-
 const handleDelivery = (delivery) => {
     return "&deliveryType=" + delivery.type + "&deliveryTime" + (delivery.time.length ? ("=" + delivery.time) : null);
 };
 
-export const initOrder = (personal, items, order, user) => {
-    console.log(personal);
-    console.log(items);
-    console.log(order);
-    console.log(handleItems(items));
-    console.log(handleDelivery(order.delivery))
+const handlePayment = (payment) => {
+    return "&paymentType=" + payment.type;
+};
+
+export const initOrder = async (personal, items, order, user) => {
+    const url = "https://miktina.herokuapp.com/backend/user/orders.php??submitOrder&token=";
+    const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment);
+    const response = await fetch(url + data);
+    console.log(await response.text());
 };
