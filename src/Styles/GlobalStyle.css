@@ -2016,19 +2016,22 @@ button {
     background: #f8f8f8;
 }
 
-.account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar {
+.account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar, .order_items::-webkit-scrollbar {
+    margin-top: 1px;
+    cursor: pointer;
     width: 3px;
+    height: 3px;
 }
 
-.account_right::-webkit-scrollbar-track, .orders_list::-webkit-scrollbar-track {
+.account_right::-webkit-scrollbar-track, .orders_list::-webkit-scrollbar-track, .order_items::-webkit-scrollbar-track {
     background: #ffffff;
 }
 
-.account_right::-webkit-scrollbar-thumb, .orders_list::-webkit-scrollbar-thumb {
+.account_right::-webkit-scrollbar-thumb, .orders_list::-webkit-scrollbar-thumb, .order_items::-webkit-scrollbar-thumb {
     background: #999999;
 }
 
-.account_right::-webkit-scrollbar-thumb:hover, .orders_list::-webkit-scrollbar-thumb:hover {
+.account_right::-webkit-scrollbar-thumb:hover, .orders_list::-webkit-scrollbar-thumb:hover, .order_items::-webkit-scrollbar-thumb:hover {
     background: #999999;
 }
 

@@ -24,10 +24,14 @@ const handleItems = (items) => {
     return result.join('') + "&countItems=" + items.length;
 };
 
+const handleDelivery = (delivery) => {
+    return "&deliveryType=" + delivery.type + "&deliveryTime" + (delivery.time.length ? ("=" + delivery.time) : null);
+};
 
 export const initOrder = (personal, items, order, user) => {
     console.log(personal);
     console.log(items);
     console.log(order);
     console.log(handleItems(items));
+    console.log(handleDelivery(order.delivery))
 };
