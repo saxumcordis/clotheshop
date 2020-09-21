@@ -1885,7 +1885,8 @@ button {
 }
 
 .orders_list {
-    height: 70vh;
+    margin-top: 20px;
+    height: 80vh;
     overflow-x: hidden;;
     overflow-y: auto;
     display: flex;
