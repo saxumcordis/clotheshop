@@ -133,9 +133,15 @@ const DeliveryTime = ({delivery, setDelivery}) => {
 
     return <ul className="order_delivery_time">
         <span>Выберете желаемое время доставки</span>
-            {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox" className="checkbox" checked={delivery.time === item} onClick={() => setDelivery({...delivery, time: item})}/>
+        {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox"
+                                                                                        className="checkbox"
+                                                                                        checked={delivery.time === item}
+                                                                                        onClick={() => setDelivery({
+                                                                                            ...delivery,
+                                                                                            time: item
+                                                                                        })}/>
             <label>{item}</label></p>)}
-        </ul>
+    </ul>
 };
 
 const Delivery = ({address}) => {
@@ -150,8 +156,13 @@ const Delivery = ({address}) => {
 
 
     const deliveryInfo = {
-        courier: <p className="delivery_vary"><input type="checkbox" className="checkbox" checked={delivery.type === "courier_delivery"}
-                                                     onClick={() => setDelivery({...delivery, type: "courier_delivery", price: calculateCourierDelivery()})}
+        courier: <p className="delivery_vary"><input type="checkbox" className="checkbox"
+                                                     checked={delivery.type === "courier_delivery"}
+                                                     onClick={() => setDelivery({
+                                                         ...delivery,
+                                                         type: "courier_delivery",
+                                                         price: calculateCourierDelivery()
+                                                     })}
                                                      id="courier_delivery"/><label>Доставка курьером с возможностью
             примерки - <span
                 style={{color: "red"}}>{calculateCourierDelivery()}</span> Р</label></p>,
@@ -220,7 +231,8 @@ const Payment = () => {
         <div className="order_form">
             <label className="order_warning">Оплата картой онлайн временно недоступна</label>
             <p className="checkbox_box">
-                <input type="checkbox" className="checkbox" disabled id="card_payment" checked={payment.type === "card_payment"}
+                <input type="checkbox" className="checkbox" disabled id="card_payment"
+                       checked={payment.type === "card_payment"}
                        onClick={() => setPayment({...payment, type: "card_payment"})}/>
                 <label>Оплата картой на сайте</label>
             </p>
@@ -298,7 +310,8 @@ const Summary = () => {
                 <span>WHATSAPP ЗАКАЗЫ</span>
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
-            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user, promo, clearCart)}>Оформить заказ</span>
+            <span className="cart_total_confirm_button"
+                  onClick={() => initOrder(personal, cart, order, user, promo, clearCart)}>Оформить заказ</span>
         </div>
     )
 };
@@ -312,10 +325,14 @@ export const Order = () => {
             }
         })();
     }, [setAddress]);*/
+
+    const {cart} = useCart();
+
     return (
         <div className='with_footer'>
             <div className='global_giv'>
                 <div className="order_box">
+                    {!!cart.length &&
                     <div className="order_left_column">
                         <div className="order_title"><h1>Контактная информация</h1><span>1</span></div>
                         <Personal/>
@@ -327,10 +344,18 @@ export const Order = () => {
                         <Items/>
                         <div className="order_title"><h1>Итого</h1><span>5</span></div>
                         <Summary/>
-                        <div className="order_title"><label className="order_agreement">Нажимая на кнопку, Вы даёте согласие на обработку своих <Link to="/about/policy">персональных данных.</Link> </label><span/><span>:)</span></div>
+                        <div className="order_title"><label className="order_agreement">Нажимая на кнопку, Вы даёте
+                            согласие на обработку своих <Link to="/about/policy">персональных данных.</Link>
+                        </label><span/><span>:)</span></div>
                     </div>
+                    }
+                    {!cart.length && <div className="order_empty">
+                        <h3>Тут ничего нет :(</h3>
+                        <Link to="/catalog"><p>Продолжить покупки</p></Link>
+                    </div>}
                 </div>
             </div>
         </div>
     );
+
 };

@@ -1439,13 +1439,14 @@ button {
 
 .cart_empty {
     text-align: center;
+    justify-content: center;
 }
 
-.cart_empty h3 {
+.cart_empty h3, .order_empty h3 {
     font-weight: 400;
 }
 
-.cart_empty p {
+.cart_empty p, .order_empty p {
     text-decoration: underline;
     font-size: 16px;
     font-weight: 600;
@@ -1453,7 +1454,7 @@ button {
     transition: 0.2s ease all;
 }
 
-.cart_empty p:hover {
+.cart_empty p:hover, .order_empty p:hover {
     text-decoration: none;
     cursor: pointer;
     transition: 0.2s ease all;
@@ -1991,6 +1992,12 @@ button {
 
 .order_item_name:hover {
     text-decoration: none;
+}
+
+.order_empty {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
 }
 
 
