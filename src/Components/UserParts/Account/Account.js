@@ -4,14 +4,11 @@ import {PersonalEdit} from "./PersonalEdit";
 import {AddressEdit} from "./AddressEdit";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {AccountDrawer} from "../AccountDrawer";
-import {SaleView} from "./PersonalSale";
 import {OrderList} from "./AccountOrders";
 
 
 const AccountLeft = () => {
-    const {personal} = useUser();
     return <div className='account_left'>
-        <SaleView sale={personal.totalsale} totalSum={personal.totalsum}/>
         <OrderList/>
     </div>;
 };
