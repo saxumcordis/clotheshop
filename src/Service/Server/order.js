@@ -36,4 +36,6 @@ export const initOrder = async (personal, items, order, user, promo, clearCart) 
     const response = await fetch(url + data);
      console.log(await response.text());
      clearCart();
+     //TODO: loading
+     setTimeout(() => window.location = '/account', 1500);
 };

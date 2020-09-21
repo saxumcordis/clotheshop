@@ -966,6 +966,7 @@
     }
 
     .button_size_selected {
+        font-size: 10px;
         width: 40px;
     }
 
