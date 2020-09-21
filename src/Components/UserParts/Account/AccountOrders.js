@@ -36,16 +36,13 @@ const Order = ({order}) => {
                     <span className="order_info_details_field">
                         На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>
                     </span>
-                    {(+order.client_sale) ? <span className="order_info_details_field">
-                        Персональная скидка <span className="order_info_details_value"> {order.client_sale} % </span>
-                    </span> : null}
                     {(+order.promo_sale) ? <span className="order_info_details_field">
                         Скидка по промокоду <span className="order_info_details_value"> {order.promo_sale} % </span>
                     </span> : null}
                 </div>
             </div>
             <div className="order_items">
-                {order.items.map((item, index) => <OrderItem item={item} sale={(+order.client_sale) + (+order.promo_sale)} key={index}/>)}
+                {order.items.map((item, index) => <OrderItem item={item} sale={(+order.promo_sale)} key={index}/>)}
             </div>
         </div>
     );

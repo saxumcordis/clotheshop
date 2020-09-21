@@ -280,7 +280,7 @@ const Summary = () => {
     const {personal, user} = useUser();
     const {order, setOrderSale} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
-    const finalPrice = Math.round((totalPrice * (100 - personal.totalsale) / 100 * (100 - (promo && promo.sale)) / 100));
+    const finalPrice = Math.round((totalPrice * (100 - (promo && promo.sale)) / 100));
 
     useEffect(() => setOrderSale(promo), [promo]);
 
