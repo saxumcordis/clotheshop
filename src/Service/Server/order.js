@@ -27,12 +27,13 @@ const handlePayment = (payment) => {
 };
 
 const handlePromo = (promo) => {
-    return "&promoSale=" + promo.sale;
+    return "&promoSale=" + (promo.sale || 0);
 };
 
-export const initOrder = async (personal, items, order, user, promo) => {
-   // const url = "https://miktina.herokuapp.com/backend/user/orders.php?submitOrder&token=";
-    //const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment) + handlePromo(promo);
-    //const response = await fetch(url + data);
-   // console.log(await response.text());
+export const initOrder = async (personal, items, order, user, promo, clearCart) => {
+    const url = "https://miktina.herokuapp.com/backend/user/orders.php?submitOrder&token=";
+    const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment) + handlePromo(promo);
+    const response = await fetch(url + data);
+     console.log(await response.text());
+     clearCart();
 };

@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Server/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Server/order.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,14 +38,15 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\src\Archieve" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\AdminPart" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Styles" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\UserParts\Account" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Service\Contexts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -103,7 +107,7 @@
       <workItem from="1600434532505" duration="13194000" />
       <workItem from="1600547398228" duration="10362000" />
       <workItem from="1600594921463" duration="8469000" />
-      <workItem from="1600678450618" duration="738000" />
+      <workItem from="1600678450618" duration="1616000" />
     </task>
     <servers />
   </component>

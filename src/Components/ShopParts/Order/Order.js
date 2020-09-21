@@ -276,7 +276,7 @@ const Items = () => {
 
 
 const Summary = () => {
-    const {promo, cart} = useCart();
+    const {promo, cart, clearCart} = useCart();
     const {personal, user} = useUser();
     const {order, setOrderSale} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
@@ -298,7 +298,7 @@ const Summary = () => {
                 <span>WHATSAPP ЗАКАЗЫ</span>
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
-            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user, promo)}>Оформить заказ</span>
+            <span className="cart_total_confirm_button" onClick={() => initOrder(personal, cart, order, user, promo, clearCart)}>Оформить заказ</span>
         </div>
     )
 };

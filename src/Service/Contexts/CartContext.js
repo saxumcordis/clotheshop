@@ -43,6 +43,8 @@ export const CartProvider = ({children}) => {
         setCart(temp);
         setTimeout(() => updateUserCart(temp, JSON.parse(localStorage.getItem('user'))), 1000);
     }, [cart]);
+    const clearCart = useCallback(() => setCart([]), [setCart]);
+
     const countCartItems = cart.map(e => e.quantity).reduce((a, b) => a + b, 0);
     const value = {
         cart,
@@ -55,7 +57,8 @@ export const CartProvider = ({children}) => {
         limitWarning,
         showWarning,
         promo,
-        setPromo
+        setPromo,
+        clearCart
     };
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 };
