@@ -35,7 +35,7 @@ export const initOrder = async (personal, items, order, user, promo, clearCart) 
     const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment) + handlePromo(promo);
     const response = await fetch(url + data);
      console.log(await response.text());
+    setTimeout(() => window.location = '/account', 1500);
      clearCart();
      //TODO: loading
-     setTimeout(() => window.location = '/account', 1500);
 };

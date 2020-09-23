@@ -25,7 +25,7 @@ export const CartProvider = ({children}) => {
     const addToCart = useCallback(product => {
         let temp = cart.map(e => e.id === product.id && e.size === product.size ? ({
             ...e,
-            quantity: e.quantity + 1
+            quantity: e.quantity + 1,
         }) : e).concat(isInCart(cart, product.id, product.size) ? [] : [product]);
         setCart(temp);
         setTimeout(() => updateUserCart(temp, JSON.parse(localStorage.getItem('user'))), 1000);
