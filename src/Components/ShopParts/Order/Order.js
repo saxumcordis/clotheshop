@@ -133,7 +133,7 @@ const DeliveryTime = ({delivery, setDelivery}) => {
         "21:00-23:00"];
 
     return <ul className="order_delivery_time">
-        <span>Выберете желаемое время доставки</span>
+        <span>Выберите желаемое время доставки</span>
         {timeSteps.map((item, index) => <p key={index} className="delivery_vary"><input type="checkbox"
                                                                                         className="checkbox"
                                                                                         checked={delivery.time === item}
