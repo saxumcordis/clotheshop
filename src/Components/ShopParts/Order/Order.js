@@ -277,7 +277,7 @@ const Items = () => {
     const {cart} = useCart();
 
     return (<div className="order_form">
-        {cart.map((item, index) => <OrderItem key={index} item={item}/>)}
+        {!!cart.length && cart.map((item, index) => <OrderItem key={index} item={item}/>)}
     </div>);
 };
 

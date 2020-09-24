@@ -75,7 +75,7 @@ const Cart = () => {
                         товара</p>}
                     {!!cart.length && <div className="cart">
                         <div className="cart_item_list">
-                            {cart.map(item => <CartItem key={cart.indexOf(item) + "_cart_item"}
+                            {!!cart.length && cart.map(item => <CartItem key={cart.indexOf(item) + "_cart_item"}
                                                         index={cart.indexOf(item)}
                                                         item={item}/>)}
                         </div>

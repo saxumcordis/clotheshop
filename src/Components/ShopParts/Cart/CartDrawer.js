@@ -75,7 +75,7 @@ export const CartDrawer = () => {
             {warning &&
             <p className={"cart_drawer_warning " + (warning ? "" : "disabled")}>Для оформления заказа недостаточно
                 товара</p>}
-            {cart.map(item => <ItemDrawer key={item.id + item.size} item={item}/>)}
+            {!!cart.length && cart.map(item => <ItemDrawer key={item.id + item.size} item={item}/>)}
             {!cart.length &&
             <p className="small_cart_empty">Корзина пуста <p onClick={() => close()}>Продолжить покупки </p></p>}
             {!!cart.length && <TotalCartDrawer/>}
