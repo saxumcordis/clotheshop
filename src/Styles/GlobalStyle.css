@@ -2000,6 +2000,12 @@ button {
     justify-content: center;
 }
 
+.not_registered {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .account_right {
     margin-top: 20px;

@@ -9,6 +9,8 @@ import {useOrder} from "../../../Service/Contexts/OrderContext";
 import {Link} from "react-router-dom";
 import {QuantityInput} from "../Cart/CartDrawer";
 import {Coupon} from "../Cart/TotalDrawer";
+import {AccountDrawer} from "../../UserParts/AccountDrawer";
+import {useDrawer} from "../../../Service/Contexts/Drawer";
 
 
 const contactFields = [
@@ -327,20 +329,30 @@ export const Order = () => {
     }, [setAddress]);*/
 
     const {cart} = useCart();
-    const {user} = useUser();
+    const {user, setStage} = useUser();
+    const {setStatus, status, setComponentRender, setComponentName} = useDrawer();
 
-    if (user === 'guest')
+    if (user === 'guest' && status !== 'open') {
+        setComponentName('login');
+        setStage('register');
+        setComponentRender(<AccountDrawer/>);
+        setStatus('open');
         return (
             <div className='with_footer'>
                 <div className='global_giv'>
                     <div className="order_box">
-                        <h1>Чтобы приступить к процедуре оформления заказа, Вам необходимо создать личный кабинет на нашем сайте</h1>
+                        <div className="not_registered">
+                            <h3>Чтобы приступить к процедуре оформления заказа, Вам необходимо создать личный кабинет на
+                                нашем сайте</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         )
+    }
 
-    return (
+    else if (user !== 'guest')
+        return (
         <div className='with_footer'>
             <div className='global_giv'>
                 <div className="order_box">
@@ -369,5 +381,18 @@ export const Order = () => {
             </div>
         </div>
     );
+    else
+        return (
+            <div className='with_footer'>
+                <div className='global_giv'>
+                    <div className="order_box">
+                        <div className="order_left_column">
+                        <p>Чтобы приступить к процедуре оформления заказа, Вам необходимо создать личный кабинет на
+                            нашем сайте</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
 
 };
