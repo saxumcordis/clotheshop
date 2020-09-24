@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useAsync} from "../../../Service/useAsync";
 import {handleOrderDate, handlePrice} from "../../../Service/StringHandler/StringHandler";
@@ -31,7 +31,7 @@ const Order = ({order}) => {
                         Статус заказа <span className="order_info_details_value"> {order.status} </span>
                     </span>
                     <span className="order_info_details_field">
-                        Доставка <span className="order_info_details_value"> {order.delivery} </span>
+                        Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
                     </span>
                     <span className="order_info_details_field">
                         На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>

@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="kasha" />
+    <orderEntry type="module" module-name="miktinaback" />
   </component>
 </module>

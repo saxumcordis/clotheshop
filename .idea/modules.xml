@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../JavaScript/kasha/.idea/kasha.iml" filepath="$PROJECT_DIR$/../../JavaScript/kasha/.idea/kasha.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../miktinaback/.idea/miktinaback.iml" filepath="$PROJECT_DIR$/../miktinaback/.idea/miktinaback.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/miktinashop.iml" filepath="$PROJECT_DIR$/.idea/miktinashop.iml" />
     </modules>
   </component>
