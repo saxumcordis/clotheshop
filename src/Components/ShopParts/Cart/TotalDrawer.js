@@ -3,21 +3,7 @@ import {useCart} from "../../../Service/Contexts/CartContext";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {Link} from "react-router-dom";
 import {handlePrice} from "../../../Service/StringHandler/StringHandler";
-import {enterPromo} from "../../../Service/Server/order";
-import {useUser} from "../../../Service/Contexts/UserContext";
-
-export const Coupon = () => {
-    const {user} = useUser();
-    const {setPromo, promo} = useCart();
-    return (
-        <div className="coupon_box">
-            <span>У Вас есть промо-код?</span>
-            <div className="coupon_form">
-                <input type="text" id="promo_code_value" placeholder={promo.value}/>
-                <button onClick={() => enterPromo(user.token, setPromo)}>применить</button>
-            </div>
-        </div>);
-};
+import {Coupon} from "./Coupon";
 
 
 export const TotalCartDrawer = () => {

@@ -4,13 +4,12 @@ import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress, handlePrice} from "../../../Service/StringHandler/StringHandler";
-import {initAddress, initOrder} from "../../../Service/Server/order";
+import {initOrder} from "../../../Service/Server/order";
 import {useOrder} from "../../../Service/Contexts/OrderContext";
 import {Link} from "react-router-dom";
-import {QuantityInput} from "../Cart/CartDrawer";
-import {Coupon} from "../Cart/TotalDrawer";
 import {AccountDrawer} from "../../UserParts/AccountDrawer";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
+import {Coupon} from "../Cart/Coupon";
 
 
 const contactFields = [
@@ -187,9 +186,6 @@ const Delivery = ({address}) => {
 const Personal = () => {
 
     const {personal} = useUser();
-    const [personalState, setPersonal] = useState(personal);
-    const {setOrderPersonal} = useOrder();
-    useEffect(() => setOrderPersonal(personalState), [personalState]);
 
     return <div className="order_form">
         {contactFields.map((e, index) => <p key={index} className="order_field">
@@ -279,9 +275,6 @@ const OrderItem = ({item}) => {
 
 const Items = () => {
     const {cart} = useCart();
-    const {setOrderItems} = useOrder();
-
-    useEffect(() => setOrderItems(cart), [cart]);
 
     return (<div className="order_form">
         {cart.map((item, index) => <OrderItem key={index} item={item}/>)}

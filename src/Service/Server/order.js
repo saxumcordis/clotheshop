@@ -27,7 +27,7 @@ const handlePayment = (payment) => {
 };
 
 const handlePromo = (promo) => {
-    return "&promoSale=" + (promo.sale || 0);
+    return "&promoValue" + (promo.value ?  "=" + promo.value : "");
 };
 
 export const initOrder = async (personal, items, order, user, promo, clearCart) => {

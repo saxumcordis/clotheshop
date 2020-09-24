@@ -1321,6 +1321,11 @@ button {
     font-weight: 600;
 }
 
+.coupon_box .promo_warning {
+    font-size: 10px;
+    color: #999;
+}
+
 .coupon_form {
 }
 
@@ -1337,6 +1342,7 @@ button {
     line-height: 25px;
     text-transform: uppercase;
     display: inline-block;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
 .coupon_form button {
