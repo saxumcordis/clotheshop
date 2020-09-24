@@ -88,7 +88,8 @@ const ItemPreview = ({id, setItemPreview}) => {
                                    alt="Добавить в список желаемого"/>
                         }
                     </div>
-                    {sizeWarning && <span className="size_cart_warning">Выберите желаемый размер</span>}
+                    {sizeWarning && !!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Выберите желаемый размер</span>}
+                    {!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Товар отсутствует в наличии</span>}
                     {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                     <div className="item_preview_info_text">
                         <p>Цвет : {item.product_color_name.toLowerCase()}</p>
