@@ -30,12 +30,16 @@ const handlePromo = (promo) => {
     return "&promoValue" + (promo.value ?  "=" + promo.value : "");
 };
 
-export const initOrder = async (personal, items, order, user, promo, clearCart) => {
+export const initOrder = async (personal, items, order, user, promo, clearCart, setLoading) => {
+    setLoading(true);
     const url = "https://miktina.herokuapp.com/backend/user/orders.php?submitOrder&token=";
     const data = user.token + handleDelivery(order.delivery) + handlePayment(order.payment) + handlePromo(promo);
     const response = await fetch(url + data);
-     console.log(await response.text());
-    setTimeout(() => window.location = '/account', 1500);
-     clearCart();
+    if (await response.json() === 0) {
+        setLoading(0);
+        return;
+    }
+    setLoading(1);
+    setTimeout(() => {window.location = '/account'; setTimeout(() => clearCart(), 500)}, 1500);
      //TODO: loading
 };

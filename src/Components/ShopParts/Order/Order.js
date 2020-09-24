@@ -284,6 +284,7 @@ const Items = () => {
 
 const Summary = () => {
     const {promo, cart, clearCart} = useCart();
+    const [loading, setLoading] = useState(false);
     const {personal, user} = useUser();
     const {order, setOrderSale} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
@@ -291,6 +292,7 @@ const Summary = () => {
 
     useEffect(() => setOrderSale(promo), [promo]);
 
+    if (loading === false)
     return (
         <div className="order_form">
             <div className="order_summary_info">
@@ -306,9 +308,28 @@ const Summary = () => {
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
             <span className="cart_total_confirm_button"
-                  onClick={() => initOrder(personal, cart, order, user, promo, clearCart)}>Оформить заказ</span>
+                  onClick={() => initOrder(personal, cart, order, user, promo, clearCart, setLoading)}>Оформить заказ</span>
         </div>
-    )
+    );
+    else if (loading === true)
+        return (
+            <div className="order_form">
+                Заказ формируется
+            </div>
+        );
+    else if (+loading === 1)
+        return (
+            <div className="order_form">
+                Заказ сформирован
+            </div>
+        );
+    else if (+loading === 0)
+        return (
+            <div className="order_form">
+                Ошибка. Внимательно проверьте введённые данные и повторите попытку.
+                {setTimeout(() => setLoading(false), 1500)}
+            </div>
+        );
 };
 
 export const Order = () => {
