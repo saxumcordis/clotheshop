@@ -21,17 +21,11 @@ const orderModel = {
 
 export const OrderProvider = ({children}) => {
     const [order, setOrder] = useState(localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : orderModel);
-    const setOrderPersonal = useCallback((newPersonal) => {
-        setOrder({...order, personal: newPersonal});
-    }, [order]);
     const setOrderAddress = useCallback((newAddress) => {
         setOrder({...order, address: newAddress});
     }, [order]);
     const setOrderDelivery = useCallback((newDelivery) => {
         setOrder({...order, delivery: newDelivery});
-    }, [order]);
-    const setOrderItems = useCallback((newItems) => {
-        setOrder({...order, items: newItems});
     }, [order]);
     const setOrderSale = useCallback((newSale) => {
         setOrder({...order, sale: newSale});
@@ -40,7 +34,7 @@ export const OrderProvider = ({children}) => {
         setOrder({...order, payment: newPayment});
     }, [order]);
 
-    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderItems, setOrderPersonal, setOrderSale, setOrderPayment};
+    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderSale, setOrderPayment};
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>
 };
