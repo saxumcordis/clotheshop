@@ -40,6 +40,6 @@ export const initOrder = async (personal, items, order, user, promo, clearCart, 
         return;
     }
     setLoading(1);
-    setTimeout(() => {window.location = '/account'; setTimeout(() => clearCart(), 500)}, 1500);
+    setTimeout(() => {clearCart(); window.location = '/account';}, 1500);
      //TODO: loading
 };
