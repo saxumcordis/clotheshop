@@ -327,6 +327,18 @@ export const Order = () => {
     }, [setAddress]);*/
 
     const {cart} = useCart();
+    const {user} = useUser();
+
+    if (user === 'guest')
+        return (
+            <div className='with_footer'>
+                <div className='global_giv'>
+                    <div className="order_box">
+                        <h1>Чтобы приступить к процедуре оформления заказа, Вам необходимо создать личный кабинет на нашем сайте</h1>
+                    </div>
+                </div>
+            </div>
+        )
 
     return (
         <div className='with_footer'>

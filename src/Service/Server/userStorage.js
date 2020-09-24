@@ -1,4 +1,4 @@
-const handleCart = (cart) => {
+export const handleCart = (cart) => {
     return cart.map(item => ({
         id: item.id,
         size: item.size,

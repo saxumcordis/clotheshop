@@ -1,4 +1,5 @@
 import React from "react";
+import {handleCart} from "./userStorage";
 
 export const registerNewUser = () => {
     const passwordValue = document.getElementById('register_pass').value;
@@ -8,7 +9,7 @@ export const registerNewUser = () => {
     const surnameValue = document.getElementById('register_surname').value;
     const birthDayValue = document.getElementById('register_birth_date').value;
     const phoneValue = document.getElementById('register_phone').value;
-    const cart = localStorage.getItem('cart');
+    const cart = JSON.stringify(handleCart(JSON.parse(localStorage.getItem('cart'))));
     const wishlist = localStorage.getItem('wishList');
     const url = "https://miktina.herokuapp.com/backend/user/register.php?register&";
     const data = {
