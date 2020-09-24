@@ -22,7 +22,7 @@ const Item = ({item}) => {
     const price = item.product_price;
     const salePrice = Math.floor((100 - item.sale_percent) * price / 100);
 
-    const {isWide} = useMedia('screen and (min-width: 600px)');
+    const isWide = useMedia('screen and (min-width: 600px)');
 
     const {add, remove, wishList} = useWishList();
     const isWished = useMemo(() => wishList.some(e => e === item.product_id), [wishList]);
