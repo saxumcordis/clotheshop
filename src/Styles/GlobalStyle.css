@@ -317,6 +317,8 @@ button {
     margin-left: 30px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
     font-size: 14px;
+    position: fixed;
+    left: 0px;
 }
 
 .catalog_categories > * {
@@ -342,7 +344,7 @@ button {
 .catalog_box {
     margin-top: 20px;
     width: 80%;
-    margin-left: 10px;
+    margin-left: 120px;
     font-family: 'FuturaNewBook-Reg', sans-serif;
 }
 
