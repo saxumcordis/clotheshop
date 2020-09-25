@@ -2548,7 +2548,7 @@ button {
     margin-right: auto;
 }
 
-.admin_categories_box, .admin_colors_box {
+.admin_categories_box, .admin_colors_box, .admin_delivery_box {
     width: 80%;
     display: none;
     flex-direction: column;
@@ -2557,7 +2557,7 @@ button {
     margin-right: auto;
 }
 
-.admin_categories_box table, .admin_colors_box table {
+.admin_categories_box table, .admin_colors_box table, .admin_delivery_box table {
     width: 100%;
     justify-content: space-around;
     border-collapse: collapse;

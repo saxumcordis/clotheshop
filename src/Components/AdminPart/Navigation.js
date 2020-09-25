@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Navigation = () => {
 
-    const items = ['admin_items_box', 'admin_categories_box', 'admin_colors_box'];
+    const items = ['admin_items_box', 'admin_categories_box', 'admin_colors_box', 'admin_delivery_box'];
 
     const handleView = (item_id) => {
         const elem = document.getElementById(item_id);
@@ -20,6 +20,7 @@ export const Navigation = () => {
             <span className="admin_nav_button" onClick={() => handleView("admin_items_box")}>Товары</span>
             <span className="admin_nav_button" onClick={() => handleView("admin_categories_box")}>Категории</span>
             <span className="admin_nav_button" onClick={() => handleView("admin_colors_box")}>Цвета</span>
+            <span className="admin_nav_button" onClick={() => handleView("admin_delivery_box")}>Доставка</span>
         </nav>
     )
 };
