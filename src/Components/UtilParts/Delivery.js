@@ -1,19 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 
 const Delivery = () => {
+    
+    const [info, setInfo] = useState(false);
+
+    useEffect(() => {
+        (async () => {
+            const info = await fetch('https://miktina.herokuapp.com/backend/api/delivery.php?delivery_page');
+            setInfo(await info.json());
+        })();
+    }, [setInfo]);
+
     return (
         <div className='with_footer'>
             <div className='global_giv'>
                 <div className='delivery_box'>
                     <h1>ДОСТАВКА И ОПЛАТА</h1>
                     <h2>ДОСТАВКА ПО МОСКВЕ И МОСКОВСКОЙ ОБЛАСТИ</h2>
-                    <p>Стоимость доставки c примеркой в пределах МКАД – <span style={{color: "red"}}>300 Р</span></p>
+                    <p>Стоимость доставки c примеркой в пределах МКАД – <span style={{color: "red"}}>{info ? info[0].price : " . . . "} Р</span></p>
                     <span>Стоимость доставки c примеркой по МО
                         <ul style={{marginTop: "5px"}}>
-                            <li>До 10 км от МКАД <span style={{color: "red"}}>400 Р</span></li>
-                            <li>От 10 до 20 км от МКАД <span style={{color: "red"}}>500 Р</span></li>
-                            <li>От 20 км до 40 км от МКАД <span style={{color: "red"}}>1000 Р</span></li>
+                            <li>До 10 км от МКАД <span style={{color: "red"}}>{info ? info[1].price : " . . . "} Р</span></li>
+                            <li>От 10 до 20 км от МКАД <span style={{color: "red"}}>{info ? info[2].price : " . . . "} Р</span></li>
+                            <li>От 20 км до 40 км от МКАД <span style={{color: "red"}}>{info ? info[3].price : " . . . "} Р</span></li>
                         </ul>
                     </span>
                     <span>
@@ -46,7 +56,7 @@ const Delivery = () => {
                     </span>
                     <h2>ДОСТАВКА ПО РОССИИ</h2>
                     <span><p className="delivery_text">Стоимость доставки, фиксированная, во все регионы России - <span
-                        style={{color: "red"}}>480</span> руб.
+                        style={{color: "red"}}>{info ? info[4].price : " . . . "}</span> руб.
 
                         Срок доставки определяется согласно правилам транспортной компании, учитывая город покупателя
                         (уточнить эту информацию Вы можете у наших менеджеров).</p>
