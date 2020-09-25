@@ -37,13 +37,13 @@ const ColorsTable = ({colors}) => {
                 </tr>
                 </thead>
                 {colors.map(color => <tr>
-                    <td style={{widht: "25%"}}>{color.color_name}</td>
-                    <td style={{widht: "25%"}}><input type="color" disabled value={color.color_code}/></td>
+                    <td style={{width: "25%"}}>{color.color_name}</td>
+                    <td style={{width: "25%"}}><input type="color" disabled value={color.color_code}/></td>
                     <td style={{width: "25%"}}><input type="text" placeholder={color.color_name}
                                                       id={color.color_id + "_new_color_name"}/>
                         <input type="color" id={color.color_id + "_new_color_code"} defaultValue={color.color_code}/>
                     </td>
-                    <td style={{widht: "25%"}}>
+                    <td style={{width: "25%"}}>
                         <button onClick={() => submitChange(color.color_id)}>Сохранить</button>
                         <button onClick={() => removeColor(color.color_id)}>Удалить</button>
                     </td>
