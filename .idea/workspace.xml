@@ -8,7 +8,6 @@
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UtilParts/Delivery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UtilParts/Delivery.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +110,7 @@
       <workItem from="1600763240924" duration="744000" />
       <workItem from="1600851131992" duration="4413000" />
       <workItem from="1600966554476" duration="10580000" />
-      <workItem from="1601039513571" duration="2275000" />
+      <workItem from="1601039513571" duration="3662000" />
     </task>
     <servers />
   </component>

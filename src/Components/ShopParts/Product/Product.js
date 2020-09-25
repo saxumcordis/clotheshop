@@ -105,7 +105,7 @@ const Product = () => {
                         </div>
                         <div className="cart_wish_box">
                             <button className={"cart_button"}
-                                    onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>В КОРЗИНУ
+                                    onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>{!(+item.medium_size + +item.small_size) ? "НЕТ В НАЛИЧИИ" : "В КОРЗИНУ"}
                             </button>
                             {isWished ? <img className="wish_button" onClick={handleWish}
                                              src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"
@@ -116,7 +116,6 @@ const Product = () => {
                             }
                         </div>
                         {sizeWarning && !!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Выберите желаемый размер</span>}
-                        {!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Товар отсутствует в наличии</span>}
                         {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                         <div className="product_preview_info_text">
                             <p>Цвет : {item.product_color_name.toLowerCase()}</p>
