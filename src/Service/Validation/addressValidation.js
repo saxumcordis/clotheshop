@@ -7,9 +7,9 @@ export const checkFilling = () => {
         country: document.getElementById('address_country'),
         city: document.getElementById('address_city'),
         street: document.getElementById('address_street'),
-        zip: document.getElementById('address_zip'),
-        building: document.getElementById('address_building'),
-        pavilion: document.getElementById('address_pavilion'),
+        postal_code: document.getElementById('address_postal_code'),
+        house: document.getElementById('address_house'),
+        block: document.getElementById('address_block'),
         flat: document.getElementById('address_flat'),
         phone: document.getElementById('address_phone'),
     };

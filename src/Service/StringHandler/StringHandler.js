@@ -19,9 +19,9 @@ export const handleAddress = (personal) => {
 
     const city = "г " + personal.city;
     const street = "ул " + personal.street;
-    const building = "д " + personal.building + (isNull(personal.pavilion) ? "" : " к " + personal.pavilion);
+    const house = "д " + personal.house + (isNull(personal.block) ? "" : " к " + personal.block);
     const flat = (isNull(personal.flat) ? "" : " кв " + personal.flat);
-    return [city, street,building, flat].join(', ');
+    return [city, street,house, flat].join(', ');
 };
 
 export const handleClientName = (name, surname) => {

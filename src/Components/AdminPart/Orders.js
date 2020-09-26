@@ -61,7 +61,7 @@ const Order = ({order}) => {
                             Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
                         </span>
                         <span className="order_info_details_field">
-                            Адрес <span className="order_info_details_value"> {handleAddress(order) + " " + order.zip} </span>
+                            Адрес <span className="order_info_details_value"> {handleAddress(order) + " " + order.postal_code} </span>
                         </span>
                         <span className="order_info_details_field">
                             На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>

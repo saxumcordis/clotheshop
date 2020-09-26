@@ -22,15 +22,15 @@ export const AddressEdit = () => {
             </p>
             <p className="address_field">
                 Индекс
-                <input type="text" id="address_zip" placeholder={personal.zip}/>
+                <input type="text" id="address_postal_code" placeholder={personal.postal_code}/>
             </p>
             <p className="address_field">
                 Дом
-                <input type="text" id="address_building" placeholder={personal.building}/>
+                <input type="text" id="address_house" placeholder={personal.house}/>
             </p>
             <p className="address_field">
                 Корпус
-                <input type="text" id="address_pavilion" placeholder={personal.pavilion}/>
+                <input type="text" id="address_block" placeholder={personal.block}/>
             </p>
             <p className="address_field">
                 Квартира/Офис

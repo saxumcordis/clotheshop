@@ -37,16 +37,16 @@ export const updateAddress = async function (id, update) {
         country: document.getElementById('address_country').value || document.getElementById('address_country').placeholder,
         city: document.getElementById('address_city').value || document.getElementById('address_city').placeholder,
         street: document.getElementById('address_street').value || document.getElementById('address_street').placeholder,
-        zip: document.getElementById('address_zip').value || document.getElementById('address_zip').placeholder,
-        building: document.getElementById('address_building').value || document.getElementById('address_building').placeholder,
-        pavilion: document.getElementById('address_pavilion').value || document.getElementById('address_pavilion').placeholder,
+        postal_code: document.getElementById('address_postal_code').value || document.getElementById('address_postal_code').placeholder,
+        house: document.getElementById('address_house').value || document.getElementById('address_house').placeholder,
+        block: document.getElementById('address_block').value || document.getElementById('address_block').placeholder,
         flat: document.getElementById('address_flat').value || document.getElementById('address_flat').placeholder,
         phone: document.getElementById('address_phone').value || document.getElementById('address_phone').placeholder,
     };
     const token = JSON.parse(localStorage.getItem('user')).token;
     const url = 'https://miktina.herokuapp.com/backend/user/account.php?address&new&token=';
     const convertedData = url + token + "&address_id=" + data.id + "&country=" + data.country + "&city=" + data.city
-        + "&street=" + data.street + "&zip=" + data.zip + "&building=" + data.building + "&pavilion=" + data.pavilion
+        + "&street=" + data.street + "&postal_code=" + data.postal_code + "&house=" + data.house + "&block=" + data.block
         + "&flat=" + data.flat + "&phone=" + data.phone;
     updatePersonalAddress(update, data);
     await fetch(convertedData);
