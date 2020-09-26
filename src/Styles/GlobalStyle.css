@@ -2548,10 +2548,21 @@ button {
     margin-right: auto;
 }
 
-.admin_categories_box, .admin_colors_box, .admin_delivery_box, .admin_orders_box {
+.admin_categories_box, .admin_colors_box, .admin_delivery_box {
     width: 80%;
     display: none;
     flex-direction: column;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin_orders_box {
+    width: 80%;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -2566,4 +2577,23 @@ button {
 .admin_categories_box table tr td, .admin_colors_box table tr td {
     border: 1px solid black;
     text-align: center;
+}
+
+.admin_order {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 350px;
+    padding: 10px 5px;
+    border-top: 1px solid rgba(112,112,112,.1) !important;
+}
+
+.admin_order_small {
+    margin-top: 20px;
+    border: 1px solid grey;
+}
+
+.admin_order_small button {
+    cursor: pointer;
+    margin-top: 5px;
 }

@@ -4,7 +4,7 @@ import {useAsync} from "../../../Service/useAsync";
 import {handleOrderDate, handlePrice} from "../../../Service/StringHandler/StringHandler";
 import {Link} from "react-router-dom";
 
-const OrderItem = ({item, sale}) => {
+export const OrderItem = ({item, sale}) => {
 
     const price = item && Math.floor((100 - sale) * item.price / 100);
 

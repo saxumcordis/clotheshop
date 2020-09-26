@@ -23,3 +23,7 @@ export const handleAddress = (personal) => {
     const flat = (isNull(personal.flat) ? "" : " кв " + personal.flat);
     return [city, street,building, flat].join(', ');
 };
+
+export const handleClientName = (name, surname) => {
+    return name + " " + surname;
+};
