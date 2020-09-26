@@ -4,12 +4,13 @@ import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress, handlePrice} from "../../../Service/StringHandler/StringHandler";
-import {initOrder} from "../../../Service/Server/order";
+import {initAddress, initOrder} from "../../../Service/Server/order";
 import {useOrder} from "../../../Service/Contexts/OrderContext";
 import {Link} from "react-router-dom";
 import {AccountDrawer} from "../../UserParts/AccountDrawer";
 import {useDrawer} from "../../../Service/Contexts/Drawer";
 import {Coupon} from "../Cart/Coupon";
+import {distanceFromMkad, isInMkad, personalToAddress} from "../../../Service/addressService";
 
 
 const contactFields = [
@@ -30,98 +31,6 @@ const contactFields = [
         name: "phone",
     }
 ];
-
-const address2 = {
-    area: null,
-    area_fias_id: null,
-    area_kladr_id: null,
-    area_type: null,
-    area_type_full: null,
-    area_with_type: null,
-    beltway_distance: null,
-    beltway_hit: "IN_MKAD",
-    block: null,
-    block_type: null,
-    block_type_full: null,
-    capital_marker: "0",
-    city: null,
-    city_area: "Юго-западный",
-    city_district: "Академический",
-    city_district_fias_id: null,
-    city_district_kladr_id: null,
-    city_district_type: "р-н",
-    city_district_type_full: "район",
-    city_district_with_type: "р-н Академический",
-    city_fias_id: null,
-    city_kladr_id: null,
-    city_type: null,
-    city_type_full: null,
-    city_with_type: null,
-    country: "Россия",
-    country_iso_code: "RU",
-    federal_district: "Центральный",
-    fias_actuality_state: "0",
-    fias_code: "77000000000000009240170",
-    fias_id: "93409d8c-d8d4-4491-838f-f9aa1678b5e6",
-    fias_level: "8",
-    flat: null,
-    flat_area: null,
-    flat_price: null,
-    flat_type: null,
-    flat_type_full: null,
-    geo_lat: "55.7001865",
-    geo_lon: "37.5802234",
-    house: "19",
-    house_fias_id: "93409d8c-d8d4-4491-838f-f9aa1678b5e6",
-    house_kladr_id: "7700000000009240170",
-    house_type: "д",
-    house_type_full: "дом",
-    kladr_id: "7700000000009240170",
-    metro: [],
-    okato: "45293554000",
-    oktmo: "45397000",
-    postal_box: null,
-    postal_code: "117312",
-    qc: 0,
-    qc_complete: 5,
-    qc_geo: 0,
-    qc_house: 2,
-    region: "Москва",
-    region_fias_id: "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
-    region_iso_code: "RU-MOW",
-    region_kladr_id: "7700000000000",
-    region_type: "г",
-    region_type_full: "город",
-    region_with_type: "г Москва",
-    result: "г Москва, ул Вавилова, д 19",
-    settlement: null,
-    settlement_fias_id: null,
-    settlement_kladr_id: null,
-    settlement_type: null,
-    settlement_type_full: null,
-    settlement_with_type: null,
-    source: "г Москва, ул Вавилова, д 19,",
-    square_meter_price: null,
-    street: "Вавилова",
-    street_fias_id: "25f8f29b-b110-40ab-a48e-9c72f5fb4331",
-    street_kladr_id: "77000000000092400",
-    street_type: "ул",
-    street_type_full: "улица",
-    street_with_type: "ул Вавилова",
-    tax_office: "7736",
-    tax_office_legal: "7736",
-    timezone: "UTC+3",
-};
-
-const deliveryModel = {
-    type: "",
-    time: "",
-    price: "",
-};
-
-const paymentModel = {
-    type: "",
-};
 
 const DeliveryTime = ({delivery, setDelivery}) => {
 
@@ -148,13 +57,15 @@ const DeliveryTime = ({delivery, setDelivery}) => {
 const Delivery = ({address}) => {
     const {setOrderDelivery, order} = useOrder();
     const [delivery, setDelivery] = useState(order.delivery);
+    const {personal} = useUser();
+    const [geo_lat, geo_lon] = address ? [address.data.geo_lat,address.data.geo_lon] : [personal.geo_lat, personal.geo_lon];
 
     useEffect(() => setOrderDelivery(delivery), [delivery]);
-
-    const isCourierArea = () => address.beltway_hit === "IN_MKAD" || (address.beltway_hit === "OUT_MKAD" && address.beltway_distance < 41);
-    const calculateOutMKAD = () => address.beltway_distance < 10 ? 400 : (address.beltway_distance >= 10 && address.beltway_distance < 20) ? 500 : (address.beltway_distance >= 20 && address.beltway_distance < 40) ? 1000 : null;
-    const calculateCourierDelivery = useCallback(() => isCourierArea() ? address.beltway_hit === "IN_MKAD" ? 300 : calculateOutMKAD() : 480, [address]);
-
+    const addressInfo = {isInMkad: isInMkad(geo_lat, geo_lon), distance: distanceFromMkad(geo_lat, geo_lon)};
+    const isCourierArea = () => addressInfo.isInMkad || addressInfo.distance < 41;
+    const calculateOutMKAD = () => addressInfo.distance < 10 ? 400 : (addressInfo.distance >= 10 && addressInfo.distance < 20) ? 500 : (addressInfo.distance >= 20 && addressInfo.distance < 40) ? 1000 : null;
+    const calculateCourierDelivery = useCallback(() => isCourierArea() ? addressInfo.isInMkad ? 300 : calculateOutMKAD() : 480, [address]);
+    console.log(addressInfo);
 
     const deliveryInfo = {
         courier: <p className="delivery_vary"><input type="checkbox" className="checkbox"
@@ -176,7 +87,7 @@ const Delivery = ({address}) => {
     };
 
     return <div className="order_delivery_form">
-        {isCourierArea() && calculateOutMKAD() ? deliveryInfo.courier : null}
+        {isCourierArea() && calculateCourierDelivery() ? deliveryInfo.courier : null}
         {delivery.type === "courier_delivery" && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
         {deliveryInfo.post}
     </div>;
@@ -198,14 +109,18 @@ const Personal = () => {
 
 const Address = () => {
     const {personal} = useUser();
-    const [address, setAddress] = useState(address2);
+    const {setOrderAddress} = useOrder();
+    const [address, setAddress] = useState(personalToAddress(personal));
     const [loading, setLoading] = useState(false);
 
+    useEffect(() => setOrderAddress(address), [setAddress, address]);
+
+    console.log(address);
     return <div className="order_form">
         <p className="order_field">
             <label>Адрес доставки</label>
             <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
-                //onChange={() => initAddress(user.token || "guest", document.getElementById("delivery_address_input").value, setAddress, setLoading)}
+                onChange={setAddress}
                                 inputProps={{
                                     placeholder: handleAddress(personal) || "Укажите адрес доставки",
                                     className: "order_field_address",
@@ -333,14 +248,6 @@ const Summary = () => {
 };
 
 export const Order = () => {
-
-    /*useEffect(() => {
-        (async () => {
-            if (user !== 'guest') {
-                initAddress(user.token, handleAddress(personal), setAddress, setLoading);
-            }
-        })();
-    }, [setAddress]);*/
 
     const {cart} = useCart();
     const {user, setStage} = useUser();

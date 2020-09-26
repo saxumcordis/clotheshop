@@ -6,12 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/addressService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/Orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/StringHandler/StringHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StringHandler/StringHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,15 +39,15 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\src\Service" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Archieve" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\AdminPart" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Styles" />
       <recent name="D:\Coding\PROJECTS\miktinashop\src\Components\UserParts\Account" />
-      <recent name="D:\Coding\PROJECTS\miktinashop\src\Service\Contexts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\PROJECTS\miktinashop\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -115,7 +113,7 @@
       <workItem from="1600851131992" duration="4413000" />
       <workItem from="1600966554476" duration="10580000" />
       <workItem from="1601039513571" duration="9435000" />
-      <workItem from="1601124649748" duration="1035000" />
+      <workItem from="1601124649748" duration="4613000" />
     </task>
     <servers />
   </component>
