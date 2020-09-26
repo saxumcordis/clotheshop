@@ -111,11 +111,9 @@ const Address = () => {
     const {personal} = useUser();
     const {setOrderAddress} = useOrder();
     const [address, setAddress] = useState(personalToAddress(personal));
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => setOrderAddress(address), [setAddress, address]);
 
-    console.log(address);
     return <div className="order_form">
         <p className="order_field">
             <label>Адрес доставки</label>
@@ -130,8 +128,7 @@ const Address = () => {
                                 highlightClassName="address_suggestions_highlight"
             />
         </p>
-        {loading && "Вычисляем стоимость доставки"}
-        {address && !loading && <Delivery address={address}/>}
+        {address && <Delivery address={address}/>}
     </div>
 };
 
@@ -212,7 +209,7 @@ const Summary = () => {
         <div className="order_form">
             <div className="order_summary_info">
                 <span>Сумма товаров: {handlePrice(finalPrice)}</span>
-                <span>Доставка: {handlePrice(order.delivery.price)}</span>
+                {order.delivery.price && <span>Доставка: {handlePrice(order.delivery.price)}</span>}
                 <span className="order_summary_price">Итого: {handlePrice(finalPrice + order.delivery.price)}</span>
             </div>
             <Coupon/>
