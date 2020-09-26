@@ -4,7 +4,7 @@ import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
 import {handleAddress, handlePrice} from "../../../Service/StringHandler/StringHandler";
-import {initAddress, initOrder} from "../../../Service/Server/order";
+import {initOrder} from "../../../Service/Server/order";
 import {useOrder} from "../../../Service/Contexts/OrderContext";
 import {Link} from "react-router-dom";
 import {AccountDrawer} from "../../UserParts/AccountDrawer";
@@ -65,7 +65,6 @@ const Delivery = ({address}) => {
     const isCourierArea = () => addressInfo.isInMkad || addressInfo.distance < 41;
     const calculateOutMKAD = () => addressInfo.distance < 10 ? 400 : (addressInfo.distance >= 10 && addressInfo.distance < 20) ? 500 : (addressInfo.distance >= 20 && addressInfo.distance < 40) ? 1000 : null;
     const calculateCourierDelivery = useCallback(() => isCourierArea() ? addressInfo.isInMkad ? 300 : calculateOutMKAD() : 480, [address]);
-    console.log(addressInfo);
 
     const deliveryInfo = {
         courier: <p className="delivery_vary"><input type="checkbox" className="checkbox"
@@ -109,9 +108,10 @@ const Personal = () => {
 
 const Address = () => {
     const {personal} = useUser();
-    const {setOrderAddress} = useOrder();
+    const {setOrderAddress, order} = useOrder();
     const [address, setAddress] = useState(personalToAddress(personal));
-
+    console.log(order);
+    console.log(order.address.value || order.address.data || address.data);
     useEffect(() => setOrderAddress(address), [setAddress, address]);
 
     return <div className="order_form">
@@ -120,7 +120,7 @@ const Address = () => {
             <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
                 onChange={setAddress}
                                 inputProps={{
-                                    placeholder: handleAddress(personal) || "Укажите адрес доставки",
+                                    placeholder: order.address.value || handleAddress( order.address.data || address.data) || "Укажите адрес доставки",
                                     className: "order_field_address",
                                     id: "delivery_address_input"
                                 }}
@@ -144,7 +144,7 @@ const Payment = () => {
                 <input type="checkbox" className="checkbox" disabled id="card_payment"
                        checked={payment.type === "card_payment"}
                        onClick={() => setPayment({...payment, type: "card_payment"})}/>
-                <label>Оплата картой на сайте</label>
+                <label><s>Оплата картой на сайте</s></label>
             </p>
             {order.delivery.type === "courier_delivery" && <p className="checkbox_box">
                 <input type="checkbox" className="checkbox" id="cash_payment" checked={payment.type === "cash_payment"}
@@ -197,6 +197,7 @@ const Items = () => {
 const Summary = () => {
     const {promo, cart, clearCart} = useCart();
     const [loading, setLoading] = useState(false);
+    const [warning, setWarning] = useState();
     const {personal, user} = useUser();
     const {order, setOrderSale} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
@@ -211,6 +212,7 @@ const Summary = () => {
                 <span>Сумма товаров: {handlePrice(finalPrice)}</span>
                 {order.delivery.price && <span>Доставка: {handlePrice(order.delivery.price)}</span>}
                 <span className="order_summary_price">Итого: {handlePrice(finalPrice + order.delivery.price)}</span>
+                {warning && <span style={{color: "red"}}>{warning}</span>}
             </div>
             <Coupon/>
             <div className="order_contacts">
@@ -220,7 +222,7 @@ const Summary = () => {
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
             <span className="cart_total_confirm_button"
-                  onClick={() => initOrder(personal, cart, order, user, promo, clearCart, setLoading)}>Оформить заказ</span>
+                  onClick={() => initOrder(personal, order, user, promo, clearCart, setLoading, setWarning)}>Оформить заказ</span>
         </div>
     );
     else if (loading === true)
