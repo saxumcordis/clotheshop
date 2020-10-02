@@ -13,9 +13,9 @@ const Home = () => {
                 </Link>
                 <div className='additional_pictures'>
                     <a href="https://instagram.com/miktina/"><img
-                        src='https://iamstudio.ru/upload/iblock/82b/82b8598135960550d211242fc51059d2.jpg'/></a>
+                        src='https://thumb.cloud.mail.ru/weblink/thumb/xw1/4msH/3aXmqGSL5/PK_54.jpg'/></a>
                     <Link to='/catalog/category/sale/'><img
-                        src='https://iamstudio.ru/upload/iblock/214/21451daef777285a22ff628df6dbdd26.jpg'/></Link>
+                        src='https://thumb.cloud.mail.ru/weblink/thumb/xw1/4PoA/5ua1TsxSk/PK_04.jpg'/></Link>
                 </div>
                 <Footer/>
             </div>
