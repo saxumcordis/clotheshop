@@ -2319,6 +2319,17 @@ button {
     text-transform: uppercase;
 }
 
+.edit_contact_info {
+    color: #999;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 13px;
+    padding: 0;
+}
+
+.edit_contact_info:hover {
+    text-decoration: none;
+}
 
 .order_field > input, .order_field_address {
     margin-top: 10px;

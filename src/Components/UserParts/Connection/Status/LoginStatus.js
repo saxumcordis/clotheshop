@@ -37,10 +37,10 @@ export const StatusLoginDrawer = () => {
 
     useEffect(() => {
         if (stageStatus.token && user === 'guest') {
-            setTimeout(() => initCart(stageStatus.token), 1000);
-            setTimeout(() => initWish(stageStatus.token), 1000);
+            setTimeout(() => initCart(stageStatus.token), 100);
+            setTimeout(() => initWish(stageStatus.token), 100);
             setUser(stageStatus);
-            setTimeout(() => initPersonal(stageStatus.token), 1000);
+            setTimeout(() => initPersonal(stageStatus.token), 100);
         }
     }, [stageStatus]);
 

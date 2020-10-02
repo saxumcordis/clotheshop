@@ -72,7 +72,7 @@ const Delivery = ({address}) => {
     const addressInfo = {isInMkad: isInMkad(geo_lat, geo_lon), distance: distanceFromMkad(geo_lat, geo_lon)};
     const isCourierArea = () => addressInfo.isInMkad || addressInfo.distance < 41;
     const calculateCourier = () => (prices.length) ? addressInfo.isInMkad ? prices[0].price : addressInfo.distance < 10 ? prices[1].price : (addressInfo.distance >= 10 && addressInfo.distance < 20) ? prices[2].price : (addressInfo.distance >= 20 && addressInfo.distance < 40) ? prices[3].price : 0  : 0;
-    const calculateDeliveryPrice = useCallback(() => isCourierArea() ? calculateCourier() : prices[4].price, [address, prices]);
+    const calculateDeliveryPrice = useCallback(() => prices.length ? isCourierArea() ? calculateCourier() : prices[4].price : 0, [address, prices]);
     const deliveryInfo = {
         courier: <p className="delivery_vary"><input type="checkbox" className="checkbox"
                                                      checked={delivery.type === "courier_delivery"}
@@ -107,9 +107,10 @@ const Personal = () => {
     return <div className="order_form">
         {contactFields.map((e, index) => <p key={index} className="order_field">
             <label>{e.title}</label>
-            <input required placeholder={personal[e.name]} type="text" name={e.name}
+            <input required placeholder={personal[e.name]} disabled type="text" name={e.name}
                    id={"order_" + e.name + "_input"}/>
         </p>)}
+        <Link to="/account"><span className="edit_contact_info">Редактировать контактную информацию</span></Link>
     </div>
 };
 
@@ -204,7 +205,7 @@ const Summary = () => {
     const [loading, setLoading] = useState(false);
     const [warning, setWarning] = useState();
     const {personal, user} = useUser();
-    const {order, setOrderSale} = useOrder();
+    const {order, setOrderSale, clearOrder} = useOrder();
     const totalPrice = useCallback(cart.length && cart.map(item => item.quantity * Math.floor((100 - item.discount) * item.price / 100)).reduce((a, b) => a + b), [cart, promo]);
     const finalPrice = Math.round((totalPrice * (100 - (promo && promo.sale)) / 100));
 
@@ -227,7 +228,7 @@ const Summary = () => {
             </div>
             <Link to="/cart" className="link_to_cart"><span className="link_to_cart">Редактировать заказ</span></Link>
             <span className="cart_total_confirm_button"
-                  onClick={() => initOrder(personal, order, user, promo, clearCart, setLoading, setWarning)}>Оформить заказ</span>
+                  onClick={() => initOrder(personal, order, user, promo, clearCart, setLoading, setWarning, clearOrder)}>Оформить заказ</span>
         </div>
     );
     else if (loading === true)
@@ -246,7 +247,7 @@ const Summary = () => {
         return (
             <div className="order_form">
                 Ошибка. Внимательно проверьте введённые данные и повторите попытку.
-                {setTimeout(() => setLoading(false), 1500)}
+                {!!setTimeout(() => setLoading(false), 2000)}
             </div>
         );
 };

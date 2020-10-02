@@ -33,8 +33,9 @@ export const OrderProvider = ({children}) => {
     const setOrderPayment = useCallback((newPayment) => {
         setOrder({...order, payment: newPayment});
     }, [order]);
+    const clearOrder = useCallback(() => {localStorage.removeItem('order'); setOrder(orderModel)}, [setOrder]);
 
-    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderSale, setOrderPayment};
+    const value = {order, setOrder, setOrderAddress, setOrderDelivery, setOrderSale, setOrderPayment, clearOrder};
 
     return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>
 };

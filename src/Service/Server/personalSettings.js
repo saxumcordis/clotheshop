@@ -25,6 +25,14 @@ const updatePersonalAddress = (update, data) => {
     update(personal);
 };
 
+const updatePersonalGeo = (update, geo) => {
+    let personal = JSON.parse(localStorage.getItem('personal'));
+    personal.geo_lat = geo[0];
+    personal.geo_lon = geo[1];
+    localStorage.setItem('personal', JSON.stringify(personal));
+    console.log(personal);
+    update(personal);
+};
 
 export const updateAddress = async function (id, update) {
     if (!window.confirm("Подтвердите изменение адреса")) {
@@ -49,5 +57,5 @@ export const updateAddress = async function (id, update) {
         + "&street=" + data.street + "&postal_code=" + data.postal_code + "&house=" + data.house + "&block=" + data.block
         + "&flat=" + data.flat + "&phone=" + data.phone;
     updatePersonalAddress(update, data);
-    await fetch(convertedData);
+    fetch(convertedData).then(response => response.json()).then(response => updatePersonalGeo(update, response));
 };
