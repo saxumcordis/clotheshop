@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useLayoutEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useUser} from "../../../Service/Contexts/UserContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 import {AddressSuggestions} from 'react-dadata';
@@ -59,35 +59,42 @@ const Delivery = ({address}) => {
     const [delivery, setDelivery] = useState(order.delivery);
     const {personal} = useUser();
     const [geo_lat, geo_lon] = address ? [address.data.geo_lat,address.data.geo_lon] : [personal.geo_lat, personal.geo_lon];
+    const [prices, setPrices] = useState([]);
 
+    useEffect(() => {
+        (async () => {
+            const prices = await fetch('https://miktina.herokuapp.com/backend/api/delivery.php?delivery_page');
+            setPrices(await prices.json());
+        })();
+    }, [setPrices]);
     useEffect(() => setOrderDelivery(delivery), [delivery]);
+    useEffect(() => setDelivery({...delivery, price: calculateDeliveryPrice()}), [address, prices]);
     const addressInfo = {isInMkad: isInMkad(geo_lat, geo_lon), distance: distanceFromMkad(geo_lat, geo_lon)};
     const isCourierArea = () => addressInfo.isInMkad || addressInfo.distance < 41;
-    const calculateOutMKAD = () => addressInfo.distance < 10 ? 400 : (addressInfo.distance >= 10 && addressInfo.distance < 20) ? 500 : (addressInfo.distance >= 20 && addressInfo.distance < 40) ? 1000 : null;
-    const calculateCourierDelivery = useCallback(() => isCourierArea() ? addressInfo.isInMkad ? 300 : calculateOutMKAD() : 480, [address]);
-
+    const calculateCourier = () => (prices.length) ? addressInfo.isInMkad ? prices[0].price : addressInfo.distance < 10 ? prices[1].price : (addressInfo.distance >= 10 && addressInfo.distance < 20) ? prices[2].price : (addressInfo.distance >= 20 && addressInfo.distance < 40) ? prices[3].price : 0  : 0;
+    const calculateDeliveryPrice = useCallback(() => isCourierArea() ? calculateCourier() : prices[4].price, [address, prices]);
     const deliveryInfo = {
         courier: <p className="delivery_vary"><input type="checkbox" className="checkbox"
                                                      checked={delivery.type === "courier_delivery"}
                                                      onClick={() => setDelivery({
                                                          ...delivery,
                                                          type: "courier_delivery",
-                                                         price: calculateCourierDelivery()
+                                                         price: calculateDeliveryPrice()
                                                      })}
                                                      id="courier_delivery"/><label>Доставка курьером с возможностью
             примерки - <span
-                style={{color: "red"}}>{calculateCourierDelivery()}</span> Р</label></p>,
+                style={{color: "red"}}>{calculateDeliveryPrice()}</span> Р</label></p>,
         post: <p className="delivery_vary">
             <input type="checkbox" className="checkbox" id="post_delivery" checked={delivery.type === "post_delivery"}
-                   onClick={() => setDelivery({...delivery, type: "post_delivery", price: 480})}/>
+                   onClick={() => setDelivery({...delivery, type: "post_delivery", price: prices[4].price})}/>
             <label>Доставка Почтой России - <span
                 style={{color: "red"}}>480</span> Р</label>
         </p>
     };
 
     return <div className="order_delivery_form">
-        {isCourierArea() && calculateCourierDelivery() ? deliveryInfo.courier : null}
-        {delivery.type === "courier_delivery" && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
+        {isCourierArea() && deliveryInfo.courier}
+        {delivery.type === "courier_delivery" && isCourierArea() && <DeliveryTime delivery={delivery} setDelivery={setDelivery}/>}
         {deliveryInfo.post}
     </div>;
 };
@@ -110,8 +117,6 @@ const Address = () => {
     const {personal} = useUser();
     const {setOrderAddress, order} = useOrder();
     const [address, setAddress] = useState(personalToAddress(personal));
-    console.log(order);
-    console.log(order.address.value || order.address.data || address.data);
     useEffect(() => setOrderAddress(address), [setAddress, address]);
 
     return <div className="order_form">
@@ -182,7 +187,7 @@ const OrderItem = ({item}) => {
             <td className="small_cart_item_table_price">{+salePrice === +item.price ? handlePrice(item.quantity * item.price) : handlePrice(item.quantity * (+salePrice))}</td>
         </table>
     </div>);
-}
+};
 
 
 const Items = () => {
@@ -211,7 +216,7 @@ const Summary = () => {
             <div className="order_summary_info">
                 <span>Сумма товаров: {handlePrice(finalPrice)}</span>
                 {order.delivery.price && <span>Доставка: {handlePrice(order.delivery.price)}</span>}
-                <span className="order_summary_price">Итого: {handlePrice(finalPrice + order.delivery.price)}</span>
+                <span className="order_summary_price">Итого: {handlePrice(+finalPrice + +order.delivery.price)}</span>
                 {warning && <span style={{color: "red"}}>{warning}</span>}
             </div>
             <Coupon/>

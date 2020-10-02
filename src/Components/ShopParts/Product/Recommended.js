@@ -22,8 +22,8 @@ const Item = ({item}) => {
                      alt={item.product_name}/>
             </span>
             <span className="item_name">{item.product_name}</span>
-            {(+price) === (+salePrice) ? <span className="item_price">{handlePrice(price)} P</span> :
-                <span className="item_price">{handlePrice(salePrice)} P<s>{handlePrice(price)} P</s></span>}
+            {(+price) === (+salePrice) ? <span className="item_price">{handlePrice(price)}</span> :
+                <span className="item_price">{handlePrice(salePrice)} P<s>{handlePrice(price)}</s></span>}
         </div>
     )
 };
