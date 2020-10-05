@@ -34,7 +34,7 @@ const handleAddressValue = (address) => {
         + (!isNull(address.data.block) ? "&block=" + address.data.block : "")
         + (!isNull(address.data.flat) ? "&flat=" + address.data.flat : "")
         + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "")*/
-    return "&address_value=" + handleAddress(address) + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "");
+    return "&address_value=" + handleAddress(address.data) + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "");
 };
 
 const validateAddress = (address) => {
