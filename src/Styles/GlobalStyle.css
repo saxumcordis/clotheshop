@@ -2323,6 +2323,7 @@ button {
     color: #999;
     cursor: pointer;
     text-decoration: underline;
+    text-transform: none;
     font-size: 13px;
     padding: 0;
 }

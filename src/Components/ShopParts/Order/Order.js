@@ -126,13 +126,15 @@ const Address = () => {
             <AddressSuggestions token="b58d963e5c648936410b2cb8d4db57f101d3c2a4"
                 onChange={setAddress}
                                 inputProps={{
-                                    placeholder: order.address.value || handleAddress( order.address.data || address.data) || "Укажите адрес доставки",
+                                    placeholder: order.address.value || handleAddress( order.address.data || address.data) || "Укажите адрес доставки в настройках",
                                     className: "order_field_address",
-                                    id: "delivery_address_input"
+                                    id: "delivery_address_input",
+                                    disabled: true
                                 }}
                                 suggestionClassName="address_suggestions"
                                 highlightClassName="address_suggestions_highlight"
             />
+            <Link to="/account"><span className="edit_contact_info">Редактировать адрес доставки</span></Link>
         </p>
         {address && <Delivery address={address}/>}
     </div>
