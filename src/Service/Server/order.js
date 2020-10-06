@@ -27,14 +27,14 @@ const handleAddressValue = (address) => {
 
     const isNull = (field) => (field === null || field === '-' || field === "");
     if (address.value)
-        return "&address_value=" + address.value + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "");
+        return "&address_value=" + address.value;
 
     /*return "&country=" + address.data.country + "&city=" + address.data.city
         + "&street=" + address.data.street + "&house=" + address.data.house
         + (!isNull(address.data.block) ? "&block=" + address.data.block : "")
         + (!isNull(address.data.flat) ? "&flat=" + address.data.flat : "")
         + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "")*/
-    return "&address_value=" + handleAddress(address.data) + (!isNull(address.data.postal_code) ? "&postal_code=" + address.data.postal_code : "");
+    return "&address_value=" + handleAddress(address.data);
 };
 
 const validateAddress = (address) => {

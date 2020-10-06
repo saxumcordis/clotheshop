@@ -9,6 +9,8 @@
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ShopParts/Order/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Server/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Server/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Server/personalSettings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Server/personalSettings.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +117,7 @@
       <workItem from="1601124649748" duration="9436000" />
       <workItem from="1601198165367" duration="596000" />
       <workItem from="1601539366544" duration="12364000" />
-      <workItem from="1601906756251" duration="1280000" />
+      <workItem from="1601906756251" duration="3496000" />
     </task>
     <servers />
   </component>

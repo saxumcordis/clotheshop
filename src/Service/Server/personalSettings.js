@@ -29,8 +29,8 @@ const updatePersonalGeo = (update, geo) => {
     let personal = JSON.parse(localStorage.getItem('personal'));
     personal.geo_lat = geo[0];
     personal.geo_lon = geo[1];
+    personal.postal_code = geo[2];
     localStorage.setItem('personal', JSON.stringify(personal));
-    console.log(personal);
     update(personal);
 };
 
@@ -41,7 +41,6 @@ export const updateAddress = async function (id, update) {
     if (!checkFilling())
         return 0;
     const data = {
-        id: id,
         country: document.getElementById('address_country').value || document.getElementById('address_country').placeholder,
         city: document.getElementById('address_city').value || document.getElementById('address_city').placeholder,
         street: document.getElementById('address_street').value || document.getElementById('address_street').placeholder,
@@ -53,7 +52,7 @@ export const updateAddress = async function (id, update) {
     };
     const token = JSON.parse(localStorage.getItem('user')).token;
     const url = 'https://miktina.herokuapp.com/backend/user/account.php?address&new&token=';
-    const convertedData = url + token + "&address_id=" + data.id + "&country=" + data.country + "&city=" + data.city
+    const convertedData = url + token + "&country=" + data.country + "&city=" + data.city
         + "&street=" + data.street + "&postal_code=" + data.postal_code + "&house=" + data.house + "&block=" + data.block
         + "&flat=" + data.flat + "&phone=" + data.phone;
     updatePersonalAddress(update, data);

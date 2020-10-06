@@ -129,12 +129,10 @@ const Address = () => {
                                     placeholder: order.address.value || handleAddress( order.address.data || address.data) || "Укажите адрес доставки в настройках",
                                     className: "order_field_address",
                                     id: "delivery_address_input",
-                                    disabled: true
                                 }}
                                 suggestionClassName="address_suggestions"
                                 highlightClassName="address_suggestions_highlight"
             />
-            <Link to="/account"><span className="edit_contact_info">Редактировать адрес доставки</span></Link>
         </p>
         {address && <Delivery address={address}/>}
     </div>
