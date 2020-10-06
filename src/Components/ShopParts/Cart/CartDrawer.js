@@ -45,8 +45,8 @@ const ItemDrawer = ({item}) => {
             </div>
             <table className="small_cart_item_table">
                 <tr>
-                    <td className="small_cart_item_table_name"><p>{item.name + " (" + item.size + ")"}</p>
-                        <p>Размер : {item.size}</p>
+                    <td className="small_cart_item_table_name"><p>{item.name + " (" + item.size.split('_')[0] + ")"}</p>
+                        <p>Размер : {item.size.split('_')[0]}</p>
                         <p style={{fontSize: "9px", color: "#999999", paddingBottom: 0}}>art: {item.art}</p></td>
                     <td className="small_cart_item_table_quantity">{<QuantityInput item={item}/>}</td>
                     <td className="small_cart_item_table_price">{+salePrice === +item.price ? handlePrice(quantity * item.price) :

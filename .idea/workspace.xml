@@ -7,6 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Contexts/CartContext.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +115,7 @@
       <workItem from="1601124649748" duration="9436000" />
       <workItem from="1601198165367" duration="596000" />
       <workItem from="1601539366544" duration="12364000" />
-      <workItem from="1601906756251" duration="14958000" />
+      <workItem from="1601906756251" duration="15811000" />
     </task>
     <servers />
   </component>

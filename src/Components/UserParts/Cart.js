@@ -33,8 +33,8 @@ const CartItem = ({index, item}) => {
                     <tbody>
                     <tr>
                         <td style={{width: "27%"}} className="cart_item_table_name">
-                            <p>{item.name + " (" + item.size + ")"}</p>
-                            <p>Размер : {item.size}</p>
+                            <p>{item.name + " (" + item.size.split('_')[0] + ")"}</p>
+                            <p>Размер : {item.size.split('_')[0]}</p>
                             <p className="cart_item_table_code">art: {item.art}</p>
                         </td>
                         <td style={{width: "30%", textAlign: "center"}} className="cart_item_table_quantity">
