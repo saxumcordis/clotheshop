@@ -118,7 +118,7 @@ const Product = () => {
                         {sizeWarning && !!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Выберите желаемый размер</span>}
                         {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                         <div className="product_preview_info_text">
-                            <p>Цвет : {item.product_color_name.toLowerCase()}</p>
+                            <p>Цвет : {item.color_name.toLowerCase()}</p>
                             <p>Материал : {item.product_material.toLowerCase()}</p>
                             <p>Рост модели на фото . . .</p>
                         </div>

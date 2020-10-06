@@ -66,30 +66,37 @@ const Item = ({item}) => {
 const Catalog = () => {
     const categoryId = useParams().id;
     const [catalog, setCatalog] = useState(null);
-    const [sizeFilter, setSizeFilter] = useState([]);
+    const [activeSizes, setActiveSizes] = useState([]);
     const [activeColors, setActiveColor] = useState([]);
     const [sort, setSort] = useState({name: 'По цене (по возрастанию)', type: 'price', dir: 'asc'});
+    console.log(catalog);
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
             setCatalog(await catalog.json());
         })();
     }, [setCatalog]);
-    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).filter(item => sizeFilter.includes('small') && item.small_size > 0
-        || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0)
+    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
         .filter(item => !activeColors.length ? 1
             : item.color_code === activeColors || activeColors.includes(item.color_code))
         .sort((a, b) => sort.dir === 'asc' ? getPriceDiff(a, b) : getPriceDiff(b, a))
         .map(item => <Item key={item.product_id} item={item}/>);
+    const getSizes = item => {
+        let result = [];
+        for (let key in item)
+            if (key.match(/_size$/))
+                result.push(key.split('_')[0]);
+        return result;
+    };
     return (
         <div className='with_footer'>
             <div className='global_giv'>
                 <CatalogMenu/>
                 {catalog &&
                 <div className="catalog_box">
-                    <Filter sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}
-                            colors={catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).filter(item => sizeFilter.includes('small') && item.small_size > 0
-                                || sizeFilter.includes('medium') && item.medium_size > 0 || sizeFilter.length === 0).map(e => [e.product_color_name, e.color_code])}
+                    <Filter sizes={getSizes(catalog[0])}
+                            activeSizes={activeSizes} setActiveSizes={setActiveSizes}
+                            colors={catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).map(e => [e.color_name, e.color_code])}
                             activeColors={activeColors}
                             setActiveColor={setActiveColor} sort={sort} setSort={setSort}/>
                     <div className="catalog_items">
