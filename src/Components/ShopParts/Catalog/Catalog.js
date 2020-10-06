@@ -69,18 +69,12 @@ const Catalog = () => {
     const [activeSizes, setActiveSizes] = useState([]);
     const [activeColors, setActiveColor] = useState([]);
     const [sort, setSort] = useState({name: 'По цене (по возрастанию)', type: 'price', dir: 'asc'});
-    console.log(catalog);
     useEffect(() => {
         (async () => {
             const catalog = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php?getCatalog');
             setCatalog(await catalog.json());
         })();
     }, [setCatalog]);
-    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
-        .filter(item => !activeColors.length ? 1
-            : item.color_code === activeColors || activeColors.includes(item.color_code))
-        .sort((a, b) => sort.dir === 'asc' ? getPriceDiff(a, b) : getPriceDiff(b, a))
-        .map(item => <Item key={item.product_id} item={item}/>);
     const getSizes = item => {
         let result = [];
         for (let key in item)
@@ -88,6 +82,16 @@ const Catalog = () => {
                 result.push(key.split('_')[0]);
         return result;
     };
+    const checkItemAvailability = (activeSizes, item) => {
+      return activeSizes.some(e => item[e + "_size"] > 0);
+    };
+    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
+        .filter(item => !activeSizes.length ? 1
+        : checkItemAvailability(activeSizes, item))
+        .filter(item => !activeColors.length ? 1
+            : item.color_code === activeColors || activeColors.includes(item.color_code))
+        .sort((a, b) => sort.dir === 'asc' ? getPriceDiff(a, b) : getPriceDiff(b, a))
+        .map(item => <Item key={item.product_id} item={item}/>);
     return (
         <div className='with_footer'>
             <div className='global_giv'>

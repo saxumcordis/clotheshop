@@ -12,8 +12,8 @@ const colorPalette = (colorCode) => {
     }
 };
 
-const activeColorStyle = (activeColors, colorCode) => {
-    return activeColors && (activeColors === colorCode || activeColors.includes(colorCode)) ?
+const activeStyle = (activeArray, item) => {
+    return activeArray && (activeArray === item || activeArray.includes(item)) ?
         {
             'backgroundColor': '#e5e5e5',
             'borderRadius': '5px',
@@ -22,15 +22,11 @@ const activeColorStyle = (activeColors, colorCode) => {
 
 const Color = ({color, activeColors, setActiveColor, setCheckColor}) => {
     return (
-        <li className="filter_element color_item" style={activeColorStyle(activeColors, color[1])} key={color[1]} onClick={() => {
+        <li className="filter_element color_item" style={activeStyle(activeColors, color[1])} key={color[1]} onClick={() => {
             setCheckColor(0);
             handleFilter(setActiveColor, activeColors, color[1])
         }}><span className="color_palette" style={colorPalette(color[1])}/><span style={{marginLeft: '8px'}}>{color[0]}</span></li>
     )
-};
-
-const filterStyle = (size, check) => {
-    return size && size.includes(check) ? activeFilter : null;
 };
 
 const handleFilter = (setFilter, filter, newFilter) => setFilter(filter => {
@@ -38,7 +34,7 @@ const handleFilter = (setFilter, filter, newFilter) => setFilter(filter => {
         return [];
     if (filter.includes(newFilter))
         return filter.filter(e => e !== newFilter);
-
+    console.log([...filter, newFilter]);
     return [...filter, newFilter]
 });
 const resetFilters = ({activeColors, setActiveColor, setActiveSizes, size}) => {
@@ -48,10 +44,10 @@ const resetFilters = ({activeColors, setActiveColor, setActiveSizes, size}) => {
 
 const Size = ({size, activeSizes, setActiveSize, setCheckSize}) => {
     return (
-        <li className="filter_element color_item" style={activeColorStyle(activeSizes, size[1])} key={size} onClick={() => {
+        <li className="filter_element size_item" style={activeStyle(activeSizes, size)} key={size} onClick={() => {
             setCheckSize(0);
             handleFilter(setActiveSize, activeSizes, size)
-        }}><span>{size[0]}</span></li>
+        }}><span>{size}</span></li>
     )
 };
 
@@ -65,7 +61,7 @@ const Filter = ({activeColors, colors, setActiveColor, setActiveSizes, activeSiz
             <ul className="filter">
                 Размеры:
                 <li className="filter_element select"
-                    onClick={() => setSize(!checkSize)}>{!activeColors.length ? "Выбрать" : "Выбрать  (" + activeColors.length + ")"}</li>
+                    onClick={() => setSize(!checkSize)}>{!activeSizes.length ? "Выбрать" : "Выбрать  (" + activeSizes.length + ")"}</li>
                 <div className="color_list" hidden={!checkSize}>
                     {sizes.map((e, i) => <Size size={e} key={i} activeSizes={activeSizes} setActiveSize={setActiveSizes} setCheckSize={setSize}/>)}
                 </div>

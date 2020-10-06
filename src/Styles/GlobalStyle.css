@@ -420,6 +420,19 @@ button {
     margin-left: 3px;
 }
 
+.size_item {
+    width: 80px;
+    font-size: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-family: 'FuturaNewBook-Reg', sans-serif;
+}
+
+.size_item:before {
+    content: "•";
+}
+
 .color_item {
     width: 100px;
     font-size: 15px;
