@@ -34,7 +34,6 @@ const handleFilter = (setFilter, filter, newFilter) => setFilter(filter => {
         return [];
     if (filter.includes(newFilter))
         return filter.filter(e => e !== newFilter);
-    console.log([...filter, newFilter]);
     return [...filter, newFilter]
 });
 const resetFilters = ({activeColors, setActiveColor, setActiveSizes, size}) => {

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
 import {useMedia} from "use-media";
+import {Sizes} from "./Product";
 
 
 const ItemPreview = ({id, setItemPreview}) => {
@@ -29,12 +30,11 @@ const ItemPreview = ({id, setItemPreview}) => {
             price: item.product_price,
             discount: item.sale_percent,
             art: item.product_code,
-            limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
+            limit: item[selectedSize],
             quantity: 1};
         !isLimit(product) ? addToCart(product) : showWarning();
     };
 
-    const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
     const handleClick = event => {
         if (event.target === document.getElementsByClassName('overlay')[0])
             setItemPreview(false);
@@ -57,6 +57,13 @@ const ItemPreview = ({id, setItemPreview}) => {
         const sameItems = await fetch('https://miktina.herokuapp.com/backend/catalog/products.php/?getSameProduct&id=' + itemId);
         setSameItems(await sameItems.json());
     })()}, [itemId]);
+    const isItemAvailable = () => {
+        let result = [];
+        for (let key in item)
+            if (key.match(/_size$/))
+                result.push(key);
+        return result.length;
+    };
     return (
         <div className="overlay" onClick={handleClick}>
             {item &&
@@ -67,18 +74,11 @@ const ItemPreview = ({id, setItemPreview}) => {
                     {isDesktop && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
                         <h3>№ {item.product_code}</h3></div>}
                     <div className="item_sizes">
-                        <div
-                            className={item.small_size <= 0 ? "button_size_unavailable" : selectedSize !== '42-44' ? "button_size" : "button_size_selected"}
-                            onClick={() => item.small_size <= 0 ? null : handleSize(selectedSize === '42-44' ? null : '42-44')}>42-44
-                        </div>
-                        <div
-                            className={item.medium_size <= 0 ? "button_size_unavailable" : selectedSize !== '46-48' ? "button_size" : "button_size_selected"}
-                            onClick={() => item.medium_size <= 0 ? null : handleSize(selectedSize === '46-48' ? null : '46-48')}>46-48
-                        </div>
+                        <Sizes item={item} selectedSize={selectedSize} setSize={setSize} setSizeWarning={setSizeWarning}/>
                     </div>
                     <div className="cart_wish_box">
                         <button className={"cart_button"}
-                                onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>{!(+item.medium_size + +item.small_size) ? "НЕТ В НАЛИЧИИ" : "В КОРЗИНУ"}
+                                onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>{!(isItemAvailable()) ? "НЕТ В НАЛИЧИИ" : "В КОРЗИНУ"}
                         </button>
                         {isWished ? <img className="wish_button" onClick={handleWish}
                                          src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"
@@ -88,7 +88,7 @@ const ItemPreview = ({id, setItemPreview}) => {
                                    alt="Добавить в список желаемого"/>
                         }
                     </div>
-                    {sizeWarning && !!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Выберите желаемый размер</span>}
+                    {sizeWarning && <span className="size_cart_warning">Выберите желаемый размер</span>}
                     {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                     <div className="item_preview_info_text">
                         <p>Цвет : {item.color_name.toLowerCase()}</p>

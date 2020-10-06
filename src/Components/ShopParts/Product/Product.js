@@ -10,11 +10,19 @@ import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const MainBox = ({item}) => {
     const [content, setContent] = useState('description');
+    const sizes = () => {
+        let result = [];
+        for (let key in item)
+            if (key.match(/_size$/))
+                result.push(key.split('_')[0] + ": " + item[key])
+        return result.join('   ');
+
+    }
     const details = {
         "description": item.description_data,
         "delivery": <p style={{marginTop: 0}}>Доставка по Москве и МО, от 300Р<p className="full_delivery"><Link
             to="/delivery">Подробнее о доставке и оплате</Link></p></p>,
-        "quantity": "42-44: " + item.small_size + " 46-48: " + item.medium_size,
+        "quantity": sizes(),
     };
     return (
         <div className="product_details">
@@ -33,12 +41,27 @@ const MainBox = ({item}) => {
     )
 };
 
+export const Sizes = ({item, selectedSize, setSize, setSizeWarning}) => {
+    const handleSize = newSize => {
+        setSize(newSize);
+        setSizeWarning(!newSize)
+    };
+    let sizes = [];
+    for (let key in item)
+        if (key.match(/_size$/) && item[key] >= 0)
+            sizes.push(<div
+                className={item[key] <= 0 ? "button_size_unavailable" : selectedSize !== key ? "button_size" : "button_size_selected"}
+                onClick={() => item[key] <= 0 ? null : handleSize(selectedSize === key ? null : key)}>{key.split('_')[0]}
+            </div>);
+        return sizes;
+};
+
 const Product = () => {
     const id = useParams().id;
     const [item, setItem] = useState(null);
     const [selectedSize, setSize] = useState(null);
     const [sameItems, setSameItems] = useState(null);
-    const handleSize = newSize => {setSize(newSize); setSizeWarning(!newSize)};
+
     const price = item && item.product_price;
     const salePrice = item && Math.floor((100 - item.sale_percent) * price / 100);
     const {add, remove, wishList} = useWishList();
@@ -46,17 +69,18 @@ const Product = () => {
     const [sizeWarning, setSizeWarning] = useState(null);
 
     const {addToCart, isLimit, showWarning, limitWarning} = useCart();
-
     const handleAddToCart = () => {
-        const product = {id: item.product_id,
+        const product = {
+            id: item.product_id,
             size: selectedSize,
             name: item.product_name,
             photo: item.picture_2,
             price: item.product_price,
             discount: item.sale_percent,
             art: item.product_code,
-            limit: selectedSize === '42-44' ? item.small_size : item.medium_size,
-            quantity: 1};
+            limit: item[selectedSize],
+            quantity: 1
+        };
         !isLimit(product) ? addToCart(product) : showWarning();
     };
 
@@ -80,6 +104,13 @@ const Product = () => {
             setSameItems(await sameItems.json());
         }, 50);
     }, [item]);
+    const isItemAvailable = () => {
+        let result = [];
+        for (let key in item)
+            if (key.match(/_size$/))
+                result.push(key);
+        return result.length;
+    };
     return (
         <div className='with_footer'>
             {item &&
@@ -94,29 +125,24 @@ const Product = () => {
                             <span style={{marginLeft: "20px", marginTop: "-15px"}}
                                   className="item_price">{handlePrice(salePrice)}<s>{handlePrice(price)}</s></span>}
                         <div className="product_sizes" style={{marginTop: "10px"}}>
-                            <div
-                                className={item.small_size <= 0 ? "button_size_unavailable" : selectedSize !== '42-44' ? "button_size" : "button_size_selected"}
-                                onClick={() => item.small_size <= 0 ? null : handleSize(selectedSize === '42-44' ? null : '42-44')}>42-44
-                            </div>
-                            <div
-                                className={item.medium_size <= 0 ? "button_size_unavailable" : selectedSize !== '46-48' ? "button_size" : "button_size_selected"}
-                                onClick={() => item.medium_size <= 0 ? null : handleSize(selectedSize === '46-48' ? null : '46-48')}>46-48
-                            </div>
+                            <Sizes item={item} selectedSize={selectedSize} setSize={setSize} setSizeWarning={setSizeWarning}/>
                         </div>
                         <div className="cart_wish_box">
                             <button className={"cart_button"}
-                                    onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>{!(+item.medium_size + +item.small_size) ? "НЕТ В НАЛИЧИИ" : "В КОРЗИНУ"}
+                                    onClick={() => selectedSize ? handleAddToCart() : setSizeWarning(1)}>{!(isItemAvailable()) ? "НЕТ В НАЛИЧИИ" : "В КОРЗИНУ"}
                             </button>
                             {isWished ? <img className="wish_button" onClick={handleWish}
                                              src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1597147009/heart_active_kc8lxo.png"
                                              alt="Удалить из списка желаемого"/>
                                 : <img className="wish_button" onClick={handleWish}
-                                     src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594648024/heart_fha8br.png"
-                                     alt="Добавить в список желаемого"/>
+                                       src="https://res.cloudinary.com/dkm4iuk9tbiqnuar/image/upload/v1594648024/heart_fha8br.png"
+                                       alt="Добавить в список желаемого"/>
                             }
                         </div>
-                        {sizeWarning && !!(+item.medium_size + +item.small_size) && <span className="size_cart_warning">Выберите желаемый размер</span>}
-                        {limitWarning && <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
+                        {sizeWarning &&
+                        <span className="size_cart_warning">Выберите желаемый размер</span>}
+                        {limitWarning &&
+                        <span className="size_cart_warning">Для оформления заказа недостаточно товара.</span>}
                         <div className="product_preview_info_text">
                             <p>Цвет : {item.color_name.toLowerCase()}</p>
                             <p>Материал : {item.product_material.toLowerCase()}</p>
@@ -128,9 +154,9 @@ const Product = () => {
                             <div className="other_colors_gallery">
                                 {(sameItems <= 0 ? <p style={{marginLeft: "5px", marginTop: 0}}>Других цветов нет в
                                     наличии</p> : sameItems.map(item => <Link key={item.product_id + "2"}
-                                    to={(() => "/catalog/item/" + item.product_id)}><img
-                                                                                         className="other_color_item"
-                                                                                         src={item.picture_3}/></Link>))}
+                                                                              to={(() => "/catalog/item/" + item.product_id)}><img
+                                    className="other_color_item"
+                                    src={item.picture_3}/></Link>))}
                             </div>
                         </div>
                     </div>
