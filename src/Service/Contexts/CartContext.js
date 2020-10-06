@@ -45,7 +45,7 @@ export const CartProvider = ({children}) => {
     }, [cart]);
     const clearCart = useCallback(() => setCart([]), [setCart]);
 
-    const countCartItems = cart.length && cart.map(e => e.quantity).reduce((a, b) => a + b, 0);
+    const countCartItems = cart.length ? cart.map(e => e.quantity).reduce((a, b) => a + b, 0) : 0;
     const value = {
         cart,
         setCart,
