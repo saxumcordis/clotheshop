@@ -13,7 +13,7 @@ const MainBox = ({item}) => {
     const sizes = () => {
         let result = [];
         for (let key in item)
-            if (key.match(/_size$/))
+            if (key.match(/_size$/) && item[key] > -1)
                 result.push(key.split('_')[0] + ": " + item[key])
         return result.join('   ');
 
