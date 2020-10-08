@@ -18,6 +18,11 @@ export const OrderItem = ({item, sale}) => {
 
 const Order = ({order}) => {
 
+    const deliveryTypes = {
+        "post_delivery": "Доставка почтой",
+        "courier_delivery": "Доставка курьером"
+    };
+
     return (
         <div className="order">
             <div className="order_info">
@@ -31,7 +36,7 @@ const Order = ({order}) => {
                         Статус заказа <span className="order_info_details_value"> {order.status} </span>
                     </span>
                     <span className="order_info_details_field">
-                        Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
+                        Доставка <span className="order_info_details_value"> {deliveryTypes[order.delivery_type]} </span>
                     </span>
                     <span className="order_info_details_field">
                         На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>
