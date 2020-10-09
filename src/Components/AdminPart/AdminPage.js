@@ -7,6 +7,7 @@ import {Colors} from "./Colors";
 import {Categories} from "./Categories";
 import {Delivery} from "./Delivery";
 import {Orders} from "./Orders";
+import {Sizes} from "./Sizes";
 
 const AdminLogin = () => {
 
@@ -64,6 +65,7 @@ export const AdminPage = () => {
                     <ItemList/>
                     <Categories/>
                     <Colors/>
+                    <Sizes/>
                     <Delivery/>
                     <Orders/>
                 </div>
