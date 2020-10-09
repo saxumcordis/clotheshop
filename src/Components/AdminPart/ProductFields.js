@@ -3,7 +3,7 @@ import React from 'react';
 export const getFields = (token) => {
     let temp = fields;
     fetch('https://miktina.herokuapp.com/backend/user/admin.php?getSizes&token=' + token).then(response => response.json())
-        .then(sizes => sizes.map(e => temp.push({name: e, text: "Размер " + e.split('_')[0], required: "Если размера не существует, указать -1"})));
+        .then(sizes => sizes.map(e => temp.push({name: e, text: "Размер " + e.name.split('_')[0], required: "Если размера не существует, указать -1"})));
 
     return temp;
 };
