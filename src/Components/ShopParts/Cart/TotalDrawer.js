@@ -14,7 +14,7 @@ export const TotalCartDrawer = () => {
         <div className="small_cart_total">
             <Coupon/>
             <div className="small_cart_total_price">
-                <span>ИТОГО: {handlePrice(totalPrice * (100 - (promo && promo.sale)) / 100)}</span>
+                <span>ИТОГО: {handlePrice(totalPrice * (100 - (promo && promo.sale)) / 100)} {!!promo && <s style={{color: "grey"}}>{handlePrice(totalPrice)}</s>}</span>
             </div>
             <div className="small_cart_total_confirm">
                 <Link to="/order" onClick={() => close()}><span className="cart_total_confirm_button">Оформить заказ</span></Link>

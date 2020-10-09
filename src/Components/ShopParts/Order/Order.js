@@ -215,9 +215,9 @@ const Summary = () => {
     return (
         <div className="order_form">
             <div className="order_summary_info">
-                <span>Сумма товаров: {handlePrice(finalPrice)}</span>
+                <span>Сумма товаров: {handlePrice(finalPrice)} {!!promo && <s style={{color: "grey"}}>{handlePrice(totalPrice)}</s>}</span>
                 {order.delivery.price && <span>Доставка: {handlePrice(order.delivery.price)}</span>}
-                <span className="order_summary_price">Итого: {handlePrice(+finalPrice + +order.delivery.price)}</span>
+                <span className="order_summary_price">Итого: {!!promo && <s style={{color: "grey"}}>{handlePrice(totalPrice)}</s>} {handlePrice(+finalPrice + +order.delivery.price)}</span>
                 {warning && <span style={{color: "red"}}>{warning}</span>}
             </div>
             <Coupon/>
