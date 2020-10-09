@@ -1,5 +1,13 @@
 import React from 'react';
 
+export const getFields = (token) => {
+    let temp = fields;
+    fetch('https://miktina.herokuapp.com/backend/user/admin.php?getSizes&token=' + token).then(response => response.json())
+        .then(sizes => sizes.map(e => temp.push({name: e, text: "Размер " + e.split('_')[0], required: "Если размера не существует, указать -1"})));
+
+    return temp;
+};
+
 const fields = [
     {
         name: 'product_name',
@@ -39,16 +47,6 @@ const fields = [
     {
         name: 'description_data',
         text: 'Описание',
-        required: 'Обязательное поле',
-    },
-    {
-        name: 'small_size',
-        text: 'Количество 42-44',
-        required: 'Обязательное поле',
-    },
-    {
-        name: 'medium_size',
-        text: 'Количество 46-48',
         required: 'Обязательное поле',
     },
     {

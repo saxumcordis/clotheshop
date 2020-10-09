@@ -1,17 +1,17 @@
-import React from 'react';
-import {fields} from './ProductFields';
+import React, {useEffect, useState} from 'react';
 import {useUser} from "../../Service/Contexts/UserContext";
+import {getFields} from "./ProductFields";
 
 
-const renameFields = () => {
+const renameFields = (fields) => {
     return fields.map(field => field.name === 'product_color_name' ? {
         ...field,
         name: 'product_color_id'
     } : field.name === 'category_name' ? {...field, name: 'category_id'} : field);
 };
 
-const initFields = () => {
-    return renameFields().map(field => {
+const initFields = (fields) => {
+    return renameFields(fields).map(field => {
         if (/^product_color_id/.test(field.name)) {
             const temp = document.getElementById('new_item_color');
             field.value = temp.options[temp.selectedIndex].id.split('').filter(e => Number(e)).join('');
@@ -27,6 +27,13 @@ const initFields = () => {
 export const AddNewItem = ({categories, colors}) => {
 
     const {isAdmin} = useUser();
+    const [fields, setFields] = useState(0);
+
+    useEffect(() => {
+        (async () => {
+            setFields(getFields(isAdmin.token))
+        })();
+    }, [setFields]);
 
     const changeFormView = () => {
         const form = document.getElementById('new_item_form');
@@ -37,7 +44,7 @@ export const AddNewItem = ({categories, colors}) => {
         if (window.confirm("Добавить продукт?")) {
             const url = 'https://miktina.herokuapp.com/backend/user/admin.php?addProduct&token=';
             const token = isAdmin.token;
-            const data = initFields().map(field => "&" + field.name + "=" + field.value).join('');
+            const data = initFields(fields).map(field => "&" + field.name + "=" + field.value).join('');
             const response = await fetch(url + token + data);
             alert(await response.text());
             window.location.reload();
@@ -79,6 +86,7 @@ export const AddNewItem = ({categories, colors}) => {
         return (<div className="admin_new_item">
             <button onClick={() => changeFormView()}>Добавить новый продукт</button>
             <div className="new_item_form" id="new_item_form" hidden={true}>
+                <span style={{color: "red"}}>Если у продукта не существует размера, указать -1</span>
                 <table>
                     <thead>
                     <tr>

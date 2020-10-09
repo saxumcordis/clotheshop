@@ -93,6 +93,7 @@ export const ItemEdition = ({item, categories, colors}) => {
         return (
             <div className="admin_item_table_box">
                 <h1> Редактировать товар </h1>
+                <span style={{color: "red"}}>Если у продукта не существует размера, указать -1</span>
                 <table>
                     <thead>
                     <tr>
