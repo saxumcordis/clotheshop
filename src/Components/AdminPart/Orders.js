@@ -63,7 +63,7 @@ const Order = ({order}) => {
                             Телефон <span className="order_info_details_value"> {order.phone} </span>
                         </span>
                         <span className="order_info_details_field">
-                            Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
+                            Доставка <span className="order_info_details_value"> {deliveryTypes[order.delivery_type]} </span>
                         </span>
                         <span className="order_info_details_field">
                             Адрес <span className="order_info_details_value"> {order.address_value + ", " + order.postal_code} </span>
