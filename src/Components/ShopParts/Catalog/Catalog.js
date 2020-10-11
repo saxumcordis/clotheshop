@@ -75,17 +75,24 @@ const Catalog = () => {
             setCatalog(await catalog.json());
         })();
     }, [setCatalog]);
-    const getSizes = item => {
+    const getSizes = catalog => {
         let result = [];
-        for (let key in item)
-            if (key.match(/_size$/))
-                result.push(key.split('_')[0]);
+        catalog.map(item => {
+            for (let key in item)
+                if (key.match(/_size$/) && item[key] > -1 && !result.includes(key.split('_')[0]))
+                    result.push(key.split('_')[0]);
+        }
+        );
         return result;
     };
     const checkItemAvailability = (activeSizes, item) => {
       return activeSizes.some(e => item[e + "_size"] > 0);
     };
     const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
+        .filter(item => {let check = 0; for (let key in item)
+            if (key.match(/_size$/) && item[key] >  -1)
+                check = 1;
+            return check;})
         .filter(item => !activeSizes.length ? 1
         : checkItemAvailability(activeSizes, item))
         .filter(item => !activeColors.length ? 1
@@ -98,7 +105,7 @@ const Catalog = () => {
                 <CatalogMenu/>
                 {catalog &&
                 <div className="catalog_box">
-                    <Filter sizes={getSizes(catalog[0])}
+                    <Filter sizes={getSizes(catalog)}
                             activeSizes={activeSizes} setActiveSizes={setActiveSizes}
                             colors={catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1).map(e => [e.color_name, e.color_code])}
                             activeColors={activeColors}
