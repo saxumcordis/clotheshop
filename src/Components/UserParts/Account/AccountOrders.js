@@ -10,7 +10,7 @@ export const OrderItem = ({item, sale}) => {
 
     return <div className="order_item">
         <img className="order_item_picture" alt="order_item_picture" src={item.picture}/>
-        <span className="order_item_name"><Link to={"catalog/item/" + item.product_id}> {item.name + " (" + item.size + ")"} </Link></span>
+        <span className="order_item_name"><Link to={"catalog/item/" + item.product_id}> {item.name + " (" + item.size.split('_')[0] + ")"} </Link></span>
         <span className="order_item_quantity">Количество: {item.quantity} шт</span>
         <span className="order_item_price">{handlePrice(item.quantity*price)}</span>
     </div>
