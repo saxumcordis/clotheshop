@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useUser} from "../../Service/Contexts/UserContext";
-import {handleAddress, handleClientName, handleOrderDate, handlePrice} from "../../Service/StringHandler/StringHandler";
+import {handleClientName, handleOrderDate, handlePrice} from "../../Service/StringHandler/StringHandler";
 import {OrderItem} from "../UserParts/Account/AccountOrders";
 
 const Order = ({order}) => {
+    const deliveryTypes = {
+        "post_delivery": "Доставка почтой",
+        "courier_delivery": "Доставка курьером"
+    };
+
     const [visibility, setVisibility] = useState(0);
     const {isAdmin} = useUser();
 
@@ -29,7 +34,7 @@ const Order = ({order}) => {
                         Статус заказа <span className="order_info_details_value"> {order.status} </span>
                     </span>
                     <span className="order_info_details_field">
-                        Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
+                        Доставка <span className="order_info_details_value"> {deliveryTypes[order.delivery_type]} </span>
                     </span>
                 </div>
                 <button onClick={() => setVisibility(1)}>Подробнее</button>
@@ -61,7 +66,7 @@ const Order = ({order}) => {
                             Доставка <span className="order_info_details_value"> {order.delivery_type} </span>
                         </span>
                         <span className="order_info_details_field">
-                            Адрес <span className="order_info_details_value"> {handleAddress(order) + " " + order.postal_code} </span>
+                            Адрес <span className="order_info_details_value"> {order.address_value + ", " + order.postal_code} </span>
                         </span>
                         <span className="order_info_details_field">
                             На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>
