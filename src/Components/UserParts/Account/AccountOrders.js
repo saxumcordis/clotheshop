@@ -36,10 +36,13 @@ const Order = ({order}) => {
                         Статус заказа <span className="order_info_details_value"> {order.status} </span>
                     </span>
                     <span className="order_info_details_field">
-                        Доставка <span className="order_info_details_value"> {deliveryTypes[order.delivery_type]} </span>
+                        Доставка <span className="order_info_details_value"> {deliveryTypes[order.delivery_type]}, {handlePrice(order.delivery_price)} </span>
                     </span>
                     <span className="order_info_details_field">
-                        На сумму <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>
+                        Сумма заказа <span className="order_info_details_value"> {handlePrice(order.sale_price)} </span>
+                    </span>
+                    <span className="order_info_details_field">
+                        Итого <span className="order_info_details_value"> {handlePrice(+order.sale_price + +order.delivery_price)} </span>
                     </span>
                     {(+order.promo_sale) ? <span className="order_info_details_field">
                         Скидка по промокоду <span className="order_info_details_value"> {order.promo_sale} % </span>
