@@ -39,6 +39,73 @@
         font-size: 9px;
         padding: 15px;
     }
+    .orders_list {
+        margin-top: 20px;
+        margin-left: 30px;
+        height: 80vh;
+        overflow-x: hidden;;
+        overflow-y: auto;
+        display: flex;
+
+        flex-direction: column;
+    }
+    .orders_list h1 {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .order_info_title_id {
+        font-weight: 600;
+        font-size: 11px;
+    }
+
+    .order_info_title_date {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .order_info_details_field {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        font-size: 9px;
+        color: #999;
+    }
+
+    .order_item_picture {
+        width: 100px;
+        height: 150px;
+    }
+
+    .order_item_name {
+        margin-top: 2px;
+        width: 100px;
+        font-size: 9px;
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .order_item_quantity {
+        font-size: 9px;
+        margin-top: 2px;
+    }
+
+    .order_item_price {
+        font-size: 9px;
+        margin-top: 2px;
+    }
+
+    .account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar, .order_items::-webkit-scrollbar {
+        margin-top: 1px;
+        cursor: pointer;
+        width: 2px;
+        height: 2px;
+    }
+
 }
 
 @media screen and (max-width: 960px) {
@@ -433,6 +500,74 @@
     .order_field > input::placeholder {
         font-size: 11px;
     }
+
+    .orders_list {
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 80vh;
+        overflow-x: hidden;;
+        overflow-y: auto;
+        display: flex;
+
+        flex-direction: column;
+    }
+    .orders_list h1 {
+        text-transform: uppercase;
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    .order_info_title_id {
+        font-weight: 600;
+        font-size: 9px;
+    }
+
+    .order_info_title_date {
+        text-transform: uppercase;
+        font-size: 9px;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .order_info_details_field {
+        margin-top: 1px;
+        display: flex;
+        flex-direction: column;
+        font-size: 7px;
+        color: #999;
+    }
+
+    .order_item_picture {
+        width: 70px;
+        height: 110px;
+    }
+
+    .order_item_name {
+        margin-top: 2px;
+        width: 70px;
+        font-size: 7px;
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .order_item_quantity {
+        font-size: 7px;
+        margin-top: 2px;
+    }
+
+    .order_item_price {
+        font-size: 7px;
+        margin-top: 2px;
+    }
+
+    .account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar, .order_items::-webkit-scrollbar {
+        margin-top: 1px;
+        cursor: pointer;
+        width: 1px;
+        height: 1px;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -1133,6 +1268,99 @@
     }
     .order_field > input::placeholder {
         font-size: 8px;
+    }
+
+    .orders_list {
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 80vh;
+        overflow-x: hidden;;
+        overflow-y: auto;
+        display: flex;
+
+        flex-direction: column;
+    }
+    .orders_list h1 {
+        text-transform: uppercase;
+        font-size: 9px;
+        font-weight: 500;
+    }
+
+    .order {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 300px;
+        padding: 5px 5px;
+        border-top: 0.5px solid rgba(112,112,112,.1) !important;
+    }
+
+    .order_info_title_id {
+        width: 55px;
+        display: flex;
+        flex-direction: row;
+        font-weight: 600;
+        font-size: 7px;
+    }
+
+    .order_info_title_date {
+        text-transform: uppercase;
+        font-size: 7px;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .order_info_details {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order_info_details_field {
+        display: flex;
+        flex-direction: column;
+        font-size: 7px;
+        color: #999;
+    }
+
+    .order_items {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        margin-left: -10px;
+    }
+
+    .order_item_picture {
+        width: 70px;
+        height: 110px;
+    }
+
+    .order_item_name {
+        margin-top: 2px;
+        width: 70px;
+        font-size: 7px;
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .order_item_quantity {
+        font-size: 7px;
+        margin-top: 2px;
+    }
+
+    .order_item_price {
+        font-size: 7px;
+        margin-top: 2px;
+    }
+
+    .account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar, .order_items::-webkit-scrollbar {
+        margin-top: 1px;
+        cursor: pointer;
+        width: 1px;
+        height: 1px;
     }
 }
 
@@ -1951,5 +2179,97 @@
         cursor: pointer;
         transition: 0.4s all;
         text-align: center;
+    }
+    .orders_list {
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 80vh;
+        overflow-x: hidden;;
+        overflow-y: auto;
+        display: flex;
+
+        flex-direction: column;
+    }
+    .orders_list h1 {
+        text-transform: uppercase;
+        font-size: 5px;
+        font-weight: 500;
+    }
+
+    .order {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 300px;
+        padding: 5px 5px;
+        border-top: 0.5px solid rgba(112,112,112,.1) !important;
+    }
+
+    .order_info_title_id {
+        width: 50px;
+        display: flex;
+        flex-direction: row;
+        font-weight: 600;
+        font-size: 5px;
+    }
+
+    .order_info_title_date {
+        text-transform: uppercase;
+        font-size: 5px;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .order_info_details {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order_info_details_field {
+        display: flex;
+        flex-direction: column;
+        font-size: 4px;
+        color: #999;
+    }
+
+    .order_items {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        margin-left: -10px;
+    }
+
+    .order_item_picture {
+        width: 40px;
+        height: 60px;
+    }
+
+    .order_item_name {
+        margin-top: 2px;
+        width: 40px;
+        font-size: 4px;
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .order_item_quantity {
+        font-size: 4px;
+        margin-top: 2px;
+    }
+
+    .order_item_price {
+        font-size: 4px;
+        margin-top: 2px;
+    }
+
+    .account_right::-webkit-scrollbar, .orders_list::-webkit-scrollbar, .order_items::-webkit-scrollbar {
+        margin-top: 1px;
+        cursor: pointer;
+        width: 0.5px;
+        height: 0.5px;
     }
 }
