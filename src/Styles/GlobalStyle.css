@@ -2575,7 +2575,7 @@ button {
     margin-right: auto;
 }
 
-.admin_categories_box, .admin_colors_box, .admin_delivery_box, .admin_sizes_box {
+.admin_categories_box, .admin_colors_box, .admin_delivery_box, .admin_sizes_box, .admin_orders_box {
     width: 80%;
     display: none;
     flex-direction: column;
@@ -2585,11 +2585,25 @@ button {
 }
 
 .admin_orders_box {
-    width: 80%;
-    display: none;
-    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.admin_orders_sort li {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.admin_orders_sort li:hover {
+    text-decoration: none;
+}
+
+.admin_orders_list {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: row;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -2610,17 +2624,23 @@ button {
     display: flex;
     flex-direction: row;
     width: 90%;
-    height: 350px;
+    height: 380px;
     padding: 10px 5px;
     border-top: 1px solid rgba(112,112,112,.1) !important;
 }
 
 .admin_order_small {
     margin-top: 20px;
+    width: 200px;
     border: 1px solid grey;
 }
 
-.admin_order_small button {
+.admin_order_small button, .admin_order button {
     cursor: pointer;
     margin-top: 5px;
+}
+
+.admin_order_edit {
+    display: flex;
+    flex-direction: column;
 }

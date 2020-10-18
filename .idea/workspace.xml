@@ -8,7 +8,8 @@
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Account/AccountOrders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AdminPart/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPart/Orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../miktinaback" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -118,7 +119,9 @@
       <workItem from="1601906756251" duration="16364000" />
       <workItem from="1602146407373" duration="1385000" />
       <workItem from="1602178839993" duration="588000" />
-      <workItem from="1602267699322" duration="16061000" />
+      <workItem from="1602267699322" duration="16336000" />
+      <workItem from="1602487855309" duration="228000" />
+      <workItem from="1603039126657" duration="7016000" />
     </task>
     <servers />
   </component>
