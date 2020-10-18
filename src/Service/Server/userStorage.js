@@ -1,9 +1,9 @@
 export const handleCart = (cart) => {
-    return cart.length && cart.map(item => ({
+    return cart.length ? cart.map(item => ({
         id: item.id,
         size: item.size,
         quantity: item.quantity,
-    }))
+    })) : [];
 };
 
 export const updateUserCart = async (cart, user) => {

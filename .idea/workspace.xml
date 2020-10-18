@@ -8,8 +8,7 @@
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/GlobalStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/MediaStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/MediaStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Server/userStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Server/userStorage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +120,7 @@
       <workItem from="1602178839993" duration="588000" />
       <workItem from="1602267699322" duration="16336000" />
       <workItem from="1602487855309" duration="228000" />
-      <workItem from="1603039126657" duration="10929000" />
+      <workItem from="1603039126657" duration="12027000" />
     </task>
     <servers />
   </component>
