@@ -6,8 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,7 @@
       <workItem from="1602487855309" duration="228000" />
       <workItem from="1603039126657" duration="12850000" />
       <workItem from="1603096096672" duration="142000" />
-      <workItem from="1603999917434" duration="4538000" />
+      <workItem from="1603999917434" duration="5908000" />
     </task>
     <task id="LOCAL-00001" summary="Init iphone css tests">
       <created>1604001633019</created>
