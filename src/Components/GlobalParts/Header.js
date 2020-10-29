@@ -97,7 +97,7 @@ const Menu = () => {
                 close()
             }}>
                 <Link to="/contacts">Контакты</Link></li>
-            {(document.getElementsByTagName('body')[0].offsetWidth > 1100) ?
+            {1 ?
             <li><a href="tel:+79651278199">+7 965 127 81 99</a></li>
                 : null }
         </ul>
