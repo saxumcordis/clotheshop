@@ -40,7 +40,7 @@ const ItemPreview = ({id, setItemPreview}) => {
             setItemPreview(false);
     };
 
-    const isDesktop = useMedia('screen and (min-width: 960px)');
+    //const isDesktop = useMedia('screen and (min-width: 960px)');
 
     useEffect(() => {
         (async () => {
@@ -68,10 +68,10 @@ const ItemPreview = ({id, setItemPreview}) => {
         <div className="overlay" onClick={handleClick}>
             {item &&
             <div className="item_preview">
-                {!isDesktop && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1></div>}
+                {!1 && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1></div>}
                 <ItemGallery item={item}/>
                 <div className="item_preview_info">
-                    {isDesktop && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
+                    {1 && <div className="item_preview_info_name"><h1>{item.product_name.toUpperCase()}</h1>
                         <h3>№ {item.product_code}</h3></div>}
                     <div className="item_sizes">
                         <Sizes item={item} selectedSize={selectedSize} setSize={setSize} setSizeWarning={setSizeWarning}/>
