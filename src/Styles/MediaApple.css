@@ -1365,7 +1365,9 @@
 }
 
 
-@media only screen and (max-device-width: 450px) {
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
 
     .footer {
         font-size: 6px;
