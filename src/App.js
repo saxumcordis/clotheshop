@@ -20,8 +20,8 @@ import {Drawer} from "./Components/SystemParts/Drawer";
 import {PersistUser, useUser} from "./Service/Contexts/UserContext";
 import {Policy} from "./Components/UtilParts/Policy";
 import {Order} from "./Components/ShopParts/Order/Order";
-//import Style from "./Styles/MediaStyle";
-//import AppleStyle from "./Styles/MediaApple.css";
+
+
 import {AdminPage} from "./Components/AdminPart/AdminPage";
 import {validateSession} from "./Service/Validation/sessionValidation";
 import {OrderProvider, PersistOrder} from "./Service/Contexts/OrderContext";
