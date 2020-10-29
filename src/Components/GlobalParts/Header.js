@@ -7,7 +7,7 @@ import {useDrawer} from "../../Service/Contexts/Drawer";
 import {CartDrawer} from "../ShopParts/Cart/CartDrawer";
 import {useUser} from "../../Service/Contexts/UserContext";
 import {AccountDrawer} from "../UserParts/AccountDrawer";
-import {useMedia} from "use-media";
+//import {useMedia} from "use-media";
 import {SmallHeader} from "./SmallHeader";
 
 

@@ -6,7 +6,7 @@ import {Filter} from "./Filter";
 import {Redirect, useLocation} from "react-router-dom";
 import {Loading} from "../../SystemParts/Loading";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
-import {useMedia} from "use-media";
+//import {useMedia} from "use-media";
 import {handlePrice} from "../../../Service/StringHandler/StringHandler";
 
 const getPriceDiff = (a, b) => {

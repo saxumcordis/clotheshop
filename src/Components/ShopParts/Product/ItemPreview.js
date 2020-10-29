@@ -3,7 +3,7 @@ import {ItemGallery} from "./Gallery";
 import {Link} from "react-router-dom";
 import {useWishList} from "../../../Service/Contexts/WishListContext";
 import {useCart} from "../../../Service/Contexts/CartContext";
-import {useMedia} from "use-media";
+//import {useMedia} from "use-media";
 import {Sizes} from "./Product";
 
 
