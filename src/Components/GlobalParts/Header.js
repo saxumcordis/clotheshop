@@ -1,5 +1,5 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react'
-import Style from '../../Styles/GlobalStyle.css';
+//import Style from '../../Styles/GlobalStyle.css';
 import {Link, useLocation} from "react-router-dom";
 import {useWishList} from "../../Service/Contexts/WishListContext";
 import {useCart} from "../../Service/Contexts/CartContext";
@@ -104,10 +104,9 @@ const Menu = () => {
     )
 };
 
-
 const Header = () => {
-    const isDesktop = useMedia('screen and (min-width: 960px)');
-    return ( isDesktop ?
+    //const isDesktop = useMedia('screen and (min-width: 960px)');
+    return ( 1 ?
         <div className="header">
             <Menu/>
             <UserFeatures/>

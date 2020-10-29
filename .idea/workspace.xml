@@ -7,7 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22cdcbce-c53f-4538-a6cd-25cf5f9b3f5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GlobalParts/Header.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +124,7 @@
       <workItem from="1602487855309" duration="228000" />
       <workItem from="1603039126657" duration="12850000" />
       <workItem from="1603096096672" duration="142000" />
-      <workItem from="1603999917434" duration="2622000" />
+      <workItem from="1603999917434" duration="3252000" />
     </task>
     <task id="LOCAL-00001" summary="Init iphone css tests">
       <created>1604001633019</created>
@@ -133,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604001633019</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="check">
+      <created>1604002660383</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604002660383</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +161,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init iphone css tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init iphone css tests" />
+    <MESSAGE value="check" />
+    <option name="LAST_COMMIT_MESSAGE" value="check" />
   </component>
 </project>
