@@ -88,7 +88,7 @@ const Catalog = () => {
     const checkItemAvailability = (activeSizes, item) => {
       return activeSizes.some(e => item[e + "_size"] > 0);
     };
-    const showCatalog = catalog && catalog.filter(item => item.category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
+    const showCatalog = catalog && catalog.filter(item => item.product_category_id === categoryId || categoryId === 'sale' && +item.sale_percent > 0 || !categoryId && 1)
         .filter(item => {let check = 0; for (let key in item)
             if (key.match(/_size$/) && item[key] >  -1)
                 check = 1;
