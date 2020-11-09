@@ -60,7 +60,7 @@ export const StatusLoginDrawer = () => {
                 <div className="login_drawer_title">
                     <h1>Ваша учётная запись не была активирована</h1>
                     <h3>Чтобы активировать учётную запись, следуйте инструкциям из письма, отправленного на Вашу
-                        почту {/*hideEmail(loginEmail)*/}</h3>
+                        почту {hideEmail(loginEmail)}</h3>
                     <p>Не получали письмо? Проверьте папку "Спам". В случае его отсутствия <span
                         className="switch_button">запросите письмо заново</span></p>
                 </div>

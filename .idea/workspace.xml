@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../JavaScript/kasha/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../miktinaback/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserParts/Connection/Status/LoginStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserParts/Connection/Status/LoginStatus.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,8 +123,16 @@
       <workItem from="1602487855309" duration="228000" />
       <workItem from="1603039126657" duration="12027000" />
       <workItem from="1604067272856" duration="52000" />
-      <workItem from="1604833710420" duration="7769000" />
+      <workItem from="1604833710420" duration="9039000" />
     </task>
+    <task id="LOCAL-00001" summary="fix Iphone error">
+      <created>1604847701899</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604847701899</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +152,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="fix Iphone error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix Iphone error" />
   </component>
 </project>
