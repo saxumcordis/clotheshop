@@ -8,7 +8,7 @@ export const StatusLoginDrawer = () => {
     const {stageStatus, setStageStatus, setUser, setStage, user, personal} = useUser();
     const {setCart} = useCart();
     const {setWishList} = useWishList();
-    //const loginEmail = useCallback(carryLoginData('get'), [setUser]);
+    const loginEmail = carryLoginData('get');
     const refreshStatus = () => {
         setTimeout(() => {
             setStageStatus(0);
